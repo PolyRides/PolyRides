@@ -9,12 +9,12 @@
 /* Begin PBXBuildFile section */
 		DB70B8CE1C9389EA0065CC4D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB70B8CD1C9389EA0065CC4D /* AppDelegate.swift */; };
 		DB70B8D01C9389EA0065CC4D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB70B8CF1C9389EA0065CC4D /* ViewController.swift */; };
-		DB70B8D31C9389EA0065CC4D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB70B8D11C9389EA0065CC4D /* Main.storyboard */; };
 		DB70B8D51C9389EA0065CC4D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DB70B8D41C9389EA0065CC4D /* Assets.xcassets */; };
-		DB70B8D81C9389EA0065CC4D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB70B8D61C9389EA0065CC4D /* LaunchScreen.storyboard */; };
 		DB70B8E31C9389EA0065CC4D /* PolyRidesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB70B8E21C9389EA0065CC4D /* PolyRidesTests.swift */; };
 		DB70B8EE1C9389EA0065CC4D /* PolyRidesUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB70B8ED1C9389EA0065CC4D /* PolyRidesUITests.swift */; };
 		DB70B9021C938B230065CC4D /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB70B9011C938B230065CC4D /* User.swift */; };
+		DB70B9051C938CDC0065CC4D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB70B9031C938CDC0065CC4D /* LaunchScreen.storyboard */; };
+		DB70B9061C938CDC0065CC4D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB70B9041C938CDC0065CC4D /* Main.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,9 +38,7 @@
 		DB70B8CA1C9389EA0065CC4D /* PolyRides.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PolyRides.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DB70B8CD1C9389EA0065CC4D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DB70B8CF1C9389EA0065CC4D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		DB70B8D21C9389EA0065CC4D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		DB70B8D41C9389EA0065CC4D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		DB70B8D71C9389EA0065CC4D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DB70B8D91C9389EA0065CC4D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DB70B8DE1C9389EA0065CC4D /* PolyRidesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PolyRidesTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DB70B8E21C9389EA0065CC4D /* PolyRidesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PolyRidesTests.swift; sourceTree = "<group>"; };
@@ -49,6 +47,8 @@
 		DB70B8ED1C9389EA0065CC4D /* PolyRidesUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PolyRidesUITests.swift; sourceTree = "<group>"; };
 		DB70B8EF1C9389EA0065CC4D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DB70B9011C938B230065CC4D /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		DB70B9031C938CDC0065CC4D /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
+		DB70B9041C938CDC0065CC4D /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,7 +93,7 @@
 				DB70B8DE1C9389EA0065CC4D /* PolyRidesTests.xctest */,
 				DB70B8E91C9389EA0065CC4D /* PolyRidesUITests.xctest */,
 			);
-			name = Products;
+			path = Products;
 			sourceTree = "<group>";
 		};
 		DB70B8CC1C9389EA0065CC4D /* PolyRides */ = {
@@ -145,8 +145,8 @@
 		DB70B8FD1C938A090065CC4D /* View */ = {
 			isa = PBXGroup;
 			children = (
-				DB70B8D61C9389EA0065CC4D /* LaunchScreen.storyboard */,
-				DB70B8D11C9389EA0065CC4D /* Main.storyboard */,
+				DB70B9031C938CDC0065CC4D /* LaunchScreen.storyboard */,
+				DB70B9041C938CDC0065CC4D /* Main.storyboard */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -264,9 +264,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DB70B8D81C9389EA0065CC4D /* LaunchScreen.storyboard in Resources */,
+				DB70B9061C938CDC0065CC4D /* Main.storyboard in Resources */,
 				DB70B8D51C9389EA0065CC4D /* Assets.xcassets in Resources */,
-				DB70B8D31C9389EA0065CC4D /* Main.storyboard in Resources */,
+				DB70B9051C938CDC0065CC4D /* LaunchScreen.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -327,27 +327,6 @@
 			targetProxy = DB70B8EA1C9389EA0065CC4D /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
-
-/* Begin PBXVariantGroup section */
-		DB70B8D11C9389EA0065CC4D /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				DB70B8D21C9389EA0065CC4D /* Base */,
-			);
-			name = Main.storyboard;
-			path = .;
-			sourceTree = "<group>";
-		};
-		DB70B8D61C9389EA0065CC4D /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				DB70B8D71C9389EA0065CC4D /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			path = .;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		DB70B8F01C9389EA0065CC4D /* Debug */ = {
