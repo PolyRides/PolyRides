@@ -97,10 +97,10 @@
 		DB70B8CC1C9389EA0065CC4D /* PolyRides */ = {
 			isa = PBXGroup;
 			children = (
-				DB70B8FC1C938A000065CC4D /* Model */,
-				DB70B8FD1C938A090065CC4D /* View */,
 				DB70B8FB1C9389F10065CC4D /* Controller */,
+				DB70B8FC1C938A000065CC4D /* Model */,
 				DB70B8FE1C938A1B0065CC4D /* Supporting Files */,
+				DB70B8FD1C938A090065CC4D /* View */,
 			);
 			path = PolyRides;
 			sourceTree = "<group>";
@@ -108,8 +108,8 @@
 		DB70B8E11C9389EA0065CC4D /* PolyRidesTests */ = {
 			isa = PBXGroup;
 			children = (
-				DB70B8E21C9389EA0065CC4D /* PolyRidesTests.swift */,
 				DB70B8E41C9389EA0065CC4D /* Info.plist */,
+				DB70B8E21C9389EA0065CC4D /* PolyRidesTests.swift */,
 			);
 			path = PolyRidesTests;
 			sourceTree = "<group>";
@@ -117,8 +117,8 @@
 		DB70B8EC1C9389EA0065CC4D /* PolyRidesUITests */ = {
 			isa = PBXGroup;
 			children = (
-				DB70B8ED1C9389EA0065CC4D /* PolyRidesUITests.swift */,
 				DB70B8EF1C9389EA0065CC4D /* Info.plist */,
+				DB70B8ED1C9389EA0065CC4D /* PolyRidesUITests.swift */,
 			);
 			path = PolyRidesUITests;
 			sourceTree = "<group>";
@@ -129,32 +129,32 @@
 				DB70B8CD1C9389EA0065CC4D /* AppDelegate.swift */,
 				DB70B8CF1C9389EA0065CC4D /* ViewController.swift */,
 			);
-			name = Controller;
+			path = Controller;
 			sourceTree = "<group>";
 		};
 		DB70B8FC1C938A000065CC4D /* Model */ = {
 			isa = PBXGroup;
 			children = (
 			);
-			name = Model;
+			path = Model;
 			sourceTree = "<group>";
 		};
 		DB70B8FD1C938A090065CC4D /* View */ = {
 			isa = PBXGroup;
 			children = (
-				DB70B8D11C9389EA0065CC4D /* Main.storyboard */,
 				DB70B8D61C9389EA0065CC4D /* LaunchScreen.storyboard */,
+				DB70B8D11C9389EA0065CC4D /* Main.storyboard */,
 			);
-			name = View;
+			path = View;
 			sourceTree = "<group>";
 		};
 		DB70B8FE1C938A1B0065CC4D /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				DB70B8D91C9389EA0065CC4D /* Info.plist */,
 				DB70B8D41C9389EA0065CC4D /* Assets.xcassets */,
+				DB70B8D91C9389EA0065CC4D /* Info.plist */,
 			);
-			name = "Supporting Files";
+			path = "Supporting Files";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -331,6 +331,7 @@
 				DB70B8D21C9389EA0065CC4D /* Base */,
 			);
 			name = Main.storyboard;
+			path = .;
 			sourceTree = "<group>";
 		};
 		DB70B8D61C9389EA0065CC4D /* LaunchScreen.storyboard */ = {
@@ -339,6 +340,7 @@
 				DB70B8D71C9389EA0065CC4D /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			path = .;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -431,7 +433,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				INFOPLIST_FILE = PolyRides/Info.plist;
+				INFOPLIST_FILE = "PolyRides/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Vanessa.PolyRides;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -442,7 +444,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				INFOPLIST_FILE = PolyRides/Info.plist;
+				INFOPLIST_FILE = "PolyRides/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Vanessa.PolyRides;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -516,6 +518,7 @@
 				DB70B8F41C9389EA0065CC4D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		DB70B8F51C9389EA0065CC4D /* Build configuration list for PBXNativeTarget "PolyRidesTests" */ = {
 			isa = XCConfigurationList;
@@ -524,6 +527,7 @@
 				DB70B8F71C9389EA0065CC4D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		DB70B8F81C9389EA0065CC4D /* Build configuration list for PBXNativeTarget "PolyRidesUITests" */ = {
 			isa = XCConfigurationList;
@@ -532,6 +536,7 @@
 				DB70B8FA1C9389EA0065CC4D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
