@@ -97,12 +97,10 @@
 		DB70B8CC1C9389EA0065CC4D /* PolyRides */ = {
 			isa = PBXGroup;
 			children = (
-				DB70B8CD1C9389EA0065CC4D /* AppDelegate.swift */,
-				DB70B8CF1C9389EA0065CC4D /* ViewController.swift */,
-				DB70B8D11C9389EA0065CC4D /* Main.storyboard */,
-				DB70B8D41C9389EA0065CC4D /* Assets.xcassets */,
-				DB70B8D61C9389EA0065CC4D /* LaunchScreen.storyboard */,
-				DB70B8D91C9389EA0065CC4D /* Info.plist */,
+				DB70B8FC1C938A000065CC4D /* Model */,
+				DB70B8FD1C938A090065CC4D /* View */,
+				DB70B8FB1C9389F10065CC4D /* Controller */,
+				DB70B8FE1C938A1B0065CC4D /* Supporting Files */,
 			);
 			path = PolyRides;
 			sourceTree = "<group>";
@@ -123,6 +121,40 @@
 				DB70B8EF1C9389EA0065CC4D /* Info.plist */,
 			);
 			path = PolyRidesUITests;
+			sourceTree = "<group>";
+		};
+		DB70B8FB1C9389F10065CC4D /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				DB70B8CD1C9389EA0065CC4D /* AppDelegate.swift */,
+				DB70B8CF1C9389EA0065CC4D /* ViewController.swift */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		DB70B8FC1C938A000065CC4D /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		DB70B8FD1C938A090065CC4D /* View */ = {
+			isa = PBXGroup;
+			children = (
+				DB70B8D11C9389EA0065CC4D /* Main.storyboard */,
+				DB70B8D61C9389EA0065CC4D /* LaunchScreen.storyboard */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		DB70B8FE1C938A1B0065CC4D /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				DB70B8D91C9389EA0065CC4D /* Info.plist */,
+				DB70B8D41C9389EA0065CC4D /* Assets.xcassets */,
+			);
+			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
