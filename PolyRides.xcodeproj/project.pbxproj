@@ -14,6 +14,7 @@
 		DB70B8D81C9389EA0065CC4D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB70B8D61C9389EA0065CC4D /* LaunchScreen.storyboard */; };
 		DB70B8E31C9389EA0065CC4D /* PolyRidesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB70B8E21C9389EA0065CC4D /* PolyRidesTests.swift */; };
 		DB70B8EE1C9389EA0065CC4D /* PolyRidesUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB70B8ED1C9389EA0065CC4D /* PolyRidesUITests.swift */; };
+		DB70B9021C938B230065CC4D /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB70B9011C938B230065CC4D /* User.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +48,7 @@
 		DB70B8E91C9389EA0065CC4D /* PolyRidesUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PolyRidesUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DB70B8ED1C9389EA0065CC4D /* PolyRidesUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PolyRidesUITests.swift; sourceTree = "<group>"; };
 		DB70B8EF1C9389EA0065CC4D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DB70B9011C938B230065CC4D /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -135,6 +137,7 @@
 		DB70B8FC1C938A000065CC4D /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				DB70B9011C938B230065CC4D /* User.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -290,6 +293,7 @@
 			files = (
 				DB70B8D01C9389EA0065CC4D /* ViewController.swift in Sources */,
 				DB70B8CE1C9389EA0065CC4D /* AppDelegate.swift in Sources */,
+				DB70B9021C938B230065CC4D /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
