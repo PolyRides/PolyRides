@@ -6,13 +6,12 @@
 //  Copyright © 2016 Vanessa Forney. All rights reserved.
 //
 
-import UIKit
-
-class ViewController: UIViewController {
+class ViewController: GAITrackedViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+
+        GoogleAnalyticsHelper.trackScreen(String(ViewController))
     }
 
     override func didReceiveMemoryWarning() {
@@ -20,6 +19,4 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
-
 }
-
