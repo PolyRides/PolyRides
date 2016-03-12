@@ -11,7 +11,7 @@ class LoginViewController: GAITrackedViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        GoogleAnalyticsHelper.trackScreen(String(ViewController))
+        GoogleAnalyticsHelper.trackScreen(String(LoginViewController))
     }
 
     override func didReceiveMemoryWarning() {
