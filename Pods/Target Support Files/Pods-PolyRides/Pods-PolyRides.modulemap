@@ -1,0 +1,6 @@
+framework module Pods_PolyRides {
+  umbrella header "Pods-PolyRides-umbrella.h"
+
+  export *
+  module * { export * }
+}
