@@ -14,6 +14,7 @@ class GoogleAnalyticsHelper {
 
         let builder = GAIDictionaryBuilder.createScreenView()
         tracker.send(builder.build() as [NSObject : AnyObject])
+
     }
 
 }
