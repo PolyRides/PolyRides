@@ -6,7 +6,7 @@
 //  Copyright © 2016 Vanessa Forney. All rights reserved.
 //
 
-class ViewController: GAITrackedViewController {
+class LoginViewController: GAITrackedViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
