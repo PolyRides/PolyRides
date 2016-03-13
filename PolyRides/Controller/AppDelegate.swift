@@ -9,6 +9,7 @@
 import UIKit
 import Fabric
 import Crashlytics
+import Siren
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -29,6 +30,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
       // Fabric
       Fabric.with([Crashlytics.self])
+
+      // Siren
+      let siren = Siren.sharedInstance
+      siren.appID = "991595932"
+      siren.alertType = SirenAlertType.Force
+      siren.checkVersion(.Immediately)
 
       return true
   }

@@ -19,12 +19,14 @@ PODS:
   - GoogleSymbolUtilities (1.0.3)
   - GoogleUtilities (1.1.0):
     - GoogleSymbolUtilities (~> 1.0.0)
+  - Siren (0.6.6)
 
 DEPENDENCIES:
   - Crashlytics
   - Fabric
   - Firebase
   - Google/Analytics
+  - Siren
 
 SPEC CHECKSUMS:
   Crashlytics: c3a2333dea9e2733d2777f730910321fc9e25c0d
@@ -36,5 +38,6 @@ SPEC CHECKSUMS:
   GoogleNetworkingUtilities: 292992ab31b7b4ba32809a0e8b40e324cdfb2c0c
   GoogleSymbolUtilities: 82ad9f93d3615244b3f4ce440f5ab2515e8b4f56
   GoogleUtilities: 8ed9134debe11719097881711464752900668f10
+  Siren: 5cb6c82009b8c413872deef52ce7a73f5613eaa5
 
 COCOAPODS: 0.39.0
