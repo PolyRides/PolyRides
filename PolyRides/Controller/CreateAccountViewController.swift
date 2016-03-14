@@ -22,7 +22,6 @@ class CreateAccountViewController: LoginViewController {
     super.viewDidLoad()
 
     self.navigationController?.navigationBar.hidden = false
-
     trackScreen(String(CreateAccountViewController))
   }
 

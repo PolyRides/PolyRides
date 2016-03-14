@@ -16,8 +16,10 @@ class User {
   var fullName: String?
   var imageURL: String?
 
-  init(withEmail email: String) {
+  init(email: String, firstName: String, lastName: String) {
     self.email = email
+    self.firstName = firstName
+    self.fullName = "\(firstName) \(lastName)"
   }
 
   init(withAuthData authData: FAuthData) {
@@ -68,10 +70,6 @@ class User {
 
   func pushToFirebase() {
     FirebaseConnection.pushUserToFirebase(self)
-  }
-
-  func resetPassword() {
-    FirebaseConnection.resetPassword(self)
   }
 
 }
