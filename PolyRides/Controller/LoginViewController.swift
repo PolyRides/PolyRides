@@ -8,15 +8,13 @@
 
 class LoginViewController: GAITrackedViewController {
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
+  @IBOutlet weak var emailTextField: NSLayoutConstraint!
+  @IBOutlet weak var passwordTextField: UITextField!
 
-        GoogleAnalyticsHelper.trackScreen(String(LoginViewController))
-    }
+  override func viewDidLoad() {
+    super.viewDidLoad()
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
+    GoogleAnalyticsHelper.trackScreen(String(LoginViewController))
+  }
 
 }
