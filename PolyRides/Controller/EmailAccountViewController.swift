@@ -7,3 +7,12 @@
 //
 
 import Foundation
+
+class EmailAccountViewController: UIViewController {
+
+
+  @IBAction func signInAction(sender: AnyObject) {
+    navigationController?.popToRootViewControllerAnimated(true)
+  }
+
+}
