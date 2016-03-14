@@ -55,13 +55,13 @@ class ForgotPasswordViewController: LoginViewController {
   }
 
   func emailTextFieldDidChange() {
-    var resetPassword = false
+    var resetPasswordEnabled = false
     if let email = emailTextField.text {
       if email.isEmail() == true {
-        resetPassword = true
+        resetPasswordEnabled = true
       }
     }
-    resetPasswordButton.enabled = resetPassword
+    resetPasswordButton.enabled = resetPasswordEnabled
   }
 
   func onResetPasswordSuccess(notification: NSNotification) {
@@ -70,7 +70,7 @@ class ForgotPasswordViewController: LoginViewController {
 
   func onResetPasswordError(notification: NSNotification) {
     if let error = notification.object as? NSError {
-      presentAlertForError(error)
+      presentAlertForFirebaseError(error)
     }
   }
 
