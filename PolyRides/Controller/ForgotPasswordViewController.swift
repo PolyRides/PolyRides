@@ -6,7 +6,9 @@
 //  Copyright © 2016 Vanessa Forney. All rights reserved.
 //
 
-class ForgotPasswordViewController: UIViewController {
+import Firebase
+
+class ForgotPasswordViewController: LoginViewController {
 
   @IBOutlet weak var emailTextField: UITextField!
   @IBOutlet weak var resetPasswordButton: UIButton!
@@ -46,10 +48,10 @@ class ForgotPasswordViewController: UIViewController {
   func registerForNotifications() {
     var selector = Selector("onResetPasswordSuccess:")
     NSNotificationCenter.defaultCenter().addObserver(self, selector: selector,
-      name: LoginHelper.ResetPasswordSuccess, object: nil)
+      name: LoginViewController.ResetPasswordSuccess, object: nil)
     selector = Selector("onResetPasswordError:")
     NSNotificationCenter.defaultCenter().addObserver(self, selector: selector,
-      name: LoginHelper.ResetPasswordError, object: nil)
+      name: LoginViewController.ResetPasswordError, object: nil)
   }
 
   func emailTextFieldDidChange() {
@@ -67,9 +69,9 @@ class ForgotPasswordViewController: UIViewController {
   }
 
   func onResetPasswordError(notification: NSNotification) {
-    let title = LoginHelper.ResetPasswordErrorTitle
-    let message = LoginHelper.ResetPasswordErrorMessage
-    presentAlert(AlertOptions(title: title, message: message))
+    if let error = notification.object as? NSError {
+      presentAlertForError(error)
+    }
   }
 
 }
