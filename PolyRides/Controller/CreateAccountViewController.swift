@@ -7,3 +7,23 @@
 //
 
 import Foundation
+
+class CreateAccountViewController: FBLoginViewController {
+
+  @IBAction func signInAction(sender: AnyObject) {
+    navigationController?.popToRootViewControllerAnimated(true)
+  }
+
+  @IBAction func logInWithFacebookAction(sender: AnyObject) {
+    loginWithFacebook(self)
+  }
+
+  override func viewDidLoad() {
+    super.viewDidLoad()
+
+    self.navigationController?.navigationBar.hidden = false
+
+    trackScreen(String(CreateAccountViewController))
+  }
+
+}

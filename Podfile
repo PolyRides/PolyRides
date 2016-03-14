@@ -2,6 +2,9 @@ platform :ios, '9.0'
 use_frameworks!
 
 target 'PolyRides' do
+   pod 'FBSDKShareKit'
+   pod 'FBSDKCoreKit'
+   pod 'FBSDKLoginKit'
    pod 'Siren'
    pod 'Fabric'
    pod 'Crashlytics'

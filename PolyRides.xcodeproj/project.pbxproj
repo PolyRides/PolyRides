@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		8F32E580C33AC6C26F5C4050 /* Pods_PolyRides.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B472AC953EC1C3E0C19CECA0 /* Pods_PolyRides.framework */; };
 		DB70B8CE1C9389EA0065CC4D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB70B8CD1C9389EA0065CC4D /* AppDelegate.swift */; };
-		DB70B8D01C9389EA0065CC4D /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB70B8CF1C9389EA0065CC4D /* LoginViewController.swift */; };
+		DB70B8D01C9389EA0065CC4D /* MainLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB70B8CF1C9389EA0065CC4D /* MainLoginViewController.swift */; };
 		DB70B8D51C9389EA0065CC4D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DB70B8D41C9389EA0065CC4D /* Assets.xcassets */; };
 		DB70B8E31C9389EA0065CC4D /* PolyRidesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB70B8E21C9389EA0065CC4D /* PolyRidesTests.swift */; };
 		DB70B8EE1C9389EA0065CC4D /* PolyRidesUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB70B8ED1C9389EA0065CC4D /* PolyRidesUITests.swift */; };
@@ -17,10 +17,17 @@
 		DB70B9051C938CDC0065CC4D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB70B9031C938CDC0065CC4D /* LaunchScreen.storyboard */; };
 		DB70B9061C938CDC0065CC4D /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB70B9041C938CDC0065CC4D /* Login.storyboard */; };
 		DB70B9081C938F540065CC4D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = DB70B9071C938F540065CC4D /* GoogleService-Info.plist */; };
+		DB956DD81C96833700809B4C /* FirebaseConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB956DD71C96833700809B4C /* FirebaseConnection.swift */; };
+		DBAB56801C968FAA0011167A /* UIViewControllerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBAB567F1C968FAA0011167A /* UIViewControllerExtensions.swift */; };
+		DBAB56831C9697FA0011167A /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBAB56821C9697FA0011167A /* LoginViewController.swift */; };
+		DBAB56871C96B0F10011167A /* SearchTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBAB56861C96B0F10011167A /* SearchTableViewController.swift */; };
+		DBAB568B1C96BC2C0011167A /* StringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBAB568A1C96BC2C0011167A /* StringExtensions.swift */; };
+		DBAB56911C96C5270011167A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DBAB56901C96C5270011167A /* Main.storyboard */; };
+		DBAB56931C96C6300011167A /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBAB56921C96C6300011167A /* LoginViewController.swift */; };
 		DBF5E6DB1C93A66600693807 /* GoogleAnalyticsHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBF5E6DA1C93A66600693807 /* GoogleAnalyticsHelper.swift */; };
 		DBF5E6F01C963D3A00693807 /* ForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBF5E6EF1C963D3A00693807 /* ForgotPasswordViewController.swift */; };
 		DBF5E6F21C963D6400693807 /* CreateAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBF5E6F11C963D6400693807 /* CreateAccountViewController.swift */; };
-		DBF5E6F51C96719400693807 /* CreateEmailAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBF5E6F41C96719400693807 /* CreateEmailAccountViewController.swift */; };
+		DBF5E6F51C96719400693807 /* EmailAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBF5E6F41C96719400693807 /* EmailAccountViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,7 +53,7 @@
 		CC61BB155FFE8FE24FA32C81 /* Pods-PolyRides.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PolyRides.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PolyRides/Pods-PolyRides.debug.xcconfig"; sourceTree = "<group>"; };
 		DB70B8CA1C9389EA0065CC4D /* PolyRides.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PolyRides.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DB70B8CD1C9389EA0065CC4D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		DB70B8CF1C9389EA0065CC4D /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		DB70B8CF1C9389EA0065CC4D /* MainLoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainLoginViewController.swift; sourceTree = "<group>"; };
 		DB70B8D41C9389EA0065CC4D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DB70B8D91C9389EA0065CC4D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DB70B8DE1C9389EA0065CC4D /* PolyRidesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PolyRidesTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -60,10 +67,17 @@
 		DB70B9041C938CDC0065CC4D /* Login.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
 		DB70B9071C938F540065CC4D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		DB70B9091C938F870065CC4D /* PolyRides-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "PolyRides-Bridging-Header.h"; path = "../Model/PolyRides-Bridging-Header.h"; sourceTree = "<group>"; };
-		DBF5E6DA1C93A66600693807 /* GoogleAnalyticsHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoogleAnalyticsHelper.swift; sourceTree = "<group>"; };
+		DB956DD71C96833700809B4C /* FirebaseConnection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FirebaseConnection.swift; path = Model/FirebaseConnection.swift; sourceTree = "<group>"; };
+		DBAB567F1C968FAA0011167A /* UIViewControllerExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtensions.swift; sourceTree = "<group>"; };
+		DBAB56821C9697FA0011167A /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		DBAB56861C96B0F10011167A /* SearchTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchTableViewController.swift; sourceTree = "<group>"; };
+		DBAB568A1C96BC2C0011167A /* StringExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringExtensions.swift; sourceTree = "<group>"; };
+		DBAB56901C96C5270011167A /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		DBAB56921C96C6300011167A /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		DBF5E6DA1C93A66600693807 /* GoogleAnalyticsHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GoogleAnalyticsHelper.swift; path = Model/GoogleAnalyticsHelper.swift; sourceTree = "<group>"; };
 		DBF5E6EF1C963D3A00693807 /* ForgotPasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewController.swift; sourceTree = "<group>"; };
 		DBF5E6F11C963D6400693807 /* CreateAccountViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateAccountViewController.swift; sourceTree = "<group>"; };
-		DBF5E6F41C96719400693807 /* CreateEmailAccountViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateEmailAccountViewController.swift; sourceTree = "<group>"; };
+		DBF5E6F41C96719400693807 /* EmailAccountViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmailAccountViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -134,6 +148,7 @@
 		DB70B8CC1C9389EA0065CC4D /* PolyRides */ = {
 			isa = PBXGroup;
 			children = (
+				DBAB56811C9693930011167A /* Util */,
 				DB70B8FC1C938A000065CC4D /* Model */,
 				DB70B8FD1C938A090065CC4D /* View */,
 				DB70B8FB1C9389F10065CC4D /* Controller */,
@@ -164,10 +179,9 @@
 			isa = PBXGroup;
 			children = (
 				DB70B8CD1C9389EA0065CC4D /* AppDelegate.swift */,
-				DB70B8CF1C9389EA0065CC4D /* LoginViewController.swift */,
-				DBF5E6EF1C963D3A00693807 /* ForgotPasswordViewController.swift */,
-				DBF5E6F11C963D6400693807 /* CreateAccountViewController.swift */,
-				DBF5E6F41C96719400693807 /* CreateEmailAccountViewController.swift */,
+				DBAB56891C96BC1C0011167A /* Extensions */,
+				DBAB56841C96B0AB0011167A /* Login */,
+				DBAB56851C96B0C20011167A /* Main */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -175,7 +189,6 @@
 		DB70B8FC1C938A000065CC4D /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				DBF5E6DA1C93A66600693807 /* GoogleAnalyticsHelper.swift */,
 				DB70B9011C938B230065CC4D /* User.swift */,
 			);
 			path = Model;
@@ -186,6 +199,7 @@
 			children = (
 				DB70B9031C938CDC0065CC4D /* LaunchScreen.storyboard */,
 				DB70B9041C938CDC0065CC4D /* Login.storyboard */,
+				DBAB56901C96C5270011167A /* Main.storyboard */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -199,6 +213,45 @@
 				DB70B8D91C9389EA0065CC4D /* Info.plist */,
 			);
 			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		DBAB56811C9693930011167A /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				DB956DD71C96833700809B4C /* FirebaseConnection.swift */,
+				DBF5E6DA1C93A66600693807 /* GoogleAnalyticsHelper.swift */,
+			);
+			name = Util;
+			sourceTree = "<group>";
+		};
+		DBAB56841C96B0AB0011167A /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				DBAB56821C9697FA0011167A /* LoginViewController.swift */,
+				DB70B8CF1C9389EA0065CC4D /* MainLoginViewController.swift */,
+				DBF5E6EF1C963D3A00693807 /* ForgotPasswordViewController.swift */,
+				DBF5E6F11C963D6400693807 /* CreateAccountViewController.swift */,
+				DBF5E6F41C96719400693807 /* EmailAccountViewController.swift */,
+				DBAB56921C96C6300011167A /* LoginViewController.swift */,
+			);
+			name = Login;
+			sourceTree = "<group>";
+		};
+		DBAB56851C96B0C20011167A /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				DBAB56861C96B0F10011167A /* SearchTableViewController.swift */,
+			);
+			name = Main;
+			sourceTree = "<group>";
+		};
+		DBAB56891C96BC1C0011167A /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				DBAB567F1C968FAA0011167A /* UIViewControllerExtensions.swift */,
+				DBAB568A1C96BC2C0011167A /* StringExtensions.swift */,
+			);
+			name = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -311,6 +364,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DB70B9061C938CDC0065CC4D /* Login.storyboard in Resources */,
+				DBAB56911C96C5270011167A /* Main.storyboard in Resources */,
 				DB70B9081C938F540065CC4D /* GoogleService-Info.plist in Resources */,
 				DB70B8D51C9389EA0065CC4D /* Assets.xcassets in Resources */,
 				DB70B9051C938CDC0065CC4D /* LaunchScreen.storyboard in Resources */,
@@ -412,12 +466,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DB956DD81C96833700809B4C /* FirebaseConnection.swift in Sources */,
+				DBAB56801C968FAA0011167A /* UIViewControllerExtensions.swift in Sources */,
 				DBF5E6F21C963D6400693807 /* CreateAccountViewController.swift in Sources */,
-				DBF5E6F51C96719400693807 /* CreateEmailAccountViewController.swift in Sources */,
-				DB70B8D01C9389EA0065CC4D /* LoginViewController.swift in Sources */,
+				DBAB56831C9697FA0011167A /* LoginViewController.swift in Sources */,
+				DBF5E6F51C96719400693807 /* EmailAccountViewController.swift in Sources */,
+				DB70B8D01C9389EA0065CC4D /* MainLoginViewController.swift in Sources */,
 				DBF5E6F01C963D3A00693807 /* ForgotPasswordViewController.swift in Sources */,
+				DBAB56871C96B0F10011167A /* SearchTableViewController.swift in Sources */,
 				DB70B8CE1C9389EA0065CC4D /* AppDelegate.swift in Sources */,
 				DB70B9021C938B230065CC4D /* User.swift in Sources */,
+				DBAB568B1C96BC2C0011167A /* StringExtensions.swift in Sources */,
+				DBAB56931C96C6300011167A /* LoginViewController.swift in Sources */,
 				DBF5E6DB1C93A66600693807 /* GoogleAnalyticsHelper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

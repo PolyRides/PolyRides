@@ -1,12 +1,4 @@
 //
-//  LoginViewController.swift
-//  PolyRides
-//
-//  Created by Vanessa Forney on 3/14/16.
-//  Copyright © 2016 Vanessa Forney. All rights reserved.
-//
-
-//
 //  FBLoginViewController.swift
 //  PolyRides
 //
@@ -66,5 +58,5 @@ class FBLoginViewController: UIViewController {
     User(withAuthData: authData).pushToFirebase()
     
   }
-  
+
 }
