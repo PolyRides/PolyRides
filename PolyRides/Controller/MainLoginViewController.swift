@@ -13,7 +13,8 @@ class MainLoginViewController: LoginViewController {
 
   @IBOutlet weak var emailTextField: UITextField!
   @IBOutlet weak var passwordTextField: UITextField!
-  @IBOutlet weak var loadingIndicator: UIActivityIndicatorView?
+  @IBOutlet weak var loadingIndicator: UIActivityIndicatorView!
+  @IBOutlet weak var loginButton: UIButton!
 
   @IBAction func logInWithFacebookAction(sender: AnyObject) {
     loginWithFacebook(self)
@@ -23,11 +24,27 @@ class MainLoginViewController: LoginViewController {
     loginWithEmail()
   }
 
+  override func viewDidLoad() {
+    super.viewDidLoad()
+
+    emailTextField.addTargetForEditing(self, selector: Selector("textFieldDidChange"))
+    passwordTextField.addTargetForEditing(self, selector: Selector("textFieldDidChange"))
+  }
+
   override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-    if segue.identifier == "toForgotPassword" {
-      let backItem = UIBarButtonItem()
-      backItem.title = ""
-      navigationItem.backBarButtonItem = backItem
+    let backItem = UIBarButtonItem()
+    backItem.title = ""
+    navigationItem.backBarButtonItem = backItem
+
+    if segue.identifier == "toResetPassword" {
+      if let temporaryPassword = sender?.object as? Bool {
+        if temporaryPassword {
+          if let vc = segue.destinationViewController as? ResetPasswordViewController {
+            vc.temporaryPassword = true
+          }
+        }
+      }
+
     }
   }
 
@@ -35,41 +52,43 @@ class MainLoginViewController: LoginViewController {
     let email = emailTextField.text
     let password = passwordTextField.text
 
-    if email == "" || !email!.isEmail() {
-      presentAlertForError(Error.EmptyEmail)
-    } else if password == "" {
-      presentAlertForError(Error.EmptyPassword)
-    } else {
-      startLoading()
-      FirebaseConnection.ref.authUser(email, password: password, withCompletionBlock: {
-        [unowned self] error, authData in
-        self.stopLoading()
+    startLoading()
+    FirebaseConnection.ref.authUser(email, password: password, withCompletionBlock: {
+      [unowned self] error, authData in
+      self.stopLoading()
 
-        if error == nil {
-          if let temporaryPassword = authData.providerData["isTemporaryPassword"] as? Bool {
-            if temporaryPassword {
-              // Present reset temporary password view.
-            } else {
-              self.startMain()
-            }
+      if error == nil {
+        if let temporaryPassword = authData.providerData["isTemporaryPassword"] as? Bool {
+          if temporaryPassword {
+            self.performSegueWithIdentifier("toResetPassword", sender: temporaryPassword)
+          } else {
+            self.startMain()
           }
-        } else {
-            self.presentAlertForFirebaseError(error)
         }
+      } else {
+        self.presentAlertForFirebaseError(error)
+      }
       })
-    }
   }
 
   func startLoading() {
     UIApplication.sharedApplication().beginIgnoringInteractionEvents()
-    self.loadingIndicator?.hidden = false
+    loginButton.setTitle("", forState: UIControlState.Normal)
+    loadingIndicator.startAnimating()
   }
 
   func stopLoading() {
     UIApplication.sharedApplication().endIgnoringInteractionEvents()
-    self.loadingIndicator?.hidden = true
+    self.loadingIndicator.stopAnimating()
+    loginButton.setTitle("Login", forState: UIControlState.Normal)
   }
 
-
+  func textFieldDidChange() {
+    if emailTextField.isValidEmail() && passwordTextField.isValidPassword() {
+      loginButton.enabled = true
+    } else {
+      loginButton.enabled = false
+    }
+  }
 
 }

@@ -8,14 +8,22 @@
 
 import Firebase
 
-class ForgotPasswordViewController: LoginViewController {
+class ResetPasswordViewController: LoginViewController {
 
-  @IBOutlet weak var emailTextField: UITextField!
+  // Whether or not the user logged in with a temporary password.
+  var temporaryPassword = false
+
+  @IBOutlet weak var textField: UITextField!
   @IBOutlet weak var resetPasswordButton: UIButton!
+  @IBOutlet weak var instructions: UILabel!
 
   @IBAction func resetPasswordAction(sender: AnyObject) {
-    if let email = emailTextField.text {
-      User(withEmail: email).resetPassword()
+    if temporaryPassword {
+
+    } else {
+      if let text = textField.text {
+        User(withEmail: text).resetPassword()
+      }
     }
   }
 
@@ -28,16 +36,25 @@ class ForgotPasswordViewController: LoginViewController {
     self.navigationController?.navigationBar.shadowImage = UIImage()
     self.navigationController?.navigationBar.translucent = true
 
-    emailTextField.addTarget(self, action: Selector("emailTextFieldDidChange"),
-      forControlEvents: UIControlEvents.EditingChanged)
+    textField.addTargetForEditing(self, selector: Selector("textFieldDidChange"))
 
-    registerForNotifications()
+    if !temporaryPassword {
+      registerForNotifications()
+    }
   }
 
   override func viewWillAppear(animated: Bool) {
     self.navigationController?.navigationBarHidden = false
     resetPasswordButton.enabled = false
     super.viewWillAppear(animated)
+
+    if temporaryPassword {
+      instructions.text = "You've logged in with a temporary password. Please enter a new " +
+                          "password to continue."
+    } else {
+      instructions.text = "Enter your email address and we'll send you a link to reset your " +
+                          "password."
+    }
   }
 
   override func viewWillDisappear(animated: Bool) {
@@ -54,14 +71,13 @@ class ForgotPasswordViewController: LoginViewController {
       name: LoginViewController.ResetPasswordError, object: nil)
   }
 
-  func emailTextFieldDidChange() {
-    var resetPasswordEnabled = false
-    if let email = emailTextField.text {
-      if email.isEmail() == true {
-        resetPasswordEnabled = true
-      }
+  func textFieldDidChange() {
+    let isValid = temporaryPassword ? textField.isValidPassword() : textField.isValidEmail()
+    if isValid {
+      resetPasswordButton.enabled = true
+    } else {
+      resetPasswordButton.enabled = false
     }
-    resetPasswordButton.enabled = resetPasswordEnabled
   }
 
   func onResetPasswordSuccess(notification: NSNotification) {

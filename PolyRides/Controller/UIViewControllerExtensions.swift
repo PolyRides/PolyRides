@@ -19,6 +19,7 @@ struct AlertOptions {
 }
 
 extension UIViewController {
+
   func presentAlert(alertOptions: AlertOptions = AlertOptions()) {
     let alert = UIAlertController(title: alertOptions.title, message: alertOptions.message,
       preferredStyle: UIAlertControllerStyle.Alert)

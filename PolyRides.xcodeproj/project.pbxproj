@@ -20,11 +20,11 @@
 		DB956DD81C96833700809B4C /* FirebaseConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB956DD71C96833700809B4C /* FirebaseConnection.swift */; };
 		DBAB56801C968FAA0011167A /* UIViewControllerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBAB567F1C968FAA0011167A /* UIViewControllerExtensions.swift */; };
 		DBAB56871C96B0F10011167A /* SearchTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBAB56861C96B0F10011167A /* SearchTableViewController.swift */; };
-		DBAB568B1C96BC2C0011167A /* StringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBAB568A1C96BC2C0011167A /* StringExtensions.swift */; };
 		DBAB56911C96C5270011167A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DBAB56901C96C5270011167A /* Main.storyboard */; };
 		DBAB56931C96C6300011167A /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBAB56921C96C6300011167A /* LoginViewController.swift */; };
+		DBAB56951C9738870011167A /* UITextFieldExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBAB56941C9738870011167A /* UITextFieldExtensions.swift */; };
 		DBF5E6DB1C93A66600693807 /* GoogleAnalyticsHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBF5E6DA1C93A66600693807 /* GoogleAnalyticsHelper.swift */; };
-		DBF5E6F01C963D3A00693807 /* ForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBF5E6EF1C963D3A00693807 /* ForgotPasswordViewController.swift */; };
+		DBF5E6F01C963D3A00693807 /* ResetPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBF5E6EF1C963D3A00693807 /* ResetPasswordViewController.swift */; };
 		DBF5E6F21C963D6400693807 /* CreateAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBF5E6F11C963D6400693807 /* CreateAccountViewController.swift */; };
 		DBF5E6F51C96719400693807 /* EmailAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBF5E6F41C96719400693807 /* EmailAccountViewController.swift */; };
 /* End PBXBuildFile section */
@@ -69,11 +69,11 @@
 		DB956DD71C96833700809B4C /* FirebaseConnection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FirebaseConnection.swift; path = Model/FirebaseConnection.swift; sourceTree = "<group>"; };
 		DBAB567F1C968FAA0011167A /* UIViewControllerExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtensions.swift; sourceTree = "<group>"; };
 		DBAB56861C96B0F10011167A /* SearchTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchTableViewController.swift; sourceTree = "<group>"; };
-		DBAB568A1C96BC2C0011167A /* StringExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringExtensions.swift; sourceTree = "<group>"; };
 		DBAB56901C96C5270011167A /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		DBAB56921C96C6300011167A /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		DBAB56941C9738870011167A /* UITextFieldExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UITextFieldExtensions.swift; sourceTree = "<group>"; };
 		DBF5E6DA1C93A66600693807 /* GoogleAnalyticsHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GoogleAnalyticsHelper.swift; path = Model/GoogleAnalyticsHelper.swift; sourceTree = "<group>"; };
-		DBF5E6EF1C963D3A00693807 /* ForgotPasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewController.swift; sourceTree = "<group>"; };
+		DBF5E6EF1C963D3A00693807 /* ResetPasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResetPasswordViewController.swift; sourceTree = "<group>"; };
 		DBF5E6F11C963D6400693807 /* CreateAccountViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateAccountViewController.swift; sourceTree = "<group>"; };
 		DBF5E6F41C96719400693807 /* EmailAccountViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmailAccountViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -227,7 +227,7 @@
 			children = (
 				DBAB56921C96C6300011167A /* LoginViewController.swift */,
 				DB70B8CF1C9389EA0065CC4D /* MainLoginViewController.swift */,
-				DBF5E6EF1C963D3A00693807 /* ForgotPasswordViewController.swift */,
+				DBF5E6EF1C963D3A00693807 /* ResetPasswordViewController.swift */,
 				DBF5E6F11C963D6400693807 /* CreateAccountViewController.swift */,
 				DBF5E6F41C96719400693807 /* EmailAccountViewController.swift */,
 			);
@@ -246,7 +246,7 @@
 			isa = PBXGroup;
 			children = (
 				DBAB567F1C968FAA0011167A /* UIViewControllerExtensions.swift */,
-				DBAB568A1C96BC2C0011167A /* StringExtensions.swift */,
+				DBAB56941C9738870011167A /* UITextFieldExtensions.swift */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -466,13 +466,13 @@
 				DB956DD81C96833700809B4C /* FirebaseConnection.swift in Sources */,
 				DBAB56801C968FAA0011167A /* UIViewControllerExtensions.swift in Sources */,
 				DBF5E6F21C963D6400693807 /* CreateAccountViewController.swift in Sources */,
+				DBAB56951C9738870011167A /* UITextFieldExtensions.swift in Sources */,
 				DBF5E6F51C96719400693807 /* EmailAccountViewController.swift in Sources */,
 				DB70B8D01C9389EA0065CC4D /* MainLoginViewController.swift in Sources */,
-				DBF5E6F01C963D3A00693807 /* ForgotPasswordViewController.swift in Sources */,
+				DBF5E6F01C963D3A00693807 /* ResetPasswordViewController.swift in Sources */,
 				DBAB56871C96B0F10011167A /* SearchTableViewController.swift in Sources */,
 				DB70B8CE1C9389EA0065CC4D /* AppDelegate.swift in Sources */,
 				DB70B9021C938B230065CC4D /* User.swift in Sources */,
-				DBAB568B1C96BC2C0011167A /* StringExtensions.swift in Sources */,
 				DBAB56931C96C6300011167A /* LoginViewController.swift in Sources */,
 				DBF5E6DB1C93A66600693807 /* GoogleAnalyticsHelper.swift in Sources */,
 			);
