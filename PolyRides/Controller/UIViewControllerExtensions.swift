@@ -8,22 +8,39 @@
 
 struct AlertOptions {
 
+  static let DefaultMessage = "Error"
+  static let DefaultTitle = "An error occurred. Please try again."
+
   let title: String
   let message: String
+  let acceptText: String
+  let handler: ((UIAlertAction) -> Void)?
+  let showCancel: Bool
 
-  init(message: String = "Error", title: String = "Please try again.") {
-    self.message = message
-    self.title = title
+  init(message: String = DefaultMessage, title: String = DefaultTitle, acceptText: String = "OK",
+    handler: ((UIAlertAction) -> Void)? = nil, showCancel: Bool = false) {
+      self.message = message
+      self.title = title
+      self.acceptText = acceptText
+      self.handler = handler
+      self.showCancel = showCancel
   }
-
 }
 
 extension UIViewController {
 
   func presentAlert(alertOptions: AlertOptions = AlertOptions()) {
-    let alert = UIAlertController(title: alertOptions.title, message: alertOptions.message,
-      preferredStyle: UIAlertControllerStyle.Alert)
-    alert.addAction(UIAlertAction(title: "OK", style: .Default, handler: nil))
+    let title = alertOptions.title
+    let message = alertOptions.message
+    let acceptText = alertOptions.acceptText
+    let handler = alertOptions.handler
+    let style = UIAlertControllerStyle.Alert
+
+    let alert = UIAlertController(title: title, message: message, preferredStyle: style)
+    alert.addAction(UIAlertAction(title: acceptText, style: .Default, handler: handler))
+    if alertOptions.showCancel {
+      alert.addAction(UIAlertAction(title: "Cancel", style: .Cancel, handler: nil))
+    }
     self.presentViewController(alert, animated: true, completion: nil)
   }
 

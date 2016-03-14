@@ -11,6 +11,8 @@ import FBSDKLoginKit
 
 class MainLoginViewController: LoginViewController {
 
+  var user: User?
+
   @IBOutlet weak var emailTextField: UITextField!
   @IBOutlet weak var passwordTextField: UITextField!
   @IBOutlet weak var loadingIndicator: UIActivityIndicatorView!
@@ -21,66 +23,31 @@ class MainLoginViewController: LoginViewController {
   }
 
   @IBAction func loginAction(sender: AnyObject) {
+    startLoading(loginButton, indicator: loadingIndicator)
     loginWithEmail()
   }
 
   override func viewDidLoad() {
     super.viewDidLoad()
 
+    trackScreen(String(MainLoginViewController))
+
     emailTextField.addTargetForEditing(self, selector: Selector("textFieldDidChange"))
     passwordTextField.addTargetForEditing(self, selector: Selector("textFieldDidChange"))
   }
 
   override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+   // stopLoading(loginButton, indicator: loadingIndicator, title: "Login")
     let backItem = UIBarButtonItem()
     backItem.title = ""
     navigationItem.backBarButtonItem = backItem
 
     if segue.identifier == "toResetPassword" {
-      if let temporaryPassword = sender?.object as? Bool {
-        if temporaryPassword {
-          if let vc = segue.destinationViewController as? ResetPasswordViewController {
-            vc.temporaryPassword = true
-          }
-        }
+      if let vc = segue.destinationViewController as? ResetPasswordViewController {
+          vc.user = user
+          vc.temporaryPassword = passwordTextField.text
       }
-
     }
-  }
-
-  func loginWithEmail() {
-    let email = emailTextField.text
-    let password = passwordTextField.text
-
-    startLoading()
-    FirebaseConnection.ref.authUser(email, password: password, withCompletionBlock: {
-      [unowned self] error, authData in
-      self.stopLoading()
-
-      if error == nil {
-        if let temporaryPassword = authData.providerData["isTemporaryPassword"] as? Bool {
-          if temporaryPassword {
-            self.performSegueWithIdentifier("toResetPassword", sender: temporaryPassword)
-          } else {
-            self.startMain()
-          }
-        }
-      } else {
-        self.presentAlertForFirebaseError(error)
-      }
-      })
-  }
-
-  func startLoading() {
-    UIApplication.sharedApplication().beginIgnoringInteractionEvents()
-    loginButton.setTitle("", forState: UIControlState.Normal)
-    loadingIndicator.startAnimating()
-  }
-
-  func stopLoading() {
-    UIApplication.sharedApplication().endIgnoringInteractionEvents()
-    self.loadingIndicator.stopAnimating()
-    loginButton.setTitle("Login", forState: UIControlState.Normal)
   }
 
   func textFieldDidChange() {

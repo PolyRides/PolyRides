@@ -8,6 +8,8 @@
 
 class SearchTableViewController: UITableViewController {
 
+  var user: User?
+
   override func viewDidAppear(animated: Bool) {
     super.viewDidAppear(animated)
 

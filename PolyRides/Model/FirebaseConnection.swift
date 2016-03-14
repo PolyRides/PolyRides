@@ -18,20 +18,46 @@ class FirebaseConnection {
     }
   }
 
-  static func resetPassword(user: User) {
-    if let email = user.email {
-      FirebaseConnection.ref.resetPasswordForUser(email, withCompletionBlock: { error in
-        if error != nil {
-          let notifcation = LoginViewController.ResetPasswordError
-          NSNotificationCenter.defaultCenter().postNotificationName(notifcation, object: error)
-        } else {
-          let notification = LoginViewController.ResetPasswordSuccess
-          NSNotificationCenter.defaultCenter().postNotificationName(notification, object: nil)
-        }
-      })
+  static func resetPasswordForEmail(email: String) {
+    FirebaseConnection.ref.resetPasswordForUser(email) { error in
+      if error == nil {
+        let notification = LoginViewController.ResetPasswordSuccess
+        NSNotificationCenter.defaultCenter().postNotificationName(notification, object: nil)
+      } else {
+        let notification = LoginViewController.LoginError
+        NSNotificationCenter.defaultCenter().postNotificationName(notification, object: error)
+      }
     }
   }
 
+  static func changePasswordForUser(user: User, temporaryPassword: String, newPassword: String) {
+    FirebaseConnection.ref.changePasswordForUser(user.email, fromOld: temporaryPassword,
+      toNew: newPassword) { error in
+        if error == nil {
+          let notification = LoginViewController.ChangePasswordSuccess
+          NSNotificationCenter.defaultCenter().postNotificationName(notification, object: nil)
+        } else {
+          let notification = LoginViewController.LoginError
+          NSNotificationCenter.defaultCenter().postNotificationName(notification, object: error)
+        }
+    }
+  }
 
+  static func createUser(user: User, password: String) {
+    FirebaseConnection.ref.createUser(user.email, password: password) { error, result in
+      if error == nil {
+        if let uid = result["uid"] as? String {
+          user.id = uid
+          pushUserToFirebase(user)
+          let notification = LoginViewController.CreateAccountSuccess
+          NSNotificationCenter.defaultCenter().postNotificationName(notification, object: nil)
+        }
+      } else {
+        let notification = LoginViewController.LoginError
+        NSNotificationCenter.defaultCenter().postNotificationName(notification, object: nil)
+      }
+    }
+  }
 
 }
+

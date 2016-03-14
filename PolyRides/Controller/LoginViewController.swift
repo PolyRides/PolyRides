@@ -17,21 +17,27 @@
 import Firebase
 import FBSDKLoginKit
 
-enum Error {
-  case EmptyEmail
-  case EmptyPassword
-}
-
 class LoginViewController: UIViewController {
 
   static let FBErrorMessage = "An error occured while connecting to Facebook. Please try again."
   static let FBErrorTitle = "Authentication Error"
 
+  static let ChangePasswordSuccess = "ChangePasswordSuccess"
   static let ResetPasswordSuccess = "ResetPasswordSuccess"
-  static let ResetPasswordError = "ResetPasswordError"
+  static let CreateAccountSuccess = "CreateAccountSuccess"
+  static let LoginError = "LoginError"
 
-  static let ResetPasswordErrorMessage = "An error occurred while trying to reset your password."
-  static let ResetPasswordErrorTitle = "Password Reset Error"
+  func startLoading(button: UIButton, indicator: UIActivityIndicatorView) {
+    UIApplication.sharedApplication().beginIgnoringInteractionEvents()
+    button.setTitle("", forState: UIControlState.Normal)
+    indicator.startAnimating()
+  }
+
+  func stopLoading((button: UIButton, indicator: UIActivityIndicatorView, title: String) {
+    UIApplication.sharedApplication().endIgnoringInteractionEvents()
+    self.indicator.stopAnimating()
+    button.setTitle(title, forState: UIControlState.Normal)
+  }
 
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -46,24 +52,9 @@ class LoginViewController: UIViewController {
   }
 
   func onFacebookSuccess(authData: FAuthData) {
-    User(withAuthData: authData).pushToFirebase()
-
-  }
-
-  func presentAlertForError(error: Error) {
-    var title = ""
-    var message = ""
-    
-    switch error {
-    case .EmptyEmail:
-      title = "Invalid Email"
-      message = "Please enter a valid email address."
-    case .EmptyPassword:
-      title = "Invalid Password"
-      message = "Please enter a valid password."
-    }
-
-    presentAlert(AlertOptions(title: title, message: message))
+    let user = User(withAuthData: authData)
+    user.pushToFirebase()
+    startMain(user)
   }
 
   func presentAlertForFirebaseError(error: NSError) {
@@ -103,29 +94,56 @@ class LoginViewController: UIViewController {
 
   func loginWithFacebook(viewController: UIViewController) {
     let facebookLogin = FBSDKLoginManager()
-    facebookLogin.logInWithReadPermissions(["email"], fromViewController: viewController, handler: {
+    facebookLogin.logInWithReadPermissions(["email"], fromViewController: viewController) {
       (facebookResult, facebookError) -> Void in
       if facebookError != nil {
         self.onFacebookError()
       } else if facebookResult.isCancelled {
         print("Facebook log in was cancelled.")
+        // Do nothing.
       } else {
-        let accessToken = FBSDKAccessToken.currentAccessToken().tokenString
-        FirebaseConnection.ref.authWithOAuthProvider("facebook", token: accessToken,
-          withCompletionBlock: { error, authData in
+        let token = FBSDKAccessToken.currentAccessToken().tokenString
+        FirebaseConnection.ref.authWithOAuthProvider("facebook", token: token) { error, authData in
             if error != nil {
               self.onFacebookError()
             } else {
               self.onFacebookSuccess(authData)
             }
-        })
+        }
       }
-    })
+    }
   }
 
-  func startMain() {
+  func loginWithEmail() {
+    let email = emailTextField.text
+    let password = passwordTextField.text
+
+    FirebaseConnection.ref.authUser(email, password: password) { error, authData in
+
+      if error == nil {
+        if let temporaryPassword = authData.providerData["isTemporaryPassword"] as? Bool {
+          self.user = User(withAuthData: authData)
+          if temporaryPassword {
+            self.performSegueWithIdentifier("toResetPassword", sender: self)
+          } else {
+            self.startMain(self.user)
+          }
+        }
+      } else {
+        self.presentAlertForFirebaseError(error)
+      }
+    }
+  }
+
+  func startMain(user: User?) {
     let storyboard = UIStoryboard(name: "Main", bundle: nil)
-    storyboard.instantiateViewControllerWithIdentifier("searchView")
+    let viewController = storyboard.instantiateViewControllerWithIdentifier("search")
+    if let searchViewcontroller = viewController as? SearchTableViewController {
+      searchViewcontroller.user = user
+      if let appDelegate: AppDelegate = UIApplication.sharedApplication().delegate as? AppDelegate {
+        appDelegate.window?.rootViewController = searchViewcontroller
+      }
+    }
   }
 
 }
