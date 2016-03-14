@@ -65,6 +65,9 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zDZ-2H-siY">
                                         <rect key="frame" x="131" y="296.5" width="38" height="30"/>
                                         <state key="normal" title="Login"/>
+                                        <connections>
+                                            <action selector="loginAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="bta-Hz-rIb"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EZq-Lm-ghd">
                                         <rect key="frame" x="88.5" y="334.5" width="123" height="30"/>
@@ -252,7 +255,6 @@
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="L4F-XF-A2x">
                                         <rect key="frame" x="0.0" y="0.0" width="200" height="104.5"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     </view>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="5pa-t7-UsL">
                                         <rect key="frame" x="0.0" y="112.5" width="200" height="85.5"/>
@@ -305,7 +307,6 @@
                                     </textField>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZQG-02-2RG">
                                         <rect key="frame" x="0.0" y="358" width="200" height="104"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     </view>
                                 </subviews>
                                 <constraints>
@@ -334,7 +335,7 @@
                                         </subviews>
                                     </stackView>
                                 </subviews>
-                                <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.80000001190000003" green="0.80000001190000003" blue="0.80000001190000003" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstItem="x0p-aw-oAf" firstAttribute="centerX" secondItem="tVw-D6-86Z" secondAttribute="centerX" id="MJc-sW-jwH"/>
                                     <constraint firstAttribute="height" constant="44" id="ccJ-VS-XHk"/>
@@ -346,7 +347,7 @@
                                 <state key="normal" title="Create Account"/>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="tVw-D6-86Z" firstAttribute="leading" secondItem="26k-T1-A3E" secondAttribute="leadingMargin" constant="-20" id="Bbo-vV-eQp"/>
                             <constraint firstItem="xXt-3n-gxl" firstAttribute="top" secondItem="VvI-GA-s6t" secondAttribute="bottom" id="Dnm-bk-Pm5"/>
@@ -380,7 +381,6 @@
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NRa-d9-mES">
                                         <rect key="frame" x="0.0" y="0.0" width="324" height="161.5"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     </view>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="atp-U7-sdP">
                                         <rect key="frame" x="0.0" y="161.5" width="324" height="65"/>
@@ -476,7 +476,7 @@
                                         </subviews>
                                     </stackView>
                                 </subviews>
-                                <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.80000001190000003" green="0.80000001190000003" blue="0.80000001190000003" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstItem="XGD-Rh-xAV" firstAttribute="centerY" secondItem="Pbn-EU-Vwh" secondAttribute="centerY" id="3RY-ka-j8Z"/>
                                     <constraint firstItem="XGD-Rh-xAV" firstAttribute="centerX" secondItem="Pbn-EU-Vwh" secondAttribute="centerX" id="UTL-gT-RD0"/>
@@ -484,7 +484,7 @@
                                 </constraints>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="MG2-zK-xYS" firstAttribute="centerX" secondItem="Ocf-dj-k5u" secondAttribute="centerX" id="57X-Yo-Duk"/>
                             <constraint firstItem="MG2-zK-xYS" firstAttribute="top" secondItem="9vn-CG-kbD" secondAttribute="bottom" id="KJ2-MS-MZU"/>
