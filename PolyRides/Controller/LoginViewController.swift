@@ -17,10 +17,11 @@
 import Firebase
 import FBSDKLoginKit
 
-class FBLoginViewController: UIViewController {
+class LoginViewController: UIViewController {
 
-  static let LoginErrorMessage = "An error occured while connecting to Facebook. Please try again."
-  static let LoginErrorTitle = "Authentication Error"
+  static let FBLoginErrorMessage = "An error occured while connecting to Facebook." +
+                                   "Please try again."
+  static let FBLoginErrorTitle = "Authentication Error"
 
   static let ResetPasswordSuccess = "ResetPasswordSuccess"
   static let ResetPasswordError = "ResetPasswordError"
@@ -57,14 +58,49 @@ class FBLoginViewController: UIViewController {
   }
 
   func onFacebookError() {
-    let title = FBLoginViewController.LoginErrorTitle
-    let message = FBLoginViewController.LoginErrorMessage
+    let title = LoginViewController.FBLoginErrorTitle
+    let message = LoginViewController.FBLoginErrorMessage
     presentAlert(AlertOptions(title: title, message: message))
   }
 
   func onFacebookSuccess(authData: FAuthData) {
     User(withAuthData: authData).pushToFirebase()
-    
+
   }
-  
+
+  func presentAlertForError(error: NSError) {
+    if let errorCode = FAuthenticationError(rawValue: error.code) {
+      var title = ""
+      var message = ""
+      switch errorCode {
+      case .EmailTaken:
+        title = "Email Taken"
+        message = "An account with that email address already exists."
+      case .InvalidEmail:
+        title = "Invalid Email"
+        message = "Please enter a valid email address."
+      case .InvalidArguments:
+        title = "Invalid Arguments"
+        message = "The specified credentials are incomplete."
+      case .InvalidCredentials:
+        title = "Invalid Credentials"
+        message = "The specified authentication credentials are invalid."
+      case .InvalidPassword:
+        title = "Incorrect Password"
+        message = "The password you entered does not match our records."
+      case .UserDoesNotExist:
+        title = "User Does Not Exist"
+        message = "Use the Facebook button to log in if you created your account with Facebook."
+      case .NetworkError:
+        title = "Network Error"
+        message = "An error occurred while trying to login"
+      default:
+        title = "Error"
+        message = "There was an error loggin in. Please try again."
+      }
+
+      presentAlert(AlertOptions(title: title, message: message))
+    }
+  }
+
 }

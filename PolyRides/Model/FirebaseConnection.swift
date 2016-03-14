@@ -22,11 +22,11 @@ class FirebaseConnection {
     if let email = user.email {
       FirebaseConnection.ref.resetPasswordForUser(email, withCompletionBlock: { error in
         if error != nil {
-          let notifcation = LoginHelper.ResetPasswordError
+          let notifcation = LoginViewController.ResetPasswordError
           NSNotificationCenter.defaultCenter().postNotificationName(notifcation, object: error)
         } else {
-          let notification = LoginHelper.ResetPasswordSuccess
-          NSNotificationCenter.defaultCenter().postNotificationName(notification, object: error)
+          let notification = LoginViewController.ResetPasswordSuccess
+          NSNotificationCenter.defaultCenter().postNotificationName(notification, object: nil)
         }
       })
     }

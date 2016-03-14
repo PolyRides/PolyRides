@@ -25,10 +25,10 @@
             </objects>
             <point key="canvasLocation" x="-244" y="447"/>
         </scene>
-        <!--Login View Controller-->
+        <!--Main Login View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="LoginViewController" customModule="PolyRides" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="MainLoginViewController" customModule="PolyRides" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -96,7 +96,7 @@
                                                         <rect key="frame" x="30" y="0.0" width="148" height="22"/>
                                                         <state key="normal" title="Log In With Facebook"/>
                                                         <connections>
-                                                            <action selector="logInWithFacebookAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="xw5-0n-vUE"/>
+                                                            <action selector="logInWithFacebookAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="YYI-6F-2Lu"/>
                                                         </connections>
                                                     </button>
                                                 </subviews>
@@ -162,8 +162,8 @@
                     </view>
                     <navigationItem key="navigationItem" id="mXu-l0-s9T"/>
                     <connections>
-                        <outlet property="emailTextField" destination="Z5E-xl-1BQ" id="a5L-kh-QIO"/>
-                        <outlet property="passwordTextField" destination="sah-ok-zh4" id="T0g-2h-NXC"/>
+                        <outlet property="emailTextField" destination="Z5E-xl-1BQ" id="MQN-o7-FOI"/>
+                        <outlet property="passwordTextField" destination="sah-ok-zh4" id="Zv6-fo-fsU"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -227,7 +227,7 @@
                         </variation>
                     </view>
                     <connections>
-                        <outlet property="emailTextField" destination="hxN-Wh-6bQ" id="9Fs-My-yI0"/>
+                        <outlet property="emailTextField" destination="hxN-Wh-6bQ" id="eN6-Xk-Cbh"/>
                         <outlet property="resetPasswordButton" destination="LdG-6t-2pj" id="IJT-7V-YBN"/>
                     </connections>
                 </viewController>

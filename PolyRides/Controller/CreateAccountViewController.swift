@@ -8,7 +8,7 @@
 
 import Foundation
 
-class CreateAccountViewController: FBLoginViewController {
+class CreateAccountViewController: LoginViewController {
 
   @IBAction func signInAction(sender: AnyObject) {
     navigationController?.popToRootViewControllerAnimated(true)

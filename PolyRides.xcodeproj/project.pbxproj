@@ -19,7 +19,6 @@
 		DB70B9081C938F540065CC4D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = DB70B9071C938F540065CC4D /* GoogleService-Info.plist */; };
 		DB956DD81C96833700809B4C /* FirebaseConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB956DD71C96833700809B4C /* FirebaseConnection.swift */; };
 		DBAB56801C968FAA0011167A /* UIViewControllerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBAB567F1C968FAA0011167A /* UIViewControllerExtensions.swift */; };
-		DBAB56831C9697FA0011167A /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBAB56821C9697FA0011167A /* LoginViewController.swift */; };
 		DBAB56871C96B0F10011167A /* SearchTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBAB56861C96B0F10011167A /* SearchTableViewController.swift */; };
 		DBAB568B1C96BC2C0011167A /* StringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBAB568A1C96BC2C0011167A /* StringExtensions.swift */; };
 		DBAB56911C96C5270011167A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DBAB56901C96C5270011167A /* Main.storyboard */; };
@@ -69,7 +68,6 @@
 		DB70B9091C938F870065CC4D /* PolyRides-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "PolyRides-Bridging-Header.h"; path = "../Model/PolyRides-Bridging-Header.h"; sourceTree = "<group>"; };
 		DB956DD71C96833700809B4C /* FirebaseConnection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FirebaseConnection.swift; path = Model/FirebaseConnection.swift; sourceTree = "<group>"; };
 		DBAB567F1C968FAA0011167A /* UIViewControllerExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtensions.swift; sourceTree = "<group>"; };
-		DBAB56821C9697FA0011167A /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		DBAB56861C96B0F10011167A /* SearchTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchTableViewController.swift; sourceTree = "<group>"; };
 		DBAB568A1C96BC2C0011167A /* StringExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringExtensions.swift; sourceTree = "<group>"; };
 		DBAB56901C96C5270011167A /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
@@ -227,12 +225,11 @@
 		DBAB56841C96B0AB0011167A /* Login */ = {
 			isa = PBXGroup;
 			children = (
-				DBAB56821C9697FA0011167A /* LoginViewController.swift */,
+				DBAB56921C96C6300011167A /* LoginViewController.swift */,
 				DB70B8CF1C9389EA0065CC4D /* MainLoginViewController.swift */,
 				DBF5E6EF1C963D3A00693807 /* ForgotPasswordViewController.swift */,
 				DBF5E6F11C963D6400693807 /* CreateAccountViewController.swift */,
 				DBF5E6F41C96719400693807 /* EmailAccountViewController.swift */,
-				DBAB56921C96C6300011167A /* LoginViewController.swift */,
 			);
 			name = Login;
 			sourceTree = "<group>";
@@ -469,7 +466,6 @@
 				DB956DD81C96833700809B4C /* FirebaseConnection.swift in Sources */,
 				DBAB56801C968FAA0011167A /* UIViewControllerExtensions.swift in Sources */,
 				DBF5E6F21C963D6400693807 /* CreateAccountViewController.swift in Sources */,
-				DBAB56831C9697FA0011167A /* LoginViewController.swift in Sources */,
 				DBF5E6F51C96719400693807 /* EmailAccountViewController.swift in Sources */,
 				DB70B8D01C9389EA0065CC4D /* MainLoginViewController.swift in Sources */,
 				DBF5E6F01C963D3A00693807 /* ForgotPasswordViewController.swift in Sources */,

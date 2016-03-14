@@ -9,54 +9,21 @@
 import Firebase
 import FBSDKLoginKit
 
-class FBLoginViewController: UIViewController {
+class MainLoginViewController: LoginViewController {
 
-  static let LoginErrorMessage = "An error occured while connecting to Facebook. Please try again."
-  static let LoginErrorTitle = "Authentication Error"
+  @IBOutlet weak var emailTextField: UITextField!
+  @IBOutlet weak var passwordTextField: UITextField!
 
-  static let ResetPasswordSuccess = "ResetPasswordSuccess"
-  static let ResetPasswordError = "ResetPasswordError"
-
-  static let ResetPasswordErrorMessage = "An error occurred while trying to reset your password."
-  static let ResetPasswordErrorTitle = "Password Reset Error"
-
-  func loginWithFacebook(viewController: UIViewController) {
-    let facebookLogin = FBSDKLoginManager()
-    facebookLogin.logInWithReadPermissions(["email"], fromViewController: viewController, handler: {
-      (facebookResult, facebookError) -> Void in
-      if facebookError != nil {
-        self.onFacebookError()
-      } else if facebookResult.isCancelled {
-        print("Facebook log in was cancelled.")
-      } else {
-        let accessToken = FBSDKAccessToken.currentAccessToken().tokenString
-        FirebaseConnection.ref.authWithOAuthProvider("facebook", token: accessToken,
-          withCompletionBlock: { error, authData in
-            if error != nil {
-              self.onFacebookError()
-            } else {
-              self.onFacebookSuccess(authData)
-            }
-        })
-      }
-    })
+  @IBAction func logInWithFacebookAction(sender: AnyObject) {
+    loginWithFacebook(self)
   }
 
-  override func viewDidLoad() {
-    super.viewDidLoad()
-
-    self.navigationController?.navigationBar.hidden = true
-  }
-
-  func onFacebookError() {
-    let title = FBLoginViewController.LoginErrorTitle
-    let message = FBLoginViewController.LoginErrorMessage
-    presentAlert(AlertOptions(title: title, message: message))
-  }
-
-  func onFacebookSuccess(authData: FAuthData) {
-    User(withAuthData: authData).pushToFirebase()
-    
+  override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    if segue.identifier == "toForgotPassword" {
+      let backItem = UIBarButtonItem()
+      backItem.title = ""
+      navigationItem.backBarButtonItem = backItem
+    }
   }
 
 }
