@@ -18,6 +18,9 @@
 		DB70B9061C938CDC0065CC4D /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB70B9041C938CDC0065CC4D /* Login.storyboard */; };
 		DB70B9081C938F540065CC4D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = DB70B9071C938F540065CC4D /* GoogleService-Info.plist */; };
 		DBF5E6DB1C93A66600693807 /* GoogleAnalyticsHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBF5E6DA1C93A66600693807 /* GoogleAnalyticsHelper.swift */; };
+		DBF5E6F01C963D3A00693807 /* ForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBF5E6EF1C963D3A00693807 /* ForgotPasswordViewController.swift */; };
+		DBF5E6F21C963D6400693807 /* CreateAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBF5E6F11C963D6400693807 /* CreateAccountViewController.swift */; };
+		DBF5E6F51C96719400693807 /* CreateEmailAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBF5E6F41C96719400693807 /* CreateEmailAccountViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,6 +61,9 @@
 		DB70B9071C938F540065CC4D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		DB70B9091C938F870065CC4D /* PolyRides-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "PolyRides-Bridging-Header.h"; path = "../Model/PolyRides-Bridging-Header.h"; sourceTree = "<group>"; };
 		DBF5E6DA1C93A66600693807 /* GoogleAnalyticsHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoogleAnalyticsHelper.swift; sourceTree = "<group>"; };
+		DBF5E6EF1C963D3A00693807 /* ForgotPasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewController.swift; sourceTree = "<group>"; };
+		DBF5E6F11C963D6400693807 /* CreateAccountViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateAccountViewController.swift; sourceTree = "<group>"; };
+		DBF5E6F41C96719400693807 /* CreateEmailAccountViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateEmailAccountViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -159,6 +165,9 @@
 			children = (
 				DB70B8CD1C9389EA0065CC4D /* AppDelegate.swift */,
 				DB70B8CF1C9389EA0065CC4D /* LoginViewController.swift */,
+				DBF5E6EF1C963D3A00693807 /* ForgotPasswordViewController.swift */,
+				DBF5E6F11C963D6400693807 /* CreateAccountViewController.swift */,
+				DBF5E6F41C96719400693807 /* CreateEmailAccountViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -403,7 +412,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DBF5E6F21C963D6400693807 /* CreateAccountViewController.swift in Sources */,
+				DBF5E6F51C96719400693807 /* CreateEmailAccountViewController.swift in Sources */,
 				DB70B8D01C9389EA0065CC4D /* LoginViewController.swift in Sources */,
+				DBF5E6F01C963D3A00693807 /* ForgotPasswordViewController.swift in Sources */,
 				DB70B8CE1C9389EA0065CC4D /* AppDelegate.swift in Sources */,
 				DB70B9021C938B230065CC4D /* User.swift in Sources */,
 				DBF5E6DB1C93A66600693807 /* GoogleAnalyticsHelper.swift in Sources */,
