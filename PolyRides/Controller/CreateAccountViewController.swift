@@ -15,7 +15,7 @@ class CreateAccountViewController: LoginViewController {
   }
 
   @IBAction func logInWithFacebookAction(sender: AnyObject) {
-    loginWithFacebook(self)
+    loginWithFacebook()
   }
 
   override func viewDidLoad() {

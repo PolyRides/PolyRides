@@ -19,13 +19,7 @@ import FBSDKLoginKit
 
 class LoginViewController: UIViewController {
 
-  static let FBErrorMessage = "An error occured while connecting to Facebook. Please try again."
-  static let FBErrorTitle = "Authentication Error"
 
-  static let ChangePasswordSuccess = "ChangePasswordSuccess"
-  static let ResetPasswordSuccess = "ResetPasswordSuccess"
-  static let CreateAccountSuccess = "CreateAccountSuccess"
-  static let LoginError = "LoginError"
 
   var user: User?
 
@@ -52,13 +46,16 @@ class LoginViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
 
+    firstNameTextField?.addTargetForEditing(self, selector: Selector("textFieldDidChange"))
+    lastNameTextField?.addTargetForEditing(self, selector: Selector("textFieldDidChange"))
     emailTextField?.addTargetForEditing(self, selector: Selector("textFieldDidChange"))
     passwordTextField?.addTargetForEditing(self, selector: Selector("textFieldDidChange"))
-    
+
     let defaultCenter = NSNotificationCenter.defaultCenter()
     let selector = Selector("onLoginError:")
-    let name = LoginViewController.LoginError
+    let name = FirebaseConnection.LoginError
     defaultCenter.addObserver(self, selector: selector, name: name, object: nil)
+    registerForNotifications()
 
   }
 
@@ -68,16 +65,42 @@ class LoginViewController: UIViewController {
     button?.enabled = false
   }
 
+  func registerForNotifications() {
+    let defaultCenter = NSNotificationCenter.defaultCenter()
+    var selector = Selector("onLoginError:")
+    var name = FirebaseConnection.LoginError
+    defaultCenter.addObserver(self, selector: selector, name: name, object: nil)
+
+    selector = Selector("onFacebookError")
+    name = FirebaseConnection.FBError
+    defaultCenter.addObserver(self, selector: selector, name: name, object: nil)
+
+    selector = Selector("onFacebookSuccess:")
+    name = FirebaseConnection.FBSuccess
+    defaultCenter.addObserver(self, selector: selector, name: name, object: nil)
+
+    selector = Selector("onHasTemporaryPassword")
+    name = FirebaseConnection.TemporaryPassword
+    defaultCenter.addObserver(self, selector: selector, name: name, object: nil)
+
+  }
+
+  func onHasTemporaryPassword() {
+    self.performSegueWithIdentifier("toResetPassword", sender: self)
+  }
+
   func onFacebookError() {
-    let title = LoginViewController.FBErrorTitle
-    let message = LoginViewController.FBErrorMessage
+    let title = FirebaseConnection.FBErrorTitle
+    let message = FirebaseConnection.FBErrorMessage
     presentAlert(AlertOptions(title: title, message: message))
   }
 
-  func onFacebookSuccess(authData: FAuthData) {
-    let user = User(withAuthData: authData)
-    user.pushToFirebase()
-    startMain()
+  func onFacebookSuccess(notification: NSNotification) {
+    if let authData = notification.object as? FAuthData {
+      let user = User(withAuthData: authData)
+      user.pushToFirebase()
+      startMain()
+    }
   }
 
   func presentAlertForFirebaseError(error: NSError) {
@@ -115,9 +138,9 @@ class LoginViewController: UIViewController {
     }
   }
 
-  func loginWithFacebook(viewController: UIViewController) {
+  func loginWithFacebook() {
     let facebookLogin = FBSDKLoginManager()
-    facebookLogin.logInWithReadPermissions(["email"], fromViewController: viewController) {
+    facebookLogin.logInWithReadPermissions(["email"], fromViewController: self) {
       (facebookResult, facebookError) -> Void in
       if facebookError != nil {
         self.onFacebookError()
@@ -125,44 +148,29 @@ class LoginViewController: UIViewController {
         print("Facebook log in was cancelled.")
         // Do nothing.
       } else {
-        let token = FBSDKAccessToken.currentAccessToken().tokenString
-        FirebaseConnection.ref.authWithOAuthProvider("facebook", token: token) { error, authData in
-            if error != nil {
-              self.onFacebookError()
-            } else {
-              self.onFacebookSuccess(authData)
-            }
-        }
+        FirebaseConnection.authWithFacebook()
       }
     }
   }
 
-  func loginWithEmail(email: String, password: String) {
-    FirebaseConnection.ref.authUser(email, password: password) { error, authData in
-      self.stopLoading("Login")
-      if error == nil {
-        if let temporaryPassword = authData.providerData["isTemporaryPassword"] as? Bool {
-          self.user = User(withAuthData: authData)
-          if temporaryPassword {
-            self.performSegueWithIdentifier("toResetPassword", sender: self)
-          } else {
-            self.startMain()
-          }
-        }
-      } else {
-        self.presentAlertForFirebaseError(error)
+  func loginWithEmail() {
+    if let email = emailTextField?.text {
+      if let password = passwordTextField?.text {
+
       }
     }
   }
 
   func toMainLogin(action: UIAlertAction) {
     if let navigationController = navigationController {
-      if let vc = navigationController.topViewController as? MainLoginViewController {
-        if let email = emailTextField?.text {
-          if let password = passwordTextField?.text {
-            vc.emailTextField?.text = email
-            vc.passwordTextField?.text = password
-            navigationController.popToRootViewControllerAnimated(true)
+      if let appDelegate  = UIApplication.sharedApplication().delegate as? AppDelegate {
+        if let viewController = appDelegate.window?.rootViewController as? MainLoginViewController {
+          if let email = emailTextField?.text {
+            if let password = passwordTextField?.text {
+              viewController.emailTextField?.text = email
+              viewController.passwordTextField?.text = password
+              navigationController.popToRootViewControllerAnimated(true)
+            }
           }
         }
       }

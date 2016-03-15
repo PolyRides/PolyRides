@@ -250,12 +250,12 @@
                         <outlet property="button" destination="LdG-6t-2pj" id="HWT-pX-7jl"/>
                         <outlet property="indicator" destination="uyQ-Db-TCN" id="WaZ-xf-5Qk"/>
                         <outlet property="instructions" destination="2I8-sd-qSA" id="rlZ-Cf-6p5"/>
-                        <outlet property="textField" destination="hxN-Wh-6bQ" id="2Vz-1w-RDh"/>
+                        <outlet property="textField" destination="hxN-Wh-6bQ" id="812-7h-LCZ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2ut-Cz-iC9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1243" y="177"/>
+            <point key="canvasLocation" x="1209" y="155"/>
         </scene>
         <!--Email Account View Controller-->
         <scene sceneID="Gqg-9w-dgT">
