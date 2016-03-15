@@ -58,9 +58,9 @@ class FirebaseConnection {
   static func createUser(user: User, password: String) {
     FirebaseConnection.ref.createUser(user.email, password: password) { error, result in
       if error == nil {
+        print(result["authData"])
         if let uid = result["uid"] as? String {
           user.id = uid
-          pushUserToFirebase(user)
           let notification = FirebaseConnection.LoginSuccess
           NSNotificationCenter.defaultCenter().postNotificationName(notification, object: user)
         }
@@ -77,7 +77,6 @@ class FirebaseConnection {
       print(authData.uid)
       let user = User(withAuthData: authData)
       if error == nil {
-        FirebaseConnection.pushUserToFirebase(user)
         let notification = FirebaseConnection.LoginSuccess
         NSNotificationCenter.defaultCenter().postNotificationName(notification, object: user)
       } else {
@@ -92,15 +91,14 @@ class FirebaseConnection {
       var notification = ""
 
       if error == nil {
+        let user = User(withAuthData: authData)
+        notification = FirebaseConnection.LoginSuccess
         if let temporaryPassword = authData.providerData["isTemporaryPassword"] as? Bool {
-          let user = User(withAuthData: authData)
           if temporaryPassword {
             notification = FirebaseConnection.TemporaryPassword
-          } else {
-            notification = FirebaseConnection.LoginSuccess
           }
-          NSNotificationCenter.defaultCenter().postNotificationName(notification, object: user)
         }
+        NSNotificationCenter.defaultCenter().postNotificationName(notification, object: user)
       } else {
         notification = FirebaseConnection.LoginError
         NSNotificationCenter.defaultCenter().postNotificationName(notification, object: error)

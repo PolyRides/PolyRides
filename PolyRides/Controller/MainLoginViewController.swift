@@ -26,11 +26,7 @@ class MainLoginViewController: LoginViewController {
     super.viewDidLoad()
 
     trackScreen(String(MainLoginViewController))
-
-    let defaultCenter = NSNotificationCenter.defaultCenter()
-    let selector = Selector("onHasTemporaryPassword:")
-    let name = FirebaseConnection.TemporaryPassword
-    defaultCenter.addObserver(self, selector: selector, name: name, object: nil)
+    registerForNotifications()
   }
 
   override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
@@ -48,8 +44,18 @@ class MainLoginViewController: LoginViewController {
     }
   }
 
+  override func registerForNotifications() {
+    super.registerForNotifications()
+
+    let defaultCenter = NSNotificationCenter.defaultCenter()
+    let selector = Selector("onHasTemporaryPassword:")
+    let name = FirebaseConnection.TemporaryPassword
+    defaultCenter.addObserver(self, selector: selector, name: name, object: nil)
+  }
+
   override func onLoginError(notification: NSNotification) {
     stopLoading(buttonTitle)
+    super.onLoginError(notification)
   }
 
   func onHasTemporaryPassword(notification: NSNotification) {

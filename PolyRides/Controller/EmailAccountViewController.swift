@@ -10,6 +10,8 @@ import Foundation
 
 class EmailAccountViewController: LoginViewController {
 
+  let buttonTitle = "Create Account"
+
   @IBOutlet weak var firstNameTextField: UITextField?
   @IBOutlet weak var lastNameTextField: UITextField?
 
@@ -25,12 +27,6 @@ class EmailAccountViewController: LoginViewController {
     super.viewDidLoad()
 
     trackScreen(String(EmailAccountViewController))
-
-    registerForNotifications()
-  }
-
-  override func onLoginError(notification: NSNotification) {
-    stopLoading("Create Account")
   }
 
   override func textFieldDidChange() {
@@ -43,6 +39,12 @@ class EmailAccountViewController: LoginViewController {
       button?.enabled = false
     }
   }
+
+  override func onLoginError(notification: NSNotification) {
+    stopLoading(buttonTitle)
+    super.onLoginError(notification)
+  }
+
 
   func createAccount() {
     if let email = emailTextField?.text {
