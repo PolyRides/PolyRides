@@ -7,7 +7,7 @@
 //
 
 //
-//  FBLoginViewController.swift
+//  LoginViewController.swift
 //  PolyRides
 //
 //  Created by Vanessa Forney on 3/13/16.
@@ -27,22 +27,45 @@ class LoginViewController: UIViewController {
   static let CreateAccountSuccess = "CreateAccountSuccess"
   static let LoginError = "LoginError"
 
-  func startLoading(button: UIButton, indicator: UIActivityIndicatorView) {
+  var user: User?
+
+  @IBOutlet weak var emailTextField: UITextField?
+  @IBOutlet weak var passwordTextField: UITextField?
+  @IBOutlet weak var firstNameTextField: UITextField?
+  @IBOutlet weak var lastNameTextField: UITextField?
+
+  @IBOutlet weak var indicator: UIActivityIndicatorView?
+  @IBOutlet weak var button: UIButton?
+
+  func startLoading() {
     UIApplication.sharedApplication().beginIgnoringInteractionEvents()
-    button.setTitle("", forState: UIControlState.Normal)
-    indicator.startAnimating()
+    button?.setTitle("", forState: UIControlState.Normal)
+    indicator?.startAnimating()
   }
 
-  func stopLoading((button: UIButton, indicator: UIActivityIndicatorView, title: String) {
+  func stopLoading(title: String) {
     UIApplication.sharedApplication().endIgnoringInteractionEvents()
-    self.indicator.stopAnimating()
-    button.setTitle(title, forState: UIControlState.Normal)
+    indicator?.stopAnimating()
+    button?.setTitle(title, forState: UIControlState.Normal)
   }
 
   override func viewDidLoad() {
     super.viewDidLoad()
 
-    self.navigationController?.navigationBar.hidden = true
+    emailTextField?.addTargetForEditing(self, selector: Selector("textFieldDidChange"))
+    passwordTextField?.addTargetForEditing(self, selector: Selector("textFieldDidChange"))
+    
+    let defaultCenter = NSNotificationCenter.defaultCenter()
+    let selector = Selector("onLoginError:")
+    let name = LoginViewController.LoginError
+    defaultCenter.addObserver(self, selector: selector, name: name, object: nil)
+
+  }
+
+  override func viewWillAppear(animated: Bool) {
+    super.viewWillAppear(animated)
+    navigationController?.navigationBar.hidden = true
+    button?.enabled = false
   }
 
   func onFacebookError() {
@@ -54,7 +77,7 @@ class LoginViewController: UIViewController {
   func onFacebookSuccess(authData: FAuthData) {
     let user = User(withAuthData: authData)
     user.pushToFirebase()
-    startMain(user)
+    startMain()
   }
 
   func presentAlertForFirebaseError(error: NSError) {
@@ -114,19 +137,16 @@ class LoginViewController: UIViewController {
     }
   }
 
-  func loginWithEmail() {
-    let email = emailTextField.text
-    let password = passwordTextField.text
-
+  func loginWithEmail(email: String, password: String) {
     FirebaseConnection.ref.authUser(email, password: password) { error, authData in
-
+      self.stopLoading("Login")
       if error == nil {
         if let temporaryPassword = authData.providerData["isTemporaryPassword"] as? Bool {
           self.user = User(withAuthData: authData)
           if temporaryPassword {
             self.performSegueWithIdentifier("toResetPassword", sender: self)
           } else {
-            self.startMain(self.user)
+            self.startMain()
           }
         }
       } else {
@@ -135,7 +155,21 @@ class LoginViewController: UIViewController {
     }
   }
 
-  func startMain(user: User?) {
+  func toMainLogin(action: UIAlertAction) {
+    if let navigationController = navigationController {
+      if let vc = navigationController.topViewController as? MainLoginViewController {
+        if let email = emailTextField?.text {
+          if let password = passwordTextField?.text {
+            vc.emailTextField?.text = email
+            vc.passwordTextField?.text = password
+            navigationController.popToRootViewControllerAnimated(true)
+          }
+        }
+      }
+    }
+  }
+
+  func startMain() {
     let storyboard = UIStoryboard(name: "Main", bundle: nil)
     let viewController = storyboard.instantiateViewControllerWithIdentifier("search")
     if let searchViewcontroller = viewController as? SearchTableViewController {
@@ -143,6 +177,17 @@ class LoginViewController: UIViewController {
       if let appDelegate: AppDelegate = UIApplication.sharedApplication().delegate as? AppDelegate {
         appDelegate.window?.rootViewController = searchViewcontroller
       }
+    }
+  }
+
+  func textFieldDidChange() {
+    let empty = firstNameTextField?.text == "" || lastNameTextField?.text == ""
+    let invalidEmail = emailTextField?.isValidEmail() == false
+    let invalidPassword = passwordTextField?.isValidPassword() == false
+    if !invalidEmail && !invalidPassword && !empty {
+      button?.enabled = true
+    } else {
+      button?.enabled = false
     }
   }
 
