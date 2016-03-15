@@ -42,6 +42,11 @@ class LoginViewController: UIViewController {
     button?.enabled = false
   }
 
+  override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+    view.endEditing(true)
+    super.touchesBegan(touches, withEvent: event)
+  }
+
   func startLoading() {
     UIApplication.sharedApplication().beginIgnoringInteractionEvents()
     button?.setTitle("", forState: UIControlState.Normal)
@@ -86,7 +91,7 @@ class LoginViewController: UIViewController {
     stopLoading("")
     if let user = notification.object as? User {
       self.user = user
-      user.pushToFirebase()
+      FirebaseConnection.pushUserToFirebase(user)
       startMain()
     }
   }
@@ -129,12 +134,12 @@ class LoginViewController: UIViewController {
   func loginWithFacebook() {
     let facebookLogin = FBSDKLoginManager()
     facebookLogin.logInWithReadPermissions(["email"], fromViewController: self) {
-      (facebookResult, facebookError) -> Void in
-      if facebookError == nil {
-        FirebaseConnection.authWithFacebook()
-      } else if facebookResult.isCancelled {
+      facebookResult, facebookError -> Void in
+      if facebookResult.isCancelled {
         print("Facebook log in was cancelled.")
         // Do nothing.
+      } else if facebookError == nil {
+        FirebaseConnection.authWithFacebook()
       } else {
         self.onFacebookError()
       }
@@ -149,29 +154,15 @@ class LoginViewController: UIViewController {
     }
   }
 
-  func toMainLogin(action: UIAlertAction) {
-    if let navigationController = navigationController {
-      if let appDelegate  = UIApplication.sharedApplication().delegate as? AppDelegate {
-        if let viewController = appDelegate.window?.rootViewController as? MainLoginViewController {
-          if let email = emailTextField?.text {
-            if let password = passwordTextField?.text {
-              viewController.emailTextField?.text = email
-              viewController.passwordTextField?.text = password
-            }
-          }
-          navigationController.popToRootViewControllerAnimated(true)
-        }
-      }
-    }
-  }
-
   func startMain(action: UIAlertAction? = nil) {
     let storyboard = UIStoryboard(name: "Main", bundle: nil)
     let viewController = storyboard.instantiateViewControllerWithIdentifier("search")
-    if let searchViewcontroller = viewController as? SearchTableViewController {
-      searchViewcontroller.user = user
-      if let appDelegate: AppDelegate = UIApplication.sharedApplication().delegate as? AppDelegate {
-        appDelegate.window?.rootViewController = searchViewcontroller
+    if let navVC = viewController as? UINavigationController {
+      if let searchViewcontroller = navVC.topViewController as? SearchTableViewController {
+        searchViewcontroller.user = user
+        if let delegate: AppDelegate = UIApplication.sharedApplication().delegate as? AppDelegate {
+          delegate.window?.rootViewController = navVC
+        }
       }
     }
   }

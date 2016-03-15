@@ -23,6 +23,7 @@ class User {
   }
 
   init(withAuthData authData: FAuthData) {
+    print(authData.uid)
     self.id = authData.uid
     if let email = authData.providerData["email"] as? NSString {
       self.email = String(email)
@@ -38,9 +39,7 @@ class User {
 
   init(withSnapshot snapshot: FDataSnapshot) {
     if let dictionary = snapshot.value as? [String : AnyObject] {
-      if let id = dictionary["id"] as? String {
-        self.id = id
-      }
+      self.id = snapshot.key
       if let email = dictionary["email"] as? String {
         self.email = email
       }
@@ -59,17 +58,12 @@ class User {
   func toAnyObject() -> [String : AnyObject] {
     var dictionary = [String : AnyObject]()
 
-    dictionary["id"] = id
     dictionary["email"] = email
     dictionary["firstName"] = firstName
     dictionary["fullName"] = fullName
     dictionary["imageURL"] = imageURL
 
     return dictionary
-  }
-
-  func pushToFirebase() {
-    FirebaseConnection.pushUserToFirebase(self)
   }
 
 }

@@ -25,12 +25,12 @@ class EmailAccountViewController: LoginViewController {
     super.viewDidLoad()
 
     trackScreen(String(EmailAccountViewController))
+
     registerForNotifications()
   }
 
   override func onLoginError(notification: NSNotification) {
     stopLoading("Create Account")
-    super.onLoginError(notification)
   }
 
   override func textFieldDidChange() {
