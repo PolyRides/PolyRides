@@ -34,7 +34,6 @@ class LoginViewController: UIViewController {
     passwordTextField?.addTargetForEditing(self, selector: Selector("textFieldDidChange"))
 
     registerForNotifications()
-
   }
 
   override func viewWillAppear(animated: Bool) {
@@ -65,21 +64,10 @@ class LoginViewController: UIViewController {
     name = FirebaseConnection.FBError
     defaultCenter.addObserver(self, selector: selector, name: name, object: nil)
 
-    selector = Selector("onFacebookSuccess:")
-    name = FirebaseConnection.FBSuccess
+    selector = Selector("onLoginSuccess:")
+    name = FirebaseConnection.LoginSuccess
     defaultCenter.addObserver(self, selector: selector, name: name, object: nil)
 
-    selector = Selector("onHasTemporaryPassword:")
-    name = FirebaseConnection.TemporaryPassword
-    defaultCenter.addObserver(self, selector: selector, name: name, object: nil)
-
-  }
-
-  func onHasTemporaryPassword(notification: NSNotification) {
-    if let user = notification.object as? User {
-      self.user = user
-      self.performSegueWithIdentifier("toResetPassword", sender: self)
-    }
   }
 
   func onFacebookError() {
@@ -88,17 +76,17 @@ class LoginViewController: UIViewController {
     presentAlert(AlertOptions(title: title, message: message))
   }
 
-  func onFacebookSuccess(notification: NSNotification) {
+  func onLoginError(notification: NSNotification) {
+    if let error = notification.object as? NSError {
+      presentAlertForFirebaseError(error)
+    }
+  }
+
+  func onLoginSuccess(notification: NSNotification) {
     if let user = notification.object as? User {
       self.user = user
       user.pushToFirebase()
       startMain()
-    }
-  }
-
-  func onLoginError(notification: NSNotification) {
-    if let error = notification.object as? NSError {
-      presentAlertForFirebaseError(error)
     }
   }
 

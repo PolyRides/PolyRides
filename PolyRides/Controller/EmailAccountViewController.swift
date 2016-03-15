@@ -28,15 +28,6 @@ class EmailAccountViewController: LoginViewController {
     registerForNotifications()
   }
 
-  override func registerForNotifications() {
-    super.registerForNotifications()
-
-    let defaultCenter = NSNotificationCenter.defaultCenter()
-    let selector = Selector("onCreateAccountSuccess:")
-    let name = FirebaseConnection.CreateAccountSuccess
-    defaultCenter.addObserver(self, selector: selector, name: name, object: nil)
-  }
-
   override func onLoginError(notification: NSNotification) {
     stopLoading("Create Account")
     super.onLoginError(notification)
@@ -65,13 +56,6 @@ class EmailAccountViewController: LoginViewController {
         }
       }
     }
-  }
-
-  func onCreateAccountSuccess(notification: NSNotification) {
-    stopLoading("Create Account")
-    let title = "Account Created Successfully"
-    let message = "Please login to continue."
-    presentAlert(AlertOptions(message: message, title: title, handler: startMain))
   }
 
 }

@@ -24,11 +24,11 @@ class MainLoginViewController: LoginViewController {
     super.viewDidLoad()
 
     trackScreen(String(MainLoginViewController))
-  }
 
-  override func onLoginError(notification: NSNotification) {
-    stopLoading("Login")
-    super.onLoginError(notification)
+    let defaultCenter = NSNotificationCenter.defaultCenter()
+    let selector = Selector("onHasTemporaryPassword:")
+    let name = FirebaseConnection.TemporaryPassword
+    defaultCenter.addObserver(self, selector: selector, name: name, object: nil)
   }
 
   override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
@@ -42,6 +42,23 @@ class MainLoginViewController: LoginViewController {
           vc.temporaryPassword = password
         }
       }
+    }
+  }
+
+  override func onLoginError(notification: NSNotification) {
+    stopLoading("Login")
+    super.onLoginError(notification)
+  }
+
+  override func onLoginSuccess(notification: NSNotification) {
+    stopLoading("Login")
+    super.onLoginSuccess(notification)
+  }
+
+  func onHasTemporaryPassword(notification: NSNotification) {
+    if let user = notification.object as? User {
+      self.user = user
+      self.performSegueWithIdentifier("toResetPassword", sender: self)
     }
   }
 
