@@ -1,6 +1,5 @@
 platform :ios, '9.0'
 use_frameworks!
-silent_warnings!
 
 target 'PolyRides' do
    pod 'FBSDKShareKit'
