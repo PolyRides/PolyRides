@@ -10,14 +10,6 @@ import Foundation
 
 class EmailAccountViewController: LoginViewController {
 
-  @IBOutlet weak var firstNameTextField: UITextField!
-  @IBOutlet weak var lastNameTextField: UITextField!
-  @IBOutlet weak var emailTextField: UITextField!
-  @IBOutlet weak var passwordTextField: UITextField!
-
-  @IBOutlet weak var createAccountButton: UIButton!
-  @IBOutlet weak var loadingIndicator: UIActivityIndicatorView!
-
   @IBAction func signInAction(sender: AnyObject) {
     navigationController?.popToRootViewControllerAnimated(true)
   }
@@ -31,6 +23,7 @@ class EmailAccountViewController: LoginViewController {
 
     trackScreen(String(EmailAccountViewController))
     registerForNotifications()
+    addTargetsForFields()
   }
 
   func registerForNotifications() {
@@ -44,12 +37,17 @@ class EmailAccountViewController: LoginViewController {
     defaultCenter.addObserver(self, selector: selector, name: name, object: nil)
   }
 
+  func addTargetsForFields() {
+    firstNameTextField?.addTargetForEditing(self, selector: Selector("textFieldDidChange"))
+    lastNameTextField?.addTargetForEditing(self, selector: Selector("textFieldDidChange"))
+  }
+
   func createAccount() {
-    if let email = emailTextField.text {
-      if let password = passwordTextField.text {
-        if let firstName = firstNameTextField.text {
-          if let lastName = lastNameTextField.text {
-            startLoading(createAccountButton, indicator: loadingIndicator)
+    if let email = emailTextField?.text {
+      if let password = passwordTextField?.text {
+        if let firstName = firstNameTextField?.text {
+          if let lastName = lastNameTextField?.text {
+            startLoading()
             let user = User(email: email, firstName: firstName, lastName: lastName)
             FirebaseConnection.createUser(user, password: password)
           }
@@ -59,29 +57,19 @@ class EmailAccountViewController: LoginViewController {
   }
 
   func onLoginError(notification: NSNotification) {
+    stopLoading("Create Account")
     if let error = notification.object as? NSError {
       presentAlertForFirebaseError(error)
     }
   }
 
-  func onCreateAccountSuccess() {
+  func onCreateAccountSuccess(notification: NSNotification) {
+    stopLoading("Create Account")
     let title = "Account Created Successfully"
     let message = "Please login to continue."
     presentAlert(AlertOptions(message: message, title: title, handler: toMainLogin))
   }
 
-  func toMainLogin(action: UIAlertAction) {
-    if let navigationController = navigationController {
-      if let vc = navigationController.topViewController as? MainLoginViewController {
-        if let email = emailTextField.text {
-          if let password = passwordTextField.text {
-            vc.emailTextField.text = email
-            vc.passwordTextField.text = password
-            navigationController.popToRootViewControllerAnimated(true)
-          }
-        }
-      }
-    }
-  }
+
 
 }
