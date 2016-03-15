@@ -24,4 +24,10 @@ class CreateAccountViewController: LoginViewController {
     trackScreen(String(CreateAccountViewController))
   }
 
+  override func onLoginError(notification: NSNotification) {
+    stopLoading("")
+    super.onLoginError(notification)
+  }
+
+
 }

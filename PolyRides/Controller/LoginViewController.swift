@@ -32,14 +32,12 @@ class LoginViewController: UIViewController {
 
     emailTextField?.addTargetForEditing(self, selector: Selector("textFieldDidChange"))
     passwordTextField?.addTargetForEditing(self, selector: Selector("textFieldDidChange"))
-
-    registerForNotifications()
   }
 
   override func viewWillAppear(animated: Bool) {
     super.viewWillAppear(animated)
     navigationController?.navigationBar.hidden = true
-    button?.enabled = false
+    textFieldDidChange()
   }
 
   override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
@@ -115,7 +113,7 @@ class LoginViewController: UIViewController {
         message = "The specified authentication credentials are invalid."
       case .InvalidPassword:
         title = "Incorrect Password"
-        message = "The password you entered does not match our records."
+        message = "The entered password does not match our records."
       case .UserDoesNotExist:
         title = "No Account Found"
         message = "You must login with Facebook if you created your account with Facebook."

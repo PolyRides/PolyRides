@@ -43,6 +43,7 @@ class ResetPasswordViewController: LoginViewController {
     }
 
     textField.addTargetForEditing(self, selector: Selector("textFieldDidChange"))
+    registerForNotifications()
   }
 
   override func viewWillAppear(animated: Bool) {
@@ -74,6 +75,16 @@ class ResetPasswordViewController: LoginViewController {
 
   override func onLoginError(notification: NSNotification) {
     stopLoading("Reset Password")
+    super.onLoginError(notification)
+  }
+
+  override func textFieldDidChange() {
+    let isValid = temporaryPassword == "" ? textField.isValidEmail() : textField.isValidPassword()
+    if isValid {
+      button?.enabled = true
+    } else {
+      button?.enabled = false
+    }
   }
 
   func changePassword() {
@@ -114,22 +125,13 @@ class ResetPasswordViewController: LoginViewController {
 
   func onPasswordReset(alert: UIAlertAction) {
     if let navigationController = navigationController {
-      navigationController.popViewControllerAnimated(true)
-
       if let vc = navigationController.viewControllers.first as? MainLoginViewController {
         if let email = emailTextField?.text {
+          print(email)
           vc.emailTextField?.text = email
         }
       }
-    }
-  }
-
-  override func textFieldDidChange() {
-    let isValid = temporaryPassword == "" ? textField.isValidEmail() : textField.isValidPassword()
-    if isValid {
-      button?.enabled = true
-    } else {
-      button?.enabled = false
+      navigationController.popViewControllerAnimated(true)
     }
   }
 
