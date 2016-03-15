@@ -18,11 +18,9 @@ class FirebaseConnection {
 
   static let ChangePasswordSuccess = "ChangePasswordSuccess"
   static let ResetPasswordSuccess = "ResetPasswordSuccess"
-  static let CreateAccountSuccess = "CreateAccountSuccess"
   static let TemporaryPassword = "TemporaryPassword"
-  static let AuthSuccess = "AuthSuccess"
+  static let LoginSuccess = "LoginSuccess"
   static let LoginError = "LoginError"
-  static let FBSuccess = "FBSuccess"
   static let FBError = "FBError"
 
   static func pushUserToFirebase(user: User) {
@@ -62,7 +60,7 @@ class FirebaseConnection {
         if let uid = result["uid"] as? String {
           user.id = uid
           pushUserToFirebase(user)
-          let notification = FirebaseConnection.CreateAccountSuccess
+          let notification = FirebaseConnection.LoginSuccess
           NSNotificationCenter.defaultCenter().postNotificationName(notification, object: user)
         }
       } else {
@@ -77,7 +75,7 @@ class FirebaseConnection {
     FirebaseConnection.ref.authWithOAuthProvider("facebook", token: token) { error, authData in
       let user = User(withAuthData: authData)
       if error == nil {
-        let notification = FirebaseConnection.FBSuccess
+        let notification = FirebaseConnection.LoginSuccess
         NSNotificationCenter.defaultCenter().postNotificationName(notification, object: user)
       } else {
         let notification = FirebaseConnection.FBError
@@ -96,7 +94,7 @@ class FirebaseConnection {
           if temporaryPassword {
             notification = FirebaseConnection.TemporaryPassword
           } else {
-            notification = FirebaseConnection.AuthSuccess
+            notification = FirebaseConnection.LoginSuccess
           }
           NSNotificationCenter.defaultCenter().postNotificationName(notification, object: user)
         }
