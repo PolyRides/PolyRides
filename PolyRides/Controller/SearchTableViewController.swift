@@ -13,7 +13,14 @@ class SearchTableViewController: UITableViewController {
   override func viewDidAppear(animated: Bool) {
     super.viewDidAppear(animated)
 
-    navigationController?.hidesBarsOnSwipe = false
+    navigationController?.navigationBar.hidden = false
+
+  }
+
+  override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    if segue.identifier == "toLogOut" {
+      FirebaseConnection.ref.unauth()
+    }
   }
 
 }

@@ -50,11 +50,6 @@ class MainLoginViewController: LoginViewController {
     super.onLoginError(notification)
   }
 
-  override func onLoginSuccess(notification: NSNotification) {
-    stopLoading("Login")
-    super.onLoginSuccess(notification)
-  }
-
   func onHasTemporaryPassword(notification: NSNotification) {
     if let user = notification.object as? User {
       self.user = user
