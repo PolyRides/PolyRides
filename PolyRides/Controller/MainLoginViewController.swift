@@ -26,6 +26,11 @@ class MainLoginViewController: LoginViewController {
     trackScreen(String(MainLoginViewController))
   }
 
+  override func onLoginError(notification: NSNotification) {
+    stopLoading("Login")
+    super.onLoginError(notification)
+  }
+
   override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
     let backItem = UIBarButtonItem()
     backItem.title = ""

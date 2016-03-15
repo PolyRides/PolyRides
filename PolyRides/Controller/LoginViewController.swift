@@ -23,8 +23,6 @@ class LoginViewController: UIViewController {
 
   @IBOutlet weak var emailTextField: UITextField?
   @IBOutlet weak var passwordTextField: UITextField?
-  @IBOutlet weak var firstNameTextField: UITextField?
-  @IBOutlet weak var lastNameTextField: UITextField?
 
   @IBOutlet weak var indicator: UIActivityIndicatorView?
   @IBOutlet weak var button: UIButton?
@@ -32,8 +30,6 @@ class LoginViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
 
-    firstNameTextField?.addTargetForEditing(self, selector: Selector("textFieldDidChange"))
-    lastNameTextField?.addTargetForEditing(self, selector: Selector("textFieldDidChange"))
     emailTextField?.addTargetForEditing(self, selector: Selector("textFieldDidChange"))
     passwordTextField?.addTargetForEditing(self, selector: Selector("textFieldDidChange"))
 
@@ -73,14 +69,17 @@ class LoginViewController: UIViewController {
     name = FirebaseConnection.FBSuccess
     defaultCenter.addObserver(self, selector: selector, name: name, object: nil)
 
-    selector = Selector("onHasTemporaryPassword")
+    selector = Selector("onHasTemporaryPassword:")
     name = FirebaseConnection.TemporaryPassword
     defaultCenter.addObserver(self, selector: selector, name: name, object: nil)
 
   }
 
-  func onHasTemporaryPassword() {
-    self.performSegueWithIdentifier("toResetPassword", sender: self)
+  func onHasTemporaryPassword(notification: NSNotification) {
+    if let user = notification.object as? User {
+      self.user = user
+      self.performSegueWithIdentifier("toResetPassword", sender: self)
+    }
   }
 
   func onFacebookError() {
@@ -94,6 +93,12 @@ class LoginViewController: UIViewController {
       self.user = user
       user.pushToFirebase()
       startMain()
+    }
+  }
+
+  func onLoginError(notification: NSNotification) {
+    if let error = notification.object as? NSError {
+      presentAlertForFirebaseError(error)
     }
   }
 
@@ -163,15 +168,15 @@ class LoginViewController: UIViewController {
             if let password = passwordTextField?.text {
               viewController.emailTextField?.text = email
               viewController.passwordTextField?.text = password
-              navigationController.popToRootViewControllerAnimated(true)
             }
           }
+          navigationController.popToRootViewControllerAnimated(true)
         }
       }
     }
   }
 
-  func startMain() {
+  func startMain(action: UIAlertAction? = nil) {
     let storyboard = UIStoryboard(name: "Main", bundle: nil)
     let viewController = storyboard.instantiateViewControllerWithIdentifier("search")
     if let searchViewcontroller = viewController as? SearchTableViewController {
@@ -183,10 +188,9 @@ class LoginViewController: UIViewController {
   }
 
   func textFieldDidChange() {
-    let empty = firstNameTextField?.text == "" || lastNameTextField?.text == ""
     let invalidEmail = emailTextField?.isValidEmail() == false
     let invalidPassword = passwordTextField?.isValidPassword() == false
-    if !invalidEmail && !invalidPassword && !empty {
+    if !invalidEmail && !invalidPassword {
       button?.enabled = true
     } else {
       button?.enabled = false
