@@ -83,6 +83,7 @@ class LoginViewController: UIViewController {
   }
 
   func onLoginSuccess(notification: NSNotification) {
+    stopLoading("")
     if let user = notification.object as? User {
       self.user = user
       user.pushToFirebase()
