@@ -19,8 +19,6 @@ import FBSDKLoginKit
 
 class LoginViewController: UIViewController {
 
-
-
   var user: User?
 
   @IBOutlet weak var emailTextField: UITextField?
@@ -30,6 +28,24 @@ class LoginViewController: UIViewController {
 
   @IBOutlet weak var indicator: UIActivityIndicatorView?
   @IBOutlet weak var button: UIButton?
+
+  override func viewDidLoad() {
+    super.viewDidLoad()
+
+    firstNameTextField?.addTargetForEditing(self, selector: Selector("textFieldDidChange"))
+    lastNameTextField?.addTargetForEditing(self, selector: Selector("textFieldDidChange"))
+    emailTextField?.addTargetForEditing(self, selector: Selector("textFieldDidChange"))
+    passwordTextField?.addTargetForEditing(self, selector: Selector("textFieldDidChange"))
+
+    registerForNotifications()
+
+  }
+
+  override func viewWillAppear(animated: Bool) {
+    super.viewWillAppear(animated)
+    navigationController?.navigationBar.hidden = true
+    button?.enabled = false
+  }
 
   func startLoading() {
     UIApplication.sharedApplication().beginIgnoringInteractionEvents()
@@ -41,28 +57,6 @@ class LoginViewController: UIViewController {
     UIApplication.sharedApplication().endIgnoringInteractionEvents()
     indicator?.stopAnimating()
     button?.setTitle(title, forState: UIControlState.Normal)
-  }
-
-  override func viewDidLoad() {
-    super.viewDidLoad()
-
-    firstNameTextField?.addTargetForEditing(self, selector: Selector("textFieldDidChange"))
-    lastNameTextField?.addTargetForEditing(self, selector: Selector("textFieldDidChange"))
-    emailTextField?.addTargetForEditing(self, selector: Selector("textFieldDidChange"))
-    passwordTextField?.addTargetForEditing(self, selector: Selector("textFieldDidChange"))
-
-    let defaultCenter = NSNotificationCenter.defaultCenter()
-    let selector = Selector("onLoginError:")
-    let name = FirebaseConnection.LoginError
-    defaultCenter.addObserver(self, selector: selector, name: name, object: nil)
-    registerForNotifications()
-
-  }
-
-  override func viewWillAppear(animated: Bool) {
-    super.viewWillAppear(animated)
-    navigationController?.navigationBar.hidden = true
-    button?.enabled = false
   }
 
   func registerForNotifications() {
@@ -96,8 +90,8 @@ class LoginViewController: UIViewController {
   }
 
   func onFacebookSuccess(notification: NSNotification) {
-    if let authData = notification.object as? FAuthData {
-      let user = User(withAuthData: authData)
+    if let user = notification.object as? User {
+      self.user = user
       user.pushToFirebase()
       startMain()
     }
@@ -156,7 +150,7 @@ class LoginViewController: UIViewController {
   func loginWithEmail() {
     if let email = emailTextField?.text {
       if let password = passwordTextField?.text {
-
+        FirebaseConnection.authUser(email, password: password)
       }
     }
   }

@@ -33,10 +33,9 @@ class FirebaseConnection {
 
   static func resetPasswordForEmail(email: String) {
     FirebaseConnection.ref.resetPasswordForUser(email) { error in
-      var notification = ""
       if error == nil {
-        notification = FirebaseConnection.ResetPasswordSuccess
-        NSNotificationCenter.defaultCenter().postNotificationName(notification, object: nil)
+        let notification = FirebaseConnection.ResetPasswordSuccess
+        NSNotificationCenter.defaultCenter().postNotificationName(notification, object: email)
       } else {
         let notification = FirebaseConnection.LoginError
         NSNotificationCenter.defaultCenter().postNotificationName(notification, object: error)
@@ -47,64 +46,64 @@ class FirebaseConnection {
   static func changePasswordForUser(user: User, temporaryPassword: String, newPassword: String) {
     FirebaseConnection.ref.changePasswordForUser(user.email, fromOld: temporaryPassword,
       toNew: newPassword) { error in
-        var notification = ""
         if error == nil {
-          notification = FirebaseConnection.ChangePasswordSuccess
+          let notification = FirebaseConnection.ChangePasswordSuccess
+          NSNotificationCenter.defaultCenter().postNotificationName(notification, object: nil)
         } else {
-          notification = FirebaseConnection.LoginError
+          let notification = FirebaseConnection.LoginError
+          NSNotificationCenter.defaultCenter().postNotificationName(notification, object: error)
         }
-        NSNotificationCenter.defaultCenter().postNotificationName(notification, object: error)
-
     }
   }
 
   static func createUser(user: User, password: String) {
     FirebaseConnection.ref.createUser(user.email, password: password) { error, result in
-      var notification = ""
       if error == nil {
         if let uid = result["uid"] as? String {
           user.id = uid
           pushUserToFirebase(user)
-          notification = FirebaseConnection.CreateAccountSuccess
+          let notification = FirebaseConnection.CreateAccountSuccess
+          NSNotificationCenter.defaultCenter().postNotificationName(notification, object: user)
         }
       } else {
-        notification = FirebaseConnection.LoginError
+        let notification = FirebaseConnection.LoginError
+        NSNotificationCenter.defaultCenter().postNotificationName(notification, object: error)
       }
-      NSNotificationCenter.defaultCenter().postNotificationName(notification, object: error)
     }
   }
 
   static func authWithFacebook() {
     let token = FBSDKAccessToken.currentAccessToken().tokenString
     FirebaseConnection.ref.authWithOAuthProvider("facebook", token: token) { error, authData in
-      var notification = ""
-      if error != nil {
-        notification = FirebaseConnection.FBError
+      let user = User(withAuthData: authData)
+      if error == nil {
+        let notification = FirebaseConnection.FBSuccess
+        NSNotificationCenter.defaultCenter().postNotificationName(notification, object: user)
       } else {
-        notification = FirebaseConnection.FBSuccess
+        let notification = FirebaseConnection.FBError
+        NSNotificationCenter.defaultCenter().postNotificationName(notification, object: error)
       }
-      NSNotificationCenter.defaultCenter().postNotificationName(notification, object: error)
     }
   }
 
-  static func authUser(inout user: User, password: String) {
-    FirebaseConnection.ref.authUser(user.email, password: password) { error, authData in
+  static func authUser(email: String, password: String) {
+    FirebaseConnection.ref.authUser(email, password: password) { error, authData in
       var notification = ""
 
       if error == nil {
         if let temporaryPassword = authData.providerData["isTemporaryPassword"] as? Bool {
-          user = User(withAuthData: authData)
+          let user = User(withAuthData: authData)
           if temporaryPassword {
             notification = FirebaseConnection.TemporaryPassword
           } else {
             notification = FirebaseConnection.AuthSuccess
           }
+          NSNotificationCenter.defaultCenter().postNotificationName(notification, object: user)
         }
       } else {
         notification = FirebaseConnection.LoginError
+        NSNotificationCenter.defaultCenter().postNotificationName(notification, object: error)
       }
-      NSNotificationCenter.defaultCenter().postNotificationName(notification, object: error)
-
     }
 
   }

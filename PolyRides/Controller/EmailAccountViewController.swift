@@ -23,25 +23,15 @@ class EmailAccountViewController: LoginViewController {
 
     trackScreen(String(EmailAccountViewController))
     registerForNotifications()
-    addTargetsForFields()
   }
 
   override func registerForNotifications() {
     super.registerForNotifications()
 
     let defaultCenter = NSNotificationCenter.defaultCenter()
-    var selector = Selector("onCreateAccountSuccess:")
-    var name = FirebaseConnection.CreateAccountSuccess
+    let selector = Selector("onCreateAccountSuccess:")
+    let name = FirebaseConnection.CreateAccountSuccess
     defaultCenter.addObserver(self, selector: selector, name: name, object: nil)
-
-    selector = Selector("onLoginError:")
-    name = FirebaseConnection.LoginError
-    defaultCenter.addObserver(self, selector: selector, name: name, object: nil)
-  }
-
-  func addTargetsForFields() {
-    firstNameTextField?.addTargetForEditing(self, selector: Selector("textFieldDidChange"))
-    lastNameTextField?.addTargetForEditing(self, selector: Selector("textFieldDidChange"))
   }
 
   func createAccount() {
