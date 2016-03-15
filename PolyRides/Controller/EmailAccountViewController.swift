@@ -26,14 +26,16 @@ class EmailAccountViewController: LoginViewController {
     addTargetsForFields()
   }
 
-  func registerForNotifications() {
+  override func registerForNotifications() {
+    super.registerForNotifications()
+
     let defaultCenter = NSNotificationCenter.defaultCenter()
     var selector = Selector("onCreateAccountSuccess:")
-    var name = LoginViewController.CreateAccountSuccess
+    var name = FirebaseConnection.CreateAccountSuccess
     defaultCenter.addObserver(self, selector: selector, name: name, object: nil)
 
     selector = Selector("onLoginError:")
-    name = LoginViewController.LoginError
+    name = FirebaseConnection.LoginError
     defaultCenter.addObserver(self, selector: selector, name: name, object: nil)
   }
 

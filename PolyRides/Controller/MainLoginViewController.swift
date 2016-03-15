@@ -12,16 +12,12 @@ import FBSDKLoginKit
 class MainLoginViewController: LoginViewController {
 
   @IBAction func logInWithFacebookAction(sender: AnyObject) {
-    loginWithFacebook(self)
+    loginWithFacebook()
   }
 
   @IBAction func loginAction(sender: AnyObject) {
     startLoading()
-    if let email = emailTextField?.text {
-      if let password = passwordTextField?.text {
-        loginWithEmail(email, password: password)
-      }
-    }
+    loginWithEmail()
   }
 
   override func viewDidLoad() {
