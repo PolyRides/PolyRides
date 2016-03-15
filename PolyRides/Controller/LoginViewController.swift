@@ -141,13 +141,13 @@ class LoginViewController: UIViewController {
     let facebookLogin = FBSDKLoginManager()
     facebookLogin.logInWithReadPermissions(["email"], fromViewController: self) {
       (facebookResult, facebookError) -> Void in
-      if facebookError != nil {
-        self.onFacebookError()
+      if facebookError == nil {
+        FirebaseConnection.authWithFacebook()
       } else if facebookResult.isCancelled {
         print("Facebook log in was cancelled.")
         // Do nothing.
       } else {
-        FirebaseConnection.authWithFacebook()
+        self.onFacebookError()
       }
     }
   }
