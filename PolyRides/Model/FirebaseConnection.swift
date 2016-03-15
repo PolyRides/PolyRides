@@ -30,6 +30,7 @@ class FirebaseConnection {
   }
 
   static func resetPasswordForEmail(email: String) {
+    print(email)
     FirebaseConnection.ref.resetPasswordForUser(email) { error in
       if error == nil {
         let notification = FirebaseConnection.ResetPasswordSuccess
@@ -45,7 +46,7 @@ class FirebaseConnection {
     FirebaseConnection.ref.changePasswordForUser(user.email, fromOld: temporaryPassword,
       toNew: newPassword) { error in
         if error == nil {
-          let notification = FirebaseConnection.ChangePasswordSuccess
+          let notification = FirebaseConnection.LoginSuccess
           NSNotificationCenter.defaultCenter().postNotificationName(notification, object: nil)
         } else {
           let notification = FirebaseConnection.LoginError
@@ -73,8 +74,10 @@ class FirebaseConnection {
   static func authWithFacebook() {
     let token = FBSDKAccessToken.currentAccessToken().tokenString
     FirebaseConnection.ref.authWithOAuthProvider("facebook", token: token) { error, authData in
+      print(authData.uid)
       let user = User(withAuthData: authData)
       if error == nil {
+        FirebaseConnection.pushUserToFirebase(user)
         let notification = FirebaseConnection.LoginSuccess
         NSNotificationCenter.defaultCenter().postNotificationName(notification, object: user)
       } else {

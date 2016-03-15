@@ -20,7 +20,7 @@ class ResetPasswordViewController: LoginViewController {
   @IBOutlet weak var textField: UITextField!
 
   @IBAction func resetPasswordAction(sender: AnyObject) {
-    if user == nil {
+    if temporaryPassword == "" {
       confirmResetPassword()
     } else {
       changePassword()
@@ -38,8 +38,11 @@ class ResetPasswordViewController: LoginViewController {
     self.navigationController?.navigationBar.shadowImage = UIImage()
     self.navigationController?.navigationBar.translucent = true
 
+    if temporaryPassword != "" {
+      textField.secureTextEntry = true
+    }
+
     textField.addTargetForEditing(self, selector: Selector("textFieldDidChange"))
-    registerForNotifications()
   }
 
   override func viewWillAppear(animated: Bool) {
@@ -48,7 +51,7 @@ class ResetPasswordViewController: LoginViewController {
     navigationController?.navigationBarHidden = false
 
     var text = "You've logged in with a temporary password. Please enter a new password."
-    if user == nil {
+    if temporaryPassword == "" {
       text = "Enter your email address and we'll send you a link to reset your password."
     }
     instructions.text = text
@@ -59,8 +62,6 @@ class ResetPasswordViewController: LoginViewController {
   }
 
   override func registerForNotifications() {
-    super.registerForNotifications()
-
     let defaultCenter = NSNotificationCenter.defaultCenter()
     var selector = Selector("onResetPasswordSuccess:")
     var name = FirebaseConnection.ResetPasswordSuccess
@@ -73,7 +74,6 @@ class ResetPasswordViewController: LoginViewController {
 
   override func onLoginError(notification: NSNotification) {
     stopLoading("Reset Password")
-    super.onLoginError(notification)
   }
 
   func changePassword() {
@@ -86,8 +86,8 @@ class ResetPasswordViewController: LoginViewController {
   }
 
   func resetPassword(action: UIAlertAction) {
+    startLoading()
     if let email = textField.text {
-      startLoading()
       FirebaseConnection.resetPasswordForEmail(email)
     }
   }
@@ -104,7 +104,7 @@ class ResetPasswordViewController: LoginViewController {
     stopLoading(buttonTitle)
     let title = "Password Successfully Reset"
     let message = "Please check your email for your temporary password."
-    presentAlert(AlertOptions(message: message, title: title, handler: toMainLogin))
+    presentAlert(AlertOptions(message: message, title: title, handler: onPasswordReset))
   }
 
   func onChangePasswordSuccess(notification: NSNotification) {
@@ -112,8 +112,20 @@ class ResetPasswordViewController: LoginViewController {
     startMain()
   }
 
+  func onPasswordReset(alert: UIAlertAction) {
+    if let navigationController = navigationController {
+      navigationController.popViewControllerAnimated(true)
+
+      if let vc = navigationController.viewControllers.first as? MainLoginViewController {
+        if let email = emailTextField?.text {
+          vc.emailTextField?.text = email
+        }
+      }
+    }
+  }
+
   override func textFieldDidChange() {
-    let isValid = user == nil ? textField.isValidEmail() : textField.isValidPassword()
+    let isValid = temporaryPassword == "" ? textField.isValidEmail() : textField.isValidPassword()
     if isValid {
       button?.enabled = true
     } else {

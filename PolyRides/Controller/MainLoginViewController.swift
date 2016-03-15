@@ -11,6 +11,8 @@ import FBSDKLoginKit
 
 class MainLoginViewController: LoginViewController {
 
+  let buttonTitle = "Login"
+
   @IBAction func logInWithFacebookAction(sender: AnyObject) {
     loginWithFacebook()
   }
@@ -40,17 +42,18 @@ class MainLoginViewController: LoginViewController {
       if let vc = segue.destinationViewController as? ResetPasswordViewController {
         if let password = passwordTextField?.text {
           vc.temporaryPassword = password
+          vc.user = user
         }
       }
     }
   }
 
   override func onLoginError(notification: NSNotification) {
-    stopLoading("Login")
-    super.onLoginError(notification)
+    stopLoading(buttonTitle)
   }
 
   func onHasTemporaryPassword(notification: NSNotification) {
+    stopLoading(buttonTitle)
     if let user = notification.object as? User {
       self.user = user
       self.performSegueWithIdentifier("toResetPassword", sender: self)
