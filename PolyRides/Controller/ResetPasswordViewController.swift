@@ -71,6 +71,11 @@ class ResetPasswordViewController: LoginViewController {
     defaultCenter.addObserver(self, selector: selector, name: name, object: nil)
   }
 
+  override func onLoginError(notification: NSNotification) {
+    stopLoading("Reset Password")
+    super.onLoginError(notification)
+  }
+
   func changePassword() {
     if let user = user {
       if let new = textField.text {

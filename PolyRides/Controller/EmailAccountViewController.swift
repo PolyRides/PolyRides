@@ -10,6 +10,9 @@ import Foundation
 
 class EmailAccountViewController: LoginViewController {
 
+  @IBOutlet weak var firstNameTextField: UITextField?
+  @IBOutlet weak var lastNameTextField: UITextField?
+
   @IBAction func signInAction(sender: AnyObject) {
     navigationController?.popToRootViewControllerAnimated(true)
   }
@@ -34,6 +37,22 @@ class EmailAccountViewController: LoginViewController {
     defaultCenter.addObserver(self, selector: selector, name: name, object: nil)
   }
 
+  override func onLoginError(notification: NSNotification) {
+    stopLoading("Create Account")
+    super.onLoginError(notification)
+  }
+
+  override func textFieldDidChange() {
+    let empty = firstNameTextField?.text == "" || lastNameTextField?.text == ""
+    let invalidEmail = emailTextField?.isValidEmail() == false
+    let invalidPassword = passwordTextField?.isValidPassword() == false
+    if !invalidEmail && !invalidPassword && !empty {
+      button?.enabled = true
+    } else {
+      button?.enabled = false
+    }
+  }
+
   func createAccount() {
     if let email = emailTextField?.text {
       if let password = passwordTextField?.text {
@@ -48,20 +67,11 @@ class EmailAccountViewController: LoginViewController {
     }
   }
 
-  func onLoginError(notification: NSNotification) {
-    stopLoading("Create Account")
-    if let error = notification.object as? NSError {
-      presentAlertForFirebaseError(error)
-    }
-  }
-
   func onCreateAccountSuccess(notification: NSNotification) {
     stopLoading("Create Account")
     let title = "Account Created Successfully"
     let message = "Please login to continue."
-    presentAlert(AlertOptions(message: message, title: title, handler: toMainLogin))
+    presentAlert(AlertOptions(message: message, title: title, handler: startMain))
   }
-
-
 
 }
