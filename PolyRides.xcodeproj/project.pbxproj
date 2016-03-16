@@ -21,7 +21,7 @@
 		DB747AB61C98D76900A24F58 /* Rides.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB747AB51C98D76900A24F58 /* Rides.storyboard */; };
 		DB747AB81C98D79500A24F58 /* Messages.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB747AB71C98D79500A24F58 /* Messages.storyboard */; };
 		DB747ABA1C98D79E00A24F58 /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB747AB91C98D79E00A24F58 /* Profile.storyboard */; };
-		DB747ABC1C98DB2D00A24F58 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB747ABB1C98DB2D00A24F58 /* TabBarViewController.swift */; };
+		DB747ABC1C98DB2D00A24F58 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB747ABB1C98DB2D00A24F58 /* TabBarController.swift */; };
 		DB956DD81C96833700809B4C /* FirebaseConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB956DD71C96833700809B4C /* FirebaseConnection.swift */; };
 		DBAB56801C968FAA0011167A /* UIViewControllerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBAB567F1C968FAA0011167A /* UIViewControllerExtensions.swift */; };
 		DBAB56871C96B0F10011167A /* SearchTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBAB56861C96B0F10011167A /* SearchTableViewController.swift */; };
@@ -75,7 +75,7 @@
 		DB747AB51C98D76900A24F58 /* Rides.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Rides.storyboard; sourceTree = "<group>"; };
 		DB747AB71C98D79500A24F58 /* Messages.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Messages.storyboard; sourceTree = "<group>"; };
 		DB747AB91C98D79E00A24F58 /* Profile.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
-		DB747ABB1C98DB2D00A24F58 /* TabBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
+		DB747ABB1C98DB2D00A24F58 /* TabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		DB956DD71C96833700809B4C /* FirebaseConnection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FirebaseConnection.swift; path = Model/FirebaseConnection.swift; sourceTree = "<group>"; };
 		DBAB567F1C968FAA0011167A /* UIViewControllerExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtensions.swift; sourceTree = "<group>"; };
 		DBAB56861C96B0F10011167A /* SearchTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchTableViewController.swift; sourceTree = "<group>"; };
@@ -260,7 +260,7 @@
 			isa = PBXGroup;
 			children = (
 				DBAB56861C96B0F10011167A /* SearchTableViewController.swift */,
-				DB747ABB1C98DB2D00A24F58 /* TabBarViewController.swift */,
+				DB747ABB1C98DB2D00A24F58 /* TabBarController.swift */,
 			);
 			name = Main;
 			sourceTree = "<group>";
@@ -500,7 +500,7 @@
 				DBAB56871C96B0F10011167A /* SearchTableViewController.swift in Sources */,
 				DB70B8CE1C9389EA0065CC4D /* AppDelegate.swift in Sources */,
 				DB70B9021C938B230065CC4D /* User.swift in Sources */,
-				DB747ABC1C98DB2D00A24F58 /* TabBarViewController.swift in Sources */,
+				DB747ABC1C98DB2D00A24F58 /* TabBarController.swift in Sources */,
 				DBAB56931C96C6300011167A /* LoginViewController.swift in Sources */,
 				DBF5E6DB1C93A66600693807 /* GoogleAnalyticsHelper.swift in Sources */,
 			);

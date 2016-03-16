@@ -41,7 +41,7 @@
         <!--Tab Bar Controller-->
         <scene sceneID="Zgd-rR-OM5">
             <objects>
-                <tabBarController id="8Wb-K8-eLJ" sceneMemberID="viewController">
+                <tabBarController id="8Wb-K8-eLJ" customClass="TabBarController" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="yGL-G9-dEj">
                         <barButtonItem key="leftBarButtonItem" title="Log Out" id="3CN-lm-VP2">
                             <connections>
