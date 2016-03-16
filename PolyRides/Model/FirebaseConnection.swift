@@ -74,7 +74,6 @@ class FirebaseConnection {
   static func authWithFacebook() {
     let token = FBSDKAccessToken.currentAccessToken().tokenString
     FirebaseConnection.ref.authWithOAuthProvider("facebook", token: token) { error, authData in
-      print(authData.uid)
       let user = User(withAuthData: authData)
       if error == nil {
         let notification = FirebaseConnection.LoginSuccess
