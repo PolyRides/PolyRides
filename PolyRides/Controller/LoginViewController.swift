@@ -32,6 +32,8 @@ class LoginViewController: UIViewController {
 
     emailTextField?.addTargetForEditing(self, selector: Selector("textFieldDidChange"))
     passwordTextField?.addTargetForEditing(self, selector: Selector("textFieldDidChange"))
+
+    registerForNotifications()
   }
 
   override func viewWillAppear(animated: Bool) {
@@ -133,13 +135,13 @@ class LoginViewController: UIViewController {
     let facebookLogin = FBSDKLoginManager()
     facebookLogin.logInWithReadPermissions(["email"], fromViewController: self) {
       facebookResult, facebookError -> Void in
-      if facebookResult.isCancelled {
+      if facebookError != nil {
+        self.onFacebookError()
+      } else if facebookResult.isCancelled {
         print("Facebook log in was cancelled.")
         // Do nothing.
-      } else if facebookError == nil {
-        FirebaseConnection.authWithFacebook()
       } else {
-        self.onFacebookError()
+        FirebaseConnection.authWithFacebook()
       }
     }
   }
@@ -154,10 +156,10 @@ class LoginViewController: UIViewController {
 
   func startMain(action: UIAlertAction? = nil) {
     let storyboard = UIStoryboard(name: "Main", bundle: nil)
-    let viewController = storyboard.instantiateViewControllerWithIdentifier("search")
+    let viewController = storyboard.instantiateViewControllerWithIdentifier("Main")
     if let navVC = viewController as? UINavigationController {
-      if let searchViewcontroller = navVC.topViewController as? SearchTableViewController {
-        searchViewcontroller.user = user
+      if let tabVC = navVC.topViewController as? TabBarViewController {
+        tabVC.user = user
         if let delegate: AppDelegate = UIApplication.sharedApplication().delegate as? AppDelegate {
           delegate.window?.rootViewController = navVC
         }
