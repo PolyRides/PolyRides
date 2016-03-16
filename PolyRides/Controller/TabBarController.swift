@@ -16,7 +16,6 @@ class TabBarController: UITableViewController {
     super.viewDidAppear(animated)
 
     navigationController?.navigationBar.hidden = false
-
   }
 
   override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
