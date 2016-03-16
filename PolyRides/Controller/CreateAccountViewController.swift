@@ -25,7 +25,7 @@ class CreateAccountViewController: LoginViewController {
   }
 
   override func onLoginError(notification: NSNotification) {
-    stopLoading("")
+    stopLoading()
     super.onLoginError(notification)
   }
 
