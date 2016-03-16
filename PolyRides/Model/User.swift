@@ -16,6 +16,10 @@ class User {
   var fullName: String?
   var imageURL: String?
 
+  init(id: String) {
+    self.id = id
+  }
+
   init(email: String, firstName: String, lastName: String) {
     self.email = email
     self.firstName = firstName
@@ -38,6 +42,10 @@ class User {
   }
 
   init(withSnapshot snapshot: FDataSnapshot) {
+    updateFromSnapshot(snapshot)
+  }
+
+  func updateFromSnapshot(snapshot: FDataSnapshot) {
     if let dictionary = snapshot.value as? [String : AnyObject] {
       self.id = snapshot.key
       if let email = dictionary["email"] as? String {
