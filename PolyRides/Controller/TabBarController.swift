@@ -24,5 +24,5 @@ class TabBarViewController: UITableViewController {
       FirebaseConnection.ref.unauth()
     }
   }
-  
+
 }
