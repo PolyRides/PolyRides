@@ -7,7 +7,7 @@
         <!--Navigation Controller-->
         <scene sceneID="T1c-gp-bLv">
             <objects>
-                <navigationController storyboardIdentifier="Search" toolbarHidden="NO" id="D0k-8z-Ryz" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="Search" id="D0k-8z-Ryz" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="sXl-tr-E0E">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>

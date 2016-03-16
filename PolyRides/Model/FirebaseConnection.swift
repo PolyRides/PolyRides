@@ -103,7 +103,14 @@ class FirebaseConnection {
         NSNotificationCenter.defaultCenter().postNotificationName(notification, object: error)
       }
     }
+  }
 
+  static func updateValuesForUser(user: User) {
+    let userRef = ref.childByAppendingPath("users/\(user.id)")
+    userRef.observeSingleEventOfType(.Value, withBlock: {
+      snapshot in
+      user.updateFromSnapshot(snapshot)
+    })
   }
 
 }
