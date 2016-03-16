@@ -8,7 +8,7 @@
 
 import Foundation
 
-class TabBarViewController: UITableViewController {
+class TabBarController: UITableViewController {
 
   var user: User?
 

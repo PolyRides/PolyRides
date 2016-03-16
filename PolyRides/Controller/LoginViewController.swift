@@ -32,8 +32,6 @@ class LoginViewController: UIViewController {
 
     emailTextField?.addTargetForEditing(self, selector: Selector("textFieldDidChange"))
     passwordTextField?.addTargetForEditing(self, selector: Selector("textFieldDidChange"))
-
-    registerForNotifications()
   }
 
   override func viewWillAppear(animated: Bool) {
@@ -53,7 +51,7 @@ class LoginViewController: UIViewController {
     indicator?.startAnimating()
   }
 
-  func stopLoading(title: String) {
+  func stopLoading(title: String = "") {
     UIApplication.sharedApplication().endIgnoringInteractionEvents()
     indicator?.stopAnimating()
     button?.setTitle(title, forState: UIControlState.Normal)
@@ -158,7 +156,7 @@ class LoginViewController: UIViewController {
     let storyboard = UIStoryboard(name: "Main", bundle: nil)
     let viewController = storyboard.instantiateViewControllerWithIdentifier("Main")
     if let navVC = viewController as? UINavigationController {
-      if let tabVC = navVC.topViewController as? TabBarViewController {
+      if let tabVC = navVC.topViewController as? TabBarController {
         tabVC.user = user
         if let delegate: AppDelegate = UIApplication.sharedApplication().delegate as? AppDelegate {
           delegate.window?.rootViewController = navVC
