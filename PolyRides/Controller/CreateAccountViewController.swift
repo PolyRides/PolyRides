@@ -29,5 +29,4 @@ class CreateAccountViewController: LoginViewController {
     super.onLoginError(notification)
   }
 
-
 }

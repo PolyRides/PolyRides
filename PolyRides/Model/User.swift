@@ -16,6 +16,9 @@ class User {
   var fullName: String?
   var imageURL: String?
 
+  init() {
+  }
+
   init(id: String) {
     self.id = id
   }

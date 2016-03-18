@@ -19,7 +19,7 @@ class TabBarController: UITabBarController {
   }
 
   override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-    if segue.identifier == "toLogOut" {
+    if segue.identifier == "toLogin" {
       FirebaseConnection.ref.unauth()
     }
   }

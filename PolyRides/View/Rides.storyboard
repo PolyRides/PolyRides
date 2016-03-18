@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="F06-1m-krZ">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Navigation Controller-->
@@ -24,10 +25,10 @@
             </objects>
             <point key="canvasLocation" x="-1941" y="-1021"/>
         </scene>
-        <!--View Controller-->
+        <!--Rides-->
         <scene sceneID="Yjp-TU-e6S">
             <objects>
-                <viewController id="fnc-Oe-nPW" sceneMemberID="viewController">
+                <viewController id="fnc-Oe-nPW" customClass="RidesViewController" customModule="PolyRides" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="ifF-Ho-9MW"/>
                         <viewControllerLayoutGuide type="bottom" id="wRW-a5-fDd"/>
@@ -35,15 +36,110 @@
                     <view key="view" contentMode="scaleToFill" id="ioP-ZV-Euv">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="YQo-Ub-837">
+                                <rect key="frame" x="160" y="72" width="280" height="29"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="280" id="27u-0B-k2M"/>
+                                </constraints>
+                                <segments>
+                                    <segment title="Current"/>
+                                    <segment title="Past"/>
+                                </segments>
+                            </segmentedControl>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Xhs-xb-y88">
+                                <rect key="frame" x="0.0" y="108" width="600" height="443"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="Xhs-xb-y88" secondAttribute="trailing" constant="-20" id="BAd-8C-iVt"/>
+                            <constraint firstItem="Xhs-xb-y88" firstAttribute="top" secondItem="YQo-Ub-837" secondAttribute="bottom" constant="8" id="PQI-rN-HQe"/>
+                            <constraint firstItem="YQo-Ub-837" firstAttribute="top" secondItem="ifF-Ho-9MW" secondAttribute="bottom" constant="8" id="UFa-BD-whH"/>
+                            <constraint firstItem="wRW-a5-fDd" firstAttribute="top" secondItem="Xhs-xb-y88" secondAttribute="bottom" id="WtT-Lv-zPE"/>
+                            <constraint firstItem="Xhs-xb-y88" firstAttribute="leading" secondItem="ioP-ZV-Euv" secondAttribute="leadingMargin" constant="-20" id="Xq2-3f-iKN"/>
+                            <constraint firstItem="YQo-Ub-837" firstAttribute="centerX" secondItem="ioP-ZV-Euv" secondAttribute="centerX" id="xQW-eN-Ceq"/>
+                        </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" systemItem="search" id="ZFq-mP-AZB"/>
-                    <navigationItem key="navigationItem" id="5lI-NJ-7wN"/>
+                    <tabBarItem key="tabBarItem" title="Rides" image="car" selectedImage="car_filled" id="ZFq-mP-AZB"/>
+                    <navigationItem key="navigationItem" id="5lI-NJ-7wN">
+                        <barButtonItem key="leftBarButtonItem" title="Log Out" id="Omt-aY-nEt">
+                            <connections>
+                                <segue destination="81R-Kr-UTM" kind="show" id="ckV-Te-VJs"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="Gh5-r6-A9Z">
+                            <connections>
+                                <segue destination="Wrf-eZ-0Tt" kind="presentation" id="ND4-C1-2fr"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Fe7-7M-ucB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1199" y="-1021"/>
         </scene>
+        <!--New Ride-->
+        <scene sceneID="VpG-yz-B5j">
+            <objects>
+                <viewController id="sad-jW-Up4" customClass="AddRideViewController" customModule="PolyRides" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Mr1-c8-niI"/>
+                        <viewControllerLayoutGuide type="bottom" id="4T7-xg-Ljk"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="ZwG-jc-XDH">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="New Ride" id="zFj-Hn-bhY">
+                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="zdh-1I-mOG">
+                            <connections>
+                                <action selector="cancelButtonAction:" destination="sad-jW-Up4" id="ve2-dX-BaM"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Add" id="AAY-fi-0Ho">
+                            <connections>
+                                <action selector="addButtonAction:" destination="sad-jW-Up4" id="i4V-B6-VWD"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="DHp-nI-A6q" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="226" y="-1021"/>
+        </scene>
+        <!--Login-->
+        <scene sceneID="rGN-eY-rAD">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Login" referencedIdentifier="Login" id="81R-Kr-UTM" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kIH-5m-URu" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-746.5" y="-1419"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="Gxd-g4-fbF">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Wrf-eZ-0Tt" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="s47-iJ-ihO">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="sad-jW-Up4" kind="relationship" relationship="rootViewController" id="oZm-10-dsR"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dBa-os-92u" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-479" y="-1021"/>
+        </scene>
     </scenes>
+    <resources>
+        <image name="car" width="33" height="33"/>
+        <image name="car_filled" width="33" height="33"/>
+    </resources>
 </document>

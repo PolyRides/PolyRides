@@ -43,7 +43,6 @@ class ResetPasswordViewController: LoginViewController {
     }
 
     textField.addTargetForEditing(self, selector: Selector("textFieldDidChange"))
-    registerForNotifications()
   }
 
   override func viewWillAppear(animated: Bool) {
@@ -58,11 +57,9 @@ class ResetPasswordViewController: LoginViewController {
     instructions.text = text
   }
 
-  override func viewWillDisappear(animated: Bool) {
-    super.viewWillDisappear(animated)
-  }
+  override func addObservers() {
+    super.addObservers()
 
-  override func registerForNotifications() {
     let defaultCenter = NSNotificationCenter.defaultCenter()
     var selector = Selector("onResetPasswordSuccess:")
     var name = FirebaseConnection.ResetPasswordSuccess
@@ -71,6 +68,17 @@ class ResetPasswordViewController: LoginViewController {
     selector = Selector("onChangePasswordSuccess:")
     name = FirebaseConnection.ChangePasswordSuccess
     defaultCenter.addObserver(self, selector: selector, name: name, object: nil)
+  }
+
+  override func removeObservers() {
+    let defaultCenter = NSNotificationCenter.defaultCenter()
+    var name = FirebaseConnection.ResetPasswordSuccess
+    defaultCenter.removeObserver(self, name: name, object: nil)
+
+    name = FirebaseConnection.ChangePasswordSuccess
+    defaultCenter.removeObserver(self, name: name, object: nil)
+
+    super.removeObservers()
   }
 
   override func onLoginError(notification: NSNotification) {
@@ -90,6 +98,7 @@ class ResetPasswordViewController: LoginViewController {
   func changePassword() {
     if let user = user {
       if let new = textField.text {
+        startLoading()
         let temp = temporaryPassword
         FirebaseConnection.changePasswordForUser(user, temporaryPassword: temp, newPassword: new)
       }
@@ -126,8 +135,7 @@ class ResetPasswordViewController: LoginViewController {
   func onPasswordReset(alert: UIAlertAction) {
     if let navigationController = navigationController {
       if let vc = navigationController.viewControllers.first as? MainLoginViewController {
-        if let email = emailTextField?.text {
-          print(email)
+        if let email = textField?.text {
           vc.emailTextField?.text = email
         }
       }

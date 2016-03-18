@@ -37,7 +37,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" systemItem="search" id="1k9-47-6cF"/>
+                    <tabBarItem key="tabBarItem" systemItem="contacts" id="1k9-47-6cF"/>
                     <navigationItem key="navigationItem" id="xam-MZ-sLh"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                 </viewController>

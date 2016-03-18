@@ -1,33 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="hUA-xp-WRI">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="8Wb-K8-eLJ">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
     </dependencies>
     <scenes>
-        <!--Navigation Controller-->
-        <scene sceneID="0c5-gn-PVE">
-            <objects>
-                <navigationController storyboardIdentifier="Main" id="hUA-xp-WRI" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="xI0-TM-evh">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <connections>
-                        <segue destination="8Wb-K8-eLJ" kind="relationship" relationship="rootViewController" id="Y06-P4-DhI"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="wP8-yI-OEH" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-2706" y="-691"/>
-        </scene>
-        <!--Login-->
-        <scene sceneID="C0V-9W-XWb">
-            <objects>
-                <viewControllerPlaceholder storyboardName="Login" referencedIdentifier="Login" id="rar-Ee-0cL" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="r87-8h-LsH" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-1297.5" y="-841"/>
-        </scene>
         <!--Messages-->
         <scene sceneID="aq8-ws-jtJ">
             <objects>
@@ -41,24 +17,18 @@
         <!--Tab Bar Controller-->
         <scene sceneID="Zgd-rR-OM5">
             <objects>
-                <tabBarController id="8Wb-K8-eLJ" customClass="TabBarController" customModule="PolyRides" customModuleProvider="target" sceneMemberID="viewController">
-                    <navigationItem key="navigationItem" id="yGL-G9-dEj">
-                        <barButtonItem key="leftBarButtonItem" title="Log Out" id="3CN-lm-VP2">
-                            <connections>
-                                <segue destination="rar-Ee-0cL" kind="show" id="rnb-u6-gv9"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                <tabBarController storyboardIdentifier="Main" id="8Wb-K8-eLJ" customClass="TabBarController" customModule="PolyRides" customModuleProvider="target" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="yGL-G9-dEj"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="iyP-7J-vyb">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </tabBar>
                     <connections>
-                        <segue destination="1a4-Wh-aTf" kind="relationship" relationship="viewControllers" id="9F6-em-Heq"/>
                         <segue destination="Yfr-5U-1ZP" kind="relationship" relationship="viewControllers" id="TL8-ei-8yT"/>
                         <segue destination="tBo-Ay-cjm" kind="relationship" relationship="viewControllers" id="ohJ-3j-AYh"/>
-                        <segue destination="EOc-nx-fJH" kind="relationship" relationship="viewControllers" id="aCN-7D-Jzg"/>
+                        <segue destination="1a4-Wh-aTf" kind="relationship" relationship="viewControllers" id="gkm-qc-Tf5"/>
+                        <segue destination="EOc-nx-fJH" kind="relationship" relationship="viewControllers" id="mT5-D0-hse"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fzJ-hX-XYl" userLabel="First Responder" sceneMemberID="firstResponder"/>

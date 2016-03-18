@@ -41,13 +41,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
       if FirebaseConnection.ref.authData != nil {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        if let navVC = storyboard.instantiateViewControllerWithIdentifier("Main") as? UINavigationController {
-          if let tabBarVC = navVC.topViewController as? TabBarController {
-            let user = User(id: FirebaseConnection.ref.authData.uid)
-            FirebaseConnection.updateValuesForUser(user)
-            tabBarVC.user = user
-            self.window?.rootViewController = navVC
-          }
+        let controller = storyboard.instantiateViewControllerWithIdentifier("Main")
+        if let tabBarVC = controller as? TabBarController {
+          let user = User(id: FirebaseConnection.ref.authData.uid)
+          FirebaseConnection.updateValuesForUser(user)
+          tabBarVC.user = user
+          self.window?.rootViewController = tabBarVC
         }
       }
 

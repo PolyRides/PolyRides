@@ -38,6 +38,12 @@ class LoginViewController: UIViewController {
     super.viewWillAppear(animated)
     navigationController?.navigationBar.hidden = true
     textFieldDidChange()
+    addObservers()
+  }
+
+  override func viewWillDisappear(animated: Bool) {
+    removeObservers()
+    super.viewWillDisappear(animated)
   }
 
   override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
@@ -57,20 +63,28 @@ class LoginViewController: UIViewController {
     button?.setTitle(title, forState: UIControlState.Normal)
   }
 
-  func registerForNotifications() {
+  func removeObservers() {
     let defaultCenter = NSNotificationCenter.defaultCenter()
-    var selector = Selector("onLoginError:")
     var name = FirebaseConnection.LoginError
-    defaultCenter.addObserver(self, selector: selector, name: name, object: nil)
+    defaultCenter.removeObserver(self, name: name, object: nil)
 
-    selector = Selector("onFacebookError")
     name = FirebaseConnection.FBError
-    defaultCenter.addObserver(self, selector: selector, name: name, object: nil)
+    defaultCenter.removeObserver(self, name: name, object: nil)
 
-    selector = Selector("onLoginSuccess:")
     name = FirebaseConnection.LoginSuccess
-    defaultCenter.addObserver(self, selector: selector, name: name, object: nil)
+    defaultCenter.removeObserver(self, name: name, object: nil)
+  }
 
+  func addObservers() {
+    let defaultCenter = NSNotificationCenter.defaultCenter()
+    var name = FirebaseConnection.LoginError
+    defaultCenter.addObserver(self, selector: Selector("onLoginError:"), name: name, object: nil)
+
+    name = FirebaseConnection.FBError
+    defaultCenter.addObserver(self, selector: Selector("onFacebookError"), name: name, object: nil)
+
+    name = FirebaseConnection.LoginSuccess
+    defaultCenter.addObserver(self, selector: Selector("onLoginSuccess:"), name: name, object: nil)
   }
 
   func onFacebookError() {
@@ -155,12 +169,10 @@ class LoginViewController: UIViewController {
   func startMain(action: UIAlertAction? = nil) {
     let storyboard = UIStoryboard(name: "Main", bundle: nil)
     let viewController = storyboard.instantiateViewControllerWithIdentifier("Main")
-    if let navVC = viewController as? UINavigationController {
-      if let tabVC = navVC.topViewController as? TabBarController {
-        tabVC.user = user
-        if let delegate: AppDelegate = UIApplication.sharedApplication().delegate as? AppDelegate {
-          delegate.window?.rootViewController = navVC
-        }
+    if let tabBarVC = viewController as? TabBarController {
+      tabBarVC.user = user
+      if let delegate: AppDelegate = UIApplication.sharedApplication().delegate as? AppDelegate {
+        delegate.window?.rootViewController = tabBarVC
       }
     }
   }
