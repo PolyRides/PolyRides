@@ -17,7 +17,6 @@ If a new version is available, an alert can be presented to the user informing t
 
 ## Features
 - [x] CocoaPods Support
-- [x] Support for `UIAlertController` (iOS 8+) and `UIAlertView` (iOS 7)
 - [x] Localized for 20+ languages (See **Localization** Section)
 - [x] Three types of alerts (see **Screenshots & Alert Types**)
 - [x] Optional delegate methods (see **Optional Delegate** section)
@@ -50,7 +49,7 @@ github "ArtSabintsev/Siren"
 
 ### Swift Package manager
 ```swift
-.Package(url: "https://github.com/ArtSabintsev/Siren.git", majorVersion: 0),
+.Package(url: "https://github.com/ArtSabintsev/Siren.git", majorVersion: 0)
 ```
 
 Add `import Siren` to any `.Swift` file that references Siren via a Carthage installation.

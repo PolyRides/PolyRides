@@ -46,8 +46,9 @@ class FirebaseConnection {
     FirebaseConnection.ref.changePasswordForUser(user.email, fromOld: temporaryPassword,
       toNew: newPassword) { error in
         if error == nil {
+          let user = User()
           let notification = FirebaseConnection.LoginSuccess
-          NSNotificationCenter.defaultCenter().postNotificationName(notification, object: nil)
+          NSNotificationCenter.defaultCenter().postNotificationName(notification, object: user)
         } else {
           let notification = FirebaseConnection.LoginError
           NSNotificationCenter.defaultCenter().postNotificationName(notification, object: error)
@@ -58,7 +59,6 @@ class FirebaseConnection {
   static func createUser(user: User, password: String) {
     FirebaseConnection.ref.createUser(user.email, password: password) { error, result in
       if error == nil {
-        print(result["authData"])
         if let uid = result["uid"] as? String {
           user.id = uid
           let notification = FirebaseConnection.LoginSuccess

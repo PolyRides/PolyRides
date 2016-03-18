@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		8F32E580C33AC6C26F5C4050 /* Pods_PolyRides.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B472AC953EC1C3E0C19CECA0 /* Pods_PolyRides.framework */; };
+		DB4151001C9A74500062E5A0 /* RidesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB4150FF1C9A74500062E5A0 /* RidesViewController.swift */; };
+		DB4151041C9B05340062E5A0 /* AddRideViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB4151031C9B05340062E5A0 /* AddRideViewController.swift */; };
 		DB70B8CE1C9389EA0065CC4D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB70B8CD1C9389EA0065CC4D /* AppDelegate.swift */; };
 		DB70B8D01C9389EA0065CC4D /* MainLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB70B8CF1C9389EA0065CC4D /* MainLoginViewController.swift */; };
 		DB70B8D51C9389EA0065CC4D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DB70B8D41C9389EA0065CC4D /* Assets.xcassets */; };
@@ -22,12 +24,14 @@
 		DB747AB81C98D79500A24F58 /* Messages.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB747AB71C98D79500A24F58 /* Messages.storyboard */; };
 		DB747ABA1C98D79E00A24F58 /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB747AB91C98D79E00A24F58 /* Profile.storyboard */; };
 		DB747ABC1C98DB2D00A24F58 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB747ABB1C98DB2D00A24F58 /* TabBarController.swift */; };
+		DB793E801C9C4A04001BB0EE /* LocationModalRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB793E7F1C9C4A04001BB0EE /* LocationModalRow.swift */; };
 		DB956DD81C96833700809B4C /* FirebaseConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB956DD71C96833700809B4C /* FirebaseConnection.swift */; };
 		DBAB56801C968FAA0011167A /* UIViewControllerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBAB567F1C968FAA0011167A /* UIViewControllerExtensions.swift */; };
 		DBAB56871C96B0F10011167A /* SearchTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBAB56861C96B0F10011167A /* SearchTableViewController.swift */; };
 		DBAB56911C96C5270011167A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DBAB56901C96C5270011167A /* Main.storyboard */; };
 		DBAB56931C96C6300011167A /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBAB56921C96C6300011167A /* LoginViewController.swift */; };
 		DBAB56951C9738870011167A /* UITextFieldExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBAB56941C9738870011167A /* UITextFieldExtensions.swift */; };
+		DBB1558C1C9B76C500118F89 /* DateHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBB1558B1C9B76C500118F89 /* DateHelper.swift */; };
 		DBF5E6DB1C93A66600693807 /* GoogleAnalyticsHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBF5E6DA1C93A66600693807 /* GoogleAnalyticsHelper.swift */; };
 		DBF5E6F01C963D3A00693807 /* ResetPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBF5E6EF1C963D3A00693807 /* ResetPasswordViewController.swift */; };
 		DBF5E6F21C963D6400693807 /* CreateAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBF5E6F11C963D6400693807 /* CreateAccountViewController.swift */; };
@@ -55,6 +59,8 @@
 		2241301BA6D0CFD44D162D7E /* Pods-PolyRides.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PolyRides.release.xcconfig"; path = "Pods/Target Support Files/Pods-PolyRides/Pods-PolyRides.release.xcconfig"; sourceTree = "<group>"; };
 		B472AC953EC1C3E0C19CECA0 /* Pods_PolyRides.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PolyRides.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CC61BB155FFE8FE24FA32C81 /* Pods-PolyRides.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PolyRides.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PolyRides/Pods-PolyRides.debug.xcconfig"; sourceTree = "<group>"; };
+		DB4150FF1C9A74500062E5A0 /* RidesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RidesViewController.swift; sourceTree = "<group>"; };
+		DB4151031C9B05340062E5A0 /* AddRideViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddRideViewController.swift; sourceTree = "<group>"; };
 		DB70B8CA1C9389EA0065CC4D /* PolyRides.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PolyRides.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DB70B8CD1C9389EA0065CC4D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DB70B8CF1C9389EA0065CC4D /* MainLoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainLoginViewController.swift; sourceTree = "<group>"; };
@@ -76,12 +82,14 @@
 		DB747AB71C98D79500A24F58 /* Messages.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Messages.storyboard; sourceTree = "<group>"; };
 		DB747AB91C98D79E00A24F58 /* Profile.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
 		DB747ABB1C98DB2D00A24F58 /* TabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
+		DB793E7F1C9C4A04001BB0EE /* LocationModalRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationModalRow.swift; sourceTree = "<group>"; };
 		DB956DD71C96833700809B4C /* FirebaseConnection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FirebaseConnection.swift; path = Model/FirebaseConnection.swift; sourceTree = "<group>"; };
 		DBAB567F1C968FAA0011167A /* UIViewControllerExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtensions.swift; sourceTree = "<group>"; };
 		DBAB56861C96B0F10011167A /* SearchTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchTableViewController.swift; sourceTree = "<group>"; };
 		DBAB56901C96C5270011167A /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		DBAB56921C96C6300011167A /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		DBAB56941C9738870011167A /* UITextFieldExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UITextFieldExtensions.swift; sourceTree = "<group>"; };
+		DBB1558B1C9B76C500118F89 /* DateHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateHelper.swift; sourceTree = "<group>"; };
 		DBF5E6DA1C93A66600693807 /* GoogleAnalyticsHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GoogleAnalyticsHelper.swift; path = Model/GoogleAnalyticsHelper.swift; sourceTree = "<group>"; };
 		DBF5E6EF1C963D3A00693807 /* ResetPasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResetPasswordViewController.swift; sourceTree = "<group>"; };
 		DBF5E6F11C963D6400693807 /* CreateAccountViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateAccountViewController.swift; sourceTree = "<group>"; };
@@ -129,6 +137,15 @@
 				2241301BA6D0CFD44D162D7E /* Pods-PolyRides.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		DB4151021C9B05240062E5A0 /* Rides */ = {
+			isa = PBXGroup;
+			children = (
+				DB4150FF1C9A74500062E5A0 /* RidesViewController.swift */,
+				DB4151031C9B05340062E5A0 /* AddRideViewController.swift */,
+			);
+			name = Rides;
 			sourceTree = "<group>";
 		};
 		DB70B8C11C9389EA0065CC4D = {
@@ -240,6 +257,8 @@
 			children = (
 				DB956DD71C96833700809B4C /* FirebaseConnection.swift */,
 				DBF5E6DA1C93A66600693807 /* GoogleAnalyticsHelper.swift */,
+				DBB1558B1C9B76C500118F89 /* DateHelper.swift */,
+				DB793E7F1C9C4A04001BB0EE /* LocationModalRow.swift */,
 			);
 			name = Util;
 			sourceTree = "<group>";
@@ -259,8 +278,9 @@
 		DBAB56851C96B0C20011167A /* Main */ = {
 			isa = PBXGroup;
 			children = (
-				DBAB56861C96B0F10011167A /* SearchTableViewController.swift */,
 				DB747ABB1C98DB2D00A24F58 /* TabBarController.swift */,
+				DBAB56861C96B0F10011167A /* SearchTableViewController.swift */,
+				DB4151021C9B05240062E5A0 /* Rides */,
 			);
 			name = Main;
 			sourceTree = "<group>";
@@ -481,7 +501,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "echo \"BUIDLING\"\nif which swiftlint >/dev/null; then\nswiftlint\nelse\necho \"error: SwiftLint does not exist, download it from https://github.com/realm/SwiftLint\"\nexit 1\nfi";
+			shellScript = "#echo \"BUIDLING\"\n#if which swiftlint >/dev/null; then\n#swiftlint\n#else\n#echo \"error: SwiftLint does not exist, download it from https://github.com/realm/SwiftLint\"\n#exit 1\n#fi";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -492,16 +512,20 @@
 			files = (
 				DB956DD81C96833700809B4C /* FirebaseConnection.swift in Sources */,
 				DBAB56801C968FAA0011167A /* UIViewControllerExtensions.swift in Sources */,
+				DB4151041C9B05340062E5A0 /* AddRideViewController.swift in Sources */,
+				DB793E801C9C4A04001BB0EE /* LocationModalRow.swift in Sources */,
 				DBF5E6F21C963D6400693807 /* CreateAccountViewController.swift in Sources */,
 				DBAB56951C9738870011167A /* UITextFieldExtensions.swift in Sources */,
 				DBF5E6F51C96719400693807 /* EmailAccountViewController.swift in Sources */,
 				DB70B8D01C9389EA0065CC4D /* MainLoginViewController.swift in Sources */,
 				DBF5E6F01C963D3A00693807 /* ResetPasswordViewController.swift in Sources */,
 				DBAB56871C96B0F10011167A /* SearchTableViewController.swift in Sources */,
+				DBB1558C1C9B76C500118F89 /* DateHelper.swift in Sources */,
 				DB70B8CE1C9389EA0065CC4D /* AppDelegate.swift in Sources */,
 				DB70B9021C938B230065CC4D /* User.swift in Sources */,
 				DB747ABC1C98DB2D00A24F58 /* TabBarController.swift in Sources */,
 				DBAB56931C96C6300011167A /* LoginViewController.swift in Sources */,
+				DB4151001C9A74500062E5A0 /* RidesViewController.swift in Sources */,
 				DBF5E6DB1C93A66600693807 /* GoogleAnalyticsHelper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

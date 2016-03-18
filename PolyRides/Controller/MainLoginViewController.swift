@@ -26,7 +26,6 @@ class MainLoginViewController: LoginViewController {
     super.viewDidLoad()
 
     trackScreen(String(MainLoginViewController))
-    registerForNotifications()
   }
 
   override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
@@ -36,21 +35,33 @@ class MainLoginViewController: LoginViewController {
 
     if segue.identifier == "toResetPassword" {
       if let vc = segue.destinationViewController as? ResetPasswordViewController {
-        if let password = passwordTextField?.text {
-          vc.temporaryPassword = password
-          vc.user = user
+        vc.user = user
+        if let sender = sender as? String {
+          if sender == FirebaseConnection.TemporaryPassword {
+            if let password = passwordTextField?.text {
+                vc.temporaryPassword = password
+            }
+          }
         }
       }
     }
   }
 
-  override func registerForNotifications() {
-    super.registerForNotifications()
+  override func addObservers() {
+    super.addObservers()
 
     let defaultCenter = NSNotificationCenter.defaultCenter()
     let selector = Selector("onHasTemporaryPassword:")
     let name = FirebaseConnection.TemporaryPassword
     defaultCenter.addObserver(self, selector: selector, name: name, object: nil)
+  }
+
+  override func removeObservers() {
+    super.removeObservers()
+
+    let defaultCenter = NSNotificationCenter.defaultCenter()
+    let name = FirebaseConnection.TemporaryPassword
+    defaultCenter.removeObserver(self, name: name, object: nil)
   }
 
   override func onLoginError(notification: NSNotification) {
@@ -62,7 +73,8 @@ class MainLoginViewController: LoginViewController {
     stopLoading(buttonTitle)
     if let user = notification.object as? User {
       self.user = user
-      self.performSegueWithIdentifier("toResetPassword", sender: self)
+      let temporaryPassword = FirebaseConnection.TemporaryPassword
+      self.performSegueWithIdentifier("toResetPassword", sender: temporaryPassword)
     }
   }
 

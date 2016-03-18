@@ -3,6 +3,8 @@ use_frameworks!
 inhibit_all_warnings!
 
 target 'PolyRides' do
+   pod 'GooglePlacesAutocomplete'
+   pod 'Eureka'
    pod 'FBSDKShareKit'
    pod 'FBSDKCoreKit'
    pod 'FBSDKLoginKit'
