@@ -13,8 +13,6 @@ class SearchTableViewController: UITableViewController {
   override func viewDidAppear(animated: Bool) {
     super.viewDidAppear(animated)
 
-    navigationController?.navigationBar.hidden = false
-
   }
 
   override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {

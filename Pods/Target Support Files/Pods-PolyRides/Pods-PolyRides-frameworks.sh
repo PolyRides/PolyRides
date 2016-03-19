@@ -84,22 +84,20 @@ strip_invalid_archs() {
 
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
+  install_framework "Pods-PolyRides/Alamofire.framework"
   install_framework "Pods-PolyRides/Bolts.framework"
-  install_framework "Pods-PolyRides/Eureka.framework"
   install_framework "Pods-PolyRides/FBSDKCoreKit.framework"
   install_framework "Pods-PolyRides/FBSDKLoginKit.framework"
   install_framework "Pods-PolyRides/FBSDKShareKit.framework"
   install_framework "Pods-PolyRides/Firebase.framework"
-  install_framework "Pods-PolyRides/GooglePlacesAutocomplete.framework"
   install_framework "Pods-PolyRides/Siren.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
+  install_framework "Pods-PolyRides/Alamofire.framework"
   install_framework "Pods-PolyRides/Bolts.framework"
-  install_framework "Pods-PolyRides/Eureka.framework"
   install_framework "Pods-PolyRides/FBSDKCoreKit.framework"
   install_framework "Pods-PolyRides/FBSDKLoginKit.framework"
   install_framework "Pods-PolyRides/FBSDKShareKit.framework"
   install_framework "Pods-PolyRides/Firebase.framework"
-  install_framework "Pods-PolyRides/GooglePlacesAutocomplete.framework"
   install_framework "Pods-PolyRides/Siren.framework"
 fi
