@@ -135,11 +135,11 @@ extension AddRideViewController: UITextFieldDelegate {
     let bottomRight = CLLocationCoordinate2DMake(32.974171, -113.799198)
     let bounds = GMSCoordinateBounds(coordinate: topLeft, coordinate: bottomRight)
 
-    let acController = GMSAutocompleteViewController()
-    acController.autocompleteFilter = filter
-    acController.autocompleteBounds = bounds
-    acController.delegate = self
-    self.presentViewController(acController, animated: true, completion: nil)
+    let autocompleteController = GMSAutocompleteViewController()
+    autocompleteController.autocompleteFilter = filter
+    autocompleteController.autocompleteBounds = bounds
+    autocompleteController.delegate = self
+    self.presentViewController(autocompleteController, animated: true, completion: nil)
 
     return false
   }
