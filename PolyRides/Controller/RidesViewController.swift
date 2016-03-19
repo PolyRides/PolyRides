@@ -6,16 +6,26 @@
 //  Copyright © 2016 Vanessa Forney. All rights reserved.
 //
 
+<<<<<<< HEAD
 class RidesViewController: UIViewController {
 
   var user: User?
   var rides = [Ride]()
 
   @IBOutlet weak var tableView: UITableView?
+=======
+import GooglePlacesAutocomplete
+
+class RidesViewController: UIViewController {
+
+  var user: User?
+
+>>>>>>> df43ab7300cf1dd95ce08c551ff6e524de6ce2df
 
   override func viewDidLoad() {
     super.viewDidLoad()
 
+<<<<<<< HEAD
     if let tabBarController = self.tabBarController as? TabBarController {
       self.user = tabBarController.user
     }
@@ -59,4 +69,10 @@ extension RidesViewController: UITableViewDelegate {
     print("selected a ride")
   }
   
+=======
+    // populate user field from tab bar controller
+    // query for all rides
+  }
+
+>>>>>>> df43ab7300cf1dd95ce08c551ff6e524de6ce2df
 }

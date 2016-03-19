@@ -22,7 +22,15 @@ class CreateAccountViewController: LoginViewController {
     super.viewDidLoad()
 
     trackScreen(String(CreateAccountViewController))
+<<<<<<< HEAD
     buttonTitle = "Create Account"
+=======
+  }
+
+  override func onLoginError(notification: NSNotification) {
+    stopLoading()
+    super.onLoginError(notification)
+>>>>>>> df43ab7300cf1dd95ce08c551ff6e524de6ce2df
   }
 
 }

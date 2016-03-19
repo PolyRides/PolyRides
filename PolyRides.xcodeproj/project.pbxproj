@@ -31,9 +31,15 @@
 		DBAB56931C96C6300011167A /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBAB56921C96C6300011167A /* LoginViewController.swift */; };
 		DBAB56951C9738870011167A /* UITextFieldExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBAB56941C9738870011167A /* UITextFieldExtensions.swift */; };
 		DBB1558C1C9B76C500118F89 /* DateHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBB1558B1C9B76C500118F89 /* DateHelper.swift */; };
+<<<<<<< HEAD
 		DBBBD13B1C9DE4D00085E3B9 /* Ride.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBBBD13A1C9DE4D00085E3B9 /* Ride.swift */; };
 		DBBBD13D1C9DE57B0085E3B9 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBBBD13C1C9DE57B0085E3B9 /* Location.swift */; };
 		DBBBD13F1C9DE8590085E3B9 /* GoogleMapsHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBBBD13E1C9DE8590085E3B9 /* GoogleMapsHelper.swift */; };
+=======
+		DBBBD1351C9DB6940085E3B9 /* AutocompleteHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBBBD1341C9DB6940085E3B9 /* AutocompleteHelper.swift */; };
+		DBBBD1371C9DBC720085E3B9 /* Autocomplete.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DBBBD1361C9DBC720085E3B9 /* Autocomplete.storyboard */; };
+		DBBBD1391C9DC4D90085E3B9 /* AutocompleteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBBBD1381C9DC4D90085E3B9 /* AutocompleteViewController.swift */; };
+>>>>>>> df43ab7300cf1dd95ce08c551ff6e524de6ce2df
 		DBF5E6DB1C93A66600693807 /* GoogleAnalyticsHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBF5E6DA1C93A66600693807 /* GoogleAnalyticsHelper.swift */; };
 		DBF5E6F01C963D3A00693807 /* ResetPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBF5E6EF1C963D3A00693807 /* ResetPasswordViewController.swift */; };
 		DBF5E6F21C963D6400693807 /* CreateAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBF5E6F11C963D6400693807 /* CreateAccountViewController.swift */; };
@@ -104,9 +110,15 @@
 		DBAB56921C96C6300011167A /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		DBAB56941C9738870011167A /* UITextFieldExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UITextFieldExtensions.swift; sourceTree = "<group>"; };
 		DBB1558B1C9B76C500118F89 /* DateHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateHelper.swift; sourceTree = "<group>"; };
+<<<<<<< HEAD
 		DBBBD13A1C9DE4D00085E3B9 /* Ride.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Ride.swift; sourceTree = "<group>"; };
 		DBBBD13C1C9DE57B0085E3B9 /* Location.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		DBBBD13E1C9DE8590085E3B9 /* GoogleMapsHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoogleMapsHelper.swift; sourceTree = "<group>"; };
+=======
+		DBBBD1341C9DB6940085E3B9 /* AutocompleteHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutocompleteHelper.swift; sourceTree = "<group>"; };
+		DBBBD1361C9DBC720085E3B9 /* Autocomplete.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Autocomplete.storyboard; path = ../Controller/Autocomplete.storyboard; sourceTree = "<group>"; };
+		DBBBD1381C9DC4D90085E3B9 /* AutocompleteViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutocompleteViewController.swift; sourceTree = "<group>"; };
+>>>>>>> df43ab7300cf1dd95ce08c551ff6e524de6ce2df
 		DBF5E6DA1C93A66600693807 /* GoogleAnalyticsHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GoogleAnalyticsHelper.swift; path = Model/GoogleAnalyticsHelper.swift; sourceTree = "<group>"; };
 		DBF5E6EF1C963D3A00693807 /* ResetPasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResetPasswordViewController.swift; sourceTree = "<group>"; };
 		DBF5E6F11C963D6400693807 /* CreateAccountViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateAccountViewController.swift; sourceTree = "<group>"; };
@@ -160,6 +172,10 @@
 			isa = PBXGroup;
 			children = (
 				DB4151031C9B05340062E5A0 /* AddRideViewController.swift */,
+<<<<<<< HEAD
+=======
+				DBBBD1381C9DC4D90085E3B9 /* AutocompleteViewController.swift */,
+>>>>>>> df43ab7300cf1dd95ce08c551ff6e524de6ce2df
 				DB4150FF1C9A74500062E5A0 /* RidesViewController.swift */,
 			);
 			name = Rides;
@@ -263,6 +279,10 @@
 		DB747AB41C98D74F00A24F58 /* Tabs */ = {
 			isa = PBXGroup;
 			children = (
+<<<<<<< HEAD
+=======
+				DBBBD1361C9DBC720085E3B9 /* Autocomplete.storyboard */,
+>>>>>>> df43ab7300cf1dd95ce08c551ff6e524de6ce2df
 				DB747AB21C98D28A00A24F58 /* Search.storyboard */,
 				DB747AB51C98D76900A24F58 /* Rides.storyboard */,
 				DB747AB71C98D79500A24F58 /* Messages.storyboard */,
@@ -277,7 +297,11 @@
 				DBB1558B1C9B76C500118F89 /* DateHelper.swift */,
 				DB956DD71C96833700809B4C /* FirebaseConnection.swift */,
 				DBF5E6DA1C93A66600693807 /* GoogleAnalyticsHelper.swift */,
+<<<<<<< HEAD
 				DBBBD13E1C9DE8590085E3B9 /* GoogleMapsHelper.swift */,
+=======
+				DBBBD1341C9DB6940085E3B9 /* AutocompleteHelper.swift */,
+>>>>>>> df43ab7300cf1dd95ce08c551ff6e524de6ce2df
 			);
 			name = Util;
 			sourceTree = "<group>";
@@ -431,6 +455,10 @@
 				DB70B8D51C9389EA0065CC4D /* Assets.xcassets in Resources */,
 				DB747ABA1C98D79E00A24F58 /* Profile.storyboard in Resources */,
 				DB747AB31C98D28A00A24F58 /* Search.storyboard in Resources */,
+<<<<<<< HEAD
+=======
+				DBBBD1371C9DBC720085E3B9 /* Autocomplete.storyboard in Resources */,
+>>>>>>> df43ab7300cf1dd95ce08c551ff6e524de6ce2df
 				DB70B9051C938CDC0065CC4D /* LaunchScreen.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -521,7 +549,11 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
+<<<<<<< HEAD
 			shellScript = "echo \"BUIDLING\"\nif which swiftlint >/dev/null; then\nswiftlint\nelse\necho \"error: SwiftLint does not exist, download it from https://github.com/realm/SwiftLint\"\nexit 1\nfi";
+=======
+			shellScript = "#echo \"BUIDLING\"\n#if which swiftlint >/dev/null; then\n#swiftlint\n#else\n#echo \"error: SwiftLint does not exist, download it from https://github.com/realm/SwiftLint\"\n#exit 1\n#fi";
+>>>>>>> df43ab7300cf1dd95ce08c551ff6e524de6ce2df
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -531,11 +563,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				DB956DD81C96833700809B4C /* FirebaseConnection.swift in Sources */,
+<<<<<<< HEAD
 				DBBBD13B1C9DE4D00085E3B9 /* Ride.swift in Sources */,
 				DBBBD13F1C9DE8590085E3B9 /* GoogleMapsHelper.swift in Sources */,
 				DBAB56801C968FAA0011167A /* UIViewControllerExtensions.swift in Sources */,
 				DB4151041C9B05340062E5A0 /* AddRideViewController.swift in Sources */,
 				DBBBD13D1C9DE57B0085E3B9 /* Location.swift in Sources */,
+=======
+				DBAB56801C968FAA0011167A /* UIViewControllerExtensions.swift in Sources */,
+				DB4151041C9B05340062E5A0 /* AddRideViewController.swift in Sources */,
+>>>>>>> df43ab7300cf1dd95ce08c551ff6e524de6ce2df
 				DBF5E6F21C963D6400693807 /* CreateAccountViewController.swift in Sources */,
 				DBAB56951C9738870011167A /* UITextFieldExtensions.swift in Sources */,
 				DBF5E6F51C96719400693807 /* EmailAccountViewController.swift in Sources */,
@@ -544,10 +581,15 @@
 				DBAB56871C96B0F10011167A /* SearchTableViewController.swift in Sources */,
 				DBB1558C1C9B76C500118F89 /* DateHelper.swift in Sources */,
 				DB70B8CE1C9389EA0065CC4D /* AppDelegate.swift in Sources */,
+				DBBBD1351C9DB6940085E3B9 /* AutocompleteHelper.swift in Sources */,
 				DB70B9021C938B230065CC4D /* User.swift in Sources */,
 				DB747ABC1C98DB2D00A24F58 /* TabBarController.swift in Sources */,
 				DBAB56931C96C6300011167A /* LoginViewController.swift in Sources */,
 				DB4151001C9A74500062E5A0 /* RidesViewController.swift in Sources */,
+<<<<<<< HEAD
+=======
+				DBBBD1391C9DC4D90085E3B9 /* AutocompleteViewController.swift in Sources */,
+>>>>>>> df43ab7300cf1dd95ce08c551ff6e524de6ce2df
 				DBF5E6DB1C93A66600693807 /* GoogleAnalyticsHelper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

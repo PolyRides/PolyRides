@@ -248,10 +248,16 @@
                     </view>
                     <connections>
                         <outlet property="button" destination="LdG-6t-2pj" id="HWT-pX-7jl"/>
+<<<<<<< HEAD
                         <outlet property="emailTextField" destination="hxN-Wh-6bQ" id="meN-h4-tB0"/>
                         <outlet property="indicator" destination="uyQ-Db-TCN" id="WaZ-xf-5Qk"/>
                         <outlet property="instructions" destination="2I8-sd-qSA" id="rlZ-Cf-6p5"/>
                         <outlet property="passwordTextField" destination="hxN-Wh-6bQ" id="hGH-pw-gwa"/>
+=======
+                        <outlet property="indicator" destination="uyQ-Db-TCN" id="WaZ-xf-5Qk"/>
+                        <outlet property="instructions" destination="2I8-sd-qSA" id="rlZ-Cf-6p5"/>
+                        <outlet property="textField" destination="hxN-Wh-6bQ" id="812-7h-LCZ"/>
+>>>>>>> df43ab7300cf1dd95ce08c551ff6e524de6ce2df
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2ut-Cz-iC9" userLabel="First Responder" sceneMemberID="firstResponder"/>
