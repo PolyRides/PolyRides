@@ -29,6 +29,15 @@ class FirebaseConnection {
     }
   }
 
+  static func pushRideToFirebase(ride: Ride) {
+    let rideRef = ref.childByAppendingPath("rides").childByAutoId()
+    if let id = ride.driver?.id {
+      let userRideRef = ref.childByAppendingPath("users/\(id)/rides/\(rideRef.key)")
+      userRideRef.setValue(true)
+      rideRef.setValue(ride.toAnyObject())
+    }
+  }
+
   static func resetPasswordForEmail(email: String) {
     print(email)
     FirebaseConnection.ref.resetPasswordForUser(email) { error in

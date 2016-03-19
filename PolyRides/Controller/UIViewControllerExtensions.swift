@@ -48,4 +48,9 @@ extension UIViewController {
     GoogleAnalyticsHelper.trackScreen(screenName)
   }
 
+  override public func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+    view.endEditing(true)
+    super.touchesBegan(touches, withEvent: event)
+  }
+
 }

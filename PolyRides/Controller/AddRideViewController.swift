@@ -6,15 +6,16 @@
 //  Copyright © 2016 Vanessa Forney. All rights reserved.
 //
 
+import GoogleMaps
+
 class AddRideViewController: UIViewController {
 
   let gpaKey = "AIzaSyBV7uveXT1JXkp149zLJgmCb2U-caWuH84"
 
   var user: User?
-  var gpaVC: UINavigationController?
-  var autocompleteVC: AutocompleteViewController?
-  var toLocationPlace: Place?
-  var fromLocationPlace: Place?
+  var toLocationPlace: GMSPlace?
+  var fromLocationPlace: GMSPlace?
+  var autocompleteTextField: UITextField?
 
   @IBOutlet weak var toTextField: UITextField?
   @IBOutlet weak var fromTextField: UITextField?
@@ -29,11 +30,23 @@ class AddRideViewController: UIViewController {
   }
 
   @IBAction func addButtonAction(sender: AnyObject) {
-    // Send ride to Firebase.
+    if var cost = costTextField?.text {
+      if let description = notesTextView?.text {
+        if let seats = seatsLabel?.text {
+          if let date = datePicker?.date {
+            cost = cost.stringByReplacingOccurrencesOfString("$", withString: "")
+            if let user = user {
+              let ride = Ride(driver: user, date: date, seats: Int(seats), description: description, cost: Int(cost))
+              FirebaseConnection.pushRideToFirebase(ride)
+            }
+          }
+        }
+      }
+    }
     navigationController?.dismissViewControllerAnimated(true, completion: nil)
   }
 
-  @IBAction func stepperValChanged(sender : UIStepper) {
+  @IBAction func stepperValChanged(sender: UIStepper) {
       seatsLabel?.text = Int(sender.value).description
   }
 
@@ -56,18 +69,6 @@ class AddRideViewController: UIViewController {
 
     toTextField?.delegate = self
     fromTextField?.delegate = self
-
-    setupAutocomplete()
-  }
-
-  func setupAutocomplete() {
-    let id = "Autocomplete"
-    let storyboard = UIStoryboard(name: id, bundle: nil)
-    if let navVC = storyboard.instantiateViewControllerWithIdentifier(id) as? UINavigationController {
-      gpaVC = navVC
-      autocompleteVC = navVC.topViewController as? AutocompleteViewController
-      autocompleteVC?.delegate = self
-    }
   }
 
   func setEnableAddButton() {
@@ -78,20 +79,32 @@ class AddRideViewController: UIViewController {
 
 }
 
-// MARK: - GooglePlacesAutocompleteDelegate
-extension AddRideViewController: AutocompleteDelegate {
+// MARK: - GMSAutocompleteViewControllerDelegate
+extension AddRideViewController: GMSAutocompleteViewControllerDelegate {
 
-  func placesFound(places: [Place]) {
-    print("places found")
+  // Handle the user's selection.
+  func viewController(viewController: GMSAutocompleteViewController,
+    didAutocompleteWithPlace place: GMSPlace) {
+    autocompleteTextField?.text = place.formattedAddress
+
+    if autocompleteTextField == toTextField {
+      toLocationPlace = place
+    } else {
+      fromLocationPlace = place
+    }
+
+    dismissViewControllerAnimated(true, completion: nil)
   }
 
-  func placeSelected(place: Place, sender: AnyObject) {
-    print("place selected")
-    setEnableAddButton()
+  func viewController(viewController: GMSAutocompleteViewController,
+    didFailAutocompleteWithError error: NSError) {
+    let title = "Please check your connection and try again."
+    presentAlert(AlertOptions(message: "Network Error", title: title))
+    dismissViewControllerAnimated(true, completion: nil)
   }
 
-  func placeViewClosed() {
-    navigationController?.dismissViewControllerAnimated(true, completion: nil)
+  func wasCancelled(viewController: GMSAutocompleteViewController) {
+    dismissViewControllerAnimated(true, completion: nil)
   }
 
 }
@@ -100,37 +113,23 @@ extension AddRideViewController: AutocompleteDelegate {
 extension AddRideViewController: UITextFieldDelegate {
 
   func textFieldShouldBeginEditing(textField: UITextField) -> Bool {
-    let title = textField == toTextField ? "To Location" : "From Location"
-    if let gpaVC = gpaVC {
-      if let autocompleteVC = autocompleteVC {
-        autocompleteVC.navigationItem.title = title
-        autocompleteVC.sender = textField
-        navigationController?.presentViewController(gpaVC, animated: true, completion: nil)
-      }
-    }
+    autocompleteTextField = textField
+
+    let filter = GMSAutocompleteFilter()
+    filter.country = "US"
+
+    // Set the bounds to have bias around California.
+    let topLeft = CLLocationCoordinate2DMake(41.975926, -124.509506)
+    let bottomRight = CLLocationCoordinate2DMake(32.974171, -113.799198)
+    let bounds = GMSCoordinateBounds(coordinate: topLeft, coordinate: bottomRight)
+
+    let acController = GMSAutocompleteViewController()
+    acController.autocompleteFilter = filter
+    acController.autocompleteBounds = bounds
+    acController.delegate = self
+    self.presentViewController(acController, animated: true, completion: nil)
 
     return false
   }
 
-}
-
-// MARK: - UITextViewDelegate
-extension AddRideViewController: UITextViewDelegate {
-
-  func textViewDidBeginEditing(textView: UITextView) {
-    if notesTextView?.textColor == UIColor.lightGrayColor() {
-      notesTextView?.text = nil
-      notesTextView?.textColor = UIColor.blackColor()
-    }
-  }
-
-  func textViewDidEndEditing(textView: UITextView) {
-    if let notesTextView = notesTextView {
-      if notesTextView.text.isEmpty {
-        notesTextView.text = "Optional notes for passengers"
-        notesTextView.textColor = UIColor.lightGrayColor()
-      }
-    }
-  }
-  
 }
