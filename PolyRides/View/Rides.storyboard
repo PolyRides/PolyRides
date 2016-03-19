@@ -38,13 +38,14 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="YQo-Ub-837">
-                                <rect key="frame" x="160" y="72" width="280" height="29"/>
+                                <rect key="frame" x="125" y="72" width="350" height="29"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="280" id="27u-0B-k2M"/>
+                                    <constraint firstAttribute="width" constant="350" id="27u-0B-k2M"/>
                                 </constraints>
                                 <segments>
                                     <segment title="Current"/>
                                     <segment title="Past"/>
+                                    <segment title="Saved"/>
                                 </segments>
                             </segmentedControl>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="71" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Xhs-xb-y88">
@@ -97,11 +98,14 @@
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="Gh5-r6-A9Z">
                             <connections>
-                                <segue destination="Wrf-eZ-0Tt" kind="presentation" id="ND4-C1-2fr"/>
+                                <segue destination="Wrf-eZ-0Tt" kind="presentation" identifier="toAddRide" id="ND4-C1-2fr"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="tableView" destination="Xhs-xb-y88" id="RQ4-Si-A9Z"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Fe7-7M-ucB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -143,7 +147,7 @@
                                     <constraint firstAttribute="width" constant="80" id="UYh-qd-kRq"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" keyboardType="phonePad"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                 <connections>
                                     <action selector="costEditingChanged:" destination="sad-jW-Up4" eventType="editingDidEnd" id="3pE-X9-Y6K"/>
                                 </connections>

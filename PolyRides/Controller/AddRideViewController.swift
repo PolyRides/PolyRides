@@ -37,6 +37,8 @@ class AddRideViewController: UIViewController {
             cost = cost.stringByReplacingOccurrencesOfString("$", withString: "")
             if let user = user {
               let ride = Ride(driver: user, date: date, seats: Int(seats), description: description, cost: Int(cost))
+              ride.fromLocation = locationFromPlace(fromLocationPlace)
+              ride.toLocation = locationFromPlace(toLocationPlace)
               FirebaseConnection.pushRideToFirebase(ride)
             }
           }
@@ -69,12 +71,22 @@ class AddRideViewController: UIViewController {
 
     toTextField?.delegate = self
     fromTextField?.delegate = self
+
   }
 
   func setEnableAddButton() {
     if toLocationPlace != nil && fromLocationPlace != nil && costTextField?.text != nil {
       addButton?.enabled = true
     }
+  }
+
+  func locationFromPlace(place: GMSPlace?) -> Location? {
+    if let place = place {
+      if let city = place.addressComponents?.city {
+        return Location(place: place, city: city)
+      }
+    }
+    return nil
   }
 
 }

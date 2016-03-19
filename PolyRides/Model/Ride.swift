@@ -31,19 +31,19 @@ class Ride {
   init(withSnapshot snapshot: FDataSnapshot) {
     if let dictionary = snapshot.value as? [String : AnyObject] {
       self.id = snapshot.key
-      if let driverId = dictionary["driver_id"] as? String {
+      if let driverId = dictionary["driverId"] as? String {
         self.driver = User(id: driverId)
       }
       if let date = dictionary["date"] as? Double {
         self.date = NSDate(timeIntervalSince1970: date)
       }
-      if let fromPlaceId = dictionary["from_place_id"] as? String {
-        if let fromCity = dictionary["from_place_id"] as? String {
+      if let fromPlaceId = dictionary["fromPlaceId"] as? String {
+        if let fromCity = dictionary["fromPlaceCity"] as? String {
           fromLocation = Location(placeId: fromPlaceId, city: fromCity)
         }
       }
-      if let toPlaceId = dictionary["to_place_id"] as? String {
-        if let toCity = dictionary["to_place_id"] as? String {
+      if let toPlaceId = dictionary["toPlaceId"] as? String {
+        if let toCity = dictionary["toPlaceCity"] as? String {
           toLocation = Location(placeId: toPlaceId, city: toCity)
         }
       }
@@ -66,16 +66,16 @@ class Ride {
     var dictionary = [String : AnyObject]()
 
     dictionary["timestamp"] = NSDate().timeIntervalSince1970
-    dictionary["driver_id"] = driver?.id
+    dictionary["driverId"] = driver?.id
     dictionary["date"] = date?.timeIntervalSince1970
-    dictionary["from_place_id"] = fromLocation?.place?.placeID
-    dictionary["from_city"] = fromLocation?.city
-    dictionary["to_place_id"] = toLocation?.place?.placeID
-    dictionary["to_city"] = toLocation?.city
-    dictionary["seats_available"] = seatsAvailable
-    dictionary["total_seats"] = totalSeats
+    dictionary["fromPlaceId"] = fromLocation?.place?.placeID
+    dictionary["fromPlaceCity"] = fromLocation?.city
+    dictionary["toPlaceId"] = toLocation?.place?.placeID
+    dictionary["toPlaceCity"] = toLocation?.city
+    dictionary["seatsAvailable"] = seatsAvailable
+    dictionary["totalSeats"] = totalSeats
     dictionary["description"] = description
-    dictionary["cost_per_seat"] = costPerSeat
+    dictionary["costPerSeat"] = costPerSeat
 
     return dictionary
   }

@@ -13,6 +13,11 @@ class Location {
   var place: GMSPlace?
   var city: String?
 
+  init(place: GMSPlace, city: String) {
+    self.place = place
+    self.city = city
+  }
+
   init(placeId: String, city: String) {
     self.city = city
     GoogleMapsHelper.placesClient.lookUpPlaceID(placeId) { [weak self] place, error in
