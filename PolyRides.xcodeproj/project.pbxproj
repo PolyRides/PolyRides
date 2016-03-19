@@ -24,7 +24,6 @@
 		DB747AB81C98D79500A24F58 /* Messages.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB747AB71C98D79500A24F58 /* Messages.storyboard */; };
 		DB747ABA1C98D79E00A24F58 /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB747AB91C98D79E00A24F58 /* Profile.storyboard */; };
 		DB747ABC1C98DB2D00A24F58 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB747ABB1C98DB2D00A24F58 /* TabBarController.swift */; };
-		DB793E801C9C4A04001BB0EE /* LocationModalRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB793E7F1C9C4A04001BB0EE /* LocationModalRow.swift */; };
 		DB956DD81C96833700809B4C /* FirebaseConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB956DD71C96833700809B4C /* FirebaseConnection.swift */; };
 		DBAB56801C968FAA0011167A /* UIViewControllerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBAB567F1C968FAA0011167A /* UIViewControllerExtensions.swift */; };
 		DBAB56871C96B0F10011167A /* SearchTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBAB56861C96B0F10011167A /* SearchTableViewController.swift */; };
@@ -32,6 +31,9 @@
 		DBAB56931C96C6300011167A /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBAB56921C96C6300011167A /* LoginViewController.swift */; };
 		DBAB56951C9738870011167A /* UITextFieldExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBAB56941C9738870011167A /* UITextFieldExtensions.swift */; };
 		DBB1558C1C9B76C500118F89 /* DateHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBB1558B1C9B76C500118F89 /* DateHelper.swift */; };
+		DBBBD1351C9DB6940085E3B9 /* AutocompleteHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBBBD1341C9DB6940085E3B9 /* AutocompleteHelper.swift */; };
+		DBBBD1371C9DBC720085E3B9 /* Autocomplete.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DBBBD1361C9DBC720085E3B9 /* Autocomplete.storyboard */; };
+		DBBBD1391C9DC4D90085E3B9 /* AutocompleteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBBBD1381C9DC4D90085E3B9 /* AutocompleteViewController.swift */; };
 		DBF5E6DB1C93A66600693807 /* GoogleAnalyticsHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBF5E6DA1C93A66600693807 /* GoogleAnalyticsHelper.swift */; };
 		DBF5E6F01C963D3A00693807 /* ResetPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBF5E6EF1C963D3A00693807 /* ResetPasswordViewController.swift */; };
 		DBF5E6F21C963D6400693807 /* CreateAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBF5E6F11C963D6400693807 /* CreateAccountViewController.swift */; };
@@ -54,6 +56,19 @@
 			remoteInfo = PolyRides;
 		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		DB793EB61C9C981C001BB0EE /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		2241301BA6D0CFD44D162D7E /* Pods-PolyRides.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PolyRides.release.xcconfig"; path = "Pods/Target Support Files/Pods-PolyRides/Pods-PolyRides.release.xcconfig"; sourceTree = "<group>"; };
@@ -82,7 +97,6 @@
 		DB747AB71C98D79500A24F58 /* Messages.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Messages.storyboard; sourceTree = "<group>"; };
 		DB747AB91C98D79E00A24F58 /* Profile.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
 		DB747ABB1C98DB2D00A24F58 /* TabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
-		DB793E7F1C9C4A04001BB0EE /* LocationModalRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationModalRow.swift; sourceTree = "<group>"; };
 		DB956DD71C96833700809B4C /* FirebaseConnection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FirebaseConnection.swift; path = Model/FirebaseConnection.swift; sourceTree = "<group>"; };
 		DBAB567F1C968FAA0011167A /* UIViewControllerExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtensions.swift; sourceTree = "<group>"; };
 		DBAB56861C96B0F10011167A /* SearchTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchTableViewController.swift; sourceTree = "<group>"; };
@@ -90,6 +104,9 @@
 		DBAB56921C96C6300011167A /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		DBAB56941C9738870011167A /* UITextFieldExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UITextFieldExtensions.swift; sourceTree = "<group>"; };
 		DBB1558B1C9B76C500118F89 /* DateHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateHelper.swift; sourceTree = "<group>"; };
+		DBBBD1341C9DB6940085E3B9 /* AutocompleteHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutocompleteHelper.swift; sourceTree = "<group>"; };
+		DBBBD1361C9DBC720085E3B9 /* Autocomplete.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Autocomplete.storyboard; path = ../Controller/Autocomplete.storyboard; sourceTree = "<group>"; };
+		DBBBD1381C9DC4D90085E3B9 /* AutocompleteViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutocompleteViewController.swift; sourceTree = "<group>"; };
 		DBF5E6DA1C93A66600693807 /* GoogleAnalyticsHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GoogleAnalyticsHelper.swift; path = Model/GoogleAnalyticsHelper.swift; sourceTree = "<group>"; };
 		DBF5E6EF1C963D3A00693807 /* ResetPasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResetPasswordViewController.swift; sourceTree = "<group>"; };
 		DBF5E6F11C963D6400693807 /* CreateAccountViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateAccountViewController.swift; sourceTree = "<group>"; };
@@ -142,8 +159,9 @@
 		DB4151021C9B05240062E5A0 /* Rides */ = {
 			isa = PBXGroup;
 			children = (
-				DB4150FF1C9A74500062E5A0 /* RidesViewController.swift */,
 				DB4151031C9B05340062E5A0 /* AddRideViewController.swift */,
+				DBBBD1381C9DC4D90085E3B9 /* AutocompleteViewController.swift */,
+				DB4150FF1C9A74500062E5A0 /* RidesViewController.swift */,
 			);
 			name = Rides;
 			sourceTree = "<group>";
@@ -244,6 +262,7 @@
 		DB747AB41C98D74F00A24F58 /* Tabs */ = {
 			isa = PBXGroup;
 			children = (
+				DBBBD1361C9DBC720085E3B9 /* Autocomplete.storyboard */,
 				DB747AB21C98D28A00A24F58 /* Search.storyboard */,
 				DB747AB51C98D76900A24F58 /* Rides.storyboard */,
 				DB747AB71C98D79500A24F58 /* Messages.storyboard */,
@@ -255,10 +274,10 @@
 		DBAB56811C9693930011167A /* Util */ = {
 			isa = PBXGroup;
 			children = (
+				DBB1558B1C9B76C500118F89 /* DateHelper.swift */,
 				DB956DD71C96833700809B4C /* FirebaseConnection.swift */,
 				DBF5E6DA1C93A66600693807 /* GoogleAnalyticsHelper.swift */,
-				DBB1558B1C9B76C500118F89 /* DateHelper.swift */,
-				DB793E7F1C9C4A04001BB0EE /* LocationModalRow.swift */,
+				DBBBD1341C9DB6940085E3B9 /* AutocompleteHelper.swift */,
 			);
 			name = Util;
 			sourceTree = "<group>";
@@ -309,6 +328,7 @@
 				5CDD1A82C261E6FA8AF92F58 /* Copy Pods Resources */,
 				DBF5E6D91C93A56B00693807 /* ShellScript */,
 				DBF5E6DD1C93A75E00693807 /* ShellScript */,
+				DB793EB61C9C981C001BB0EE /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -411,6 +431,7 @@
 				DB70B8D51C9389EA0065CC4D /* Assets.xcassets in Resources */,
 				DB747ABA1C98D79E00A24F58 /* Profile.storyboard in Resources */,
 				DB747AB31C98D28A00A24F58 /* Search.storyboard in Resources */,
+				DBBBD1371C9DBC720085E3B9 /* Autocomplete.storyboard in Resources */,
 				DB70B9051C938CDC0065CC4D /* LaunchScreen.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -513,7 +534,6 @@
 				DB956DD81C96833700809B4C /* FirebaseConnection.swift in Sources */,
 				DBAB56801C968FAA0011167A /* UIViewControllerExtensions.swift in Sources */,
 				DB4151041C9B05340062E5A0 /* AddRideViewController.swift in Sources */,
-				DB793E801C9C4A04001BB0EE /* LocationModalRow.swift in Sources */,
 				DBF5E6F21C963D6400693807 /* CreateAccountViewController.swift in Sources */,
 				DBAB56951C9738870011167A /* UITextFieldExtensions.swift in Sources */,
 				DBF5E6F51C96719400693807 /* EmailAccountViewController.swift in Sources */,
@@ -522,10 +542,12 @@
 				DBAB56871C96B0F10011167A /* SearchTableViewController.swift in Sources */,
 				DBB1558C1C9B76C500118F89 /* DateHelper.swift in Sources */,
 				DB70B8CE1C9389EA0065CC4D /* AppDelegate.swift in Sources */,
+				DBBBD1351C9DB6940085E3B9 /* AutocompleteHelper.swift in Sources */,
 				DB70B9021C938B230065CC4D /* User.swift in Sources */,
 				DB747ABC1C98DB2D00A24F58 /* TabBarController.swift in Sources */,
 				DBAB56931C96C6300011167A /* LoginViewController.swift in Sources */,
 				DB4151001C9A74500062E5A0 /* RidesViewController.swift in Sources */,
+				DBBBD1391C9DC4D90085E3B9 /* AutocompleteViewController.swift in Sources */,
 				DBF5E6DB1C93A66600693807 /* GoogleAnalyticsHelper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -652,6 +674,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = "PolyRides/Supporting Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
@@ -670,6 +693,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = "PolyRides/Supporting Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;

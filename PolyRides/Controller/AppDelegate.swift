@@ -12,6 +12,7 @@ import Crashlytics
 import Siren
 import FBSDKCoreKit
 import FBSDKLoginKit
+import GoogleMaps
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -38,6 +39,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
       siren.appID = "991595932"
       siren.alertType = SirenAlertType.Force
       siren.checkVersion(.Immediately)
+
+      // Register with Google Maps.
+      GMSServices.provideAPIKey("AIzaSyBmxCispciOMZhn4FNbRPv_-Rcj8r_AtAk")
 
       if FirebaseConnection.ref.authData != nil {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)

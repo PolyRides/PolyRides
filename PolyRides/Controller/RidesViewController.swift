@@ -8,7 +8,7 @@
 
 import GooglePlacesAutocomplete
 
-class RidesViewController: UIViewController, GooglePlacesAutocompleteDelegate {
+class RidesViewController: UIViewController {
 
   var user: User?
 
@@ -18,10 +18,6 @@ class RidesViewController: UIViewController, GooglePlacesAutocompleteDelegate {
 
     // populate user field from tab bar controller
     // query for all rides
-  }
-
-  func placeSelected(place: Place) {
-    print("place was selected!")
   }
 
 }

@@ -6,12 +6,23 @@
 //  Copyright © 2016 Vanessa Forney. All rights reserved.
 //
 
-import Eureka
-import GooglePlacesAutocomplete
+class AddRideViewController: UIViewController {
 
-class AddRideViewController: FormViewController {
+  let gpaKey = "AIzaSyBV7uveXT1JXkp149zLJgmCb2U-caWuH84"
 
   var user: User?
+  var gpaVC: UINavigationController?
+  var autocompleteVC: AutocompleteViewController?
+  var toLocationPlace: Place?
+  var fromLocationPlace: Place?
+
+  @IBOutlet weak var toTextField: UITextField?
+  @IBOutlet weak var fromTextField: UITextField?
+  @IBOutlet weak var datePicker: UIDatePicker?
+  @IBOutlet weak var seatsLabel: UILabel?
+  @IBOutlet weak var costTextField: UITextField?
+  @IBOutlet weak var notesTextView: UITextView?
+  @IBOutlet weak var addButton: UIBarButtonItem?
 
   @IBAction func cancelButtonAction(sender: AnyObject) {
     navigationController?.dismissViewControllerAnimated(true, completion: nil)
@@ -22,70 +33,104 @@ class AddRideViewController: FormViewController {
     navigationController?.dismissViewControllerAnimated(true, completion: nil)
   }
 
+  @IBAction func stepperValChanged(sender : UIStepper) {
+      seatsLabel?.text = Int(sender.value).description
+  }
+
+  @IBAction func costEditingChanged(sender: AnyObject) {
+    if let currentValue = costTextField?.text {
+      let strippedValue = currentValue.stringByReplacingOccurrencesOfString("[^0-9]",
+        withString: "", options: .RegularExpressionSearch)
+      var formattedString = ""
+
+      if strippedValue.characters.count > 0 {
+        formattedString = "$" + (strippedValue as String)
+      }
+      costTextField?.text = formattedString
+      setEnableAddButton()
+    }
+  }
+
   override func viewDidLoad() {
     super.viewDidLoad()
 
-    initializeForm()
+    toTextField?.delegate = self
+    fromTextField?.delegate = self
+
+    setupAutocomplete()
   }
 
-  private func initializeForm() {
-    form
-      +++ Section("Ride Details")
-      <<< TextRow() {
-        $0.title = "To"
-      }
-      <<< TextRow() {
-        $0.title = "From"
-      }
-      <<< DateTimeInlineRow("Date") {
-        $0.value = DateHelper.nearestHalfHour()
-        $0.title = $0.tag
-        $0.minuteInterval = 15
-
-      }
-
-      +++ Section("Additional information")
-//      <<< StepperRow() {
-//        $0.title = "Number of seats"
-//        $0.value = 1.0
-//      }
-      <<< TextRow() {
-        $0.title = "Cost per seat"
-        $0.placeholder = "$"
-      }
-
-      +++ Section("Notes")
-      <<< TextAreaRow() {
-        $0.placeholder = "Optional notes for passengers"
-      }
+  func setupAutocomplete() {
+    let id = "Autocomplete"
+    let storyboard = UIStoryboard(name: id, bundle: nil)
+    if let navVC = storyboard.instantiateViewControllerWithIdentifier(id) as? UINavigationController {
+      gpaVC = navVC
+      autocompleteVC = navVC.topViewController as? AutocompleteViewController
+      autocompleteVC?.delegate = self
+    }
   }
 
-  func showAutocomplete() {
-    let key = "AIzaSyBV7uveXT1JXkp149zLJgmCb2U-caWuH84"
-    let gpaVC = GooglePlacesAutocomplete(apiKey: key, placeType: .Address)
-    gpaVC.placeDelegate = self
-    gpaVC.navigationItem.title = "Location"
-    gpaVC.navigationItem.leftBarButtonItem = nil
-    let cancel = UIBarButtonItem(barButtonSystemItem: .Cancel, target: gpaVC, action: "close")
-    gpaVC.navigationItem.rightBarButtonItem = cancel
-    presentViewController(gpaVC, animated: true, completion: nil)
+  func setEnableAddButton() {
+    if toLocationPlace != nil && fromLocationPlace != nil && costTextField?.text != nil {
+      addButton?.enabled = true
+    }
   }
 
 }
 
 // MARK: - GooglePlacesAutocompleteDelegate
-extension AddRideViewController: GooglePlacesAutocompleteDelegate {
+extension AddRideViewController: AutocompleteDelegate {
 
   func placesFound(places: [Place]) {
     print("places found")
   }
 
-  func placeSelected(place: Place) {
+  func placeSelected(place: Place, sender: AnyObject) {
     print("place selected")
+    setEnableAddButton()
   }
 
   func placeViewClosed() {
-    print("place view closed")
+    navigationController?.dismissViewControllerAnimated(true, completion: nil)
   }
 
+}
+
+// MARK: - UITextFieldDelegate
+extension AddRideViewController: UITextFieldDelegate {
+
+  func textFieldShouldBeginEditing(textField: UITextField) -> Bool {
+    let title = textField == toTextField ? "To Location" : "From Location"
+    if let gpaVC = gpaVC {
+      if let autocompleteVC = autocompleteVC {
+        autocompleteVC.navigationItem.title = title
+        autocompleteVC.sender = textField
+        navigationController?.presentViewController(gpaVC, animated: true, completion: nil)
+      }
+    }
+
+    return false
+  }
+
+}
+
+// MARK: - UITextViewDelegate
+extension AddRideViewController: UITextViewDelegate {
+
+  func textViewDidBeginEditing(textView: UITextView) {
+    if notesTextView?.textColor == UIColor.lightGrayColor() {
+      notesTextView?.text = nil
+      notesTextView?.textColor = UIColor.blackColor()
+    }
+  }
+
+  func textViewDidEndEditing(textView: UITextView) {
+    if let notesTextView = notesTextView {
+      if notesTextView.text.isEmpty {
+        notesTextView.text = "Optional notes for passengers"
+        notesTextView.textColor = UIColor.lightGrayColor()
+      }
+    }
+  }
+  
 }

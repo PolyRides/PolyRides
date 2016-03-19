@@ -1,4 +1,5 @@
 PODS:
+  - Alamofire (3.2.1)
   - Bolts (1.6.0):
     - Bolts/AppLinks (= 1.6.0)
     - Bolts/Tasks (= 1.6.0)
@@ -7,7 +8,6 @@ PODS:
   - Bolts/Tasks (1.6.0)
   - Crashlytics (3.7.0):
     - Fabric (~> 1.6.3)
-  - Eureka (1.4.1)
   - Fabric (1.6.7)
   - FBSDKCoreKit (4.10.1):
     - Bolts (~> 1.5)
@@ -27,30 +27,30 @@ PODS:
   - GoogleAnalytics (3.14.0)
   - GoogleInterchangeUtilities (1.1.0):
     - GoogleSymbolUtilities (~> 1.0)
+  - GoogleMaps (1.12.3)
   - GoogleNetworkingUtilities (1.0.0):
     - GoogleSymbolUtilities (~> 1.0)
-  - GooglePlacesAutocomplete (0.3.0)
   - GoogleSymbolUtilities (1.0.3)
   - GoogleUtilities (1.1.0):
     - GoogleSymbolUtilities (~> 1.0.0)
   - Siren (0.6.7)
 
 DEPENDENCIES:
+  - Alamofire
   - Crashlytics
-  - Eureka
   - Fabric
   - FBSDKCoreKit
   - FBSDKLoginKit
   - FBSDKShareKit
   - Firebase
   - Google/Analytics
-  - GooglePlacesAutocomplete
+  - GoogleMaps
   - Siren
 
 SPEC CHECKSUMS:
+  Alamofire: f11d8624a05f5d39e0c99309b3e600a3ba64298a
   Bolts: f52a250053bb517ca874523c3913776359ab3def
   Crashlytics: c3a2333dea9e2733d2777f730910321fc9e25c0d
-  Eureka: 2f1921d3162491921d2fef3b516bc4ef93a05122
   Fabric: caf7580c725e64db144f610ac65cd60956911dc7
   FBSDKCoreKit: d2aaed5e9ab7d8d6301c533376a1fbff1cf3deb5
   FBSDKLoginKit: 699ff169080e3072de4b9b0faca90bf23dc36deb
@@ -59,8 +59,8 @@ SPEC CHECKSUMS:
   Google: 97618e118111b998cce1d8dd1bd98b82301d72db
   GoogleAnalytics: 9be1afdb8deeac4bb5f13ca7f7d3b9db2a1f43dc
   GoogleInterchangeUtilities: d7f7174176fbcf9710f696f1acebad4dbd98ac03
+  GoogleMaps: a4ac67918d0b5ba5f6b9893ac80487e357779e6c
   GoogleNetworkingUtilities: 292992ab31b7b4ba32809a0e8b40e324cdfb2c0c
-  GooglePlacesAutocomplete: 7694636fce561c9d8ac807b8e490d299a730a633
   GoogleSymbolUtilities: 82ad9f93d3615244b3f4ce440f5ab2515e8b4f56
   GoogleUtilities: 8ed9134debe11719097881711464752900668f10
   Siren: 6d1c751d3ae4f1abcfeff17c77ee6576da8f09e1
