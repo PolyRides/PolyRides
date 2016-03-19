@@ -43,12 +43,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
       // Register with Google Maps.
       GMSServices.provideAPIKey("AIzaSyBmxCispciOMZhn4FNbRPv_-Rcj8r_AtAk")
 
-      if FirebaseConnection.ref.authData != nil {
+      if FirebaseConnection.service.ref.authData != nil {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let controller = storyboard.instantiateViewControllerWithIdentifier("Main")
         if let tabBarVC = controller as? TabBarController {
-          let user = User(id: FirebaseConnection.ref.authData.uid)
-          FirebaseConnection.updateValuesForUser(user)
+          let user = User(id: FirebaseConnection.service.ref.authData.uid)
+          FirebaseConnection.service.updateValuesForUser(user)
           tabBarVC.user = user
           self.window?.rootViewController = tabBarVC
         }

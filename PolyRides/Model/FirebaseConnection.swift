@@ -10,28 +10,30 @@ import Firebase
 import FBSDKLoginKit
 
 
+protocol FirebaseLoginDelegate: class {
+
+  func passwordResetSuccess(email: String)
+  func loginError(error: NSError)
+  func loginSuccess(user: User)
+  func temporaryPassword(user: User)
+
+}
 
 class FirebaseConnection {
 
-  static let ref = Firebase(url: "https://poly-rides.firebaseio.com")
+  static let service = FirebaseConnection()
+  
+  let ref = Firebase(url: "https://poly-rides.firebaseio.com")
 
-  static let FBErrorMessage = "An error occured while connecting to Facebook. Please try again."
-  static let FBErrorTitle = "Authentication Error"
+  var loginDelegate: FirebaseLoginDelegate?
 
-  static let ChangePasswordSuccess = "ChangePasswordSuccess"
-  static let ResetPasswordSuccess = "ResetPasswordSuccess"
-  static let TemporaryPassword = "TemporaryPassword"
-  static let LoginSuccess = "LoginSuccess"
-  static let LoginError = "LoginError"
-  static let FBError = "FBError"
-
-  static func pushUserToFirebase(user: User) {
+  func pushUserToFirebase(user: User) {
     if let id = user.id {
       ref.childByAppendingPath("users/\(id)").updateChildValues(user.toAnyObject())
     }
   }
 
-  static func pushRideToFirebase(ride: Ride) {
+  func pushRideToFirebase(ride: Ride) {
     let rideRef = ref.childByAppendingPath("rides").childByAutoId()
     if let id = ride.driver?.id {
       let userRideRef = ref.childByAppendingPath("users/\(id)/rides/\(rideRef.key)")
@@ -40,83 +42,71 @@ class FirebaseConnection {
     }
   }
 
-  static func resetPasswordForEmail(email: String) {
+  func resetPasswordForEmail(email: String) {
     print(email)
-    FirebaseConnection.ref.resetPasswordForUser(email) { error in
+    ref.resetPasswordForUser(email) { error in
       if error == nil {
-        let notification = FirebaseConnection.ResetPasswordSuccess
-        NSNotificationCenter.defaultCenter().postNotificationName(notification, object: email)
+        self.loginDelegate?.passwordResetSuccess(email)
       } else {
-        let notification = FirebaseConnection.LoginError
-        NSNotificationCenter.defaultCenter().postNotificationName(notification, object: error)
+        self.loginDelegate?.loginError(error)
       }
     }
   }
 
-  static func changePasswordForUser(user: User, temporaryPassword: String, newPassword: String) {
-    FirebaseConnection.ref.changePasswordForUser(user.email, fromOld: temporaryPassword,
-      toNew: newPassword) { error in
+  func changePasswordForUser(user: User, temporaryPassword: String, newPassword: String) {
+    ref.changePasswordForUser(user.email, fromOld: temporaryPassword, toNew: newPassword) { error in
         if error == nil {
-          let user = User()
-          let notification = FirebaseConnection.LoginSuccess
-          NSNotificationCenter.defaultCenter().postNotificationName(notification, object: user)
+          self.loginDelegate?.loginSuccess(user)
         } else {
-          let notification = FirebaseConnection.LoginError
-          NSNotificationCenter.defaultCenter().postNotificationName(notification, object: error)
+          self.loginDelegate?.loginError(error)
         }
     }
   }
 
-  static func createUser(user: User, password: String) {
-    FirebaseConnection.ref.createUser(user.email, password: password) { error, result in
+  func createUser(user: User, password: String) {
+    ref.createUser(user.email, password: password) { error, result in
       if error == nil {
         if let uid = result["uid"] as? String {
           user.id = uid
-          let notification = FirebaseConnection.LoginSuccess
-          NSNotificationCenter.defaultCenter().postNotificationName(notification, object: user)
+          self.loginDelegate?.loginSuccess(user)
         }
       } else {
-        let notification = FirebaseConnection.LoginError
-        NSNotificationCenter.defaultCenter().postNotificationName(notification, object: error)
+        self.loginDelegate?.loginError(error)
       }
     }
   }
 
-  static func authWithFacebook() {
+  func authWithFacebook() {
     let token = FBSDKAccessToken.currentAccessToken().tokenString
-    FirebaseConnection.ref.authWithOAuthProvider("facebook", token: token) { error, authData in
+    ref.authWithOAuthProvider("facebook", token: token) { error, authData in
       if error == nil {
         let user = User(withAuthData: authData)
-        let notification = FirebaseConnection.LoginSuccess
-        NSNotificationCenter.defaultCenter().postNotificationName(notification, object: user)
+        self.loginDelegate?.loginSuccess(user)
       } else {
-        let notification = FirebaseConnection.FBError
-        NSNotificationCenter.defaultCenter().postNotificationName(notification, object: error)
+        self.loginDelegate?.loginError(error)
       }
     }
   }
 
-  static func authUser(email: String, password: String) {
-    FirebaseConnection.ref.authUser(email, password: password) { error, authData in
-      var notification = ""
+  func authUser(email: String, password: String) {
+    ref.authUser(email, password: password) { error, authData in
 
       if error == nil {
         let user = User(withAuthData: authData)
-        notification = FirebaseConnection.LoginSuccess
         if let temporaryPassword = authData.providerData["isTemporaryPassword"] as? Bool {
           if temporaryPassword {
-            notification = FirebaseConnection.TemporaryPassword
+            self.loginDelegate?.temporaryPassword(user)
+          } else {
+            self.loginDelegate?.loginSuccess(user)
           }
         }
-        NSNotificationCenter.defaultCenter().postNotificationName(notification, object: user)
       } else {
-        notification = FirebaseConnection.LoginError
-        NSNotificationCenter.defaultCenter().postNotificationName(notification, object: error)
+
       }
     }
   }
 
-  static func updateValuesForUser(user: User) {
+  func updateValuesForUser(user: User) {
     let userRef = ref.childByAppendingPath("users/\(user.id)")
     userRef.observeSingleEventOfType(.Value, withBlock: {
       snapshot in

@@ -18,10 +18,4 @@ class TabBarController: UITabBarController {
     navigationController?.navigationBar.hidden = false
   }
 
-  override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-    if segue.identifier == "toLogin" {
-      FirebaseConnection.ref.unauth()
-    }
-  }
-
 }

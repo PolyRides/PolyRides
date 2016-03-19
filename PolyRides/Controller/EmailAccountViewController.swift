@@ -10,8 +10,6 @@ import Foundation
 
 class EmailAccountViewController: LoginViewController {
 
-  let buttonTitle = "Create Account"
-
   @IBOutlet weak var firstNameTextField: UITextField?
   @IBOutlet weak var lastNameTextField: UITextField?
 
@@ -40,12 +38,6 @@ class EmailAccountViewController: LoginViewController {
     }
   }
 
-  override func onLoginError(notification: NSNotification) {
-    stopLoading(buttonTitle)
-    super.onLoginError(notification)
-  }
-
-
   func createAccount() {
     if let email = emailTextField?.text {
       if let password = passwordTextField?.text {
@@ -53,7 +45,7 @@ class EmailAccountViewController: LoginViewController {
           if let lastName = lastNameTextField?.text {
             startLoading()
             let user = User(email: email, firstName: firstName, lastName: lastName)
-            FirebaseConnection.createUser(user, password: password)
+            FirebaseConnection.service.createUser(user, password: password)
           }
         }
       }

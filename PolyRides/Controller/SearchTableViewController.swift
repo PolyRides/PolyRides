@@ -17,7 +17,7 @@ class SearchTableViewController: UITableViewController {
 
   override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
     if segue.identifier == "toLogOut" {
-      FirebaseConnection.ref.unauth()
+      FirebaseConnection.service.ref.unauth()
     }
   }
 

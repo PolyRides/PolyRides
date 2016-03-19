@@ -11,8 +11,6 @@ import FBSDKLoginKit
 
 class MainLoginViewController: LoginViewController {
 
-  let buttonTitle = "Login"
-
   @IBAction func logInWithFacebookAction(sender: AnyObject) {
     loginWithFacebook()
   }
@@ -36,45 +34,10 @@ class MainLoginViewController: LoginViewController {
     if segue.identifier == "toResetPassword" {
       if let vc = segue.destinationViewController as? ResetPasswordViewController {
         vc.user = user
-        if let sender = sender as? String {
-          if sender == FirebaseConnection.TemporaryPassword {
-            if let password = passwordTextField?.text {
-                vc.temporaryPassword = password
-            }
-          }
+        if let password = passwordTextField?.text {
+          vc.temporaryPassword = password
         }
       }
-    }
-  }
-
-  override func addObservers() {
-    super.addObservers()
-
-    let defaultCenter = NSNotificationCenter.defaultCenter()
-    let selector = Selector("onHasTemporaryPassword:")
-    let name = FirebaseConnection.TemporaryPassword
-    defaultCenter.addObserver(self, selector: selector, name: name, object: nil)
-  }
-
-  override func removeObservers() {
-    super.removeObservers()
-
-    let defaultCenter = NSNotificationCenter.defaultCenter()
-    let name = FirebaseConnection.TemporaryPassword
-    defaultCenter.removeObserver(self, name: name, object: nil)
-  }
-
-  override func onLoginError(notification: NSNotification) {
-    stopLoading(buttonTitle)
-    super.onLoginError(notification)
-  }
-
-  func onHasTemporaryPassword(notification: NSNotification) {
-    stopLoading(buttonTitle)
-    if let user = notification.object as? User {
-      self.user = user
-      let temporaryPassword = FirebaseConnection.TemporaryPassword
-      self.performSegueWithIdentifier("toResetPassword", sender: temporaryPassword)
     }
   }
 
