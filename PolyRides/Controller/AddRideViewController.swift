@@ -6,27 +6,17 @@
 //  Copyright © 2016 Vanessa Forney. All rights reserved.
 //
 
-<<<<<<< HEAD
 import GoogleMaps
 
-=======
->>>>>>> df43ab7300cf1dd95ce08c551ff6e524de6ce2df
 class AddRideViewController: UIViewController {
 
   let gpaKey = "AIzaSyBV7uveXT1JXkp149zLJgmCb2U-caWuH84"
 
   var user: User?
-<<<<<<< HEAD
   var toLocationPlace: GMSPlace?
   var fromLocationPlace: GMSPlace?
   var autocompleteTextField: UITextField?
   var firebaseConnection: FirebaseConnection?
-=======
-  var gpaVC: UINavigationController?
-  var autocompleteVC: AutocompleteViewController?
-  var toLocationPlace: Place?
-  var fromLocationPlace: Place?
->>>>>>> df43ab7300cf1dd95ce08c551ff6e524de6ce2df
 
   @IBOutlet weak var toTextField: UITextField?
   @IBOutlet weak var fromTextField: UITextField?
@@ -41,7 +31,6 @@ class AddRideViewController: UIViewController {
   }
 
   @IBAction func addButtonAction(sender: AnyObject) {
-<<<<<<< HEAD
     if var cost = costTextField?.text {
       if let description = notesTextView?.text {
         if let seats = seatsLabel?.text {
@@ -61,13 +50,6 @@ class AddRideViewController: UIViewController {
   }
 
   @IBAction func stepperValChanged(sender: UIStepper) {
-=======
-    // Send ride to Firebase.
-    navigationController?.dismissViewControllerAnimated(true, completion: nil)
-  }
-
-  @IBAction func stepperValChanged(sender : UIStepper) {
->>>>>>> df43ab7300cf1dd95ce08c551ff6e524de6ce2df
       seatsLabel?.text = Int(sender.value).description
   }
 
@@ -90,7 +72,6 @@ class AddRideViewController: UIViewController {
 
     toTextField?.delegate = self
     fromTextField?.delegate = self
-<<<<<<< HEAD
   }
 
   func setEnableAddButton() {
@@ -106,31 +87,10 @@ class AddRideViewController: UIViewController {
       }
     }
     return nil
-=======
-
-    setupAutocomplete()
-  }
-
-  func setupAutocomplete() {
-    let id = "Autocomplete"
-    let storyboard = UIStoryboard(name: id, bundle: nil)
-    if let navVC = storyboard.instantiateViewControllerWithIdentifier(id) as? UINavigationController {
-      gpaVC = navVC
-      autocompleteVC = navVC.topViewController as? AutocompleteViewController
-      autocompleteVC?.delegate = self
-    }
-  }
-
-  func setEnableAddButton() {
-    if toLocationPlace != nil && fromLocationPlace != nil && costTextField?.text != nil {
-      addButton?.enabled = true
-    }
->>>>>>> df43ab7300cf1dd95ce08c551ff6e524de6ce2df
   }
 
 }
 
-<<<<<<< HEAD
 // MARK: - GMSAutocompleteViewControllerDelegate
 extension AddRideViewController: GMSAutocompleteViewControllerDelegate {
 
@@ -157,22 +117,6 @@ extension AddRideViewController: GMSAutocompleteViewControllerDelegate {
 
   func wasCancelled(viewController: GMSAutocompleteViewController) {
     dismissViewControllerAnimated(true, completion: nil)
-=======
-// MARK: - GooglePlacesAutocompleteDelegate
-extension AddRideViewController: AutocompleteDelegate {
-
-  func placesFound(places: [Place]) {
-    print("places found")
-  }
-
-  func placeSelected(place: Place, sender: AnyObject) {
-    print("place selected")
-    setEnableAddButton()
-  }
-
-  func placeViewClosed() {
-    navigationController?.dismissViewControllerAnimated(true, completion: nil)
->>>>>>> df43ab7300cf1dd95ce08c551ff6e524de6ce2df
   }
 
 }
@@ -181,7 +125,6 @@ extension AddRideViewController: AutocompleteDelegate {
 extension AddRideViewController: UITextFieldDelegate {
 
   func textFieldShouldBeginEditing(textField: UITextField) -> Bool {
-<<<<<<< HEAD
     autocompleteTextField = textField
 
     let filter = GMSAutocompleteFilter()
@@ -201,39 +144,4 @@ extension AddRideViewController: UITextFieldDelegate {
     return false
   }
 
-=======
-    let title = textField == toTextField ? "To Location" : "From Location"
-    if let gpaVC = gpaVC {
-      if let autocompleteVC = autocompleteVC {
-        autocompleteVC.navigationItem.title = title
-        autocompleteVC.sender = textField
-        navigationController?.presentViewController(gpaVC, animated: true, completion: nil)
-      }
-    }
-
-    return false
-  }
-
-}
-
-// MARK: - UITextViewDelegate
-extension AddRideViewController: UITextViewDelegate {
-
-  func textViewDidBeginEditing(textView: UITextView) {
-    if notesTextView?.textColor == UIColor.lightGrayColor() {
-      notesTextView?.text = nil
-      notesTextView?.textColor = UIColor.blackColor()
-    }
-  }
-
-  func textViewDidEndEditing(textView: UITextView) {
-    if let notesTextView = notesTextView {
-      if notesTextView.text.isEmpty {
-        notesTextView.text = "Optional notes for passengers"
-        notesTextView.textColor = UIColor.lightGrayColor()
-      }
-    }
-  }
-  
->>>>>>> df43ab7300cf1dd95ce08c551ff6e524de6ce2df
 }

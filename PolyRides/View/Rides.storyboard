@@ -38,23 +38,14 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="YQo-Ub-837">
-<<<<<<< HEAD
                                 <rect key="frame" x="125" y="72" width="350" height="29"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="350" id="27u-0B-k2M"/>
-=======
-                                <rect key="frame" x="160" y="72" width="280" height="29"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="280" id="27u-0B-k2M"/>
->>>>>>> df43ab7300cf1dd95ce08c551ff6e524de6ce2df
                                 </constraints>
                                 <segments>
                                     <segment title="Current"/>
                                     <segment title="Past"/>
-<<<<<<< HEAD
                                     <segment title="Saved"/>
-=======
->>>>>>> df43ab7300cf1dd95ce08c551ff6e524de6ce2df
                                 </segments>
                             </segmentedControl>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="71" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Xhs-xb-y88">
@@ -107,21 +98,14 @@
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="Gh5-r6-A9Z">
                             <connections>
-<<<<<<< HEAD
                                 <segue destination="Wrf-eZ-0Tt" kind="presentation" identifier="toAddRide" id="ND4-C1-2fr"/>
-=======
-                                <segue destination="Wrf-eZ-0Tt" kind="presentation" id="ND4-C1-2fr"/>
->>>>>>> df43ab7300cf1dd95ce08c551ff6e524de6ce2df
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
-<<<<<<< HEAD
                     <connections>
                         <outlet property="tableView" destination="Xhs-xb-y88" id="RQ4-Si-A9Z"/>
                     </connections>
-=======
->>>>>>> df43ab7300cf1dd95ce08c551ff6e524de6ce2df
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Fe7-7M-ucB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -139,11 +123,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-<<<<<<< HEAD
                             <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="15" translatesAutoresizingMaskIntoConstraints="NO" id="f3D-LS-bbZ">
-=======
-                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="f3D-LS-bbZ">
->>>>>>> df43ab7300cf1dd95ce08c551ff6e524de6ce2df
                                 <rect key="frame" x="20" y="148" width="560" height="216"/>
                                 <date key="date" timeIntervalSinceReferenceDate="480063375.26541698">
                                     <!--2016-03-19 06:56:15 +0000-->
@@ -167,11 +147,7 @@
                                     <constraint firstAttribute="width" constant="80" id="UYh-qd-kRq"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-<<<<<<< HEAD
                                 <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
-=======
-                                <textInputTraits key="textInputTraits" keyboardType="numbersAndPunctuation"/>
->>>>>>> df43ab7300cf1dd95ce08c551ff6e524de6ce2df
                                 <connections>
                                     <action selector="costEditingChanged:" destination="sad-jW-Up4" eventType="editingDidEnd" id="3pE-X9-Y6K"/>
                                 </connections>

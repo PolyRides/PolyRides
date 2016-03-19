@@ -20,10 +20,7 @@ import FBSDKLoginKit
 class LoginViewController: UIViewController {
 
   var user: User?
-<<<<<<< HEAD
   var buttonTitle = ""
-=======
->>>>>>> df43ab7300cf1dd95ce08c551ff6e524de6ce2df
 
   @IBOutlet weak var emailTextField: UITextField?
   @IBOutlet weak var passwordTextField: UITextField?
@@ -36,25 +33,13 @@ class LoginViewController: UIViewController {
 
     emailTextField?.addTargetForEditing(self, selector: Selector("textFieldDidChange"))
     passwordTextField?.addTargetForEditing(self, selector: Selector("textFieldDidChange"))
-<<<<<<< HEAD
     FirebaseConnection.service.loginDelegate = self
-=======
->>>>>>> df43ab7300cf1dd95ce08c551ff6e524de6ce2df
   }
 
   override func viewWillAppear(animated: Bool) {
     super.viewWillAppear(animated)
     navigationController?.navigationBar.hidden = true
     textFieldDidChange()
-<<<<<<< HEAD
-=======
-    addObservers()
-  }
-
-  override func viewWillDisappear(animated: Bool) {
-    removeObservers()
-    super.viewWillDisappear(animated)
->>>>>>> df43ab7300cf1dd95ce08c551ff6e524de6ce2df
   }
 
   override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
@@ -68,62 +53,10 @@ class LoginViewController: UIViewController {
     indicator?.startAnimating()
   }
 
-<<<<<<< HEAD
   func stopLoading() {
     UIApplication.sharedApplication().endIgnoringInteractionEvents()
     indicator?.stopAnimating()
     button?.setTitle(buttonTitle, forState: UIControlState.Normal)
-=======
-  func stopLoading(title: String = "") {
-    UIApplication.sharedApplication().endIgnoringInteractionEvents()
-    indicator?.stopAnimating()
-    button?.setTitle(title, forState: UIControlState.Normal)
-  }
-
-  func removeObservers() {
-    let defaultCenter = NSNotificationCenter.defaultCenter()
-    var name = FirebaseConnection.LoginError
-    defaultCenter.removeObserver(self, name: name, object: nil)
-
-    name = FirebaseConnection.FBError
-    defaultCenter.removeObserver(self, name: name, object: nil)
-
-    name = FirebaseConnection.LoginSuccess
-    defaultCenter.removeObserver(self, name: name, object: nil)
-  }
-
-  func addObservers() {
-    let defaultCenter = NSNotificationCenter.defaultCenter()
-    var name = FirebaseConnection.LoginError
-    defaultCenter.addObserver(self, selector: Selector("onLoginError:"), name: name, object: nil)
-
-    name = FirebaseConnection.FBError
-    defaultCenter.addObserver(self, selector: Selector("onFacebookError"), name: name, object: nil)
-
-    name = FirebaseConnection.LoginSuccess
-    defaultCenter.addObserver(self, selector: Selector("onLoginSuccess:"), name: name, object: nil)
-  }
-
-  func onFacebookError() {
-    let title = FirebaseConnection.FBErrorTitle
-    let message = FirebaseConnection.FBErrorMessage
-    presentAlert(AlertOptions(title: title, message: message))
-  }
-
-  func onLoginError(notification: NSNotification) {
-    if let error = notification.object as? NSError {
-      presentAlertForFirebaseError(error)
-    }
-  }
-
-  func onLoginSuccess(notification: NSNotification) {
-    stopLoading("")
-    if let user = notification.object as? User {
-      self.user = user
-      FirebaseConnection.pushUserToFirebase(user)
-      startMain()
-    }
->>>>>>> df43ab7300cf1dd95ce08c551ff6e524de6ce2df
   }
 
   func presentAlertForFirebaseError(error: NSError) {
@@ -171,11 +104,7 @@ class LoginViewController: UIViewController {
         print("Facebook log in was cancelled.")
         // Do nothing.
       } else {
-<<<<<<< HEAD
         FirebaseConnection.service.authWithFacebook()
-=======
-        FirebaseConnection.authWithFacebook()
->>>>>>> df43ab7300cf1dd95ce08c551ff6e524de6ce2df
       }
     }
   }
@@ -183,16 +112,11 @@ class LoginViewController: UIViewController {
   func loginWithEmail() {
     if let email = emailTextField?.text {
       if let password = passwordTextField?.text {
-<<<<<<< HEAD
         FirebaseConnection.service.authUser(email, password: password)
-=======
-        FirebaseConnection.authUser(email, password: password)
->>>>>>> df43ab7300cf1dd95ce08c551ff6e524de6ce2df
       }
     }
   }
 
-<<<<<<< HEAD
   func onFacebookError() {
     let title = "Authentication Error"
     let message = "An error occured while connecting to Facebook. Please try again."
@@ -210,8 +134,6 @@ class LoginViewController: UIViewController {
     }
   }
 
-=======
->>>>>>> df43ab7300cf1dd95ce08c551ff6e524de6ce2df
   func startMain(action: UIAlertAction? = nil) {
     let storyboard = UIStoryboard(name: "Main", bundle: nil)
     let viewController = storyboard.instantiateViewControllerWithIdentifier("Main")
@@ -234,7 +156,6 @@ class LoginViewController: UIViewController {
   }
 
 }
-<<<<<<< HEAD
 
 extension LoginViewController: FirebaseLoginDelegate {
 
@@ -266,5 +187,3 @@ extension LoginViewController: FirebaseLoginDelegate {
 
 
 }
-=======
->>>>>>> df43ab7300cf1dd95ce08c551ff6e524de6ce2df

@@ -12,18 +12,9 @@ import Firebase
 // or resetting the password because it was a temporary password. Determined by if the user is nil.
 class ResetPasswordViewController: LoginViewController {
 
-<<<<<<< HEAD
   var temporaryPassword = ""
 
   @IBOutlet weak var instructions: UILabel!
-=======
-  let buttonTitle = "Reset Password"
-
-  var temporaryPassword = ""
-
-  @IBOutlet weak var instructions: UILabel!
-  @IBOutlet weak var textField: UITextField!
->>>>>>> df43ab7300cf1dd95ce08c551ff6e524de6ce2df
 
   @IBAction func resetPasswordAction(sender: AnyObject) {
     if temporaryPassword == "" {
@@ -45,18 +36,11 @@ class ResetPasswordViewController: LoginViewController {
     self.navigationController?.navigationBar.translucent = true
 
     if temporaryPassword != "" {
-<<<<<<< HEAD
       passwordTextField?.secureTextEntry = true
     }
 
     passwordTextField?.addTargetForEditing(self, selector: Selector("textFieldDidChange"))
     buttonTitle = "Reset Password"
-=======
-      textField.secureTextEntry = true
-    }
-
-    textField.addTargetForEditing(self, selector: Selector("textFieldDidChange"))
->>>>>>> df43ab7300cf1dd95ce08c551ff6e524de6ce2df
   }
 
   override func viewWillAppear(animated: Bool) {
@@ -71,7 +55,6 @@ class ResetPasswordViewController: LoginViewController {
     instructions.text = text
   }
 
-<<<<<<< HEAD
   override func textFieldDidChange() {
     if let isValid = temporaryPassword == "" ? emailTextField?.isValidEmail() : passwordTextField?.isValidPassword() {
       if isValid {
@@ -79,72 +62,23 @@ class ResetPasswordViewController: LoginViewController {
       } else {
         button?.enabled = false
       }
-=======
-  override func addObservers() {
-    super.addObservers()
-
-    let defaultCenter = NSNotificationCenter.defaultCenter()
-    var selector = Selector("onResetPasswordSuccess:")
-    var name = FirebaseConnection.ResetPasswordSuccess
-    defaultCenter.addObserver(self, selector: selector, name: name, object: nil)
-
-    selector = Selector("onChangePasswordSuccess:")
-    name = FirebaseConnection.ChangePasswordSuccess
-    defaultCenter.addObserver(self, selector: selector, name: name, object: nil)
-  }
-
-  override func removeObservers() {
-    let defaultCenter = NSNotificationCenter.defaultCenter()
-    var name = FirebaseConnection.ResetPasswordSuccess
-    defaultCenter.removeObserver(self, name: name, object: nil)
-
-    name = FirebaseConnection.ChangePasswordSuccess
-    defaultCenter.removeObserver(self, name: name, object: nil)
-
-    super.removeObservers()
-  }
-
-  override func onLoginError(notification: NSNotification) {
-    stopLoading("Reset Password")
-    super.onLoginError(notification)
-  }
-
-  override func textFieldDidChange() {
-    let isValid = temporaryPassword == "" ? textField.isValidEmail() : textField.isValidPassword()
-    if isValid {
-      button?.enabled = true
-    } else {
-      button?.enabled = false
->>>>>>> df43ab7300cf1dd95ce08c551ff6e524de6ce2df
     }
   }
 
   func changePassword() {
     if let user = user {
-<<<<<<< HEAD
       if let new = passwordTextField?.text {
         startLoading()
         let temp = temporaryPassword
         FirebaseConnection.service.changePasswordForUser(user, temporaryPassword: temp, newPassword: new)
-=======
-      if let new = textField.text {
-        startLoading()
-        let temp = temporaryPassword
-        FirebaseConnection.changePasswordForUser(user, temporaryPassword: temp, newPassword: new)
->>>>>>> df43ab7300cf1dd95ce08c551ff6e524de6ce2df
       }
     }
   }
 
   func resetPassword(action: UIAlertAction) {
     startLoading()
-<<<<<<< HEAD
     if let email = emailTextField?.text {
       FirebaseConnection.service.resetPasswordForEmail(email)
-=======
-    if let email = textField.text {
-      FirebaseConnection.resetPasswordForEmail(email)
->>>>>>> df43ab7300cf1dd95ce08c551ff6e524de6ce2df
     }
   }
 
@@ -156,30 +90,4 @@ class ResetPasswordViewController: LoginViewController {
     presentAlert(alertOptions)
   }
 
-<<<<<<< HEAD
-=======
-  func onResetPasswordSuccess(notification: NSNotification) {
-    stopLoading(buttonTitle)
-    let title = "Password Successfully Reset"
-    let message = "Please check your email for your temporary password."
-    presentAlert(AlertOptions(message: message, title: title, handler: onPasswordReset))
-  }
-
-  func onChangePasswordSuccess(notification: NSNotification) {
-    stopLoading(buttonTitle)
-    startMain()
-  }
-
-  func onPasswordReset(alert: UIAlertAction) {
-    if let navigationController = navigationController {
-      if let vc = navigationController.viewControllers.first as? MainLoginViewController {
-        if let email = textField?.text {
-          vc.emailTextField?.text = email
-        }
-      }
-      navigationController.popViewControllerAnimated(true)
-    }
-  }
-
->>>>>>> df43ab7300cf1dd95ce08c551ff6e524de6ce2df
 }
