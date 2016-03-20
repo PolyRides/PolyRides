@@ -12,10 +12,10 @@ import FBSDKLoginKit
 
 protocol FirebaseLoginDelegate: class {
 
-  func passwordResetSuccess(email: String)
-  func loginError(error: NSError)
-  func loginSuccess(user: User)
-  func temporaryPassword(user: User)
+  func onPasswordResetSuccess(email: String)
+  func onLoginError(error: NSError)
+  func onLoginSuccess(user: User)
+  func onHasTemporaryPassword(user: User)
 
 }
 
@@ -46,9 +46,9 @@ class FirebaseConnection {
     print(email)
     ref.resetPasswordForUser(email) { error in
       if error == nil {
-        self.loginDelegate?.passwordResetSuccess(email)
+        self.loginDelegate?.onPasswordResetSuccess(email)
       } else {
-        self.loginDelegate?.loginError(error)
+        self.loginDelegate?.onLoginError(error)
       }
     }
   }
@@ -56,9 +56,9 @@ class FirebaseConnection {
   func changePasswordForUser(user: User, temporaryPassword: String, newPassword: String) {
     ref.changePasswordForUser(user.email, fromOld: temporaryPassword, toNew: newPassword) { error in
         if error == nil {
-          self.loginDelegate?.loginSuccess(user)
+          self.loginDelegate?.onLoginSuccess(user)
         } else {
-          self.loginDelegate?.loginError(error)
+          self.loginDelegate?.onLoginError(error)
         }
     }
   }
@@ -68,10 +68,10 @@ class FirebaseConnection {
       if error == nil {
         if let uid = result["uid"] as? String {
           user.id = uid
-          self.loginDelegate?.loginSuccess(user)
+          self.loginDelegate?.onLoginSuccess(user)
         }
       } else {
-        self.loginDelegate?.loginError(error)
+        self.loginDelegate?.onLoginError(error)
       }
     }
   }
@@ -81,9 +81,9 @@ class FirebaseConnection {
     ref.authWithOAuthProvider("facebook", token: token) { error, authData in
       if error == nil {
         let user = User(withAuthData: authData)
-        self.loginDelegate?.loginSuccess(user)
+        self.loginDelegate?.onLoginSuccess(user)
       } else {
-        self.loginDelegate?.loginError(error)
+        self.loginDelegate?.onLoginError(error)
       }
     }
   }
@@ -95,9 +95,9 @@ class FirebaseConnection {
         let user = User(withAuthData: authData)
         if let temporaryPassword = authData.providerData["isTemporaryPassword"] as? Bool {
           if temporaryPassword {
-            self.loginDelegate?.temporaryPassword(user)
+            self.loginDelegate?.onHasTemporaryPassword(user)
           } else {
-            self.loginDelegate?.loginSuccess(user)
+            self.loginDelegate?.onLoginSuccess(user)
           }
         }
       } else {

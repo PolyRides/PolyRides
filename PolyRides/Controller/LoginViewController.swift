@@ -170,14 +170,14 @@ extension LoginViewController: FirebaseLoginDelegate {
     startMain()
   }
 
-  func passwordResetSuccess(email: String) {
+  func onPasswordResetSuccess(email: String) {
     stopLoading()
     let title = "Password Successfully Reset"
     let message = "Please check your email for your temporary password."
     presentAlert(AlertOptions(message: message, title: title, handler: onPasswordReset))
   }
 
-  func temporaryPassword(user: User) {
+  func onHasTemporaryPassword(user: User) {
     stopLoading()
     self.user = user
     if let temporaryPassword = passwordTextField?.text {
