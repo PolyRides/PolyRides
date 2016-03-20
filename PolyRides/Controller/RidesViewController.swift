@@ -10,6 +10,14 @@ class RidesViewController: UIViewController {
 
   var user: User?
   var rides = [Ride]()
+  var expectedRides = -1 {
+    didSet {
+      if expectedRides == 0 {
+        // Set empty data set delegates
+        tableView?.reloadData()
+      }
+    }
+  }
 
   @IBOutlet weak var tableView: UITableView?
 
@@ -58,5 +66,20 @@ extension RidesViewController: UITableViewDelegate {
   func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
     print("selected a ride")
   }
+
+}
+
+// MARK: - UITableViewDelegate
+extension RidesViewController: FirebaseRidesDelegate {
+
+  func onRideReceived(ride: Ride) {
+    expectedRides -= 1
+    rides.append(ride)
+  }
+
+  func onNumRidesReceived(numRides: Int) {
+    expectedRides = numRides
+  }
+
 
 }

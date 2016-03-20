@@ -13,7 +13,7 @@ class User {
   var id: String?
   var email: String?
   var firstName: String?
-  var fullName: String?
+  var lastName: String?
   var imageURL: String?
 
   init() {
@@ -26,7 +26,7 @@ class User {
   init(email: String, firstName: String, lastName: String) {
     self.email = email
     self.firstName = firstName
-    self.fullName = "\(firstName) \(lastName)"
+    self.lastName = lastName
   }
 
   init(withAuthData authData: FAuthData) {
@@ -35,8 +35,9 @@ class User {
       self.email = String(email)
     }
     if let fullName = authData.providerData["displayName"] as? NSString {
-      self.fullName = String(fullName)
-      self.firstName = fullName.componentsSeparatedByString(" ")[0]
+      let components = fullName.componentsSeparatedByString(" ")
+      self.firstName = components.first
+      self.lastName = components.last
     }
     if let imageURL = authData.providerData["profileImageURL"] as? NSString {
       self.imageURL = String(imageURL)
@@ -56,8 +57,8 @@ class User {
       if let firstName = dictionary["firstName"] as? String {
         self.firstName = firstName
       }
-      if let fullName = dictionary["fullName"] as? String {
-        self.fullName = fullName
+      if let lastName = dictionary["lastName"] as? String {
+        self.lastName = lastName
       }
       if let imageURL = dictionary["imageURL"] as? String {
         self.imageURL = imageURL
@@ -70,7 +71,7 @@ class User {
 
     dictionary["email"] = email
     dictionary["firstName"] = firstName
-    dictionary["fullName"] = fullName
+    dictionary["lastName"] = lastName
     dictionary["imageURL"] = imageURL
 
     return dictionary

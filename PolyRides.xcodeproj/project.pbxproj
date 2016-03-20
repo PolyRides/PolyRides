@@ -26,7 +26,7 @@
 		DB747ABC1C98DB2D00A24F58 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB747ABB1C98DB2D00A24F58 /* TabBarController.swift */; };
 		DB956DD81C96833700809B4C /* FirebaseConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB956DD71C96833700809B4C /* FirebaseConnection.swift */; };
 		DBAB56801C968FAA0011167A /* UIViewControllerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBAB567F1C968FAA0011167A /* UIViewControllerExtensions.swift */; };
-		DBAB56871C96B0F10011167A /* SearchTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBAB56861C96B0F10011167A /* SearchTableViewController.swift */; };
+		DBAB56871C96B0F10011167A /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBAB56861C96B0F10011167A /* SearchViewController.swift */; };
 		DBAB56911C96C5270011167A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DBAB56901C96C5270011167A /* Main.storyboard */; };
 		DBAB56931C96C6300011167A /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBAB56921C96C6300011167A /* LoginViewController.swift */; };
 		DBAB56951C9738870011167A /* UITextFieldExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBAB56941C9738870011167A /* UITextFieldExtensions.swift */; };
@@ -99,7 +99,7 @@
 		DB747ABB1C98DB2D00A24F58 /* TabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		DB956DD71C96833700809B4C /* FirebaseConnection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FirebaseConnection.swift; path = Model/FirebaseConnection.swift; sourceTree = "<group>"; };
 		DBAB567F1C968FAA0011167A /* UIViewControllerExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtensions.swift; sourceTree = "<group>"; };
-		DBAB56861C96B0F10011167A /* SearchTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchTableViewController.swift; sourceTree = "<group>"; };
+		DBAB56861C96B0F10011167A /* SearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		DBAB56901C96C5270011167A /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		DBAB56921C96C6300011167A /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		DBAB56941C9738870011167A /* UITextFieldExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UITextFieldExtensions.swift; sourceTree = "<group>"; };
@@ -163,6 +163,14 @@
 				DB4150FF1C9A74500062E5A0 /* RidesViewController.swift */,
 			);
 			name = Rides;
+			sourceTree = "<group>";
+		};
+		DB43A98B1C9E582800AC2AF9 /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				DBAB56861C96B0F10011167A /* SearchViewController.swift */,
+			);
+			name = Search;
 			sourceTree = "<group>";
 		};
 		DB70B8C11C9389EA0065CC4D = {
@@ -298,7 +306,7 @@
 			isa = PBXGroup;
 			children = (
 				DB747ABB1C98DB2D00A24F58 /* TabBarController.swift */,
-				DBAB56861C96B0F10011167A /* SearchTableViewController.swift */,
+				DB43A98B1C9E582800AC2AF9 /* Search */,
 				DB4151021C9B05240062E5A0 /* Rides */,
 			);
 			name = Main;
@@ -541,7 +549,7 @@
 				DBF5E6F51C96719400693807 /* EmailAccountViewController.swift in Sources */,
 				DB70B8D01C9389EA0065CC4D /* MainLoginViewController.swift in Sources */,
 				DBF5E6F01C963D3A00693807 /* ResetPasswordViewController.swift in Sources */,
-				DBAB56871C96B0F10011167A /* SearchTableViewController.swift in Sources */,
+				DBAB56871C96B0F10011167A /* SearchViewController.swift in Sources */,
 				DBB1558C1C9B76C500118F89 /* DateHelper.swift in Sources */,
 				DB70B8CE1C9389EA0065CC4D /* AppDelegate.swift in Sources */,
 				DB70B9021C938B230065CC4D /* User.swift in Sources */,

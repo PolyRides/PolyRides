@@ -24,6 +24,13 @@ protocol FirebaseResetPasswordDelegate: class {
 
 }
 
+protocol FirebaseRidesDelegate: class {
+
+  func onRideReceived(ride: Ride)
+  func onNumRidesReceived(numRides: Int)
+
+}
+
 class FirebaseConnection {
 
   static let service = FirebaseConnection()
@@ -32,6 +39,7 @@ class FirebaseConnection {
 
   var loginDelegate: FirebaseLoginDelegate?
   var resetPasswordDelegate: FirebaseResetPasswordDelegate?
+  var ridesDelegate: FirebaseRidesDelegate?
 
   func pushUserToFirebase(user: User) {
     if let id = user.id {
@@ -117,6 +125,13 @@ class FirebaseConnection {
     userRef.observeSingleEventOfType(.Value, withBlock: {
       snapshot in
       user.updateFromSnapshot(snapshot)
+    })
+  }
+
+  func getRidesForUser(user: User) {
+    let ridesRef = ref.childByAppendingPath("users/\(user.id)/rides")
+    ridesRef?.observeSingleEventOfType(.Value, withBlock: { snapshot in
+    //  ridesDelegate?.onNumRidesReceived(snapshot)
     })
   }
 
