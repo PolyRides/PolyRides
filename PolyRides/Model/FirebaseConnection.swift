@@ -14,18 +14,13 @@ protocol FirebaseLoginDelegate: class {
 
   func onLoginError(error: NSError)
   func onLoginSuccess(user: User)
+  func onHasTemporaryPassword(user: User)
 
 }
 
 protocol FirebaseResetPasswordDelegate: class {
 
   func onPasswordResetSuccess(email: String)
-
-}
-
-protocol FirebaseTemporaryPasswordDelegate: class {
-
-  func onHasTemporaryPassword(user: User)
 
 }
 
@@ -37,7 +32,6 @@ class FirebaseConnection {
 
   var loginDelegate: FirebaseLoginDelegate?
   var resetPasswordDelegate: FirebaseResetPasswordDelegate?
-  var temporaryPasswordDelegate: FirebaseTemporaryPasswordDelegate?
 
   func pushUserToFirebase(user: User) {
     if let id = user.id {
@@ -46,7 +40,6 @@ class FirebaseConnection {
   }
 
   func pushRideToFirebase(ride: Ride) {
-    print(ride.id)
     let rideRef = ref.childByAppendingPath("rides").childByAutoId()
     if let id = ride.driver?.id {
       let userRideRef = ref.childByAppendingPath("users/\(id)/rides/\(rideRef.key)")
@@ -56,7 +49,6 @@ class FirebaseConnection {
   }
 
   func resetPasswordForEmail(email: String) {
-    print(email)
     ref.resetPasswordForUser(email) { error in
       if error == nil {
         self.resetPasswordDelegate?.onPasswordResetSuccess(email)
@@ -103,18 +95,19 @@ class FirebaseConnection {
 
   func authUser(email: String, password: String) {
     ref.authUser(email, password: password) { error, authData in
-
       if error == nil {
         let user = User(withAuthData: authData)
         if let temporaryPassword = authData.providerData["isTemporaryPassword"] as? Bool {
           if temporaryPassword {
-            self.temporaryPasswordDelegate?.onHasTemporaryPassword(user)
+            self.loginDelegate?.onHasTemporaryPassword(user)
           } else {
             self.loginDelegate?.onLoginSuccess(user)
           }
+        } else {
+          self.loginDelegate?.onLoginError(error)
         }
       } else {
-
+        self.loginDelegate?.onLoginError(error)
       }
     }
   }

@@ -37,9 +37,10 @@ class ResetPasswordViewController: LoginViewController {
 
     if temporaryPassword != "" {
       passwordTextField?.secureTextEntry = true
-      FirebaseConnection.service.temporaryPasswordDelegate = self
+      passwordTextField?.delegate = self
     } else {
       FirebaseConnection.service.resetPasswordDelegate = self
+      emailTextField?.delegate = self
     }
 
     passwordTextField?.addTargetForEditing(self, selector: Selector("textFieldDidChange"))
@@ -106,16 +107,13 @@ extension ResetPasswordViewController: FirebaseResetPasswordDelegate {
 
 }
 
+// MARK: - UITextFieldDelegate
+extension ResetPasswordViewController: UITextFieldDelegate {
 
-// MARK: - FirebaseTemporaryPasswordDelegate
-extension ResetPasswordViewController: FirebaseTemporaryPasswordDelegate {
-
-  func onHasTemporaryPassword(user: User) {
-    stopLoading()
-    self.user = user
-    if let temporaryPassword = passwordTextField?.text {
-      self.performSegueWithIdentifier("toResetPassword", sender: temporaryPassword)
-    }
+  func textFieldShouldReturn(textField: UITextField) -> Bool {
+    textField.resignFirstResponder()
+    resetPasswordAction(textField)
+    return true
   }
 
 }

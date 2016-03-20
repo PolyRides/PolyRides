@@ -161,6 +161,7 @@ class LoginViewController: UIViewController {
 extension LoginViewController: FirebaseLoginDelegate {
 
   func onLoginError(error: NSError) {
+    stopLoading()
     presentAlertForFirebaseError(error)
   }
 
@@ -169,6 +170,12 @@ extension LoginViewController: FirebaseLoginDelegate {
     self.user = user
     FirebaseConnection.service.pushUserToFirebase(user)
     startMain()
+  }
+
+  func onHasTemporaryPassword(user: User) {
+    stopLoading()
+    self.user = user
+    self.performSegueWithIdentifier("toResetPassword", sender: nil)
   }
 
 }

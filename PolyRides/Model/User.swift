@@ -30,7 +30,6 @@ class User {
   }
 
   init(withAuthData authData: FAuthData) {
-    print(authData.uid)
     self.id = authData.uid
     if let email = authData.providerData["email"] as? NSString {
       self.email = String(email)
