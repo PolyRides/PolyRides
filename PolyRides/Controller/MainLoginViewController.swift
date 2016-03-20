@@ -24,6 +24,8 @@ class MainLoginViewController: LoginViewController {
     super.viewDidLoad()
 
     trackScreen(String(MainLoginViewController))
+    emailTextField?.delegate = self
+    passwordTextField?.delegate = self
   }
 
   override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
@@ -39,6 +41,21 @@ class MainLoginViewController: LoginViewController {
         }
       }
     }
+  }
+
+}
+
+// MARK: - UITextFieldDelegate
+extension MainLoginViewController: UITextFieldDelegate {
+
+  func textFieldShouldReturn(textField: UITextField) -> Bool {
+    if textField.returnKeyType == .Next {
+      passwordTextField?.becomeFirstResponder()
+    } else {
+      textField.resignFirstResponder()
+      loginAction(textField)
+    }
+    return true
   }
 
 }

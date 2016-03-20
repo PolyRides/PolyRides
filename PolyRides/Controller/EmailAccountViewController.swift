@@ -25,6 +25,11 @@ class EmailAccountViewController: LoginViewController {
     super.viewDidLoad()
 
     trackScreen(String(EmailAccountViewController))
+
+    emailTextField?.delegate = self
+    passwordTextField?.delegate = self
+    firstNameTextField?.delegate = self
+    lastNameTextField?.delegate = self
   }
 
   override func textFieldDidChange() {
@@ -50,6 +55,25 @@ class EmailAccountViewController: LoginViewController {
         }
       }
     }
+  }
+
+}
+
+// MARK: - UITextFieldDelegate
+extension EmailAccountViewController: UITextFieldDelegate {
+
+  func textFieldShouldReturn(textField: UITextField) -> Bool {
+    if textField.returnKeyType == .Next {
+      if textField == firstNameTextField {
+        lastNameTextField?.becomeFirstResponder()
+      } else if textField == emailTextField {
+        passwordTextField?.becomeFirstResponder()
+      }
+    } else {
+      textField.resignFirstResponder()
+      signInAction(textField)
+    }
+    return true
   }
 
 }

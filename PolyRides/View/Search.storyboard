@@ -7,6 +7,7 @@
         <!--Navigation Controller-->
         <scene sceneID="T1c-gp-bLv">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Vct-52-vjj" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController storyboardIdentifier="Search" id="D0k-8z-Ryz" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="sXl-tr-E0E">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -20,14 +21,14 @@
                         <segue destination="fw5-cs-E77" kind="relationship" relationship="rootViewController" id="q2J-ID-7lV"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Vct-52-vjj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1941" y="-1021"/>
         </scene>
-        <!--View Controller-->
+        <!--Search View Controller-->
         <scene sceneID="PtZ-oE-hpB">
             <objects>
-                <viewController id="fw5-cs-E77" sceneMemberID="viewController">
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kd4-if-ZlM" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewController id="fw5-cs-E77" customClass="SearchViewController" customModule="PolyRides" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="XQm-wX-i37"/>
                         <viewControllerLayoutGuide type="bottom" id="Sl4-Qs-xvc"/>
@@ -35,13 +36,24 @@
                     <view key="view" contentMode="scaleToFill" id="46g-TA-ryA">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TEST" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="STt-I0-HGf">
+                                <rect key="frame" x="280" y="289" width="41" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="STt-I0-HGf" firstAttribute="centerX" secondItem="46g-TA-ryA" secondAttribute="centerX" id="ila-aZ-zzq"/>
+                            <constraint firstItem="STt-I0-HGf" firstAttribute="centerY" secondItem="46g-TA-ryA" secondAttribute="centerY" id="wHI-VQ-9Zz"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" systemItem="search" id="ZlT-dd-xRe"/>
                     <navigationItem key="navigationItem" id="lpF-pW-nqr"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="kd4-if-ZlM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1199" y="-1021"/>
         </scene>

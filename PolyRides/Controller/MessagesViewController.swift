@@ -70,10 +70,10 @@ class MessagesViewController: JSQMessagesViewController {
     senderId = self.sender?.id
     var senderImageUrl = self.sender?.imageURL
     if let urlString = senderImageUrl {
-      setupAvatarImage((self.sender?.fullName)!, imageUrl: urlString, incoming: false)
+      setupAvatarImage((self.sender?.firstName)!, imageUrl: urlString, incoming: false)
       senderImageUrl = urlString
     } else {
-      setupAvatarColor((self.sender?.fullName)!, incoming: false)
+      setupAvatarColor((self.sender?.firstName)!, incoming: false)
       senderImageUrl = ""
     }
   }

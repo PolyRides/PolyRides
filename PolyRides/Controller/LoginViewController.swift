@@ -38,7 +38,7 @@ class LoginViewController: UIViewController {
 
   override func viewWillAppear(animated: Bool) {
     super.viewWillAppear(animated)
-    navigationController?.navigationBar.hidden = true
+    navigationController?.navigationBarHidden = true
     textFieldDidChange()
   }
 
@@ -157,9 +157,11 @@ class LoginViewController: UIViewController {
 
 }
 
+// MARK: - FirebaseLoginDelegate
 extension LoginViewController: FirebaseLoginDelegate {
 
   func onLoginError(error: NSError) {
+    stopLoading()
     presentAlertForFirebaseError(error)
   }
 
@@ -170,20 +172,10 @@ extension LoginViewController: FirebaseLoginDelegate {
     startMain()
   }
 
-  func onPasswordResetSuccess(email: String) {
-    stopLoading()
-    let title = "Password Successfully Reset"
-    let message = "Please check your email for your temporary password."
-    presentAlert(AlertOptions(message: message, title: title, handler: onPasswordReset))
-  }
-
   func onHasTemporaryPassword(user: User) {
     stopLoading()
     self.user = user
-    if let temporaryPassword = passwordTextField?.text {
-      self.performSegueWithIdentifier("toResetPassword", sender: temporaryPassword)
-    }
+    self.performSegueWithIdentifier("toResetPassword", sender: nil)
   }
-
 
 }

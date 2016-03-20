@@ -6,9 +6,19 @@
 //  Copyright © 2016 Vanessa Forney. All rights reserved.
 //
 
-class SearchTableViewController: UITableViewController {
+import CoreLocation
+
+class SearchViewController: UIViewController {
+
+  let locationManager = CLLocationManager()
 
   var user: User?
+
+  override func viewDidLoad() {
+    super.viewDidLoad()
+
+    locationManager.requestWhenInUseAuthorization()
+  }
 
   override func viewDidAppear(animated: Bool) {
     super.viewDidAppear(animated)

@@ -28,8 +28,9 @@ class Ride {
     self.costPerSeat = cost
   }
 
-  init(withSnapshot snapshot: FDataSnapshot) {
+  init(fromSnapshot snapshot: FDataSnapshot) {
     if let dictionary = snapshot.value as? [String : AnyObject] {
+      print(dictionary)
       self.id = snapshot.key
       if let driverId = dictionary["driverId"] as? String {
         self.driver = User(id: driverId)

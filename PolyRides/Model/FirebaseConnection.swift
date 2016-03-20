@@ -12,10 +12,22 @@ import FBSDKLoginKit
 
 protocol FirebaseLoginDelegate: class {
 
-  func onPasswordResetSuccess(email: String)
   func onLoginError(error: NSError)
   func onLoginSuccess(user: User)
   func onHasTemporaryPassword(user: User)
+
+}
+
+protocol FirebaseResetPasswordDelegate: class {
+
+  func onPasswordResetSuccess(email: String)
+
+}
+
+protocol FirebaseRidesDelegate: class {
+
+  func onRideReceived(ride: Ride)
+  func onNumRidesReceived(numRides: Int)
 
 }
 
@@ -26,6 +38,8 @@ class FirebaseConnection {
   let ref = Firebase(url: "https://poly-rides.firebaseio.com")
 
   var loginDelegate: FirebaseLoginDelegate?
+  var resetPasswordDelegate: FirebaseResetPasswordDelegate?
+  var ridesDelegate: FirebaseRidesDelegate?
 
   func pushUserToFirebase(user: User) {
     if let id = user.id {
@@ -43,10 +57,9 @@ class FirebaseConnection {
   }
 
   func resetPasswordForEmail(email: String) {
-    print(email)
     ref.resetPasswordForUser(email) { error in
       if error == nil {
-        self.loginDelegate?.onPasswordResetSuccess(email)
+        self.resetPasswordDelegate?.onPasswordResetSuccess(email)
       } else {
         self.loginDelegate?.onLoginError(error)
       }
@@ -90,7 +103,6 @@ class FirebaseConnection {
 
   func authUser(email: String, password: String) {
     ref.authUser(email, password: password) { error, authData in
-
       if error == nil {
         let user = User(withAuthData: authData)
         if let temporaryPassword = authData.providerData["isTemporaryPassword"] as? Bool {
@@ -99,9 +111,11 @@ class FirebaseConnection {
           } else {
             self.loginDelegate?.onLoginSuccess(user)
           }
+        } else {
+          self.loginDelegate?.onLoginError(error)
         }
       } else {
-
+        self.loginDelegate?.onLoginError(error)
       }
     }
   }
@@ -112,6 +126,29 @@ class FirebaseConnection {
       snapshot in
       user.updateFromSnapshot(snapshot)
     })
+  }
+
+  func getRidesForUser(user: User) {
+    if let userId = user.id {
+      let ridesRef = ref.childByAppendingPath("users/\(userId)/rides")
+      print(ridesRef)
+      ridesRef?.observeSingleEventOfType(.Value, withBlock: { snapshot in
+        self.ridesDelegate?.onNumRidesReceived(snapshot.children.allObjects.count)
+
+        if let children = snapshot.children.allObjects as? [FDataSnapshot] {
+          for child in children {
+            if let key = child.key {
+              print(self.ref.childByAppendingPath("rides/\(key)"))
+              let rideRef = self.ref.childByAppendingPath("rides/\(key)")
+              rideRef.observeSingleEventOfType(.Value, withBlock: { snapshot in
+                let ride = Ride(fromSnapshot: snapshot)
+                self.ridesDelegate?.onRideReceived(ride)
+              })
+            }
+          }
+        }
+      })
+    }
   }
 
 }

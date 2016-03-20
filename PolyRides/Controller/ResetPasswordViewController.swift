@@ -31,12 +31,16 @@ class ResetPasswordViewController: LoginViewController {
 
     // Make the navigation bar transluscent.
     let metrics = UIBarMetrics.Default
-    self.navigationController?.navigationBar.setBackgroundImage(UIImage(), forBarMetrics: metrics)
-    self.navigationController?.navigationBar.shadowImage = UIImage()
-    self.navigationController?.navigationBar.translucent = true
+    navigationController?.navigationBar.setBackgroundImage(UIImage(), forBarMetrics: metrics)
+    navigationController?.navigationBar.shadowImage = UIImage()
+    navigationController?.navigationBar.translucent = true
 
     if temporaryPassword != "" {
       passwordTextField?.secureTextEntry = true
+      passwordTextField?.delegate = self
+    } else {
+      FirebaseConnection.service.resetPasswordDelegate = self
+      emailTextField?.delegate = self
     }
 
     passwordTextField?.addTargetForEditing(self, selector: Selector("textFieldDidChange"))
@@ -47,7 +51,6 @@ class ResetPasswordViewController: LoginViewController {
     super.viewWillAppear(animated)
 
     navigationController?.navigationBarHidden = false
-
     var text = "You've logged in with a temporary password. Please enter a new password."
     if temporaryPassword == "" {
       text = "Enter your email address and we'll send you a link to reset your password."
@@ -88,6 +91,29 @@ class ResetPasswordViewController: LoginViewController {
     let alertOptions = AlertOptions(message: message, title: title, handler: resetPassword,
       showCancel: true, acceptText: "Reset")
     presentAlert(alertOptions)
+  }
+
+}
+
+// MARK: - FirebaseResetPasswordDelegate
+extension ResetPasswordViewController: FirebaseResetPasswordDelegate {
+
+  func onPasswordResetSuccess(email: String) {
+    stopLoading()
+    let title = "Password Successfully Reset"
+    let message = "Please check your email for your temporary password."
+    presentAlert(AlertOptions(message: message, title: title, handler: onPasswordReset))
+  }
+
+}
+
+// MARK: - UITextFieldDelegate
+extension ResetPasswordViewController: UITextFieldDelegate {
+
+  func textFieldShouldReturn(textField: UITextField) -> Bool {
+    textField.resignFirstResponder()
+    resetPasswordAction(textField)
+    return true
   }
 
 }

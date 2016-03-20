@@ -16,7 +16,6 @@ class AddRideViewController: UIViewController {
   var toLocationPlace: GMSPlace?
   var fromLocationPlace: GMSPlace?
   var autocompleteTextField: UITextField?
-  var firebaseConnection: FirebaseConnection?
 
   @IBOutlet weak var toTextField: UITextField?
   @IBOutlet weak var fromTextField: UITextField?
@@ -40,7 +39,7 @@ class AddRideViewController: UIViewController {
               let ride = Ride(driver: user, date: date, seats: Int(seats), description: description, cost: Int(cost))
               ride.fromLocation = locationFromPlace(fromLocationPlace)
               ride.toLocation = locationFromPlace(toLocationPlace)
-              firebaseConnection?.pushRideToFirebase(ride)
+              FirebaseConnection.service.pushRideToFirebase(ride)
             }
           }
         }
