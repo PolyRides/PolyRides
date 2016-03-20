@@ -30,23 +30,12 @@ class Ride {
 
   init(fromSnapshot snapshot: FDataSnapshot) {
     if let dictionary = snapshot.value as? [String : AnyObject] {
-      print(dictionary)
       self.id = snapshot.key
       if let driverId = dictionary["driverId"] as? String {
         self.driver = User(id: driverId)
       }
       if let date = dictionary["date"] as? Double {
         self.date = NSDate(timeIntervalSince1970: date)
-      }
-      if let fromPlaceId = dictionary["fromPlaceId"] as? String {
-        if let fromCity = dictionary["fromPlaceCity"] as? String {
-          fromLocation = Location(placeId: fromPlaceId, city: fromCity)
-        }
-      }
-      if let toPlaceId = dictionary["toPlaceId"] as? String {
-        if let toCity = dictionary["toPlaceCity"] as? String {
-          toLocation = Location(placeId: toPlaceId, city: toCity)
-        }
       }
       if let seatsAvailable = dictionary["seatsAvailable"] as? Int {
         self.seatsAvailable = seatsAvailable
@@ -60,7 +49,19 @@ class Ride {
       if let costPerSeat = dictionary["costPerSeat"] as? Int {
         self.costPerSeat = costPerSeat
       }
+
+      fromLocation = getLocationFromDictionary(dictionary, place: "fromPlaceId", city: "fromPlaceCity")
+      toLocation = getLocationFromDictionary(dictionary, place: "toPlaceId", city: "toPlaceCity")
     }
+  }
+
+  func getLocationFromDictionary(dictionary: [String: AnyObject], place: String, city: String) -> Location? {
+    if let placeId = dictionary[place] as? String {
+      if let city = dictionary[city] as? String {
+        return Location(placeId: placeId, city: city)
+      }
+    }
+    return nil
   }
 
   func toAnyObject() -> [String: AnyObject] {

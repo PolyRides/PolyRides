@@ -15,18 +15,24 @@ class RideTableViewCell: UITableViewCell {
 class RidesViewController: UIViewController {
 
   var user: User?
-  var rides = [Ride]()
+  var currentRides = [Ride]()
+  var pastRides = [Ride]()
+  var savedRides = [Ride]()
   var expectedRides = -1 {
     didSet {
       if expectedRides == 0 {
         // Set empty data set delegates
-        print(rides.count)
         tableView?.reloadData()
       }
     }
   }
 
   @IBOutlet weak var tableView: UITableView?
+  @IBOutlet weak var segmentedControl: UISegmentedControl?
+
+  @IBAction func segmentedAction(sender: AnyObject) {
+      tableView?.reloadData()
+  }
 
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -61,34 +67,56 @@ class RidesViewController: UIViewController {
 extension RidesViewController: UITableViewDataSource {
 
   func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    return rides.count
+    if let index = segmentedControl?.selectedSegmentIndex {
+      switch index {
+      case 0:
+        return currentRides.count
+      case 1:
+        return pastRides.count
+      default:
+        return savedRides.count
+      }
+    }
+    return 0
   }
 
   func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-    let ride = rides[indexPath.row]
     let cell = tableView.dequeueReusableCellWithIdentifier("rideCell", forIndexPath: indexPath)
-    if let rideCell = cell as? RideTableViewCell {
-      if let fromCity = ride.fromLocation?.city {
-        if let toCity = ride.toLocation?.city {
-          rideCell.textLabel?.text = "\(fromCity) → \(toCity)"
 
-          if let date = ride.date {
-            let timeFormatter = NSDateFormatter()
-            timeFormatter.dateFormat = "EEEE, MMM dd"
-            let day = timeFormatter.stringFromDate(date)
-            timeFormatter.dateFormat = "h:mm a"
-            let time = timeFormatter.stringFromDate(date)
+    var ride: Ride
+    if let index = segmentedControl?.selectedSegmentIndex {
+      switch index {
+      case 0:
+        ride = currentRides[indexPath.row]
+      case 1:
+        ride = pastRides[indexPath.row]
+      default:
+        ride = savedRides[indexPath.row]
+      }
 
-            rideCell.detailTextLabel?.text = "\(day) at \(time)"
+
+      if let rideCell = cell as? RideTableViewCell {
+        if let fromCity = ride.fromLocation?.city {
+          if let toCity = ride.toLocation?.city {
+            rideCell.textLabel?.text = "\(fromCity) → \(toCity)"
+
+            if let date = ride.date {
+              let timeFormatter = NSDateFormatter()
+              timeFormatter.dateFormat = "EEEE, MMM dd"
+              let day = timeFormatter.stringFromDate(date)
+              timeFormatter.dateFormat = "h:mm a"
+              let time = timeFormatter.stringFromDate(date)
+
+              rideCell.detailTextLabel?.text = "\(day) at \(time)"
+            }
           }
         }
+        rideCell.ride = ride
+        return rideCell
       }
-      rideCell.ride = ride
-      return rideCell
     }
     return cell
   }
-
 }
 
 // MARK: - UITableViewDelegate
@@ -100,11 +128,15 @@ extension RidesViewController: UITableViewDelegate {
 
 }
 
-// MARK: - UITableViewDelegate
+// MARK: - FirebaseRidesDelegate
 extension RidesViewController: FirebaseRidesDelegate {
 
   func onRideReceived(ride: Ride) {
-    rides.append(ride)
+    if ride.date?.compare(NSDate()) == .OrderedDescending {
+      currentRides.append(ride)
+    } else {
+      pastRides.append(ride)
+    }
     expectedRides -= 1
   }
 
@@ -112,5 +144,12 @@ extension RidesViewController: FirebaseRidesDelegate {
     expectedRides = numRides
   }
 
+  func onRideAdded(ride: Ride) {
+    if ride.date?.compare(NSDate()) == .OrderedDescending {
+      currentRides.append(ride)
+    } else {
+      pastRides.append(ride)
+    }
+  }
 
 }

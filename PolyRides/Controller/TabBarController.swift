@@ -12,6 +12,16 @@ class TabBarController: UITabBarController {
 
   var user: User?
 
+  override func viewDidLoad() {
+    super.viewDidLoad()
+
+    viewControllers?.forEach {
+      if let vc = $0 as? UINavigationController {
+        vc.topViewController?.view
+      }
+    }
+  }
+
   override func viewDidAppear(animated: Bool) {
     super.viewDidAppear(animated)
 

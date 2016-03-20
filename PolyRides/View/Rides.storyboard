@@ -47,6 +47,9 @@
                                     <segment title="Past"/>
                                     <segment title="Saved"/>
                                 </segments>
+                                <connections>
+                                    <action selector="segmentedAction:" destination="fnc-Oe-nPW" eventType="valueChanged" id="ToX-42-tl6"/>
+                                </connections>
                             </segmentedControl>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="71" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Xhs-xb-y88">
                                 <rect key="frame" x="0.0" y="108" width="600" height="443"/>
@@ -104,6 +107,7 @@
                     </navigationItem>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="segmentedControl" destination="YQo-Ub-837" id="zqN-NP-ccR"/>
                         <outlet property="tableView" destination="Xhs-xb-y88" id="RQ4-Si-A9Z"/>
                     </connections>
                 </viewController>

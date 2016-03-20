@@ -28,6 +28,7 @@ protocol FirebaseRidesDelegate: class {
 
   func onRideReceived(ride: Ride)
   func onNumRidesReceived(numRides: Int)
+  func onRideAdded(ride: Ride)
 
 }
 
@@ -53,6 +54,7 @@ class FirebaseConnection {
       let userRideRef = ref.childByAppendingPath("users/\(id)/rides/\(rideRef.key)")
       userRideRef.setValue(true)
       rideRef.setValue(ride.toAnyObject())
+      ridesDelegate?.onRideAdded(ride)
     }
   }
 
@@ -131,14 +133,12 @@ class FirebaseConnection {
   func getRidesForUser(user: User) {
     if let userId = user.id {
       let ridesRef = ref.childByAppendingPath("users/\(userId)/rides")
-      print(ridesRef)
       ridesRef?.observeSingleEventOfType(.Value, withBlock: { snapshot in
         self.ridesDelegate?.onNumRidesReceived(snapshot.children.allObjects.count)
 
         if let children = snapshot.children.allObjects as? [FDataSnapshot] {
           for child in children {
             if let key = child.key {
-              print(self.ref.childByAppendingPath("rides/\(key)"))
               let rideRef = self.ref.childByAppendingPath("rides/\(key)")
               rideRef.observeSingleEventOfType(.Value, withBlock: { snapshot in
                 let ride = Ride(fromSnapshot: snapshot)
