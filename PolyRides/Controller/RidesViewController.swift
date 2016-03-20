@@ -6,6 +6,12 @@
 //  Copyright © 2016 Vanessa Forney. All rights reserved.
 //
 
+class RideTableViewCell: UITableViewCell {
+
+  var ride: Ride?
+
+}
+
 class RidesViewController: UIViewController {
 
   var user: User?
@@ -14,6 +20,7 @@ class RidesViewController: UIViewController {
     didSet {
       if expectedRides == 0 {
         // Set empty data set delegates
+        print(rides.count)
         tableView?.reloadData()
       }
     }
@@ -31,7 +38,10 @@ class RidesViewController: UIViewController {
     tableView?.delegate = self
     tableView?.dataSource = self
 
-    // query for all rides
+    FirebaseConnection.service.ridesDelegate = self
+    if let user = user {
+      FirebaseConnection.service.getRidesForUser(user)
+    }
   }
 
   override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
@@ -55,7 +65,28 @@ extension RidesViewController: UITableViewDataSource {
   }
 
   func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-    return tableView.dequeueReusableCellWithIdentifier("rideCell", forIndexPath: indexPath)
+    let ride = rides[indexPath.row]
+    let cell = tableView.dequeueReusableCellWithIdentifier("rideCell", forIndexPath: indexPath)
+    if let rideCell = cell as? RideTableViewCell {
+      if let fromCity = ride.fromLocation?.city {
+        if let toCity = ride.toLocation?.city {
+          rideCell.textLabel?.text = "\(fromCity) → \(toCity)"
+
+          if let date = ride.date {
+            let timeFormatter = NSDateFormatter()
+            timeFormatter.dateFormat = "EEEE, MMM dd"
+            let day = timeFormatter.stringFromDate(date)
+            timeFormatter.dateFormat = "h:mm a"
+            let time = timeFormatter.stringFromDate(date)
+
+            rideCell.detailTextLabel?.text = "\(day) at \(time)"
+          }
+        }
+      }
+      rideCell.ride = ride
+      return rideCell
+    }
+    return cell
   }
 
 }
@@ -64,7 +95,7 @@ extension RidesViewController: UITableViewDataSource {
 extension RidesViewController: UITableViewDelegate {
 
   func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-    print("selected a ride")
+    print("selected a ride, going to ride details")
   }
 
 }
@@ -73,8 +104,8 @@ extension RidesViewController: UITableViewDelegate {
 extension RidesViewController: FirebaseRidesDelegate {
 
   func onRideReceived(ride: Ride) {
-    expectedRides -= 1
     rides.append(ride)
+    expectedRides -= 1
   }
 
   func onNumRidesReceived(numRides: Int) {

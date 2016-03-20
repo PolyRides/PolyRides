@@ -129,10 +129,26 @@ class FirebaseConnection {
   }
 
   func getRidesForUser(user: User) {
-    let ridesRef = ref.childByAppendingPath("users/\(user.id)/rides")
-    ridesRef?.observeSingleEventOfType(.Value, withBlock: { snapshot in
-    //  ridesDelegate?.onNumRidesReceived(snapshot)
-    })
+    if let userId = user.id {
+      let ridesRef = ref.childByAppendingPath("users/\(userId)/rides")
+      print(ridesRef)
+      ridesRef?.observeSingleEventOfType(.Value, withBlock: { snapshot in
+        self.ridesDelegate?.onNumRidesReceived(snapshot.children.allObjects.count)
+
+        if let children = snapshot.children.allObjects as? [FDataSnapshot] {
+          for child in children {
+            if let key = child.key {
+              print(self.ref.childByAppendingPath("rides/\(key)"))
+              let rideRef = self.ref.childByAppendingPath("rides/\(key)")
+              rideRef.observeSingleEventOfType(.Value, withBlock: { snapshot in
+                let ride = Ride(fromSnapshot: snapshot)
+                self.ridesDelegate?.onRideReceived(ride)
+              })
+            }
+          }
+        }
+      })
+    }
   }
 
 }
