@@ -127,7 +127,6 @@ extension RidesViewController: UITableViewDelegate {
   func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
     print("selected a ride, going to ride details")
   }
-
 }
 
 // MARK: - FirebaseRidesDelegate

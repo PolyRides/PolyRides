@@ -40,5 +40,4 @@ extension CollectionType where Generator.Element == GMSAddressComponent {
   func valueForKey(key: String) -> String? {
     return filter { $0.type == key }.first?.name
   }
-
 }

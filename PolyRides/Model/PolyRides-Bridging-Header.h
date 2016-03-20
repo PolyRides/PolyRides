@@ -3,3 +3,4 @@
 //
 
 #import <Google/Analytics.h>
+#import <JSQMessagesViewController/JSQMessages.h>

@@ -12,6 +12,7 @@ target 'PolyRides' do
    pod 'Crashlytics'
    pod 'Firebase'
    pod 'Google/Analytics'
+   pod 'JSQMessagesViewController'
 end
 
 target 'PolyRidesTests' do
