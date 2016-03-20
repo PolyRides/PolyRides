@@ -19,6 +19,7 @@ class Ride {
   var totalSeats: Int?
   var description: String?
   var costPerSeat: Int?
+  var timestamp: NSDate?
 
   init(driver: User, date: NSDate, seats: Int?, description: String, cost: Int?) {
     self.driver = driver
@@ -67,7 +68,9 @@ class Ride {
   func toAnyObject() -> [String: AnyObject] {
     var dictionary = [String : AnyObject]()
 
-    dictionary["timestamp"] = NSDate().timeIntervalSince1970
+    if timestamp != nil {
+      dictionary["timestamp"] = timestamp?.timeIntervalSince1970
+    }
     dictionary["driverId"] = driver?.id
     dictionary["date"] = date?.timeIntervalSince1970
     dictionary["fromPlaceId"] = fromLocation?.place?.placeID

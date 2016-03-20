@@ -83,6 +83,7 @@ class FirebaseConnection {
       if error == nil {
         if let uid = result["uid"] as? String {
           user.id = uid
+          user.timestamp = NSDate()
           self.loginDelegate?.onLoginSuccess(user)
         }
       } else {

@@ -31,14 +31,18 @@ class AddRideViewController: UIViewController {
 
   @IBAction func addButtonAction(sender: AnyObject) {
     if var cost = costTextField?.text {
-      if let description = notesTextView?.text {
+      if var description = notesTextView?.text {
         if let seats = seatsLabel?.text {
           if let date = datePicker?.date {
             cost = cost.stringByReplacingOccurrencesOfString("$", withString: "")
             if let user = user {
+              if description == "Optional notes for passengers" {
+                description = ""
+              }
               let ride = Ride(driver: user, date: date, seats: Int(seats), description: description, cost: Int(cost))
               ride.fromLocation = locationFromPlace(fromLocationPlace)
               ride.toLocation = locationFromPlace(toLocationPlace)
+              ride.timestamp = NSDate()
               FirebaseConnection.service.pushRideToFirebase(ride)
             }
           }

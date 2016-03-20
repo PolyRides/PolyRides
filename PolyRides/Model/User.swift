@@ -15,6 +15,7 @@ class User {
   var firstName: String?
   var lastName: String?
   var imageURL: String?
+  var timestamp: NSDate?
 
   init() {
   }
@@ -73,6 +74,10 @@ class User {
     dictionary["firstName"] = firstName
     dictionary["lastName"] = lastName
     dictionary["imageURL"] = imageURL
+
+    if timestamp != nil {
+      dictionary["timestamp"] = timestamp
+    }
 
     return dictionary
   }
