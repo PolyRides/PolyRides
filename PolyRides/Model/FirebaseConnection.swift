@@ -22,7 +22,7 @@ protocol FirebaseLoginDelegate: class {
 class FirebaseConnection {
 
   static let service = FirebaseConnection()
-  
+
   let ref = Firebase(url: "https://poly-rides.firebaseio.com")
 
   var loginDelegate: FirebaseLoginDelegate?
