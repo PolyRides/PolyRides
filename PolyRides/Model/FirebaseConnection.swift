@@ -32,6 +32,12 @@ protocol FirebaseRidesDelegate: class {
 
 }
 
+protocol FirebaseUserDelegate: class {
+
+  func onUserUpdated()
+
+}
+
 class FirebaseConnection {
 
   static let service = FirebaseConnection()
@@ -41,6 +47,7 @@ class FirebaseConnection {
   var loginDelegate: FirebaseLoginDelegate?
   var resetPasswordDelegate: FirebaseResetPasswordDelegate?
   var ridesDelegate: FirebaseRidesDelegate?
+  var userDelegate: FirebaseUserDelegate?
 
   func pushUserToFirebase(user: User) {
     if let id = user.id {
@@ -124,11 +131,13 @@ class FirebaseConnection {
   }
 
   func updateValuesForUser(user: User) {
-    let userRef = ref.childByAppendingPath("users/\(user.id)")
-    userRef.observeSingleEventOfType(.Value, withBlock: {
-      snapshot in
-      user.updateFromSnapshot(snapshot)
-    })
+    if let userId = user.id {
+      let userRef = ref.childByAppendingPath("users/\(userId)")
+      userRef.observeSingleEventOfType(.Value, withBlock: { snapshot in
+        user.updateFromSnapshot(snapshot)
+        self.userDelegate?.onUserUpdated()
+      })
+    }
   }
 
   func getRidesForUser(user: User) {

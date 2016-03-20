@@ -37,8 +37,8 @@ class RidesViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
 
-    if let tabBarController = self.tabBarController as? TabBarController {
-      self.user = tabBarController.user
+    if let tabBarController = tabBarController as? TabBarController {
+      user = tabBarController.user
     }
 
     tableView?.delegate = self
@@ -59,6 +59,13 @@ class RidesViewController: UIViewController {
       }
     } else if segue.identifier == "toLogin" {
       FirebaseConnection.service.ref.unauth()
+    } else if segue.identifier == "toRideDetails" {
+      if let vc = segue.destinationViewController as? RideDetailsViewController {
+        if let cell = sender as? RideTableViewCell {
+          vc.ride = cell.ride
+          vc.user = user
+        }
+      }
     }
   }
 
@@ -96,23 +103,10 @@ extension RidesViewController: UITableViewDataSource {
         ride = savedRides[indexPath.row]
       }
 
-
       if let rideCell = cell as? RideTableViewCell {
-        if let fromCity = ride.fromLocation?.city {
-          if let toCity = ride.toLocation?.city {
-            rideCell.textLabel?.text = "\(fromCity) → \(toCity)"
+        rideCell.textLabel?.text = ride.getFormattedLocation()
+        rideCell.detailTextLabel?.text = ride.getFormattedDate()
 
-            if let date = ride.date {
-              let timeFormatter = NSDateFormatter()
-              timeFormatter.dateFormat = "EEEE, MMM dd"
-              let day = timeFormatter.stringFromDate(date)
-              timeFormatter.dateFormat = "h:mm a"
-              let time = timeFormatter.stringFromDate(date)
-
-              rideCell.detailTextLabel?.text = "\(day) at \(time)"
-            }
-          }
-        }
         rideCell.ride = ride
         return rideCell
       }
@@ -125,7 +119,7 @@ extension RidesViewController: UITableViewDataSource {
 extension RidesViewController: UITableViewDelegate {
 
   func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-    print("selected a ride, going to ride details")
+    tableView.deselectRowAtIndexPath(indexPath, animated: true)
   }
 }
 

@@ -65,6 +65,28 @@ class Ride {
     return nil
   }
 
+  func getFormattedDate() -> String {
+    if let date = date {
+      let timeFormatter = NSDateFormatter()
+      timeFormatter.dateFormat = "EEEE, MMM dd"
+      let day = timeFormatter.stringFromDate(date)
+      timeFormatter.dateFormat = "h:mm a"
+      let time = timeFormatter.stringFromDate(date)
+
+      return "\(day) at \(time)"
+    }
+    return ""
+  }
+
+  func getFormattedLocation() -> String {
+    if let fromCity = fromLocation?.city {
+      if let toCity = toLocation?.city {
+        return "\(fromCity) → \(toCity)"
+      }
+    }
+    return ""
+  }
+
   func toAnyObject() -> [String: AnyObject] {
     var dictionary = [String : AnyObject]()
 

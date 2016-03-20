@@ -12,7 +12,7 @@ class SearchViewController: UIViewController {
 
   let locationManager = CLLocationManager()
 
-  var user: User?
+ // var user: User?
 
   override func viewDidLoad() {
     super.viewDidLoad()

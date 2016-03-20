@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Navigation Controller-->
@@ -24,10 +25,10 @@
             </objects>
             <point key="canvasLocation" x="-1941" y="-1021"/>
         </scene>
-        <!--View Controller-->
+        <!--Profile View Controller-->
         <scene sceneID="gYo-aD-zB4">
             <objects>
-                <viewController id="oWY-WK-zfY" sceneMemberID="viewController">
+                <viewController id="oWY-WK-zfY" customClass="ProfileViewController" customModule="PolyRides" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="cEF-84-hKk"/>
                         <viewControllerLayoutGuide type="bottom" id="rah-gI-kkF"/>
@@ -35,11 +36,39 @@
                     <view key="view" contentMode="scaleToFill" id="EGj-kx-eLm">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hmk-rL-E0k">
+                                <rect key="frame" x="20" y="180" width="560" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="D6y-LJ-X3Z">
+                                <rect key="frame" x="250" y="72" width="100" height="100"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="100" id="eNr-5R-13s"/>
+                                    <constraint firstAttribute="height" constant="100" id="t7G-xZ-sLW"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="D6y-LJ-X3Z" firstAttribute="top" secondItem="cEF-84-hKk" secondAttribute="bottom" constant="8" id="EpG-gr-5ap"/>
+                            <constraint firstItem="D6y-LJ-X3Z" firstAttribute="centerX" secondItem="EGj-kx-eLm" secondAttribute="centerX" id="N1e-KO-sFJ"/>
+                            <constraint firstItem="Hmk-rL-E0k" firstAttribute="top" secondItem="D6y-LJ-X3Z" secondAttribute="bottom" constant="8" id="S7h-e5-1kR"/>
+                            <constraint firstItem="Hmk-rL-E0k" firstAttribute="leading" secondItem="EGj-kx-eLm" secondAttribute="leadingMargin" id="Z6n-Yw-Xr4"/>
+                            <constraint firstItem="Hmk-rL-E0k" firstAttribute="trailing" secondItem="EGj-kx-eLm" secondAttribute="trailingMargin" id="lpG-WS-NxU"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" systemItem="contacts" id="1k9-47-6cF"/>
-                    <navigationItem key="navigationItem" id="xam-MZ-sLh"/>
+                    <navigationItem key="navigationItem" id="xam-MZ-sLh">
+                        <barButtonItem key="leftBarButtonItem" enabled="NO" systemItem="edit" id="WRG-H5-zGx"/>
+                    </navigationItem>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="imageView" destination="D6y-LJ-X3Z" id="irD-1f-eRn"/>
+                        <outlet property="nameLabel" destination="Hmk-rL-E0k" id="3xj-d6-uGC"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Lgd-dB-saK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
