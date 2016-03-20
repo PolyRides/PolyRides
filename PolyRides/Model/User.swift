@@ -75,8 +75,8 @@ class User {
     dictionary["lastName"] = lastName
     dictionary["imageURL"] = imageURL
 
-    if timestamp != nil {
-      dictionary["timestamp"] = timestamp
+    if let timestamp = timestamp {
+      dictionary["timestamp"] = timestamp.timeIntervalSince1970
     }
 
     return dictionary

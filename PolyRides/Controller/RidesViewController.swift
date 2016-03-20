@@ -57,6 +57,8 @@ class RidesViewController: UIViewController {
           addRideVC.user = user
         }
       }
+    } else if segue.identifier == "toLogin" {
+      FirebaseConnection.service.ref.unauth()
     }
   }
 

@@ -146,6 +146,7 @@ class LoginViewController: UIViewController {
   }
 
   func textFieldDidChange() {
+    // TODO find bugs here
     let invalidEmail = emailTextField?.isValidEmail() == false
     let invalidPassword = passwordTextField?.isValidPassword() == false
     if !invalidEmail && !invalidPassword {

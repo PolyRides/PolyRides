@@ -30,6 +30,8 @@ class EmailAccountViewController: LoginViewController {
     passwordTextField?.delegate = self
     firstNameTextField?.delegate = self
     lastNameTextField?.delegate = self
+
+    buttonTitle = "Create Account"
   }
 
   override func textFieldDidChange() {
@@ -71,7 +73,7 @@ extension EmailAccountViewController: UITextFieldDelegate {
       }
     } else {
       textField.resignFirstResponder()
-      signInAction(textField)
+      creatAccountAction(textField)
     }
     return true
   }

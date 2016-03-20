@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="D0k-8z-Ryz">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Navigation Controller-->
@@ -56,6 +57,64 @@
                 </viewController>
             </objects>
             <point key="canvasLocation" x="-1199" y="-1021"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="P67-GR-rL9">
+            <objects>
+                <viewController id="mrw-Cz-dha" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="U3B-8K-PKP"/>
+                        <viewControllerLayoutGuide type="bottom" id="VC5-Ap-cwt"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="eD5-0A-zCl">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" rowHeight="102" translatesAutoresizingMaskIntoConstraints="NO" id="Q2h-13-8cH">
+                                <rect key="frame" x="0.0" y="64" width="600" height="100"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Q2h-13-8cH" id="eEC-IW-Olx">
+                                    <rect key="frame" x="0.0" y="0.0" width="567" height="99.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yhY-uL-Ufa">
+                                            <rect key="frame" x="16" y="10" width="80" height="80"/>
+                                            <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="80" id="eeo-3O-Glc"/>
+                                                <constraint firstAttribute="height" constant="80" id="gEG-KQ-H9u"/>
+                                            </constraints>
+                                        </view>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wBr-sr-zXT">
+                                            <rect key="frame" x="104" y="39.5" width="447" height="20.5"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="yhY-uL-Ufa" firstAttribute="leading" secondItem="eEC-IW-Olx" secondAttribute="leadingMargin" constant="8" id="9f6-Lu-Aai"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="wBr-sr-zXT" secondAttribute="trailing" constant="8" id="ESc-vA-g43"/>
+                                        <constraint firstItem="yhY-uL-Ufa" firstAttribute="centerY" secondItem="eEC-IW-Olx" secondAttribute="centerY" id="TYV-vS-n3M"/>
+                                        <constraint firstItem="wBr-sr-zXT" firstAttribute="leading" secondItem="yhY-uL-Ufa" secondAttribute="trailing" constant="8" id="aSV-pi-5W3"/>
+                                        <constraint firstItem="wBr-sr-zXT" firstAttribute="centerY" secondItem="eEC-IW-Olx" secondAttribute="centerY" id="lOZ-qd-AUP"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="LMH-Jd-evV"/>
+                                </constraints>
+                            </tableViewCell>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Q2h-13-8cH" firstAttribute="top" secondItem="U3B-8K-PKP" secondAttribute="bottom" id="JcE-rX-YUa"/>
+                            <constraint firstItem="Q2h-13-8cH" firstAttribute="leading" secondItem="eD5-0A-zCl" secondAttribute="leadingMargin" constant="-20" id="Rtr-0k-fsP"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Q2h-13-8cH" secondAttribute="trailing" constant="-20" id="sdd-Ew-CDf"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bb3-3H-DxU" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-507" y="-1021"/>
         </scene>
     </scenes>
 </document>

@@ -68,8 +68,8 @@ class Ride {
   func toAnyObject() -> [String: AnyObject] {
     var dictionary = [String : AnyObject]()
 
-    if timestamp != nil {
-      dictionary["timestamp"] = timestamp?.timeIntervalSince1970
+    if let timestamp = timestamp {
+      dictionary["timestamp"] = timestamp.timeIntervalSince1970
     }
     dictionary["driverId"] = driver?.id
     dictionary["date"] = date?.timeIntervalSince1970

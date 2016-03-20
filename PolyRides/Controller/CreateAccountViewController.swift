@@ -22,7 +22,6 @@ class CreateAccountViewController: LoginViewController {
     super.viewDidLoad()
 
     trackScreen(String(CreateAccountViewController))
-    buttonTitle = "Create Account"
   }
 
 }

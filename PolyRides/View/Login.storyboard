@@ -388,7 +388,7 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="button" destination="cIE-7e-skg" id="mCR-Cy-JNe"/>
+                        <outlet property="button" destination="cIE-7e-skg" id="DN5-3M-fOb"/>
                         <outlet property="emailTextField" destination="Msb-9g-khM" id="brI-Ek-B5b"/>
                         <outlet property="firstNameTextField" destination="AIM-DO-drg" id="cS9-zp-noK"/>
                         <outlet property="indicator" destination="DkK-uk-zUU" id="Ab3-zM-OSF"/>
