@@ -99,7 +99,7 @@
                     <navigationItem key="navigationItem" id="5lI-NJ-7wN">
                         <barButtonItem key="leftBarButtonItem" title="Log Out" id="Omt-aY-nEt">
                             <connections>
-                                <segue destination="81R-Kr-UTM" kind="show" identifier="toLogin" id="ckV-Te-VJs"/>
+                                <action selector="logOutAction:" destination="fnc-Oe-nPW" id="8TG-t2-DMm"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="Gh5-r6-A9Z">
@@ -156,7 +156,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                 <connections>
-                                    <action selector="costEditingChanged:" destination="sad-jW-Up4" eventType="editingDidEnd" id="3pE-X9-Y6K"/>
+                                    <action selector="costEditingChanged:" destination="sad-jW-Up4" eventType="editingChanged" id="Mmr-QX-iR0"/>
                                 </connections>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="From" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="VAp-HA-7Wp">
@@ -225,14 +225,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DHp-nI-A6q" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="226" y="-1021"/>
-        </scene>
-        <!--Login-->
-        <scene sceneID="rGN-eY-rAD">
-            <objects>
-                <viewControllerPlaceholder storyboardName="Login" referencedIdentifier="Login" id="81R-Kr-UTM" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="kIH-5m-URu" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-746.5" y="-1419"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Gxd-g4-fbF">
@@ -333,7 +325,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="c8S-kG-y4g" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-519" y="-221"/>
+            <point key="canvasLocation" x="-479" y="-217"/>
         </scene>
     </scenes>
     <resources>

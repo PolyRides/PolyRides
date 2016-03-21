@@ -58,12 +58,12 @@ class AddRideViewController: UIViewController {
 
   @IBAction func costEditingChanged(sender: AnyObject) {
     if let currentValue = costTextField?.text {
-      let strippedValue = currentValue.stringByReplacingOccurrencesOfString("[^0-9]",
-        withString: "", options: .RegularExpressionSearch)
+      let strippedValue = currentValue.stringByReplacingOccurrencesOfString("[^0-9]", withString: "",
+        options: .RegularExpressionSearch)
       var formattedString = ""
 
       if strippedValue.characters.count > 0 {
-        formattedString = "$" + (strippedValue as String)
+        formattedString = "$\(strippedValue)"
       }
       costTextField?.text = formattedString
       setEnableAddButton()
@@ -87,6 +87,8 @@ class AddRideViewController: UIViewController {
     if let place = place {
       if let city = place.addressComponents?.city {
         return Location(place: place, city: city)
+      } else {
+        return Location(place: place, city: place.name)
       }
     }
     return nil
@@ -139,6 +141,7 @@ extension AddRideViewController: UITextFieldDelegate {
     let bounds = GMSCoordinateBounds(coordinate: topLeft, coordinate: bottomRight)
 
     let autocompleteController = GMSAutocompleteViewController()
+   // autocompleteController.
     autocompleteController.autocompleteFilter = filter
     autocompleteController.autocompleteBounds = bounds
     autocompleteController.delegate = self

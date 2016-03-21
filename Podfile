@@ -3,6 +3,7 @@ use_frameworks!
 inhibit_all_warnings!
 
 target 'PolyRides' do
+   pod 'AFNetworking'
    pod 'GoogleMaps'
    pod 'FBSDKShareKit'
    pod 'FBSDKCoreKit'

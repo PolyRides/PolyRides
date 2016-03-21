@@ -34,6 +34,18 @@ class RidesViewController: UIViewController {
       tableView?.reloadData()
   }
 
+  @IBAction func logOutAction(sender: AnyObject) {
+    if let appDelegate: AppDelegate = UIApplication.sharedApplication().delegate as? AppDelegate {
+      let storyboard = UIStoryboard(name: "Login", bundle: NSBundle.mainBundle())
+      if let navVC = storyboard.instantiateViewControllerWithIdentifier("Login") as? UINavigationController {
+        if let vc = navVC.topViewController as? LoginViewController {
+          FirebaseConnection.service.ref.unauth()
+          appDelegate.window?.rootViewController = vc
+        }
+      }
+    }
+  }
+
   override func viewDidLoad() {
     super.viewDidLoad()
 
@@ -57,8 +69,6 @@ class RidesViewController: UIViewController {
           addRideVC.user = user
         }
       }
-    } else if segue.identifier == "toLogin" {
-      FirebaseConnection.service.ref.unauth()
     } else if segue.identifier == "toRideDetails" {
       if let vc = segue.destinationViewController as? RideDetailsViewController {
         if let cell = sender as? RideTableViewCell {
@@ -145,6 +155,7 @@ extension RidesViewController: FirebaseRidesDelegate {
     } else {
       pastRides.append(ride)
     }
+    tableView?.reloadData()
   }
 
 }

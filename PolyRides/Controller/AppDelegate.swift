@@ -48,7 +48,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let controller = storyboard.instantiateViewControllerWithIdentifier("Main")
         if let tabBarVC = controller as? TabBarController {
           let user = User(id: FirebaseConnection.service.ref.authData.uid)
-          FirebaseConnection.service.updateValuesForUser(user)
           tabBarVC.user = user
           self.window?.rootViewController = tabBarVC
         }

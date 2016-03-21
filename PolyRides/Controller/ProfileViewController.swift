@@ -6,6 +6,9 @@
 //  Copyright © 2016 Vanessa Forney. All rights reserved.
 //
 
+import UIKit
+import AFNetworking
+
 class ProfileViewController: UIViewController {
 
   var user: User?
@@ -22,18 +25,11 @@ class ProfileViewController: UIViewController {
 
     FirebaseConnection.service.userDelegate = self
 
-    setDisplay()
-  }
-
-  func setDisplay() {
-    var name = ""
-    if let firstName = user?.firstName {
-      if let lastName = user?.lastName {
-        name = "\(firstName) \(lastName)"
-      }
+    if let imageView = imageView {
+      imageView.clipsToBounds = true
+      imageView.contentMode = UIViewContentMode.ScaleAspectFill
+      imageView.layer.cornerRadius = imageView.frame.size.width / 2
     }
-    nameLabel?.text = name
-   // imageView?.image.set
   }
 
 }
@@ -41,7 +37,25 @@ class ProfileViewController: UIViewController {
 extension ProfileViewController: FirebaseUserDelegate {
 
   func onUserUpdated() {
-    setDisplay()
+    var name = ""
+    if let firstName = user?.firstName {
+      if let lastName = user?.lastName {
+        name = "\(firstName) \(lastName)"
+      }
+    }
+    nameLabel?.text = name
+
+    let defaultImage = UIImage(named: "empty_profile")
+    if let imageURL = user?.imageURL {
+      print(imageURL)
+      if let url =  NSURL(string: imageURL) {
+        if let placeholder = defaultImage {
+          imageView?.setImageWithURL(url, placeholderImage: placeholder)
+        }
+      }
+    } else {
+      imageView?.image = defaultImage
+    }
   }
 
 }

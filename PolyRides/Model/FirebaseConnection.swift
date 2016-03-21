@@ -32,6 +32,12 @@ protocol FirebaseRidesDelegate: class {
 
 }
 
+protocol FirebaseAllRidesDelegate: class {
+
+  func onRidesReceived(ride: [Ride])
+
+}
+
 protocol FirebaseUserDelegate: class {
 
   func onUserUpdated()
@@ -47,6 +53,7 @@ class FirebaseConnection {
   var loginDelegate: FirebaseLoginDelegate?
   var resetPasswordDelegate: FirebaseResetPasswordDelegate?
   var ridesDelegate: FirebaseRidesDelegate?
+  var allRidesDelegate: FirebaseAllRidesDelegate?
   var userDelegate: FirebaseUserDelegate?
 
   func pushUserToFirebase(user: User) {
@@ -159,6 +166,20 @@ class FirebaseConnection {
         }
       })
     }
+  }
+
+  func getAllRides() {
+    let ridesRef = ref.childByAppendingPath("rides")
+    ridesRef?.observeSingleEventOfType(.Value, withBlock: { snapshot in
+      var rides = [Ride]()
+      if let children = snapshot.children.allObjects as? [FDataSnapshot] {
+        for child in children {
+          let ride = Ride(fromSnapshot: child)
+          rides.append(ride)
+        }
+      }
+      self.allRidesDelegate?.onRidesReceived(rides)
+    })
   }
 
 }
