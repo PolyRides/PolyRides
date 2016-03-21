@@ -28,7 +28,7 @@
         <!--Rides-->
         <scene sceneID="Yjp-TU-e6S">
             <objects>
-                <viewController id="fnc-Oe-nPW" customClass="RidesViewController" customModule="PolyRides" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="fnc-Oe-nPW" customClass="MyRidesViewController" customModule="PolyRides" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="ifF-Ho-9MW"/>
                         <viewControllerLayoutGuide type="bottom" id="wRW-a5-fDd"/>

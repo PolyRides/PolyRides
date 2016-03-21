@@ -14,7 +14,8 @@ class RegionTableViewCell: UITableViewCell {
   @IBOutlet weak var location: UILabel?
   @IBOutlet weak var numRides: UILabel?
 
-  var rides: [Ride]?
+  var toRides: [Ride]?
+  var fromRides: [Ride]?
   var region: Region?
 
 }
@@ -22,7 +23,8 @@ class RegionTableViewCell: UITableViewCell {
 class SearchTableViewController: UITableViewController {
 
   var user: User?
-  var regionToRides = [Region: [Ride]]()
+  var toRegionToRides = [Region: [Ride]]()
+  var fromRegionToRides = [Region: [Ride]]()
 
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -32,7 +34,8 @@ class SearchTableViewController: UITableViewController {
     }
 
     for region in Region.allRegions {
-      regionToRides[region] = [Ride]()
+      toRegionToRides[region] = [Ride]()
+      fromRegionToRides[region] = [Ride]()
     }
     FirebaseConnection.service.allRidesDelegate = self
 
@@ -48,7 +51,8 @@ class SearchTableViewController: UITableViewController {
     if segue.identifier == "toRegionRides" {
       if let vc = segue.destinationViewController as? RegionRidesViewController {
         if let cell = sender as? RegionTableViewCell {
-          vc.rides = cell.rides
+          vc.toRides = cell.toRides
+          vc.fromRides = cell.fromRides
           vc.title = cell.region?.name()
         }
       }
@@ -62,7 +66,7 @@ class SearchTableViewController: UITableViewController {
 extension SearchTableViewController {
 
   override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    return regionToRides.count
+    return Region.allRegions.count
   }
 
   override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -73,12 +77,16 @@ extension SearchTableViewController {
       regionCell.region = region
       regionCell.backgroundImageView?.image = region.image()
       regionCell.location?.text = region.name()
-      if let rides = regionToRides[region] {
-        regionCell.rides = rides
-        regionCell.numRides?.text = "\(rides.count) rides"
-      } else {
-        regionCell.numRides?.text = "0 rides"
+      var count = 0
+      if let toRides = toRegionToRides[region] {
+        regionCell.toRides = toRides
+        count += toRides.count
       }
+      if let fromRides = fromRegionToRides[region] {
+        regionCell.fromRides = fromRides
+        count += fromRides.count
+      }
+      regionCell.numRides?.text = "\(count) rides"
     }
 
     return cell
@@ -96,11 +104,11 @@ extension SearchTableViewController: FirebaseAllRidesDelegate {
           if driverId != userId {
             if let toLocationCity = ride.toLocation?.city {
               let region = Region.getRegion(toLocationCity)
-              regionToRides[region]?.append(ride)
+              toRegionToRides[region]?.append(ride)
             }
             if let fromLocationCity = ride.fromLocation?.city {
               let region = Region.getRegion(fromLocationCity)
-              regionToRides[region]?.append(ride)
+              fromRegionToRides[region]?.append(ride)
             }
           }
         }

@@ -104,6 +104,9 @@
                                     <segment title="To"/>
                                     <segment title="From"/>
                                 </segments>
+                                <connections>
+                                    <action selector="segmentedControlAction:" destination="OMY-dk-k3w" eventType="valueChanged" id="Ahn-AU-Sgm"/>
+                                </connections>
                             </segmentedControl>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="58" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Qhk-6Z-NRU">
                                 <rect key="frame" x="0.0" y="108" width="600" height="443"/>
@@ -239,6 +242,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="san_francisco" width="800" height="355"/>
+        <image name="san_francisco" width="798" height="322"/>
     </resources>
 </document>
