@@ -8,7 +8,7 @@
         <!--Navigation Controller-->
         <scene sceneID="dZZ-XN-P3U">
             <objects>
-                <navigationController storyboardIdentifier="Rides" id="F06-1m-krZ" sceneMemberID="viewController">
+                <navigationController id="F06-1m-krZ" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="fE4-qe-hof">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>

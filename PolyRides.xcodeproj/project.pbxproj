@@ -15,6 +15,7 @@
 		DB43A98F1C9F071800AC2AF9 /* RideDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB43A98E1C9F071800AC2AF9 /* RideDetailsViewController.swift */; };
 		DB43A9921C9F0F5400AC2AF9 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB43A9911C9F0F5400AC2AF9 /* ProfileViewController.swift */; };
 		DB43A9941C9F7A2500AC2AF9 /* Region.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB43A9931C9F7A2500AC2AF9 /* Region.swift */; };
+		DB43A9961C9F95E400AC2AF9 /* RegionRidesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB43A9951C9F95E400AC2AF9 /* RegionRidesViewController.swift */; };
 		DB70B8CE1C9389EA0065CC4D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB70B8CD1C9389EA0065CC4D /* AppDelegate.swift */; };
 		DB70B8D01C9389EA0065CC4D /* MainLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB70B8CF1C9389EA0065CC4D /* MainLoginViewController.swift */; };
 		DB70B8D51C9389EA0065CC4D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DB70B8D41C9389EA0065CC4D /* Assets.xcassets */; };
@@ -86,6 +87,7 @@
 		DB43A98E1C9F071800AC2AF9 /* RideDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RideDetailsViewController.swift; sourceTree = "<group>"; };
 		DB43A9911C9F0F5400AC2AF9 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		DB43A9931C9F7A2500AC2AF9 /* Region.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Region.swift; sourceTree = "<group>"; };
+		DB43A9951C9F95E400AC2AF9 /* RegionRidesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegionRidesViewController.swift; sourceTree = "<group>"; };
 		DB70B8CA1C9389EA0065CC4D /* PolyRides.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PolyRides.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DB70B8CD1C9389EA0065CC4D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DB70B8CF1C9389EA0065CC4D /* MainLoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainLoginViewController.swift; sourceTree = "<group>"; };
@@ -187,6 +189,7 @@
 			isa = PBXGroup;
 			children = (
 				DBAB56861C96B0F10011167A /* SearchTableViewController.swift */,
+				DB43A9951C9F95E400AC2AF9 /* RegionRidesViewController.swift */,
 			);
 			name = Search;
 			sourceTree = "<group>";
@@ -574,6 +577,7 @@
 				DBBBD13F1C9DE8590085E3B9 /* GoogleMapsHelper.swift in Sources */,
 				DB43A9941C9F7A2500AC2AF9 /* Region.swift in Sources */,
 				DBAB56801C968FAA0011167A /* UIViewControllerExtensions.swift in Sources */,
+				DB43A9961C9F95E400AC2AF9 /* RegionRidesViewController.swift in Sources */,
 				DB4151041C9B05340062E5A0 /* AddRideViewController.swift in Sources */,
 				DBBBD13D1C9DE57B0085E3B9 /* Location.swift in Sources */,
 				DBF5E6F21C963D6400693807 /* CreateAccountViewController.swift in Sources */,

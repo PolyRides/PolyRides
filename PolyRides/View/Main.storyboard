@@ -7,7 +7,7 @@
         <!--Messages-->
         <scene sceneID="aq8-ws-jtJ">
             <objects>
-                <viewControllerPlaceholder storyboardName="Messages" referencedIdentifier="Messages" id="1a4-Wh-aTf" sceneMemberID="viewController">
+                <viewControllerPlaceholder storyboardName="Messages" id="1a4-Wh-aTf" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Item" id="ms0-LW-Agh"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9wF-IT-Kbc" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -38,7 +38,7 @@
         <!--Rides-->
         <scene sceneID="IO2-JC-uhm">
             <objects>
-                <viewControllerPlaceholder storyboardName="Rides" referencedIdentifier="Rides" id="tBo-Ay-cjm" sceneMemberID="viewController">
+                <viewControllerPlaceholder storyboardName="Rides" id="tBo-Ay-cjm" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Item" id="Qnb-CL-mwy"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BHj-pA-gT1" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -48,7 +48,7 @@
         <!--Profile-->
         <scene sceneID="8qO-aV-mX8">
             <objects>
-                <viewControllerPlaceholder storyboardName="Profile" referencedIdentifier="Profile" id="EOc-nx-fJH" sceneMemberID="viewController">
+                <viewControllerPlaceholder storyboardName="Profile" id="EOc-nx-fJH" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Item" id="g6L-zd-tCe"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cPx-Fd-Ow0" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -58,12 +58,12 @@
         <!--Search-->
         <scene sceneID="Sul-w1-IB9">
             <objects>
-                <viewControllerPlaceholder storyboardIdentifier="Search" storyboardName="Search" referencedIdentifier="Search" id="Yfr-5U-1ZP" sceneMemberID="viewController">
+                <viewControllerPlaceholder storyboardName="Search" id="Yfr-5U-1ZP" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Item" id="HEV-WU-kCu"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="unm-Dy-nze" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1292.5" y="-777"/>
+            <point key="canvasLocation" x="-1295.5" y="-776"/>
         </scene>
     </scenes>
 </document>

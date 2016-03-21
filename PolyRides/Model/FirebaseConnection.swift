@@ -170,7 +170,7 @@ class FirebaseConnection {
 
   func getAllRides() {
     let ridesRef = ref.childByAppendingPath("rides")
-    ridesRef?.observeSingleEventOfType(.Value, withBlock: { snapshot in
+    ridesRef?.queryOrderedByChild("date").observeSingleEventOfType(.Value, withBlock: { snapshot in
       var rides = [Ride]()
       if let children = snapshot.children.allObjects as? [FDataSnapshot] {
         for child in children {
