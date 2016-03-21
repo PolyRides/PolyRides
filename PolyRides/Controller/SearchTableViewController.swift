@@ -30,6 +30,8 @@ class SearchTableViewController: UITableViewController {
     for region in Region.allRegions {
       regionToRides[region] = [Ride]()
     }
+
+    FirebaseConnection.service.allRidesDelegate = self
   }
 
   override func viewDidAppear(animated: Bool) {
@@ -44,7 +46,7 @@ class SearchTableViewController: UITableViewController {
 extension SearchTableViewController {
 
   override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    return Region.allRegions.count
+    return regionToRides.count
   }
 
   override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -72,10 +74,18 @@ extension SearchTableViewController: FirebaseAllRidesDelegate {
 
   func onRidesReceived(rides: [Ride]) {
     // sort into various regions
-    //let region = Region.cityToRegion[ride.toLocation?.city]
     for ride in rides {
-      regionToRides[Region.SFBay]?.append(ride)
+      if let toLocationCity = ride.toLocation?.city {
+        let region = Region.getRegion(toLocationCity)
+        regionToRides[region]?.append(ride)
+      }
+      if let fromLocationCity = ride.fromLocation?.city {
+        let region = Region.getRegion(fromLocationCity)
+        regionToRides[region]?.append(ride)
+      }
     }
+
+    tableView.reloadData()
   }
 
 }

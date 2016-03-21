@@ -44,7 +44,7 @@
                                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="san_francisco" translatesAutoresizingMaskIntoConstraints="NO" id="IZs-ef-taA">
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="199.5"/>
                                         </imageView>
-                                        <view alpha="0.55000001192092896" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WGh-Tn-OWr">
+                                        <view alpha="0.65000000000000002" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WGh-Tn-OWr">
                                             <rect key="frame" x="0.0" y="167.5" width="600" height="32"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="SF Bay" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QgS-iV-Lrf">
