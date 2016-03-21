@@ -47,7 +47,6 @@ extension ProfileViewController: FirebaseUserDelegate {
 
     let defaultImage = UIImage(named: "empty_profile")
     if let imageURL = user?.imageURL {
-      print(imageURL)
       if let url =  NSURL(string: imageURL) {
         if let placeholder = defaultImage {
           imageView?.setImageWithURL(url, placeholderImage: placeholder)

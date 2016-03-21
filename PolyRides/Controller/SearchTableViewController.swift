@@ -51,6 +51,7 @@ class SearchTableViewController: UITableViewController {
     if segue.identifier == "toRegionRides" {
       if let vc = segue.destinationViewController as? RegionRidesViewController {
         if let cell = sender as? RegionTableViewCell {
+          vc.user = user
           vc.toRides = cell.toRides
           vc.fromRides = cell.fromRides
           vc.title = cell.region?.name()
@@ -60,7 +61,6 @@ class SearchTableViewController: UITableViewController {
   }
 
 }
-
 
 // MARK: - UITableViewDataSource
 extension SearchTableViewController {

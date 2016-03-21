@@ -28,7 +28,7 @@
         <!--Rides-->
         <scene sceneID="Yjp-TU-e6S">
             <objects>
-                <viewController id="fnc-Oe-nPW" customClass="MyRidesViewController" customModule="PolyRides" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="fnc-Oe-nPW" customClass="MyRidesViewController" customModule="Poly_Rides" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="ifF-Ho-9MW"/>
                         <viewControllerLayoutGuide type="bottom" id="wRW-a5-fDd"/>
@@ -38,10 +38,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="YQo-Ub-837">
-                                <rect key="frame" x="125" y="72" width="350" height="29"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="350" id="27u-0B-k2M"/>
-                                </constraints>
+                                <rect key="frame" x="20" y="72" width="560" height="29"/>
                                 <segments>
                                     <segment title="Current"/>
                                     <segment title="Past"/>
@@ -51,35 +48,35 @@
                                     <action selector="segmentedAction:" destination="fnc-Oe-nPW" eventType="valueChanged" id="ToX-42-tl6"/>
                                 </connections>
                             </segmentedControl>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="71" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Xhs-xb-y88">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="60" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="BKG-Cw-jja">
                                 <rect key="frame" x="0.0" y="108" width="600" height="443"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="rideCell" textLabel="Ek7-Wy-IYO" detailTextLabel="6ev-wv-8W3" rowHeight="71" style="IBUITableViewCellStyleSubtitle" id="T7F-NP-sJq" customClass="RideTableViewCell" customModule="PolyRides" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="600" height="71"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="rideCell" textLabel="0cV-VG-Y8h" detailTextLabel="DIN-hU-aHU" style="IBUITableViewCellStyleSubtitle" id="uf4-Cw-F9k" customClass="RideTableViewCell" customModule="Poly_Rides" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="600" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="T7F-NP-sJq" id="KPt-Uf-YLU">
-                                            <rect key="frame" x="0.0" y="0.0" width="567" height="70.5"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="uf4-Cw-F9k" id="3Rn-Ng-tkF">
+                                            <rect key="frame" x="0.0" y="0.0" width="567" height="59.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Ek7-Wy-IYO">
-                                                    <rect key="frame" x="15" y="19" width="31.5" height="19.5"/>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="0cV-VG-Y8h">
+                                                    <rect key="frame" x="15" y="14" width="31.5" height="19.5"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Subtitle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="6ev-wv-8W3">
-                                                    <rect key="frame" x="15" y="38.5" width="40.5" height="13.5"/>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Subtitle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="DIN-hU-aHU">
+                                                    <rect key="frame" x="15" y="33.5" width="40.5" height="13.5"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="11"/>
-                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="hR9-ek-Zu3" kind="show" identifier="toRideDetails" id="uBx-79-rja"/>
+                                            <segue destination="hR9-ek-Zu3" kind="show" identifier="toRideDetails" id="cll-Qu-7ms"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -87,11 +84,13 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="trailingMargin" secondItem="Xhs-xb-y88" secondAttribute="trailing" constant="-20" id="BAd-8C-iVt"/>
-                            <constraint firstItem="Xhs-xb-y88" firstAttribute="top" secondItem="YQo-Ub-837" secondAttribute="bottom" constant="8" id="PQI-rN-HQe"/>
+                            <constraint firstItem="BKG-Cw-jja" firstAttribute="leading" secondItem="ioP-ZV-Euv" secondAttribute="leadingMargin" constant="-20" id="5vB-FZ-aZ6"/>
+                            <constraint firstItem="YQo-Ub-837" firstAttribute="leading" secondItem="ioP-ZV-Euv" secondAttribute="leadingMargin" id="CS1-SJ-oED"/>
+                            <constraint firstItem="BKG-Cw-jja" firstAttribute="top" secondItem="YQo-Ub-837" secondAttribute="bottom" constant="8" id="Hof-7x-rwN"/>
+                            <constraint firstItem="wRW-a5-fDd" firstAttribute="top" secondItem="BKG-Cw-jja" secondAttribute="bottom" id="MVr-hW-nwP"/>
                             <constraint firstItem="YQo-Ub-837" firstAttribute="top" secondItem="ifF-Ho-9MW" secondAttribute="bottom" constant="8" id="UFa-BD-whH"/>
-                            <constraint firstItem="wRW-a5-fDd" firstAttribute="top" secondItem="Xhs-xb-y88" secondAttribute="bottom" id="WtT-Lv-zPE"/>
-                            <constraint firstItem="Xhs-xb-y88" firstAttribute="leading" secondItem="ioP-ZV-Euv" secondAttribute="leadingMargin" constant="-20" id="Xq2-3f-iKN"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="BKG-Cw-jja" secondAttribute="trailing" constant="-20" id="VP7-Bu-s8z"/>
+                            <constraint firstItem="YQo-Ub-837" firstAttribute="trailing" secondItem="ioP-ZV-Euv" secondAttribute="trailingMargin" id="h4L-Y2-a5X"/>
                             <constraint firstItem="YQo-Ub-837" firstAttribute="centerX" secondItem="ioP-ZV-Euv" secondAttribute="centerX" id="xQW-eN-Ceq"/>
                         </constraints>
                     </view>
@@ -110,8 +109,7 @@
                     </navigationItem>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
-                        <outlet property="segmentedControl" destination="YQo-Ub-837" id="zqN-NP-ccR"/>
-                        <outlet property="tableView" destination="Xhs-xb-y88" id="RQ4-Si-A9Z"/>
+                        <outlet property="tableView" destination="BKG-Cw-jja" id="D6V-pZ-2mT"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Fe7-7M-ucB" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -121,7 +119,7 @@
         <!--New Ride-->
         <scene sceneID="VpG-yz-B5j">
             <objects>
-                <viewController id="sad-jW-Up4" customClass="AddRideViewController" customModule="PolyRides" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="sad-jW-Up4" customClass="AddRideViewController" customModule="Poly_Rides" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Mr1-c8-niI"/>
                         <viewControllerLayoutGuide type="bottom" id="4T7-xg-Ljk"/>
@@ -247,7 +245,7 @@
         <!--Ride Details View Controller-->
         <scene sceneID="cZH-be-f10">
             <objects>
-                <viewController id="hR9-ek-Zu3" customClass="RideDetailsViewController" customModule="PolyRides" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="hR9-ek-Zu3" customClass="RideDetailsViewController" customModule="Poly_Rides" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="75n-do-C8G"/>
                         <viewControllerLayoutGuide type="bottom" id="j7h-zL-dgh"/>
@@ -257,31 +255,31 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Start --&gt; Destination" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TvX-9H-6Ur">
-                                <rect key="frame" x="20" y="72" width="159" height="20.5"/>
+                                <rect key="frame" x="20" y="28" width="159" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MOe-7u-6In">
-                                <rect key="frame" x="20" y="100.5" width="36" height="20.5"/>
+                                <rect key="frame" x="20" y="56.5" width="36" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Available seats" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c3s-qk-W5R">
-                                <rect key="frame" x="20" y="129" width="113" height="20.5"/>
+                                <rect key="frame" x="20" y="85" width="113" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cost per seat" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HpA-yf-eVr">
-                                <rect key="frame" x="20" y="157.5" width="102.5" height="20.5"/>
+                                <rect key="frame" x="20" y="113.5" width="102.5" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Jll-9B-8NX">
-                                <rect key="frame" x="20" y="186" width="560" height="128"/>
+                                <rect key="frame" x="20" y="142" width="560" height="128"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="128" id="Xan-Md-Obj"/>
@@ -291,7 +289,7 @@
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UBH-4g-WaB">
-                                <rect key="frame" x="255" y="513" width="90" height="30"/>
+                                <rect key="frame" x="255" y="562" width="90" height="30"/>
                                 <state key="normal" title="Remove Ride"/>
                                 <connections>
                                     <action selector="removeRideAction:" destination="hR9-ek-Zu3" eventType="touchUpInside" id="wc0-Fg-Gng"/>
@@ -325,7 +323,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="c8S-kG-y4g" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-479" y="-217"/>
+            <point key="canvasLocation" x="-479" y="-204"/>
         </scene>
     </scenes>
     <resources>

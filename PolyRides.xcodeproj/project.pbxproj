@@ -90,7 +90,7 @@
 		DB43A9931C9F7A2500AC2AF9 /* Region.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Region.swift; sourceTree = "<group>"; };
 		DB43A9951C9F95E400AC2AF9 /* RegionRidesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegionRidesViewController.swift; sourceTree = "<group>"; };
 		DB43A9971C9FA63700AC2AF9 /* RidesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RidesViewController.swift; sourceTree = "<group>"; };
-		DB70B8CA1C9389EA0065CC4D /* PolyRides.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PolyRides.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		DB70B8CA1C9389EA0065CC4D /* Poly Rides.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Poly Rides.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DB70B8CD1C9389EA0065CC4D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DB70B8CF1C9389EA0065CC4D /* MainLoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainLoginViewController.swift; sourceTree = "<group>"; };
 		DB70B8D41C9389EA0065CC4D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -181,8 +181,8 @@
 		DB4151021C9B05240062E5A0 /* Rides */ = {
 			isa = PBXGroup;
 			children = (
-				DB4151031C9B05340062E5A0 /* AddRideViewController.swift */,
 				DB4150FF1C9A74500062E5A0 /* MyRidesViewController.swift */,
+				DB4151031C9B05340062E5A0 /* AddRideViewController.swift */,
 			);
 			name = Rides;
 			sourceTree = "<group>";
@@ -219,7 +219,7 @@
 		DB70B8CB1C9389EA0065CC4D /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				DB70B8CA1C9389EA0065CC4D /* PolyRides.app */,
+				DB70B8CA1C9389EA0065CC4D /* Poly Rides.app */,
 				DB70B8DE1C9389EA0065CC4D /* PolyRidesTests.xctest */,
 				DB70B8E91C9389EA0065CC4D /* PolyRidesUITests.xctest */,
 			);
@@ -381,7 +381,7 @@
 			);
 			name = PolyRides;
 			productName = PolyRides;
-			productReference = DB70B8CA1C9389EA0065CC4D /* PolyRides.app */;
+			productReference = DB70B8CA1C9389EA0065CC4D /* Poly Rides.app */;
 			productType = "com.apple.product-type.application";
 		};
 		DB70B8DD1C9389EA0065CC4D /* PolyRidesTests */ = {
@@ -726,13 +726,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = "$(inherited)";
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = "PolyRides/Supporting Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Vanessa.PolyRides;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Poly Rides";
 				SWIFT_OBJC_BRIDGING_HEADER = "PolyRides/Model/PolyRides-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -745,13 +745,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = "$(inherited)";
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = "PolyRides/Supporting Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Vanessa.PolyRides;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Poly Rides";
 				SWIFT_OBJC_BRIDGING_HEADER = "PolyRides/Model/PolyRides-Bridging-Header.h";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

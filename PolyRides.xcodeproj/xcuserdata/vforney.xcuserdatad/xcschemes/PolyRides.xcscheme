@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "DB70B8C91C9389EA0065CC4D"
-               BuildableName = "PolyRides.app"
+               BuildableName = "Poly Rides.app"
                BlueprintName = "PolyRides"
                ReferencedContainer = "container:PolyRides.xcodeproj">
             </BuildableReference>
@@ -53,7 +53,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "DB70B8C91C9389EA0065CC4D"
-            BuildableName = "PolyRides.app"
+            BuildableName = "Poly Rides.app"
             BlueprintName = "PolyRides"
             ReferencedContainer = "container:PolyRides.xcodeproj">
          </BuildableReference>
@@ -76,7 +76,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "DB70B8C91C9389EA0065CC4D"
-            BuildableName = "PolyRides.app"
+            BuildableName = "Poly Rides.app"
             BlueprintName = "PolyRides"
             ReferencedContainer = "container:PolyRides.xcodeproj">
          </BuildableReference>
@@ -95,7 +95,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "DB70B8C91C9389EA0065CC4D"
-            BuildableName = "PolyRides.app"
+            BuildableName = "Poly Rides.app"
             BlueprintName = "PolyRides"
             ReferencedContainer = "container:PolyRides.xcodeproj">
          </BuildableReference>

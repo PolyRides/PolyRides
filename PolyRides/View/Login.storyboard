@@ -28,7 +28,7 @@
         <!--Main Login View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController storyboardIdentifier="toResetPassword" id="BYZ-38-t0r" customClass="MainLoginViewController" customModule="PolyRides" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="toResetPassword" id="BYZ-38-t0r" customClass="MainLoginViewController" customModule="Poly_Rides" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -188,7 +188,7 @@
         <!--Reset Password View Controller-->
         <scene sceneID="Bfz-2x-jUl">
             <objects>
-                <viewController id="70o-7S-99w" customClass="ResetPasswordViewController" customModule="PolyRides" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="70o-7S-99w" customClass="ResetPasswordViewController" customModule="Poly_Rides" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="34b-se-iWf"/>
                         <viewControllerLayoutGuide type="bottom" id="Tal-73-EbU"/>
@@ -261,7 +261,7 @@
         <!--Email Account View Controller-->
         <scene sceneID="Gqg-9w-dgT">
             <objects>
-                <viewController id="Cyk-wn-BLq" customClass="EmailAccountViewController" customModule="PolyRides" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="Cyk-wn-BLq" customClass="EmailAccountViewController" customModule="Poly_Rides" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="VvI-GA-s6t"/>
                         <viewControllerLayoutGuide type="bottom" id="tYt-BI-aBz"/>
@@ -403,7 +403,7 @@
         <!--Create Account View Controller-->
         <scene sceneID="xzS-gp-ucP">
             <objects>
-                <viewController id="ka5-ai-KPs" customClass="CreateAccountViewController" customModule="PolyRides" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="ka5-ai-KPs" customClass="CreateAccountViewController" customModule="Poly_Rides" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="9vn-CG-kbD"/>
                         <viewControllerLayoutGuide type="bottom" id="5lN-WA-3h8"/>

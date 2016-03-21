@@ -6,9 +6,8 @@
 //  Copyright © 2016 Vanessa Forney. All rights reserved.
 //
 
-class MyRidesViewController: UIViewController {
+class MyRidesViewController: RidesViewController {
 
-  var user: User?
   var currentRides = [Ride]()
   var pastRides = [Ride]()
   var savedRides = [Ride]()
@@ -16,18 +15,26 @@ class MyRidesViewController: UIViewController {
     didSet {
       if expectedRides == 0 {
         // Set empty data set delegates
+        rides = currentRides
         tableView?.reloadData()
       }
     }
   }
 
-  @IBOutlet weak var tableView: UITableView?
-  @IBOutlet weak var segmentedControl: UISegmentedControl?
-
   @IBAction func segmentedAction(sender: AnyObject) {
-      tableView?.reloadData()
+    if let segmentedControl = sender as? UISegmentedControl {
+      if segmentedControl.selectedSegmentIndex == 0 {
+        rides = currentRides
+      } else if segmentedControl.selectedSegmentIndex == 1 {
+        rides = pastRides
+      } else {
+        rides = savedRides
+      }
+    }
+    tableView?.reloadData()
   }
 
+  // TODO: Remove this when we add log out to settings.
   @IBAction func logOutAction(sender: AnyObject) {
     if let appDelegate: AppDelegate = UIApplication.sharedApplication().delegate as? AppDelegate {
       let storyboard = UIStoryboard(name: "Login", bundle: NSBundle.mainBundle())
@@ -46,9 +53,6 @@ class MyRidesViewController: UIViewController {
     if let tabBarController = tabBarController as? TabBarController {
       user = tabBarController.user
     }
-
-    tableView?.delegate = self
-    tableView?.dataSource = self
 
     FirebaseConnection.service.ridesDelegate = self
     if let user = user {
@@ -73,58 +77,6 @@ class MyRidesViewController: UIViewController {
     }
   }
 
-}
-
-
-// MARK: - UITableViewDataSource
-extension MyRidesViewController: UITableViewDataSource {
-
-  func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    if let index = segmentedControl?.selectedSegmentIndex {
-      switch index {
-      case 0:
-        return currentRides.count
-      case 1:
-        return pastRides.count
-      default:
-        return savedRides.count
-      }
-    }
-    return 0
-  }
-
-  func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-    let cell = tableView.dequeueReusableCellWithIdentifier("rideCell", forIndexPath: indexPath)
-
-    var ride: Ride
-    if let index = segmentedControl?.selectedSegmentIndex {
-      switch index {
-      case 0:
-        ride = currentRides[indexPath.row]
-      case 1:
-        ride = pastRides[indexPath.row]
-      default:
-        ride = savedRides[indexPath.row]
-      }
-
-      if let rideCell = cell as? RideTableViewCell {
-        rideCell.textLabel?.text = ride.getFormattedLocation()
-        rideCell.detailTextLabel?.text = ride.getFormattedDate()
-
-        rideCell.ride = ride
-        return rideCell
-      }
-    }
-    return cell
-  }
-}
-
-// MARK: - UITableViewDelegate
-extension MyRidesViewController: UITableViewDelegate {
-
-  func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-    tableView.deselectRowAtIndexPath(indexPath, animated: true)
-  }
 }
 
 // MARK: - FirebaseRidesDelegate

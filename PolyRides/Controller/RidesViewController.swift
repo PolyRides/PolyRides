@@ -17,6 +17,7 @@ class RidesViewController: UIViewController {
   @IBOutlet weak var tableView: UITableView?
 
   var rides: [Ride]?
+  var user: User?
 
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -59,5 +60,5 @@ extension RidesViewController: UITableViewDelegate {
   func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
     tableView.deselectRowAtIndexPath(indexPath, animated: true)
   }
-  
+
 }
