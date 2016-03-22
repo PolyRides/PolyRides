@@ -9,6 +9,11 @@
 import Foundation
 import JSQMessagesViewController
 
+protocol MessageDeligate: class {
+
+  func onMessagesReceived(messages: [Message])
+}
+
 class Message: NSObject, JSQMessageData {
   var conversationVar: String
   var senderIdVar: String

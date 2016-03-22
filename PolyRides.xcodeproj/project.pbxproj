@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		6E53E3CB1C9E428400370108 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E53E3CA1C9E428400370108 /* Message.swift */; };
 		6E53E3CE1C9E5A6100370108 /* MessagesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E53E3CD1C9E5A6100370108 /* MessagesViewController.swift */; };
+		6E628F9C1CA0FF6900AAC2DB /* MessageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E628F9B1CA0FF6900AAC2DB /* MessageService.swift */; };
+		6E628F9E1CA100CF00AAC2DB /* Conversation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E628F9D1CA100CF00AAC2DB /* Conversation.swift */; };
+		6E628FA01CA100E400AAC2DB /* ConversationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E628F9F1CA100E400AAC2DB /* ConversationService.swift */; };
 		8F32E580C33AC6C26F5C4050 /* Pods_PolyRides.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B472AC953EC1C3E0C19CECA0 /* Pods_PolyRides.framework */; };
 		DB4151001C9A74500062E5A0 /* MyRidesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB4150FF1C9A74500062E5A0 /* MyRidesViewController.swift */; };
 		DB4151041C9B05340062E5A0 /* AddRideViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB4151031C9B05340062E5A0 /* AddRideViewController.swift */; };
@@ -81,6 +84,9 @@
 		2241301BA6D0CFD44D162D7E /* Pods-PolyRides.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PolyRides.release.xcconfig"; path = "Pods/Target Support Files/Pods-PolyRides/Pods-PolyRides.release.xcconfig"; sourceTree = "<group>"; };
 		6E53E3CA1C9E428400370108 /* Message.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 		6E53E3CD1C9E5A6100370108 /* MessagesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessagesViewController.swift; sourceTree = "<group>"; };
+		6E628F9B1CA0FF6900AAC2DB /* MessageService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageService.swift; sourceTree = "<group>"; };
+		6E628F9D1CA100CF00AAC2DB /* Conversation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Conversation.swift; sourceTree = "<group>"; };
+		6E628F9F1CA100E400AAC2DB /* ConversationService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConversationService.swift; sourceTree = "<group>"; };
 		B472AC953EC1C3E0C19CECA0 /* Pods_PolyRides.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PolyRides.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CC61BB155FFE8FE24FA32C81 /* Pods-PolyRides.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PolyRides.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PolyRides/Pods-PolyRides.debug.xcconfig"; sourceTree = "<group>"; };
 		DB4150FF1C9A74500062E5A0 /* MyRidesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyRidesViewController.swift; sourceTree = "<group>"; };
@@ -169,6 +175,15 @@
 			name = Messages;
 			sourceTree = "<group>";
 		};
+		6E628F9A1CA0FD3C00AAC2DB /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				6E628F9B1CA0FF6900AAC2DB /* MessageService.swift */,
+				6E628F9F1CA100E400AAC2DB /* ConversationService.swift */,
+			);
+			name = Services;
+			sourceTree = "<group>";
+		};
 		8044E3CB71FAAEEA14091F08 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -229,10 +244,12 @@
 		DB70B8CC1C9389EA0065CC4D /* PolyRides */ = {
 			isa = PBXGroup;
 			children = (
-				DBAB56811C9693930011167A /* Util */,
-				DB70B8FC1C938A000065CC4D /* Model */,
-				DB70B8FD1C938A090065CC4D /* View */,
-				DB70B8FB1C9389F10065CC4D /* Controller */,
+				DBAB56891C96BC1C0011167A /* Extensions */,
+				6E628F9A1CA0FD3C00AAC2DB /* Services */,
+				DBAB56811C9693930011167A /* Utils */,
+				DB70B8FC1C938A000065CC4D /* Models */,
+				DB70B8FD1C938A090065CC4D /* Views */,
+				DB70B8FB1C9389F10065CC4D /* Controllers */,
 				DB70B8FE1C938A1B0065CC4D /* Supporting Files */,
 			);
 			path = PolyRides;
@@ -256,18 +273,18 @@
 			path = PolyRidesUITests;
 			sourceTree = "<group>";
 		};
-		DB70B8FB1C9389F10065CC4D /* Controller */ = {
+		DB70B8FB1C9389F10065CC4D /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
 				DB70B8CD1C9389EA0065CC4D /* AppDelegate.swift */,
-				DBAB56891C96BC1C0011167A /* Extensions */,
 				DBAB56841C96B0AB0011167A /* Login */,
 				DBAB56851C96B0C20011167A /* Main */,
 			);
+			name = Controllers;
 			path = Controller;
 			sourceTree = "<group>";
 		};
-		DB70B8FC1C938A000065CC4D /* Model */ = {
+		DB70B8FC1C938A000065CC4D /* Models */ = {
 			isa = PBXGroup;
 			children = (
 				DB70B9011C938B230065CC4D /* User.swift */,
@@ -275,11 +292,13 @@
 				DBBBD13C1C9DE57B0085E3B9 /* Location.swift */,
 				6E53E3CA1C9E428400370108 /* Message.swift */,
 				DB43A9931C9F7A2500AC2AF9 /* Region.swift */,
+				6E628F9D1CA100CF00AAC2DB /* Conversation.swift */,
 			);
+			name = Models;
 			path = Model;
 			sourceTree = "<group>";
 		};
-		DB70B8FD1C938A090065CC4D /* View */ = {
+		DB70B8FD1C938A090065CC4D /* Views */ = {
 			isa = PBXGroup;
 			children = (
 				DB70B9031C938CDC0065CC4D /* LaunchScreen.storyboard */,
@@ -287,6 +306,7 @@
 				DBAB56901C96C5270011167A /* Main.storyboard */,
 				DB747AB41C98D74F00A24F58 /* Tabs */,
 			);
+			name = Views;
 			path = View;
 			sourceTree = "<group>";
 		};
@@ -312,7 +332,7 @@
 			name = Tabs;
 			sourceTree = "<group>";
 		};
-		DBAB56811C9693930011167A /* Util */ = {
+		DBAB56811C9693930011167A /* Utils */ = {
 			isa = PBXGroup;
 			children = (
 				DBB1558B1C9B76C500118F89 /* DateHelper.swift */,
@@ -320,7 +340,7 @@
 				DBF5E6DA1C93A66600693807 /* GoogleAnalyticsHelper.swift */,
 				DBBBD13E1C9DE8590085E3B9 /* GoogleMapsHelper.swift */,
 			);
-			name = Util;
+			name = Utils;
 			sourceTree = "<group>";
 		};
 		DBAB56841C96B0AB0011167A /* Login */ = {
@@ -356,6 +376,7 @@
 				DBAB56941C9738870011167A /* UITextFieldExtensions.swift */,
 			);
 			name = Extensions;
+			path = Controller;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -579,6 +600,7 @@
 				DB956DD81C96833700809B4C /* FirebaseConnection.swift in Sources */,
 				DBBBD13B1C9DE4D00085E3B9 /* Ride.swift in Sources */,
 				DBBBD13F1C9DE8590085E3B9 /* GoogleMapsHelper.swift in Sources */,
+				6E628F9E1CA100CF00AAC2DB /* Conversation.swift in Sources */,
 				DB43A9941C9F7A2500AC2AF9 /* Region.swift in Sources */,
 				DBAB56801C968FAA0011167A /* UIViewControllerExtensions.swift in Sources */,
 				DB43A9961C9F95E400AC2AF9 /* RegionRidesViewController.swift in Sources */,
@@ -586,8 +608,10 @@
 				DBBBD13D1C9DE57B0085E3B9 /* Location.swift in Sources */,
 				DBF5E6F21C963D6400693807 /* CreateAccountViewController.swift in Sources */,
 				DBAB56951C9738870011167A /* UITextFieldExtensions.swift in Sources */,
+				6E628FA01CA100E400AAC2DB /* ConversationService.swift in Sources */,
 				DBF5E6F51C96719400693807 /* EmailAccountViewController.swift in Sources */,
 				DB70B8D01C9389EA0065CC4D /* MainLoginViewController.swift in Sources */,
+				6E628F9C1CA0FF6900AAC2DB /* MessageService.swift in Sources */,
 				DBF5E6F01C963D3A00693807 /* ResetPasswordViewController.swift in Sources */,
 				DBAB56871C96B0F10011167A /* SearchTableViewController.swift in Sources */,
 				DBB1558C1C9B76C500118F89 /* DateHelper.swift in Sources */,
