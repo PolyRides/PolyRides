@@ -29,4 +29,15 @@ class RegionRidesViewController: RidesViewController {
     tableView?.reloadData()
   }
 
+  override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    if segue.identifier == "toRideDetails" {
+      if let vc = segue.destinationViewController as? RideDetailsViewController {
+        if let cell = sender as? RideTableViewCell {
+          vc.ride = cell.ride
+          vc.user = user
+        }
+      }
+    }
+  }
+
 }

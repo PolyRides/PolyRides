@@ -39,10 +39,8 @@ class MyRidesViewController: RidesViewController {
     if let appDelegate: AppDelegate = UIApplication.sharedApplication().delegate as? AppDelegate {
       let storyboard = UIStoryboard(name: "Login", bundle: NSBundle.mainBundle())
       if let navVC = storyboard.instantiateViewControllerWithIdentifier("Login") as? UINavigationController {
-        if let vc = navVC.topViewController as? LoginViewController {
-          FirebaseConnection.service.ref.unauth()
-          appDelegate.window?.rootViewController = vc
-        }
+        FirebaseConnection.service.ref.unauth()
+        appDelegate.window?.rootViewController = navVC
       }
     }
   }

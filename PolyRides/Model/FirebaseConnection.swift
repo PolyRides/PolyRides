@@ -172,10 +172,17 @@ class FirebaseConnection {
     let ridesRef = ref.childByAppendingPath("rides")
     ridesRef?.queryOrderedByChild("date").observeSingleEventOfType(.Value, withBlock: { snapshot in
       var rides = [Ride]()
+      // send how many rides to expect through delegate
+      
       if let children = snapshot.children.allObjects as? [FDataSnapshot] {
         for child in children {
           let ride = Ride(fromSnapshot: child)
+
+          // set the rides driver.. can call updatevalues for user
+          let driverRef = self.ref.childByAppendingPath("user/\(ride.driver?.id)")
           rides.append(ride)
+
+          // send on ride received
         }
       }
       self.allRidesDelegate?.onRidesReceived(rides)

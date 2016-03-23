@@ -33,7 +33,9 @@ class Ride {
     if let dictionary = snapshot.value as? [String : AnyObject] {
       self.id = snapshot.key
       if let driverId = dictionary["driverId"] as? String {
-        self.driver = User(id: driverId)
+        let driver = User(id: driverId)
+        FirebaseConnection.service.updateValuesForUser(driver)
+        self.driver = driver
       }
       if let date = dictionary["date"] as? Double {
         self.date = NSDate(timeIntervalSince1970: date)

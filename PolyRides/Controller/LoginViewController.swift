@@ -139,6 +139,8 @@ class LoginViewController: UIViewController {
     let viewController = storyboard.instantiateViewControllerWithIdentifier("Main")
     if let tabBarVC = viewController as? TabBarController {
       tabBarVC.user = user
+      // here we want to load all the current rides and only segue when we finish aka expectedrides is 0
+      // we also want to load from the user before seguing
       if let delegate: AppDelegate = UIApplication.sharedApplication().delegate as? AppDelegate {
         delegate.window?.rootViewController = tabBarVC
       }

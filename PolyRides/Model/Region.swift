@@ -7,12 +7,13 @@
 //
 
 enum Region: Int {
-  case SFBay, LosAngeles, SanDiego, Sacramento, SanJoaquin, Other
+  case SFBay, LosAngeles, CentralCoast, SanDiego, Sacramento, SanJoaquin, Other
 
-  static let allRegions = [SFBay, LosAngeles, SanDiego, Sacramento, SanJoaquin, Other]
+  static let allRegions = [SFBay, LosAngeles, CentralCoast, SanDiego, Sacramento, SanJoaquin, Other]
   static let regionNames = [
     SFBay: "SF Bay",
     LosAngeles: "Los Angeles",
+    CentralCoast: "Central Coast",
     SanDiego: "San Diego",
     Sacramento: "Sacramento",
     SanJoaquin: "San Joaquin",
@@ -21,6 +22,7 @@ enum Region: Int {
   static let regionImages = [
     SFBay: "san_francisco",
     LosAngeles: "los_angeles",
+    CentralCoast: "central_coast",
     SanDiego: "san_diego",
     Sacramento: "sacramento",
     SanJoaquin: "san_joaquin",
@@ -59,9 +61,61 @@ enum Region: Int {
     "San Mateo": SFBay, "San Pablo": SFBay, "San Rafael": SFBay, "San Ramon": SFBay, "Santa Clara": SFBay,
     "Saratoga": SFBay, "Sausalito": SFBay, "Sebastopol": SFBay, "Sonoma": SFBay, "South San Francisco": SFBay,
     "Suisun City": SFBay, "Sunnyvale": SFBay, "Tiburon": SFBay, "Union City": SFBay, "Vacaville": SFBay,
-    "Vallejo": SFBay, "Walnut Creek": SFBay, "Windsor": SFBay, "Woodside": SFBay, "Yountville": SFBay
+    "Vallejo": SFBay, "Walnut Creek": SFBay, "Windsor": SFBay, "Woodside": SFBay, "Yountville": SFBay,
 
     // LosAngeles
+    "Agoura Hills": LosAngeles, "Alhambra": LosAngeles, "Arcadia": LosAngeles, "Artesia": LosAngeles,
+    "Avalon": LosAngeles, "Azusa": LosAngeles, "Baldwin Park": LosAngeles, "Bell": LosAngeles,
+    "Bell Gardens": LosAngeles, "Bellflower": LosAngeles, "Beverly Hills": LosAngeles, "Bradbury": LosAngeles,
+    "Burbank": LosAngeles, "Calabasas": LosAngeles, "Carson": LosAngeles, "Cerritos": LosAngeles,
+    "Claremont": LosAngeles, "Commerce": LosAngeles, "Compton": LosAngeles, "Covina": LosAngeles, "Cudahy": LosAngeles,
+    "Culver City": LosAngeles, "Diamond Bar": LosAngeles, "Downey": LosAngeles, "Duarte": LosAngeles,
+    "El Monte": LosAngeles, "El Segundo": LosAngeles, "Gardena": LosAngeles, "Glendale": LosAngeles,
+    "Glendora": LosAngeles, "Hawaiian Gardens": LosAngeles, "Hawthorne": LosAngeles, "Hermosa Beach": LosAngeles,
+    "Hidden Hills": LosAngeles, "Huntington Park": LosAngeles, "Industry": LosAngeles, "Inglewood": LosAngeles,
+    "Irwindale": LosAngeles, "La Cañada Flintridge": LosAngeles, "La Habra Heights": LosAngeles,
+    "La Mirada": LosAngeles, "La Puente": LosAngeles, "La Verne": LosAngeles, "Lakewood": LosAngeles,
+    "Lawndale": LosAngeles, "Lomita": LosAngeles, "Long Beach": LosAngeles, "Los Angeles": LosAngeles,
+    "Lynwood": LosAngeles, "Malibu": LosAngeles, "Manhattan Beach": LosAngeles, "Maywood": LosAngeles,
+    "Monrovia": LosAngeles, "Montebello": LosAngeles, "Monterey Park": LosAngeles, "Norwalk": LosAngeles,
+    "Palmdale": LosAngeles, "Palos Verdes Estates": LosAngeles, "Paramount": LosAngeles, "Pasadena": LosAngeles,
+    "Pico Rivera": LosAngeles, "Pomona": LosAngeles, "Rancho Palos Verdes": LosAngeles, "Redondo Beach": LosAngeles,
+    "Rolling Hills": LosAngeles, "Rolling Hills Estates": LosAngeles, "Rosemead": LosAngeles, "": LosAngeles,
+    "San Dimas": LosAngeles, "San Fernando": LosAngeles, "San Gabriel": LosAngeles, "San Marino": LosAngeles,
+    "Santa Clarita": LosAngeles, "Santa Fe Springs": LosAngeles, "Santa Monica": LosAngeles, "Sierra Madre": LosAngeles,
+    "Signal Hill": LosAngeles, "South El Monte": LosAngeles, "South Gate": LosAngeles, "South Pasadena": LosAngeles,
+    "Temple City": LosAngeles, "Torrance": LosAngeles, "Vernon": LosAngeles, "Walnut": LosAngeles,
+    "West Covina": LosAngeles, "West Hollywood": LosAngeles, "Westlake Village": LosAngeles, "Whittier": LosAngeles,
+
+    // CentralCoast
+    "Morro Bay": CentralCoast, "Arroyo Grande": CentralCoast, "Paso Robles": CentralCoast, "Pismo Beach": CentralCoast,
+    "San Luis Obispo": CentralCoast, "Grover Beach": CentralCoast, "Avila Beach": CentralCoast,
+    "Cambria": CentralCoast, "San Miguel": CentralCoast, "San Simeon": CentralCoast, "Santa Margarita": CentralCoast,
+    "Nipomo": CentralCoast, "Cayucos": CentralCoast, "Harmony": CentralCoast, "Los Osos": CentralCoast,
+    "Shandon": CentralCoast, "Templeton": CentralCoast,
+
+    // SanDiego
+    "Carlsbad": SanDiego,"Chula Vista": SanDiego, "Coronado": SanDiego, "Del Mar": SanDiego, "El Cajon": SanDiego,
+    "Encinitas": SanDiego, "Escondido": SanDiego, "Imperial Beach": SanDiego, "La Mesa": SanDiego,
+    "Lemon Grove": SanDiego, "National City": SanDiego, "Oceanside": SanDiego, "Poway": SanDiego, "San Diego": SanDiego,
+    "San Marcos": SanDiego, "Santee": SanDiego, "Solana Beach": SanDiego, "Vista": SanDiego,
+
+    // Sacramento
+    "Citrus Heights": Sacramento, "Elk Grove": Sacramento, "Folsom": Sacramento, "Galt": Sacramento,
+    "Isleton": Sacramento, "Rancho Cordova": Sacramento, "Sacramento": Sacramento, "Antelope": Sacramento,
+    "Arden Arcade": Sacramento, "Carmichael": Sacramento, "Clay": Sacramento, "Courtland": Sacramento,
+    "Elverta": Sacramento, "Fair Oaks": Sacramento, "Florin": Sacramento, "Foothill Farms": Sacramento,
+    "Franklin": Sacramento, "Freeport": Sacramento, "Fruitridge Pocket": Sacramento, "Gold River": Sacramento,
+    "Herald": Sacramento, "Hood": Sacramento, "La Riviera": Sacramento, "Lemon Hill": Sacramento, "Mather": Sacramento,
+    "McClellan Park": Sacramento, "North Highlands": Sacramento, "Orangevale": Sacramento, "Parkway": Sacramento,
+    "Rancho Murieta": Sacramento, "Rio Linda": Sacramento, "Rosemont": Sacramento, "Vineyard": Sacramento,
+    "Walnut Grove": Sacramento, "Wilton": Sacramento, "Locke": Sacramento,
+
+    // SanJoaquin
+    "Stockton": SanJoaquin, "Lodi": SanJoaquin, "Lathrop": SanJoaquin, "Acampo": SanJoaquin, "Tracy": SanJoaquin,
+    "Manteca": SanJoaquin, "Ripon": SanJoaquin, "Escalon": SanJoaquin, "Mountain House": SanJoaquin,
+    "Woodbridge": SanJoaquin, "Thornton": SanJoaquin, "Charming": SanJoaquin, "Victor": SanJoaquin,
+    "South Woodbridge": SanJoaquin
   ]
 
 }

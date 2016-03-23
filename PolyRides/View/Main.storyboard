@@ -17,7 +17,7 @@
         <!--Tab Bar Controller-->
         <scene sceneID="Zgd-rR-OM5">
             <objects>
-                <tabBarController storyboardIdentifier="Main" id="8Wb-K8-eLJ" customClass="TabBarController" customModule="PolyRides" customModuleProvider="target" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="Main" id="8Wb-K8-eLJ" customClass="TabBarController" customModule="Poly_Rides" customModuleProvider="target" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="yGL-G9-dEj"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="iyP-7J-vyb">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>

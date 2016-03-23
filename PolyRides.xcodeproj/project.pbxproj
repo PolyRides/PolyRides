@@ -10,6 +10,7 @@
 		6E53E3CB1C9E428400370108 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E53E3CA1C9E428400370108 /* Message.swift */; };
 		6E53E3CE1C9E5A6100370108 /* MessagesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E53E3CD1C9E5A6100370108 /* MessagesViewController.swift */; };
 		8F32E580C33AC6C26F5C4050 /* Pods_PolyRides.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B472AC953EC1C3E0C19CECA0 /* Pods_PolyRides.framework */; };
+		DB1C76721CA0F08C0052D3B9 /* PassengerRideDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB1C76711CA0F08C0052D3B9 /* PassengerRideDetailsViewController.swift */; };
 		DB4151001C9A74500062E5A0 /* MyRidesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB4150FF1C9A74500062E5A0 /* MyRidesViewController.swift */; };
 		DB4151041C9B05340062E5A0 /* AddRideViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB4151031C9B05340062E5A0 /* AddRideViewController.swift */; };
 		DB43A98F1C9F071800AC2AF9 /* RideDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB43A98E1C9F071800AC2AF9 /* RideDetailsViewController.swift */; };
@@ -83,6 +84,7 @@
 		6E53E3CD1C9E5A6100370108 /* MessagesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessagesViewController.swift; sourceTree = "<group>"; };
 		B472AC953EC1C3E0C19CECA0 /* Pods_PolyRides.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PolyRides.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CC61BB155FFE8FE24FA32C81 /* Pods-PolyRides.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PolyRides.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PolyRides/Pods-PolyRides.debug.xcconfig"; sourceTree = "<group>"; };
+		DB1C76711CA0F08C0052D3B9 /* PassengerRideDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PassengerRideDetailsViewController.swift; sourceTree = "<group>"; };
 		DB4150FF1C9A74500062E5A0 /* MyRidesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyRidesViewController.swift; sourceTree = "<group>"; };
 		DB4151031C9B05340062E5A0 /* AddRideViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddRideViewController.swift; sourceTree = "<group>"; };
 		DB43A98E1C9F071800AC2AF9 /* RideDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RideDetailsViewController.swift; sourceTree = "<group>"; };
@@ -183,6 +185,7 @@
 			children = (
 				DB4150FF1C9A74500062E5A0 /* MyRidesViewController.swift */,
 				DB4151031C9B05340062E5A0 /* AddRideViewController.swift */,
+				DB1C76711CA0F08C0052D3B9 /* PassengerRideDetailsViewController.swift */,
 			);
 			name = Rides;
 			sourceTree = "<group>";
@@ -577,6 +580,7 @@
 			files = (
 				DB43A9981C9FA63700AC2AF9 /* RidesViewController.swift in Sources */,
 				DB956DD81C96833700809B4C /* FirebaseConnection.swift in Sources */,
+				DB1C76721CA0F08C0052D3B9 /* PassengerRideDetailsViewController.swift in Sources */,
 				DBBBD13B1C9DE4D00085E3B9 /* Ride.swift in Sources */,
 				DBBBD13F1C9DE8590085E3B9 /* GoogleMapsHelper.swift in Sources */,
 				DB43A9941C9F7A2500AC2AF9 /* Region.swift in Sources */,

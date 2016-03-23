@@ -31,9 +31,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
       gai.trackUncaughtExceptions = true  // Report uncaught exceptions.
       gai.trackerWithTrackingId("UA-69182247-4")
 
-      // Fabric
-      Fabric.with([Crashlytics.self])
-
       // Siren
       let siren = Siren.sharedInstance
       siren.appID = "991595932"
@@ -50,8 +47,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
           let user = User(id: FirebaseConnection.service.ref.authData.uid)
           tabBarVC.user = user
           self.window?.rootViewController = tabBarVC
+          // should we instantiate a temporary view until we load all rides AND user data?
         }
       }
+
+      // Fabric (must be the last call in didFinishLaunchingWithOptions).
+      Fabric.with([Crashlytics.self])
 
       return FBSDKApplicationDelegate.sharedInstance()
         .application(application, didFinishLaunchingWithOptions: launchOptions)

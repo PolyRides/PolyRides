@@ -82,4 +82,8 @@ class User {
     return dictionary
   }
 
+  func getFullName() -> String {
+    return "\(firstName) \(lastName)"
+  }
+
 }
