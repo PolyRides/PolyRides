@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="F06-1m-krZ">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="F06-1m-krZ">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -48,25 +48,25 @@
                                     <action selector="segmentedAction:" destination="fnc-Oe-nPW" eventType="valueChanged" id="ToX-42-tl6"/>
                                 </connections>
                             </segmentedControl>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="60" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="BKG-Cw-jja">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="60" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Byt-o3-3gz">
                                 <rect key="frame" x="0.0" y="108" width="600" height="443"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="rideCell" textLabel="0cV-VG-Y8h" detailTextLabel="DIN-hU-aHU" style="IBUITableViewCellStyleSubtitle" id="uf4-Cw-F9k" customClass="RideTableViewCell" customModule="Poly_Rides" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="rideCell" textLabel="82s-h3-hxQ" detailTextLabel="yZN-2X-zZV" style="IBUITableViewCellStyleSubtitle" id="QpA-pm-jdK" customClass="RideTableViewCell" customModule="Poly_Rides" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="600" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="uf4-Cw-F9k" id="3Rn-Ng-tkF">
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="QpA-pm-jdK" id="M9i-mz-9aA">
                                             <rect key="frame" x="0.0" y="0.0" width="567" height="59.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="0cV-VG-Y8h">
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="82s-h3-hxQ">
                                                     <rect key="frame" x="15" y="14" width="31.5" height="19.5"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Subtitle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="DIN-hU-aHU">
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Subtitle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="yZN-2X-zZV">
                                                     <rect key="frame" x="15" y="33.5" width="40.5" height="13.5"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="11"/>
@@ -76,7 +76,7 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="hR9-ek-Zu3" kind="show" identifier="toRideDetails" id="cll-Qu-7ms"/>
+                                            <segue destination="hR9-ek-Zu3" kind="show" identifier="toRideDetails" id="DHF-B5-Vcs"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -84,13 +84,13 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="BKG-Cw-jja" firstAttribute="leading" secondItem="ioP-ZV-Euv" secondAttribute="leadingMargin" constant="-20" id="5vB-FZ-aZ6"/>
                             <constraint firstItem="YQo-Ub-837" firstAttribute="leading" secondItem="ioP-ZV-Euv" secondAttribute="leadingMargin" id="CS1-SJ-oED"/>
-                            <constraint firstItem="BKG-Cw-jja" firstAttribute="top" secondItem="YQo-Ub-837" secondAttribute="bottom" constant="8" id="Hof-7x-rwN"/>
-                            <constraint firstItem="wRW-a5-fDd" firstAttribute="top" secondItem="BKG-Cw-jja" secondAttribute="bottom" id="MVr-hW-nwP"/>
+                            <constraint firstItem="wRW-a5-fDd" firstAttribute="top" secondItem="Byt-o3-3gz" secondAttribute="bottom" id="IDO-kM-Oab"/>
+                            <constraint firstItem="Byt-o3-3gz" firstAttribute="leading" secondItem="ioP-ZV-Euv" secondAttribute="leadingMargin" constant="-20" id="OMI-Hk-BDO"/>
                             <constraint firstItem="YQo-Ub-837" firstAttribute="top" secondItem="ifF-Ho-9MW" secondAttribute="bottom" constant="8" id="UFa-BD-whH"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="BKG-Cw-jja" secondAttribute="trailing" constant="-20" id="VP7-Bu-s8z"/>
+                            <constraint firstItem="Byt-o3-3gz" firstAttribute="top" secondItem="YQo-Ub-837" secondAttribute="bottom" constant="8" id="WEX-F6-Db4"/>
                             <constraint firstItem="YQo-Ub-837" firstAttribute="trailing" secondItem="ioP-ZV-Euv" secondAttribute="trailingMargin" id="h4L-Y2-a5X"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Byt-o3-3gz" secondAttribute="trailing" constant="-20" id="hTZ-r2-gtt"/>
                             <constraint firstItem="YQo-Ub-837" firstAttribute="centerX" secondItem="ioP-ZV-Euv" secondAttribute="centerX" id="xQW-eN-Ceq"/>
                         </constraints>
                     </view>
@@ -109,7 +109,8 @@
                     </navigationItem>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
-                        <outlet property="tableView" destination="BKG-Cw-jja" id="D6V-pZ-2mT"/>
+                        <outlet property="segmentedControl" destination="YQo-Ub-837" id="yE0-xn-qvm"/>
+                        <outlet property="tableView" destination="Byt-o3-3gz" id="2v9-0M-6Kh"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Fe7-7M-ucB" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -206,12 +207,12 @@
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" enabled="NO" title="Add" id="AAY-fi-0Ho">
                             <connections>
-                                <action selector="addButtonAction:" destination="sad-jW-Up4" id="i4V-B6-VWD"/>
+                                <segue destination="sks-kU-S7B" kind="unwind" identifier="addRide" unwindAction="addRide:" id="a0x-Rf-6AV"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="addButton" destination="AAY-fi-0Ho" id="Bpr-Ro-qj9"/>
+                        <outlet property="addButton" destination="AAY-fi-0Ho" id="AO0-uR-G4W"/>
                         <outlet property="costTextField" destination="xIz-bR-u4X" id="jc2-qa-rf1"/>
                         <outlet property="datePicker" destination="f3D-LS-bbZ" id="ZCo-sW-ao3"/>
                         <outlet property="fromTextField" destination="VAp-HA-7Wp" id="4md-Kg-yVm"/>
@@ -221,6 +222,7 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DHp-nI-A6q" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="sks-kU-S7B" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="226" y="-1021"/>
         </scene>

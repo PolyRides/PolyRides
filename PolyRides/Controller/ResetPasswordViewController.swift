@@ -39,11 +39,11 @@ class ResetPasswordViewController: LoginViewController {
       passwordTextField?.secureTextEntry = true
       passwordTextField?.delegate = self
     } else {
-      FirebaseConnection.service.resetPasswordDelegate = self
+      authService.resetPasswordDelegate = self
       emailTextField?.delegate = self
     }
 
-    passwordTextField?.addTargetForEditing(self, selector: Selector("textFieldDidChange"))
+    passwordTextField?.addTargetForEditing(self, selector: #selector(LoginViewController.textFieldDidChange))
     buttonTitle = "Reset Password"
   }
 
@@ -73,7 +73,7 @@ class ResetPasswordViewController: LoginViewController {
       if let new = passwordTextField?.text {
         startLoading()
         let temp = temporaryPassword
-        FirebaseConnection.service.changePasswordForUser(user, temporaryPassword: temp, newPassword: new)
+        authService.changePasswordForUser(user, temporaryPassword: temp, newPassword: new)
       }
     }
   }
@@ -81,7 +81,7 @@ class ResetPasswordViewController: LoginViewController {
   func resetPassword(action: UIAlertAction) {
     startLoading()
     if let email = emailTextField?.text {
-      FirebaseConnection.service.resetPasswordForEmail(email)
+      authService.resetPasswordForEmail(email)
     }
   }
 

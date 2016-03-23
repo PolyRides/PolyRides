@@ -30,7 +30,7 @@ class User {
     self.lastName = lastName
   }
 
-  init(withAuthData authData: FAuthData) {
+  init(fromAuthData authData: FAuthData) {
     self.id = authData.uid
     if let email = authData.providerData["email"] as? NSString {
       self.email = String(email)
@@ -45,11 +45,12 @@ class User {
     }
   }
 
-  init(withSnapshot snapshot: FDataSnapshot) {
+  init(fromSnapshot snapshot: FDataSnapshot) {
     updateFromSnapshot(snapshot)
   }
 
   func updateFromSnapshot(snapshot: FDataSnapshot) {
+    print(snapshot)
     if let dictionary = snapshot.value as? [String : AnyObject] {
       self.id = snapshot.key
       if let email = dictionary["email"] as? String {
@@ -83,7 +84,13 @@ class User {
   }
 
   func getFullName() -> String {
-    return "\(firstName) \(lastName)"
+    if let firstName = firstName {
+      if let lastName = lastName {
+        return "\(firstName) \(lastName)"
+      }
+      return "\(firstName)"
+    }
+    return ""
   }
 
 }

@@ -34,7 +34,6 @@ class Ride {
       self.id = snapshot.key
       if let driverId = dictionary["driverId"] as? String {
         let driver = User(id: driverId)
-        FirebaseConnection.service.updateValuesForUser(driver)
         self.driver = driver
       }
       if let date = dictionary["date"] as? Double {

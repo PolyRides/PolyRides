@@ -11,8 +11,10 @@ import GoogleMaps
 class AddRideViewController: UIViewController {
 
   let gpaKey = "AIzaSyBV7uveXT1JXkp149zLJgmCb2U-caWuH84"
+  let rideService = RideService()
 
   var user: User?
+  var ride: Ride?
   var toLocationPlace: GMSPlace?
   var fromLocationPlace: GMSPlace?
   var autocompleteTextField: UITextField?
@@ -26,29 +28,6 @@ class AddRideViewController: UIViewController {
   @IBOutlet weak var addButton: UIBarButtonItem?
 
   @IBAction func cancelButtonAction(sender: AnyObject) {
-    navigationController?.dismissViewControllerAnimated(true, completion: nil)
-  }
-
-  @IBAction func addButtonAction(sender: AnyObject) {
-    if var cost = costTextField?.text {
-      if var description = notesTextView?.text {
-        if let seats = seatsLabel?.text {
-          if let date = datePicker?.date {
-            cost = cost.stringByReplacingOccurrencesOfString("$", withString: "")
-            if let user = user {
-              if description == "Optional notes for passengers" {
-                description = ""
-              }
-              let ride = Ride(driver: user, date: date, seats: Int(seats), description: description, cost: Int(cost))
-              ride.fromLocation = locationFromPlace(fromLocationPlace)
-              ride.toLocation = locationFromPlace(toLocationPlace)
-              ride.timestamp = NSDate()
-              FirebaseConnection.service.pushRideToFirebase(ride)
-            }
-          }
-        }
-      }
-    }
     navigationController?.dismissViewControllerAnimated(true, completion: nil)
   }
 
@@ -75,6 +54,31 @@ class AddRideViewController: UIViewController {
 
     toTextField?.delegate = self
     fromTextField?.delegate = self
+  }
+
+  override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    if segue.identifier == "addRide" {
+      if var cost = costTextField?.text {
+        if var description = notesTextView?.text {
+          if let seats = seatsLabel?.text {
+            if let date = datePicker?.date {
+              cost = cost.stringByReplacingOccurrencesOfString("$", withString: "")
+              if let user = user {
+                if description == "Optional notes for passengers" {
+                  description = ""
+                }
+                let ride = Ride(driver: user, date: date, seats: Int(seats), description: description, cost: Int(cost))
+                ride.fromLocation = locationFromPlace(fromLocationPlace)
+                ride.toLocation = locationFromPlace(toLocationPlace)
+                ride.timestamp = NSDate()
+                rideService.pushRideToFirebase(ride)
+                self.ride = ride
+              }
+            }
+          }
+        }
+      }
+    }
   }
 
   func setEnableAddButton() {

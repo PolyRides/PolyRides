@@ -10,7 +10,7 @@ import Firebase
 
 class ConversationService {
   var conversationDeligate: ConversationDeligate?
-  let ref = FirebaseConnection.service.ref
+  let ref = FirebaseConnection.ref
 
   func getConversationsForUser(user: User) {
   }

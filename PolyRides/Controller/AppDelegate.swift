@@ -40,14 +40,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
       // Register with Google Maps.
       GMSServices.provideAPIKey("AIzaSyBmxCispciOMZhn4FNbRPv_-Rcj8r_AtAk")
 
-      if FirebaseConnection.service.ref.authData != nil {
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let controller = storyboard.instantiateViewControllerWithIdentifier("Main")
-        if let tabBarVC = controller as? TabBarController {
-          let user = User(id: FirebaseConnection.service.ref.authData.uid)
-          tabBarVC.user = user
-          self.window?.rootViewController = tabBarVC
-          // should we instantiate a temporary view until we load all rides AND user data?
+      if FirebaseConnection.ref.authData != nil {
+        let storyboard = UIStoryboard(name: "LoadingLaunchScreen", bundle: nil)
+        if let controller = storyboard.instantiateInitialViewController() as? LoadingLaunchScreenViewController {
+          let user = User(id: FirebaseConnection.ref.authData.uid)
+          controller.user = user
+          self.window?.rootViewController = controller
         }
       }
 

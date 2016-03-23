@@ -38,8 +38,16 @@ extension PassengerRideDetailsViewController: UITableViewDataSource {
     let cell = tableView.dequeueReusableCellWithIdentifier("driverCell", forIndexPath: indexPath)
 
     if let driverCell = cell as? DriverTableViewCell {
-      driverCell.driver = ride?.driver
-      driverCell.name?.text = ride?.driver?.getFullName()
+      if let driver = ride?.driver {
+        if let imageURL = driver.imageURL {
+          if let url = NSURL(string: imageURL) {
+            driverCell.imageView?.setImageWithURL(url)
+          }
+        }
+
+        driverCell.driver = driver
+        driverCell.name?.text = driver.getFullName()
+      }
     }
 
     return cell

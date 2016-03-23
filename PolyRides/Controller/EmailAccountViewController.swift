@@ -52,7 +52,7 @@ class EmailAccountViewController: LoginViewController {
           if let lastName = lastNameTextField?.text {
             startLoading()
             let user = User(email: email, firstName: firstName, lastName: lastName)
-            FirebaseConnection.service.createUser(user, password: password)
+            authService.createUser(user, password: password)
           }
         }
       }

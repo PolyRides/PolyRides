@@ -8,9 +8,35 @@
 
 class MyRidesViewController: RidesViewController {
 
-  var currentRides = [Ride]()
-  var pastRides = [Ride]()
-  var savedRides = [Ride]()
+  var rideService = RideService()
+
+  var currentRides = [Ride]() {
+    didSet {
+      if segmentedControl?.selectedSegmentIndex == 0 {
+        sortRides(&currentRides)
+        rides = currentRides
+        tableView?.reloadData()
+      }
+    }
+  }
+  var pastRides = [Ride]() {
+    didSet {
+      if segmentedControl?.selectedSegmentIndex == 1 {
+        sortRides(&pastRides)
+        rides = pastRides
+        tableView?.reloadData()
+      }
+    }
+  }
+  var savedRides = [Ride]() {
+    didSet {
+      if segmentedControl?.selectedSegmentIndex == 2 {
+        sortRides(&savedRides)
+        rides = savedRides
+        tableView?.reloadData()
+      }
+    }
+  }
   var expectedRides = -1 {
     didSet {
       if expectedRides == 0 {
@@ -20,6 +46,8 @@ class MyRidesViewController: RidesViewController {
       }
     }
   }
+
+  @IBOutlet weak var segmentedControl: UISegmentedControl?
 
   @IBAction func segmentedAction(sender: AnyObject) {
     if let segmentedControl = sender as? UISegmentedControl {
@@ -39,8 +67,20 @@ class MyRidesViewController: RidesViewController {
     if let appDelegate: AppDelegate = UIApplication.sharedApplication().delegate as? AppDelegate {
       let storyboard = UIStoryboard(name: "Login", bundle: NSBundle.mainBundle())
       if let navVC = storyboard.instantiateViewControllerWithIdentifier("Login") as? UINavigationController {
-        FirebaseConnection.service.ref.unauth()
+        FirebaseConnection.ref.unauth()
         appDelegate.window?.rootViewController = navVC
+      }
+    }
+  }
+
+  @IBAction func addRide(segue: UIStoryboardSegue) {
+    if let addRideVC = segue.sourceViewController as? AddRideViewController {
+      if let ride = addRideVC.ride {
+        if ride.date?.compare(NSDate()) == .OrderedDescending {
+          currentRides.append(ride)
+        } else {
+          pastRides.append(ride)
+        }
       }
     }
   }
@@ -52,9 +92,10 @@ class MyRidesViewController: RidesViewController {
       user = tabBarController.user
     }
 
-    FirebaseConnection.service.ridesDelegate = self
+    rideService.delegate = self
     if let user = user {
-      FirebaseConnection.service.getRidesForUser(user)
+      rideService.getRidesForUser(user)
+      rideService.getSavedRidesForUser(user)
     }
   }
 
@@ -75,6 +116,17 @@ class MyRidesViewController: RidesViewController {
     }
   }
 
+  func sortRides(inout rides: [Ride]) {
+    rides.sortInPlace({ (ride1, ride2) -> Bool in
+      if let date1 = ride1.date {
+        if let date2 = ride2.date {
+          return date1.compare(date2) == .OrderedAscending
+        }
+      }
+      return true
+    })
+  }
+
 }
 
 // MARK: - FirebaseRidesDelegate
@@ -93,13 +145,8 @@ extension MyRidesViewController: FirebaseRidesDelegate {
     expectedRides = numRides
   }
 
-  func onRideAdded(ride: Ride) {
-    if ride.date?.compare(NSDate()) == .OrderedDescending {
-      currentRides.append(ride)
-    } else {
-      pastRides.append(ride)
-    }
-    tableView?.reloadData()
+  func onSavedRidesReceived(rides: [Ride]) {
+    savedRides = rides
   }
 
 }

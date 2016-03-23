@@ -17,9 +17,10 @@
 import Firebase
 import FBSDKLoginKit
 
-class LoginViewController: UIViewController {
+class LoginViewController: LoadingViewController {
 
-  var user: User?
+  let authService = AuthService()
+
   var buttonTitle = ""
 
   @IBOutlet weak var emailTextField: UITextField?
@@ -31,9 +32,9 @@ class LoginViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
 
-    emailTextField?.addTargetForEditing(self, selector: Selector("textFieldDidChange"))
-    passwordTextField?.addTargetForEditing(self, selector: Selector("textFieldDidChange"))
-    FirebaseConnection.service.loginDelegate = self
+    emailTextField?.addTargetForEditing(self, selector: #selector(LoginViewController.textFieldDidChange))
+    passwordTextField?.addTargetForEditing(self, selector: #selector(LoginViewController.textFieldDidChange))
+    authService.loginDelegate = self
   }
 
   override func viewWillAppear(animated: Bool) {
@@ -104,7 +105,7 @@ class LoginViewController: UIViewController {
         print("Facebook log in was cancelled.")
         // Do nothing.
       } else {
-        FirebaseConnection.service.authWithFacebook()
+        self.authService.authWithFacebook()
       }
     }
   }
@@ -112,7 +113,7 @@ class LoginViewController: UIViewController {
   func loginWithEmail() {
     if let email = emailTextField?.text {
       if let password = passwordTextField?.text {
-        FirebaseConnection.service.authUser(email, password: password)
+        authService.authUser(email, password: password)
       }
     }
   }
@@ -131,19 +132,6 @@ class LoginViewController: UIViewController {
         }
       }
       navigationController.popViewControllerAnimated(true)
-    }
-  }
-
-  func startMain(action: UIAlertAction? = nil) {
-    let storyboard = UIStoryboard(name: "Main", bundle: nil)
-    let viewController = storyboard.instantiateViewControllerWithIdentifier("Main")
-    if let tabBarVC = viewController as? TabBarController {
-      tabBarVC.user = user
-      // here we want to load all the current rides and only segue when we finish aka expectedrides is 0
-      // we also want to load from the user before seguing
-      if let delegate: AppDelegate = UIApplication.sharedApplication().delegate as? AppDelegate {
-        delegate.window?.rootViewController = tabBarVC
-      }
     }
   }
 
@@ -170,8 +158,9 @@ extension LoginViewController: FirebaseLoginDelegate {
   func onLoginSuccess(user: User) {
     stopLoading()
     self.user = user
-    FirebaseConnection.service.pushUserToFirebase(user)
-    startMain()
+    startLoadingData() {
+      self.stopLoading()
+    }
   }
 
   func onHasTemporaryPassword(user: User) {

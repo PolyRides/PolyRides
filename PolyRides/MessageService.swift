@@ -10,7 +10,7 @@ import Firebase
 
 class MessageService {
   var messageDeligate: MessageDeligate?
-  let ref = FirebaseConnection.service.ref
+  let ref = FirebaseConnection.ref
 
   func getMessagesForConversation(convo: Conversation) {
   }

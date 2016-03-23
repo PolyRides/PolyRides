@@ -23,8 +23,8 @@ class RegionTableViewCell: UITableViewCell {
 class SearchTableViewController: UITableViewController {
 
   var user: User?
-  var toRegionToRides = [Region: [Ride]]()
-  var fromRegionToRides = [Region: [Ride]]()
+  var toRegionToRides: [Region: [Ride]]?
+  var fromRegionToRides: [Region: [Ride]]?
 
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -32,12 +32,6 @@ class SearchTableViewController: UITableViewController {
     if let tabBarController = tabBarController as? TabBarController {
       user = tabBarController.user
     }
-
-    for region in Region.allRegions {
-      toRegionToRides[region] = [Ride]()
-      fromRegionToRides[region] = [Ride]()
-    }
-    FirebaseConnection.service.allRidesDelegate = self
 
     let searchBar = UISearchBar()
     searchBar.sizeToFit()
@@ -78,11 +72,11 @@ extension SearchTableViewController {
       regionCell.backgroundImageView?.image = region.image()
       regionCell.location?.text = region.name()
       var count = 0
-      if let toRides = toRegionToRides[region] {
+      if let toRides = toRegionToRides?[region] {
         regionCell.toRides = toRides
         count += toRides.count
       }
-      if let fromRides = fromRegionToRides[region] {
+      if let fromRides = fromRegionToRides?[region] {
         regionCell.fromRides = fromRides
         count += fromRides.count
       }
@@ -90,32 +84,6 @@ extension SearchTableViewController {
     }
 
     return cell
-  }
-
-}
-
-// MARK: - FirebaseRidesDelegate
-extension SearchTableViewController: FirebaseAllRidesDelegate {
-
-  func onRidesReceived(rides: [Ride]) {
-    for ride in rides {
-      if let driverId = ride.driver?.id {
-        if let userId = user?.id {
-          if driverId != userId {
-            if let toLocationCity = ride.toLocation?.city {
-              let region = Region.getRegion(toLocationCity)
-              toRegionToRides[region]?.append(ride)
-            }
-            if let fromLocationCity = ride.fromLocation?.city {
-              let region = Region.getRegion(fromLocationCity)
-              fromRegionToRides[region]?.append(ride)
-            }
-          }
-        }
-      }
-    }
-
-    tableView.reloadData()
   }
 
 }

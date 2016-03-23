@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="6U7-NW-jdD">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="6U7-NW-jdD">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -271,6 +271,9 @@
                             <constraint firstItem="Z7f-zc-GuR" firstAttribute="top" secondItem="U3B-8K-PKP" secondAttribute="bottom" id="xkm-mI-xRM"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="h6O-p3-sks">
+                        <barButtonItem key="rightBarButtonItem" image="star" id="1cK-KK-bKy"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="costPerSeatLabel" destination="7L6-8V-Rp8" id="EeI-nf-Qs6"/>
                         <outlet property="dateLabel" destination="7yx-x1-Dgl" id="vfT-LN-rah"/>
@@ -310,5 +313,6 @@
     </scenes>
     <resources>
         <image name="san_francisco" width="798" height="322"/>
+        <image name="star" width="25" height="25"/>
     </resources>
 </document>

@@ -23,20 +23,16 @@ class ProfileViewController: UIViewController {
       user = tabBarController.user
     }
 
-    FirebaseConnection.service.userDelegate = self
+    setupProfile()
+  }
 
+  func setupProfile() {
     if let imageView = imageView {
       imageView.clipsToBounds = true
       imageView.contentMode = UIViewContentMode.ScaleAspectFill
       imageView.layer.cornerRadius = imageView.frame.size.width / 2
     }
-  }
 
-}
-
-extension ProfileViewController: FirebaseUserDelegate {
-
-  func onUserUpdated() {
     var name = ""
     if let firstName = user?.firstName {
       if let lastName = user?.lastName {
