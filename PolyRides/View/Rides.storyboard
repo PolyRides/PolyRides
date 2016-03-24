@@ -75,9 +75,6 @@
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
-                                        <connections>
-                                            <segue destination="hR9-ek-Zu3" kind="show" identifier="toRideDetails" id="DHF-B5-Vcs"/>
-                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -111,6 +108,8 @@
                     <connections>
                         <outlet property="segmentedControl" destination="YQo-Ub-837" id="yE0-xn-qvm"/>
                         <outlet property="tableView" destination="Byt-o3-3gz" id="2v9-0M-6Kh"/>
+                        <segue destination="UKr-D7-a7T" kind="show" identifier="toDriverRideDetails" id="yyg-lA-89K"/>
+                        <segue destination="5T8-f0-521" kind="show" identifier="toPassengerRideDetails" id="LJ8-6J-hxE"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Fe7-7M-ucB" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -244,88 +243,21 @@
             </objects>
             <point key="canvasLocation" x="-479" y="-1021"/>
         </scene>
-        <!--Ride Details View Controller-->
-        <scene sceneID="cZH-be-f10">
+        <!--DriverRideDetails-->
+        <scene sceneID="jFg-HJ-ITP">
             <objects>
-                <viewController id="hR9-ek-Zu3" customClass="RideDetailsViewController" customModule="Poly_Rides" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="75n-do-C8G"/>
-                        <viewControllerLayoutGuide type="bottom" id="j7h-zL-dgh"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="RF4-fU-0VA">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UBH-4g-WaB">
-                                <rect key="frame" x="255" y="513" width="90" height="30"/>
-                                <state key="normal" title="Remove Ride"/>
-                                <connections>
-                                    <action selector="removeRideAction:" destination="hR9-ek-Zu3" eventType="touchUpInside" id="wc0-Fg-Gng"/>
-                                </connections>
-                            </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Start --&gt; Destination" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TvX-9H-6Ur">
-                                <rect key="frame" x="20" y="72" width="159" height="20.5"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MOe-7u-6In">
-                                <rect key="frame" x="20" y="100" width="36" height="20.5"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Available seats" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c3s-qk-W5R">
-                                <rect key="frame" x="20" y="129" width="113" height="20.5"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cost per seat" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HpA-yf-eVr">
-                                <rect key="frame" x="20" y="157" width="102.5" height="20.5"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Jll-9B-8NX">
-                                <rect key="frame" x="20" y="185.5" width="560" height="128"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="128" id="Xan-Md-Obj"/>
-                                </constraints>
-                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="TvX-9H-6Ur" firstAttribute="top" secondItem="75n-do-C8G" secondAttribute="bottom" constant="8" id="4Zi-3O-yFE"/>
-                            <constraint firstItem="Jll-9B-8NX" firstAttribute="trailing" secondItem="RF4-fU-0VA" secondAttribute="trailingMargin" id="97c-qw-t1J"/>
-                            <constraint firstAttribute="leadingMargin" secondItem="HpA-yf-eVr" secondAttribute="leading" id="Ggw-vL-kdJ"/>
-                            <constraint firstAttribute="leadingMargin" secondItem="MOe-7u-6In" secondAttribute="leading" id="JSd-Oc-oDo"/>
-                            <constraint firstItem="c3s-qk-W5R" firstAttribute="top" secondItem="MOe-7u-6In" secondAttribute="bottom" constant="8" id="Pds-Qg-ieK"/>
-                            <constraint firstItem="Jll-9B-8NX" firstAttribute="leading" secondItem="RF4-fU-0VA" secondAttribute="leadingMargin" id="ULm-Ng-Xjl"/>
-                            <constraint firstItem="UBH-4g-WaB" firstAttribute="centerX" secondItem="RF4-fU-0VA" secondAttribute="centerX" id="YMR-vQ-d61"/>
-                            <constraint firstItem="MOe-7u-6In" firstAttribute="top" secondItem="TvX-9H-6Ur" secondAttribute="bottom" constant="8" id="YXI-zP-nxS"/>
-                            <constraint firstItem="TvX-9H-6Ur" firstAttribute="leading" secondItem="RF4-fU-0VA" secondAttribute="leadingMargin" id="bdy-Rp-YiU"/>
-                            <constraint firstItem="Jll-9B-8NX" firstAttribute="top" secondItem="HpA-yf-eVr" secondAttribute="bottom" constant="8" id="k0g-VU-cDZ"/>
-                            <constraint firstItem="j7h-zL-dgh" firstAttribute="top" secondItem="UBH-4g-WaB" secondAttribute="bottom" constant="8" id="mHp-Td-uz4"/>
-                            <constraint firstItem="HpA-yf-eVr" firstAttribute="top" secondItem="c3s-qk-W5R" secondAttribute="bottom" constant="8" id="nt8-er-Kmk"/>
-                            <constraint firstAttribute="leadingMargin" secondItem="c3s-qk-W5R" secondAttribute="leading" id="rJp-e4-ZrQ"/>
-                        </constraints>
-                    </view>
-                    <connections>
-                        <outlet property="costPerSeatLabel" destination="HpA-yf-eVr" id="1pC-2X-w4V"/>
-                        <outlet property="dateLabel" destination="MOe-7u-6In" id="Mq2-gG-4ED"/>
-                        <outlet property="descriptionTextView" destination="Jll-9B-8NX" id="saC-aa-uzD"/>
-                        <outlet property="locationLabel" destination="TvX-9H-6Ur" id="PaK-cb-xMW"/>
-                        <outlet property="seatsAvailableLabel" destination="c3s-qk-W5R" id="FGb-HL-BBb"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="c8S-kG-y4g" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewControllerPlaceholder storyboardName="DriverRideDetails" id="UKr-D7-a7T" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cW2-Z1-LPA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-479" y="-204"/>
+            <point key="canvasLocation" x="-1072" y="-537"/>
+        </scene>
+        <!--PassengerRideDetails-->
+        <scene sceneID="nyW-26-PXR">
+            <objects>
+                <viewControllerPlaceholder storyboardName="PassengerRideDetails" id="5T8-f0-521" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pTs-aD-vxw" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1318.5" y="-537"/>
         </scene>
     </scenes>
     <resources>

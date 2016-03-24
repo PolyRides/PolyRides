@@ -15,29 +15,44 @@ class RegionRidesViewController: RidesViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
 
-    rides = toRides
+    tableView?.delegate = self
+    rides = fromRides
   }
 
   @IBAction func segmentedControlAction(sender: AnyObject) {
     if let segmentedControl = sender as? UISegmentedControl {
       if segmentedControl.selectedSegmentIndex == 0 {
-        rides = toRides
-      } else {
         rides = fromRides
+      } else {
+        rides = toRides
       }
     }
     tableView?.reloadData()
   }
 
   override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-    if segue.identifier == "toRideDetails" {
-      if let vc = segue.destinationViewController as? RideDetailsViewController {
-        if let cell = sender as? RideTableViewCell {
-          vc.ride = cell.ride
-          vc.user = user
+    if segue.identifier == "toPassengerRideDetails" {
+      print(segue.destinationViewController)
+      if let tabVC = segue.destinationViewController as? UITabBarController {
+        if let navVC = tabVC.viewControllers?.first as? UINavigationController {
+          if let vc = navVC.topViewController as? RideDetailsViewController {
+            if let cell = sender as? RideTableViewCell {
+              vc.ride = cell.ride
+              vc.user = user
+            }
+          }
         }
       }
     }
   }
 
+}
+
+// MARK: - UITableViewDelegate
+extension RegionRidesViewController: UITableViewDelegate {
+
+  func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    tableView.deselectRowAtIndexPath(indexPath, animated: true)
+  }
+  
 }

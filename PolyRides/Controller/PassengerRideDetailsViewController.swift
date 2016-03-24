@@ -17,12 +17,49 @@ class DriverTableViewCell: UITableViewCell {
 
 class PassengerRideDetailsViewController: RideDetailsViewController {
 
+  let rideService = RideService()
+
   @IBOutlet weak var tableView: UITableView?
+  @IBOutlet weak var saveButton: UIBarButtonItem?
+
+  @IBAction func saveRideAction(sender: AnyObject) {
+    if let ride = ride {
+      let index = user?.savedRides.indexOf({ $0.id == ride.id })
+      print(index)
+      if let index = index {
+        let title = "Are you sure you want to remove this ride from saved?"
+        presentAlert(AlertOptions(title: title, message: "", handler: { action in
+          self.user?.savedRides.removeAtIndex(index)
+          self.rideService.removeFromSaved(self.user, ride: ride)
+          self.setSavedIcon()
+        }, showCancel: true))
+      } else {
+        user?.savedRides.append(ride)
+        rideService.addToSaved(self.user, ride: ride)
+        setSavedIcon()
+      }
+    } else {
+      let title = "Saving Error"
+      let message = "There was an error adding to your saved rides. Please try again."
+      presentAlert(AlertOptions(message: message, title: title))
+    }
+  }
 
   override func viewDidLoad() {
     super.viewDidLoad()
 
     tableView?.dataSource = self
+    setSavedIcon()
+  }
+
+  func setSavedIcon() {
+    var image = UIImage(named: "star")
+    if let ride = ride {
+      if user?.savedRides.indexOf({ $0.id == ride.id }) != nil {
+        image = UIImage(named: "star_filled")
+      }
+    }
+    saveButton?.image = image
   }
 
 }
@@ -41,7 +78,7 @@ extension PassengerRideDetailsViewController: UITableViewDataSource {
       if let driver = ride?.driver {
         if let imageURL = driver.imageURL {
           if let url = NSURL(string: imageURL) {
-            driverCell.imageView?.setImageWithURL(url)
+            driverCell.imageView?.setImageWithURL(url, placeholderImage: UIImage(named: "empty_profile"))
           }
         }
 

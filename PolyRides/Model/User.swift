@@ -16,6 +16,7 @@ class User {
   var lastName: String?
   var imageURL: String?
   var timestamp: NSDate?
+  var savedRides = [Ride]()
 
   init() {
   }
@@ -50,7 +51,6 @@ class User {
   }
 
   func updateFromSnapshot(snapshot: FDataSnapshot) {
-    print(snapshot)
     if let dictionary = snapshot.value as? [String : AnyObject] {
       self.id = snapshot.key
       if let email = dictionary["email"] as? String {
