@@ -15,27 +15,18 @@ protocol MessageDeligate: class {
 }
 
 class Message: NSObject, JSQMessageData {
-  var conversationVar: String
-  var senderIdVar: String
-  var receivedVar: Bool
-  var textVar: String
-  var dateVar: NSDate
+  var conversationVar: String?
+  var senderIdVar: String?
+  var receivedVar: Bool?
+  var textVar: String?
+  var dateVar: NSDate?
   var imageUrlVar: String?
 
-  convenience init(conversation: String?, senderId: String?, received: Bool?, message: String?,
-    timestamp: NSDate?) {
-      self.init(conversation: conversation, senderId: senderId, received: received, message: message,
-        timestamp: timestamp, imageUrl: nil)
-  }
-
-  init(conversation: String?, senderId: String?, received: Bool?, message: String?,
-    timestamp: NSDate?, imageUrl: String?) {
-    self.conversationVar = conversation!
-    self.senderIdVar = senderId!
-    self.receivedVar = received!
-    self.textVar = message!
-    self.dateVar = timestamp!
-    self.imageUrlVar = imageUrl
+  init(message: String, timestamp: NSDate, senderId: String) {
+    super.init()
+    self.senderIdVar = senderId
+    self.textVar = message
+    self.dateVar = timestamp
   }
 
   func isMediaMessage() -> Bool {
@@ -50,19 +41,19 @@ class Message: NSObject, JSQMessageData {
     return unsigned
   }
 
-  func conversation() -> String! {
+  func conversation() -> String? {
     return conversationVar
   }
 
-  func received() -> Bool! {
+  func received() -> Bool? {
     return receivedVar
   }
 
-  func text() -> String! {
+  func text() -> String? {
     return textVar
   }
 
-  func date() -> NSDate! {
+  func date() -> NSDate? {
     return dateVar
   }
 
@@ -70,11 +61,11 @@ class Message: NSObject, JSQMessageData {
     return imageUrlVar
   }
 
-  func senderId() -> String! {
+  func senderId() -> String? {
     return senderIdVar
   }
 
-  func senderDisplayName() -> String! {
+  func senderDisplayName() -> String? {
     return senderIdVar
   }
 }

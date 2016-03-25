@@ -94,20 +94,21 @@ class MessagesViewController: JSQMessagesViewController {
   }
 
   override func didPressSendButton(button: UIButton!, withMessageText text: String!,
-    senderId: String!, senderDisplayName: String!, date: NSDate!) {
-      JSQSystemSoundPlayer.jsq_playMessageSentSound()
-      sendMessage(text, sender: senderId)
-      finishSendingMessage()
+                                   senderId: String!, senderDisplayName: String!,
+                                   date: NSDate!) {
+    JSQSystemSoundPlayer.jsq_playMessageSentSound()
+    sendMessage(text, sender: senderId)
+    finishSendingMessage()
   }
 
   override func collectionView(collectionView: JSQMessagesCollectionView!,
-    messageDataForItemAtIndexPath indexPath: NSIndexPath!) -> JSQMessageData! {
-      return messages[indexPath.item]
+                               messageDataForItemAtIndexPath indexPath: NSIndexPath!) -> JSQMessageData! {
+    return messages[indexPath.item]
   }
 
   override func collectionView(collectionView: JSQMessagesCollectionView!,
-    messageBubbleImageDataForItemAtIndexPath indexPath: NSIndexPath!)
-    -> JSQMessageBubbleImageDataSource! {
+                               messageBubbleImageDataForItemAtIndexPath indexPath: NSIndexPath!)
+  -> JSQMessageBubbleImageDataSource! {
       let message = messages[indexPath.item]
       if message.senderId() == senderId {
         return outgoingBubbleImageView
@@ -116,46 +117,50 @@ class MessagesViewController: JSQMessagesViewController {
   }
 
   override func collectionView(collectionView: JSQMessagesCollectionView!,
-    avatarImageDataForItemAtIndexPath indexPath: NSIndexPath!) -> JSQMessageAvatarImageDataSource! {
-      let message = messages[indexPath.item]
-      if message.senderId() == senderId {
+                               avatarImageDataForItemAtIndexPath indexPath: NSIndexPath!)
+    -> JSQMessageAvatarImageDataSource! {
+    let message = messages[indexPath.item]
+    if message.senderId() == senderId {
+      return nil
+    }
+    if indexPath.item > 0 {
+      let previousMessage = messages[indexPath.item - 1]
+      if previousMessage.senderId() == message.senderId() {
         return nil
       }
-      if indexPath.item > 0 {
-        let previousMessage = messages[indexPath.item - 1]
-        if previousMessage.senderId() == message.senderId() {
-          return nil
-        }
-      }
-      if let avatar = avatars[message.senderId()] {
+    }
+    if let sender = message.senderId() {
+      if let avatar = avatars[sender] {
         return avatar
       } else {
-        setupAvatarImage(message.senderId(), imageUrl: message.imageUrl(), incoming: true)
-        return avatars[message.senderId()]
+        setupAvatarImage(sender, imageUrl: message.imageUrl(), incoming: true)
+        return avatars[sender]
       }
+    }
+    return nil
   }
 
   override func collectionView(collectionView: UICollectionView,
-    numberOfItemsInSection section: Int) -> Int {
+                               numberOfItemsInSection section: Int) -> Int {
     return messages.count
   }
 
   override func collectionView(collectionView: UICollectionView,
-    cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-      if let cell = super.collectionView(collectionView, cellForItemAtIndexPath: indexPath) as?
-        JSQMessagesCollectionViewCell {
-        let message = messages[indexPath.item]
-        if message.senderId() == senderId {
-          cell.textView!.textColor = UIColor.blackColor()
-        } else {
-          cell.textView!.textColor = UIColor.whiteColor()
-        }
-
-        let attributes = [NSForegroundColorAttributeName:(cell.textView!.textColor!),
-          NSUnderlineStyleAttributeName:1, NSFontAttributeName:"Avenir"]
-        cell.textView!.linkTextAttributes = attributes
-        return cell
+                               cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
+    if let cell = super.collectionView(collectionView, cellForItemAtIndexPath: indexPath) as?
+      JSQMessagesCollectionViewCell {
+      let message = messages[indexPath.item]
+      if message.senderId() == senderId {
+        cell.textView!.textColor = UIColor.blackColor()
+      } else {
+        cell.textView!.textColor = UIColor.whiteColor()
       }
-      return UICollectionViewCell()
+
+      let attributes = [NSForegroundColorAttributeName:(cell.textView!.textColor!),
+                        NSUnderlineStyleAttributeName:1, NSFontAttributeName:"Avenir"]
+      cell.textView!.linkTextAttributes = attributes
+      return cell
+    }
+    return UICollectionViewCell()
   }
 }
