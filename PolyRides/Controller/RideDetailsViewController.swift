@@ -19,10 +19,6 @@ class RideDetailsViewController: UIViewController {
   @IBOutlet weak var costPerSeatLabel: UILabel?
   @IBOutlet weak var descriptionTextView: UITextView?
 
-  @IBAction func removeRideAction(sender: AnyObject) {
-    // Handle deleting a ride
-  }
-
   override func viewDidLoad() {
     super.viewDidLoad()
 

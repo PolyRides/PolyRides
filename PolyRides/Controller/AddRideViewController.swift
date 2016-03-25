@@ -14,6 +14,7 @@ class AddRideViewController: UIViewController {
   let rideService = RideService()
 
   var user: User?
+  var savedRides: [Ride]?
   var ride: Ride?
   var toLocationPlace: GMSPlace?
   var fromLocationPlace: GMSPlace?

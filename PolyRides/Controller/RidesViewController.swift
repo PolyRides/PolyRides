@@ -22,7 +22,6 @@ class RidesViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
 
-    tableView?.delegate = self
     tableView?.dataSource = self
   }
 }
@@ -52,13 +51,4 @@ extension RidesViewController: UITableViewDataSource {
 
     return cell
   }
-}
-
-// MARK: - UITableViewDelegate
-extension RidesViewController: UITableViewDelegate {
-
-  func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-    tableView.deselectRowAtIndexPath(indexPath, animated: true)
-  }
-
 }

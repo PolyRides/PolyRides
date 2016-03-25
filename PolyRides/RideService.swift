@@ -12,7 +12,6 @@ protocol FirebaseRidesDelegate: class {
 
   func onRideReceived(ride: Ride)
   func onNumRidesReceived(numRides: Int)
-  func onSavedRidesReceived(rides: [Ride])
 
 }
 
@@ -47,21 +46,13 @@ class RideService {
     if let userId = user.id {
       let ridesRef = ref.childByAppendingPath("users/\(userId)/saved")
       ridesRef?.observeSingleEventOfType(.Value, withBlock: { snapshot in
-        self.delegate?.onNumRidesReceived(snapshot.children.allObjects.count)
-
         if let children = snapshot.children.allObjects as? [FDataSnapshot] {
-          var savedRides = [Ride]()
-          var count = children.count
           for child in children {
             if let key = child.key {
               let rideRef = self.ref.childByAppendingPath("rides/\(key)")
               rideRef.observeSingleEventOfType(.Value, withBlock: { snapshot in
                 let ride = Ride(fromSnapshot: snapshot)
-                savedRides.append(ride)
-                count -= 1
-                if count == 0 {
-                  self.delegate?.onSavedRidesReceived(savedRides)
-                }
+                user.savedRides.append(ride)
               })
             }
           }
@@ -83,7 +74,6 @@ class RideService {
 
           if let driverId = ride.driver?.id {
             let driverRef = self.ref.childByAppendingPath("users/\(driverId)")
-            print(driverRef)
             driverRef?.observeSingleEventOfType(.Value, withBlock: { snapshot in
               if let driver = ride.driver {
                 driver.updateFromSnapshot(snapshot)
@@ -102,6 +92,23 @@ class RideService {
       let userRideRef = ref.childByAppendingPath("users/\(id)/rides/\(rideRef.key)")
       userRideRef.setValue(true)
       rideRef.setValue(ride.toAnyObject())
+    }
+  }
+
+  func addToSaved(user: User?, ride: Ride) {
+    if let id = user?.id {
+      if let rideId = ride.id {
+        let savedRef = ref.childByAppendingPath("users/\(id)/saved/\(rideId)")
+        savedRef.setValue(true)
+      }
+    }
+  }
+
+  func removeFromSaved(user: User?, ride: Ride) {
+    if let id = user?.id {
+      if let rideId = ride.id {
+        ref.childByAppendingPath("users/\(id)/saved/\(rideId)").removeValue()
+      }
     }
   }
 

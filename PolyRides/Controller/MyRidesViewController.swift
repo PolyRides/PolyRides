@@ -28,19 +28,10 @@ class MyRidesViewController: RidesViewController {
       }
     }
   }
-  var savedRides = [Ride]() {
-    didSet {
-      if segmentedControl?.selectedSegmentIndex == 2 {
-        sortRides(&savedRides)
-        rides = savedRides
-        tableView?.reloadData()
-      }
-    }
-  }
   var expectedRides = -1 {
     didSet {
       if expectedRides == 0 {
-        // Set empty data set delegates
+        // set empty data set
         rides = currentRides
         tableView?.reloadData()
       }
@@ -56,13 +47,13 @@ class MyRidesViewController: RidesViewController {
       } else if segmentedControl.selectedSegmentIndex == 1 {
         rides = pastRides
       } else {
-        rides = savedRides
+        rides = user?.savedRides
       }
     }
     tableView?.reloadData()
   }
 
-  // TODO: Remove this when we add log out to settings.
+  // Remove this when we add log out to settings.
   @IBAction func logOutAction(sender: AnyObject) {
     if let appDelegate: AppDelegate = UIApplication.sharedApplication().delegate as? AppDelegate {
       let storyboard = UIStoryboard(name: "Login", bundle: NSBundle.mainBundle())
@@ -92,6 +83,7 @@ class MyRidesViewController: RidesViewController {
       user = tabBarController.user
     }
 
+    tableView?.delegate = self
     rideService.delegate = self
     if let user = user {
       rideService.getRidesForUser(user)
@@ -106,11 +98,15 @@ class MyRidesViewController: RidesViewController {
           addRideVC.user = user
         }
       }
-    } else if segue.identifier == "toRideDetails" {
-      if let vc = segue.destinationViewController as? RideDetailsViewController {
-        if let cell = sender as? RideTableViewCell {
-          vc.ride = cell.ride
-          vc.user = user
+    } else if segue.identifier == "toPassengerRideDetails" || segue.identifier == "toDriverRideDetails" {
+      if let tabVC = segue.destinationViewController as? UITabBarController {
+        if let navVC = tabVC.viewControllers?.first as? UINavigationController {
+          if let vc = navVC.topViewController as? RideDetailsViewController {
+            if let cell = sender as? RideTableViewCell {
+              vc.ride = cell.ride
+              vc.user = user
+            }
+          }
         }
       }
     }
@@ -145,8 +141,20 @@ extension MyRidesViewController: FirebaseRidesDelegate {
     expectedRides = numRides
   }
 
-  func onSavedRidesReceived(rides: [Ride]) {
-    savedRides = rides
+}
+
+// MARK: - UITableViewDelegate
+extension MyRidesViewController: UITableViewDelegate {
+
+  func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    let cell = tableView.cellForRowAtIndexPath(indexPath)
+    tableView.deselectRowAtIndexPath(indexPath, animated: true)
+
+    if segmentedControl?.selectedSegmentIndex == 2 {
+      performSegueWithIdentifier("toPassengerRideDetails", sender: cell)
+    } else {
+      performSegueWithIdentifier("toDriverRideDetails", sender: cell)
+    }
   }
 
 }
