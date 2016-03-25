@@ -15,6 +15,7 @@ protocol MessageDeligate: class {
 }
 
 class Message: NSObject, JSQMessageData {
+  var id: String?
   var conversationVar: String?
   var senderIdVar: String?
   var receivedVar: Bool?

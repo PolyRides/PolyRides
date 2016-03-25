@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6E4373601CA4E3EB00630D07 /* ConversationsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E43735F1CA4E3EB00630D07 /* ConversationsTableViewController.swift */; };
 		6E53E3CB1C9E428400370108 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E53E3CA1C9E428400370108 /* Message.swift */; };
 		6E53E3CE1C9E5A6100370108 /* MessagesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E53E3CD1C9E5A6100370108 /* MessagesViewController.swift */; };
 		6E628F9C1CA0FF6900AAC2DB /* MessageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E628F9B1CA0FF6900AAC2DB /* MessageService.swift */; };
@@ -89,6 +90,7 @@
 
 /* Begin PBXFileReference section */
 		2241301BA6D0CFD44D162D7E /* Pods-PolyRides.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PolyRides.release.xcconfig"; path = "Pods/Target Support Files/Pods-PolyRides/Pods-PolyRides.release.xcconfig"; sourceTree = "<group>"; };
+		6E43735F1CA4E3EB00630D07 /* ConversationsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConversationsTableViewController.swift; sourceTree = "<group>"; };
 		6E53E3CA1C9E428400370108 /* Message.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 		6E53E3CD1C9E5A6100370108 /* MessagesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessagesViewController.swift; sourceTree = "<group>"; };
 		6E628F9B1CA0FF6900AAC2DB /* MessageService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageService.swift; sourceTree = "<group>"; };
@@ -185,6 +187,7 @@
 			isa = PBXGroup;
 			children = (
 				6E53E3CD1C9E5A6100370108 /* MessagesViewController.swift */,
+				6E43735F1CA4E3EB00630D07 /* ConversationsTableViewController.swift */,
 			);
 			name = Messages;
 			sourceTree = "<group>";
@@ -644,6 +647,7 @@
 				DBB1558C1C9B76C500118F89 /* DateHelper.swift in Sources */,
 				DB70B8CE1C9389EA0065CC4D /* AppDelegate.swift in Sources */,
 				DB70B9021C938B230065CC4D /* User.swift in Sources */,
+				6E4373601CA4E3EB00630D07 /* ConversationsTableViewController.swift in Sources */,
 				DB43A9921C9F0F5400AC2AF9 /* ProfileViewController.swift in Sources */,
 				DB701AE31CA2582100B40C9C /* AuthService.swift in Sources */,
 				6E53E3CE1C9E5A6100370108 /* MessagesViewController.swift in Sources */,
