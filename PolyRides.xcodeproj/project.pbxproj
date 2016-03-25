@@ -16,11 +16,11 @@
 		DB1C76721CA0F08C0052D3B9 /* PassengerRideDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB1C76711CA0F08C0052D3B9 /* PassengerRideDetailsViewController.swift */; };
 		DB24333B1CA397940025680B /* DriverRideDetails.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB24333A1CA397940025680B /* DriverRideDetails.storyboard */; };
 		DB24333D1CA397E80025680B /* PassengerRideDetails.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB24333C1CA397E80025680B /* PassengerRideDetails.storyboard */; };
-		DB2433411CA3A1AC0025680B /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2433401CA3A1AC0025680B /* ProfileViewController.swift */; };
+		DB2433411CA3A1AC0025680B /* MyProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2433401CA3A1AC0025680B /* MyProfileViewController.swift */; };
 		DB4151001C9A74500062E5A0 /* MyRidesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB4150FF1C9A74500062E5A0 /* MyRidesViewController.swift */; };
 		DB4151041C9B05340062E5A0 /* AddRideViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB4151031C9B05340062E5A0 /* AddRideViewController.swift */; };
 		DB43A98F1C9F071800AC2AF9 /* RideDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB43A98E1C9F071800AC2AF9 /* RideDetailsViewController.swift */; };
-		DB43A9921C9F0F5400AC2AF9 /* DriverProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB43A9911C9F0F5400AC2AF9 /* DriverProfileViewController.swift */; };
+		DB43A9921C9F0F5400AC2AF9 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB43A9911C9F0F5400AC2AF9 /* ProfileViewController.swift */; };
 		DB43A9941C9F7A2500AC2AF9 /* Region.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB43A9931C9F7A2500AC2AF9 /* Region.swift */; };
 		DB43A9961C9F95E400AC2AF9 /* RegionRidesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB43A9951C9F95E400AC2AF9 /* RegionRidesViewController.swift */; };
 		DB43A9981C9FA63700AC2AF9 /* RidesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB43A9971C9FA63700AC2AF9 /* RidesViewController.swift */; };
@@ -103,11 +103,11 @@
 		DB1C76711CA0F08C0052D3B9 /* PassengerRideDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PassengerRideDetailsViewController.swift; sourceTree = "<group>"; };
 		DB24333A1CA397940025680B /* DriverRideDetails.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = DriverRideDetails.storyboard; sourceTree = "<group>"; };
 		DB24333C1CA397E80025680B /* PassengerRideDetails.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = PassengerRideDetails.storyboard; sourceTree = "<group>"; };
-		DB2433401CA3A1AC0025680B /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		DB2433401CA3A1AC0025680B /* MyProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyProfileViewController.swift; sourceTree = "<group>"; };
 		DB4150FF1C9A74500062E5A0 /* MyRidesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyRidesViewController.swift; sourceTree = "<group>"; };
 		DB4151031C9B05340062E5A0 /* AddRideViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddRideViewController.swift; sourceTree = "<group>"; };
 		DB43A98E1C9F071800AC2AF9 /* RideDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RideDetailsViewController.swift; sourceTree = "<group>"; };
-		DB43A9911C9F0F5400AC2AF9 /* DriverProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DriverProfileViewController.swift; sourceTree = "<group>"; };
+		DB43A9911C9F0F5400AC2AF9 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		DB43A9931C9F7A2500AC2AF9 /* Region.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Region.swift; sourceTree = "<group>"; };
 		DB43A9951C9F95E400AC2AF9 /* RegionRidesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegionRidesViewController.swift; sourceTree = "<group>"; };
 		DB43A9971C9FA63700AC2AF9 /* RidesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RidesViewController.swift; sourceTree = "<group>"; };
@@ -250,7 +250,7 @@
 		DB43A9901C9F0F4100AC2AF9 /* Profile */ = {
 			isa = PBXGroup;
 			children = (
-				DB2433401CA3A1AC0025680B /* ProfileViewController.swift */,
+				DB2433401CA3A1AC0025680B /* MyProfileViewController.swift */,
 			);
 			name = Profile;
 			sourceTree = "<group>";
@@ -258,7 +258,7 @@
 		DB701AE81CA2EA8A00B40C9C /* Base */ = {
 			isa = PBXGroup;
 			children = (
-				DB43A9911C9F0F5400AC2AF9 /* DriverProfileViewController.swift */,
+				DB43A9911C9F0F5400AC2AF9 /* ProfileViewController.swift */,
 				DB43A9971C9FA63700AC2AF9 /* RidesViewController.swift */,
 				DB43A98E1C9F071800AC2AF9 /* RideDetailsViewController.swift */,
 			);
@@ -658,7 +658,7 @@
 				DB43A9941C9F7A2500AC2AF9 /* Region.swift in Sources */,
 				DBAB56801C968FAA0011167A /* UIViewControllerExtensions.swift in Sources */,
 				DB43A9961C9F95E400AC2AF9 /* RegionRidesViewController.swift in Sources */,
-				DB2433411CA3A1AC0025680B /* ProfileViewController.swift in Sources */,
+				DB2433411CA3A1AC0025680B /* MyProfileViewController.swift in Sources */,
 				DB4151041C9B05340062E5A0 /* AddRideViewController.swift in Sources */,
 				DB701ADD1CA24E3100B40C9C /* LoadingLaunchScreenViewController.swift in Sources */,
 				DBBBD13D1C9DE57B0085E3B9 /* Location.swift in Sources */,
@@ -676,7 +676,7 @@
 				DBB1558C1C9B76C500118F89 /* DateHelper.swift in Sources */,
 				DB70B8CE1C9389EA0065CC4D /* AppDelegate.swift in Sources */,
 				DB70B9021C938B230065CC4D /* User.swift in Sources */,
-				DB43A9921C9F0F5400AC2AF9 /* DriverProfileViewController.swift in Sources */,
+				DB43A9921C9F0F5400AC2AF9 /* ProfileViewController.swift in Sources */,
 				DB701AE31CA2582100B40C9C /* AuthService.swift in Sources */,
 				6E53E3CE1C9E5A6100370108 /* MessagesViewController.swift in Sources */,
 				DB747ABC1C98DB2D00A24F58 /* TabBarController.swift in Sources */,

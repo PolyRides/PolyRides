@@ -21,7 +21,7 @@ class RidesViewController: UIViewController {
 
   override func viewDidLoad() {
     super.viewDidLoad()
-    
+
     tableView?.dataSource = self
   }
 }

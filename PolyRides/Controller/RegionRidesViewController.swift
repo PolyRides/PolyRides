@@ -32,7 +32,6 @@ class RegionRidesViewController: RidesViewController {
 
   override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
     if segue.identifier == "toPassengerRideDetails" {
-      print(segue.destinationViewController)
       if let tabVC = segue.destinationViewController as? UITabBarController {
         if let navVC = tabVC.viewControllers?.first as? UINavigationController {
           if let vc = navVC.topViewController as? RideDetailsViewController {
@@ -54,5 +53,5 @@ extension RegionRidesViewController: UITableViewDelegate {
   func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
     tableView.deselectRowAtIndexPath(indexPath, animated: true)
   }
-  
+
 }
