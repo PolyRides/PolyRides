@@ -126,7 +126,7 @@ enum Region: Int {
     "Modjeska Canyon": OrangeCounty, "North Tustin": OrangeCounty, "Cowan Heights": OrangeCounty,
     "Lemon Heights": OrangeCounty, "Red Hill": OrangeCounty, "Rancho Mission Viejo": OrangeCounty,
     "Rossmoor": OrangeCounty, "Olive": OrangeCounty, "Orange Park Acres": OrangeCounty, "Silverado": OrangeCounty,
-    "Trabuco Canyon": OrangeCounty
+    "Trabuco Canyon": OrangeCounty, "Orange County": OrangeCounty,
   ]
 
 }

@@ -51,6 +51,10 @@ class RegionTableViewController: UITableViewController {
           vc.title = cell.region?.name()
         }
       }
+    } else if segue.identifier == "toRideSearch" {
+      let backItem = UIBarButtonItem()
+      backItem.title = ""
+      navigationItem.backBarButtonItem = backItem
     }
   }
 
@@ -92,7 +96,7 @@ extension RegionTableViewController {
 extension RegionTableViewController: UISearchBarDelegate {
 
   func searchBarShouldBeginEditing(searchBar: UISearchBar) -> Bool {
-    // segue to search page
+    performSegueWithIdentifier("toRideSearch", sender: self)
     return false
   }
 

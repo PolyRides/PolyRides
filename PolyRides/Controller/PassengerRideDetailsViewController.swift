@@ -59,6 +59,7 @@ class PassengerRideDetailsViewController: RideDetailsViewController {
       }
     }
     saveButton?.image = image
+    navigationController?.navigationBar.items
   }
 
 }
