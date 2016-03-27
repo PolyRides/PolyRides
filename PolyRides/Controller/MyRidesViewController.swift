@@ -9,25 +9,8 @@
 class MyRidesViewController: RidesViewController {
 
   var rideService = RideService()
-
-  var currentRides = [Ride]() {
-    didSet {
-      if segmentedControl?.selectedSegmentIndex == 0 {
-        sortRides(&currentRides)
-        rides = currentRides
-        tableView?.reloadData()
-      }
-    }
-  }
-  var pastRides = [Ride]() {
-    didSet {
-      if segmentedControl?.selectedSegmentIndex == 1 {
-        sortRides(&pastRides)
-        rides = pastRides
-        tableView?.reloadData()
-      }
-    }
-  }
+  var currentRides = [Ride]()
+  var pastRides = [Ride]()
   var expectedRides = -1 {
     didSet {
       if expectedRides == 0 {
@@ -69,8 +52,14 @@ class MyRidesViewController: RidesViewController {
       if let ride = addRideVC.ride {
         if ride.date?.compare(NSDate()) == .OrderedDescending {
           currentRides.append(ride)
+          sortRides(&currentRides)
         } else {
           pastRides.append(ride)
+          sortRides(&pastRides)
+        }
+
+        if let segmentedControl = segmentedControl {
+          segmentedAction(segmentedControl)
         }
       }
     }
