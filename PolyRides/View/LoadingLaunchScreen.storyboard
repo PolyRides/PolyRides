@@ -4,10 +4,10 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
     <scenes>
-        <!--Loading Launch Screen View Controller-->
+        <!--Launch Screen View Controller-->
         <scene sceneID="Rfs-rH-Plo">
             <objects>
-                <viewController id="ZNZ-8h-gAG" customClass="LoadingLaunchScreenViewController" customModule="Poly_Rides" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="ZNZ-8h-gAG" customClass="LaunchScreenViewController" customModule="Poly_Rides" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="ap4-35-3Gn"/>
                         <viewControllerLayoutGuide type="bottom" id="ffF-9n-1YA"/>

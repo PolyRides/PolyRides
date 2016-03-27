@@ -25,7 +25,6 @@ class PassengerRideDetailsViewController: RideDetailsViewController {
   @IBAction func saveRideAction(sender: AnyObject) {
     if let ride = ride {
       let index = user?.savedRides.indexOf({ $0.id == ride.id })
-      print(index)
       if let index = index {
         let title = "Are you sure you want to remove this ride from saved?"
         presentAlert(AlertOptions(title: title, message: "", handler: { action in

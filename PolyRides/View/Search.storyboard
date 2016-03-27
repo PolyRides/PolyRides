@@ -5,10 +5,10 @@
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--Search Table View Controller-->
+        <!--Region Table View Controller-->
         <scene sceneID="DRy-Ed-XEH">
             <objects>
-                <tableViewController id="W15-na-bf4" customClass="SearchTableViewController" customModule="Poly_Rides" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="W15-na-bf4" customClass="RegionTableViewController" customModule="Poly_Rides" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="150" sectionHeaderHeight="28" sectionFooterHeight="28" id="9wB-Oi-aCH">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

@@ -52,7 +52,16 @@ class RideService {
               let rideRef = self.ref.childByAppendingPath("rides/\(key)")
               rideRef.observeSingleEventOfType(.Value, withBlock: { snapshot in
                 let ride = Ride(fromSnapshot: snapshot)
-                user.savedRides.append(ride)
+
+                if let driverId = ride.driver?.id {
+                  let driverRef = self.ref.childByAppendingPath("users/\(driverId)")
+                  driverRef?.observeSingleEventOfType(.Value, withBlock: { snapshot in
+                    if let driver = ride.driver {
+                      driver.updateFromSnapshot(snapshot)
+                      user.savedRides.append(ride)
+                    }
+                  })
+                }
               })
             }
           }

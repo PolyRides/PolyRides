@@ -25,10 +25,10 @@
             </objects>
             <point key="canvasLocation" x="-1941" y="-1021"/>
         </scene>
-        <!--Profile View Controller-->
+        <!--My Profile View Controller-->
         <scene sceneID="gYo-aD-zB4">
             <objects>
-                <viewController id="oWY-WK-zfY" customClass="ProfileViewController" customModule="Poly_Rides" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="oWY-WK-zfY" customClass="MyProfileViewController" customModule="Poly_Rides" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="cEF-84-hKk"/>
                         <viewControllerLayoutGuide type="bottom" id="rah-gI-kkF"/>

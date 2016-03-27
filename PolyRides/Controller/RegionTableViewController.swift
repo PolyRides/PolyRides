@@ -20,7 +20,7 @@ class RegionTableViewCell: UITableViewCell {
 
 }
 
-class SearchTableViewController: UITableViewController {
+class RegionTableViewController: UITableViewController {
 
   var user: User?
   var toRegionToRides: [Region: [Ride]]?
@@ -57,7 +57,7 @@ class SearchTableViewController: UITableViewController {
 }
 
 // MARK: - UITableViewDataSource
-extension SearchTableViewController {
+extension RegionTableViewController {
 
   override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     return Region.allRegions.count
@@ -89,7 +89,7 @@ extension SearchTableViewController {
 }
 
 // MARK: - UISearchBarDelegate
-extension SearchTableViewController: UISearchBarDelegate {
+extension RegionTableViewController: UISearchBarDelegate {
 
   func searchBarShouldBeginEditing(searchBar: UISearchBar) -> Bool {
     // segue to search page

@@ -73,7 +73,7 @@
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zfo-XM-hJA">
-                                                    <rect key="frame" x="114" y="33.5" width="478" height="20.5"/>
+                                                    <rect key="frame" x="114" y="33" width="478" height="20.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
@@ -95,8 +95,8 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7hx-Ha-M0P">
-                                <rect key="frame" x="255" y="562" width="91" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7hx-Ha-M0P">
+                                <rect key="frame" x="255" y="513" width="91" height="30"/>
                                 <state key="normal" title="Request Ride"/>
                             </button>
                         </subviews>
@@ -177,10 +177,10 @@
             </objects>
             <point key="canvasLocation" x="968" y="-1021"/>
         </scene>
-        <!--Driver Profile View Controller-->
+        <!--Profile View Controller-->
         <scene sceneID="We2-Tm-Kfh">
             <objects>
-                <viewController storyboardIdentifier="DriverDetails" id="4fL-tg-UUB" customClass="DriverProfileViewController" customModule="Poly_Rides" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="DriverDetails" id="4fL-tg-UUB" customClass="ProfileViewController" customModule="Poly_Rides" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="4ER-46-lxb"/>
                         <viewControllerLayoutGuide type="bottom" id="Qdt-PF-ub6"/>

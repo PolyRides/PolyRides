@@ -33,6 +33,7 @@ class User {
 
   init(fromAuthData authData: FAuthData) {
     self.id = authData.uid
+    self.timestamp = NSDate()
     if let email = authData.providerData["email"] as? NSString {
       self.email = String(email)
     }
@@ -47,7 +48,12 @@ class User {
   }
 
   init(fromSnapshot snapshot: FDataSnapshot) {
-    updateFromSnapshot(snapshot)
+    if let dictionary = snapshot.value as? [String : AnyObject] {
+      self.id = snapshot.key
+      if let email = dictionary["email"] as? String {
+        self.email = email
+      }
+    }
   }
 
   func updateFromSnapshot(snapshot: FDataSnapshot) {

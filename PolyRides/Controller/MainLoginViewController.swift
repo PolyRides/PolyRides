@@ -26,6 +26,7 @@ class MainLoginViewController: LoginViewController {
     trackScreen(String(MainLoginViewController))
     emailTextField?.delegate = self
     passwordTextField?.delegate = self
+    buttonTitle = "Login"
   }
 
   override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {

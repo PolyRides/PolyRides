@@ -88,7 +88,7 @@ class AuthService {
             self.loginDelegate?.onLoginSuccess(user)
           }
         } else {
-          self.loginDelegate?.onLoginError(error)
+          self.loginDelegate?.onLoginSuccess(user)
         }
       } else {
         self.loginDelegate?.onLoginError(error)

@@ -50,7 +50,7 @@ class LoadingViewController: UIViewController {
       tabBarVC.user = user
 
       if let navVC = tabBarVC.viewControllers?.first as? UINavigationController {
-        if let searchVC = navVC.topViewController as? SearchTableViewController {
+        if let searchVC = navVC.topViewController as? RegionTableViewController {
           searchVC.fromRegionToRides = fromRegionToRides
           searchVC.toRegionToRides = toRegionToRides
         }

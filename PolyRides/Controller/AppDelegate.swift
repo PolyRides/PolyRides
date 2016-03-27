@@ -42,7 +42,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
       if FirebaseConnection.ref.authData != nil {
         let storyboard = UIStoryboard(name: "LoadingLaunchScreen", bundle: nil)
-        if let controller = storyboard.instantiateInitialViewController() as? LoadingLaunchScreenViewController {
+        if let controller = storyboard.instantiateInitialViewController() as? LaunchScreenViewController {
           let user = User(id: FirebaseConnection.ref.authData.uid)
           controller.user = user
           self.window?.rootViewController = controller

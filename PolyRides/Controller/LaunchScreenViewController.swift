@@ -6,7 +6,7 @@
 //  Copyright © 2016 Vanessa Forney. All rights reserved.
 //
 
-class LoadingLaunchScreenViewController: LoadingViewController {
+class LaunchScreenViewController: LoadingViewController {
 
   override func viewDidLoad() {
     super.viewDidLoad()
