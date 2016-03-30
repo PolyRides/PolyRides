@@ -48,7 +48,7 @@ class RegionTableViewController: UITableViewController {
           vc.user = user
           vc.toRides = cell.toRides
           vc.fromRides = cell.fromRides
-          vc.title = cell.region?.name()
+          vc.region = cell.region
         }
       }
     } else if segue.identifier == "toRideSearch" {

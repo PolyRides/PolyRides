@@ -19,6 +19,7 @@ class AddRideViewController: UIViewController {
   var toLocationPlace: GMSPlace?
   var fromLocationPlace: GMSPlace?
   var autocompleteTextField: UITextField?
+  var placesClient: GMSPlacesClient?
 
   @IBOutlet weak var toTextField: UITextField?
   @IBOutlet weak var fromTextField: UITextField?
@@ -34,6 +35,34 @@ class AddRideViewController: UIViewController {
 
   @IBAction func stepperValChanged(sender: UIStepper) {
       seatsLabel?.text = Int(sender.value).description
+  }
+
+  @IBAction func toCurrentLocationAction(sender: AnyObject) {
+    placesClient?.currentPlaceWithCallback({ (placeLikelihoods, error) -> Void in
+      if error != nil {
+        self.currentLocationError()
+      }
+
+      if let placeLikelihood = placeLikelihoods?.likelihoods.first {
+        let place = placeLikelihood.place
+        self.toTextField?.text = place.formattedAddress
+        self.toLocationPlace = place
+      }
+    })
+  }
+
+  @IBAction func fromCurrentLocationAction(sender: AnyObject) {
+    placesClient?.currentPlaceWithCallback({ (placeLikelihoods, error) -> Void in
+      if error != nil {
+        self.currentLocationError()
+      }
+
+      if let placeLikelihood = placeLikelihoods?.likelihoods.first {
+        let place = placeLikelihood.place
+        self.fromTextField?.text = place.formattedAddress
+        self.fromLocationPlace = place
+      }
+    })
   }
 
   @IBAction func costEditingChanged(sender: AnyObject) {
@@ -55,6 +84,8 @@ class AddRideViewController: UIViewController {
 
     toTextField?.delegate = self
     fromTextField?.delegate = self
+
+    placesClient = GMSPlacesClient()
   }
 
   override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
@@ -68,7 +99,8 @@ class AddRideViewController: UIViewController {
                 if description == "Optional notes for passengers" {
                   description = ""
                 }
-                let ride = Ride(driver: user, date: date, seats: Int(seats), description: description, cost: Int(cost))
+
+              let ride = Ride(driver: user, date: date, seats: Int(seats), description: description, cost: Int(cost))
                 ride.fromLocation = locationFromPlace(fromLocationPlace)
                 ride.toLocation = locationFromPlace(toLocationPlace)
                 ride.timestamp = NSDate()
@@ -80,6 +112,27 @@ class AddRideViewController: UIViewController {
         }
       }
     }
+  }
+
+  override func shouldPerformSegueWithIdentifier(identifier: String, sender: AnyObject?) -> Bool {
+    if identifier == "addRide" {
+      if let date = datePicker?.date {
+        if date.compare(NSDate()) == NSComparisonResult.OrderedAscending {
+          let title = "Invalid Depature Date"
+          let message = "Rides in the past cannot be posted. Please adjust your departure date."
+          presentAlert(AlertOptions(message: message, title: title))
+
+          return false
+        }
+      }
+    }
+    return true
+  }
+
+  func currentLocationError() {
+    let title = "Error Finding Current Location"
+    let message = "Please ensure location services are enabled and try again."
+    presentAlert(AlertOptions(message: message, title: title))
   }
 
   func setEnableAddButton() {

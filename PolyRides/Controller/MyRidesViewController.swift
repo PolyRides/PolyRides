@@ -86,6 +86,14 @@ class MyRidesViewController: RidesViewController {
     tableView?.tableFooterView = UIView()
   }
 
+  override func viewWillAppear(animated: Bool) {
+    super.viewWillAppear(animated)
+
+    if let segmentedControl = segmentedControl {
+      segmentedAction(segmentedControl)
+    }
+  }
+
   override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
     if segue.identifier == "toAddRide" {
       if let navVC = segue.destinationViewController as? UINavigationController {
@@ -94,14 +102,10 @@ class MyRidesViewController: RidesViewController {
         }
       }
     } else if segue.identifier == "toPassengerRideDetails" || segue.identifier == "toDriverRideDetails" {
-      if let tabVC = segue.destinationViewController as? UITabBarController {
-        if let navVC = tabVC.viewControllers?.first as? UINavigationController {
-          if let vc = navVC.topViewController as? RideDetailsViewController {
-            if let cell = sender as? RideTableViewCell {
-              vc.ride = cell.ride
-              vc.user = user
-            }
-          }
+      if let vc = segue.destinationViewController as? RideDetailsViewController {
+        if let cell = sender as? RideTableViewCell {
+          vc.ride = cell.ride
+          vc.user = user
         }
       }
     }

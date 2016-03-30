@@ -33,6 +33,16 @@ enum Region: Int {
     return Region.regionNames[self]!
   }
 
+  func referenceName() -> String {
+    if self == CentralCoast {
+      return "the \(name())"
+    } else if self == SFBay {
+      return "the \(name()) Area"
+    } else {
+      return name()
+    }
+  }
+
   func image() -> UIImage {
     return UIImage(named: Region.regionImages[self]!)!
   }

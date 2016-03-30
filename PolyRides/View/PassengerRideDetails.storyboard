@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="OXc-hf-xJ8">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="kuy-fA-YL2">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--Passenger Ride Details View Controller-->
+        <!--Ride Details-->
         <scene sceneID="8VL-WW-P8i">
             <objects>
                 <viewController id="kuy-fA-YL2" customClass="PassengerRideDetailsViewController" customModule="Poly_Rides" customModuleProvider="target" sceneMemberID="viewController">
@@ -120,7 +120,7 @@
                             <constraint firstItem="th0-IW-Dvz" firstAttribute="top" secondItem="6zP-qk-drD" secondAttribute="bottom" constant="8" id="tvU-cc-jhe"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="1dR-hJ-kTJ">
+                    <navigationItem key="navigationItem" title="Ride Details" id="1dR-hJ-kTJ">
                         <barButtonItem key="rightBarButtonItem" image="star" id="VmP-Un-Wi4">
                             <connections>
                                 <action selector="saveRideAction:" destination="kuy-fA-YL2" id="ZPf-fq-Pen"/>
@@ -139,45 +139,9 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ybr-wN-CVK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2483" y="-1021"/>
+            <point key="canvasLocation" x="2487" y="-999"/>
         </scene>
-        <!--Item-->
-        <scene sceneID="syN-dq-v4I">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="rLe-Sk-gV3" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="B9U-46-8bf"/>
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="dKs-PO-4vW">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="kuy-fA-YL2" kind="relationship" relationship="rootViewController" id="uPV-iJ-o2t"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="q5V-ds-2M0" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1780" y="-1021"/>
-        </scene>
-        <!--Tab Bar Controller-->
-        <scene sceneID="Qcd-ps-t09">
-            <objects>
-                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="OXc-hf-xJ8" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <tabBar key="tabBar" contentMode="scaleToFill" id="E6g-CH-lsA">
-                        <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                    </tabBar>
-                    <connections>
-                        <segue destination="rLe-Sk-gV3" kind="relationship" relationship="viewControllers" id="GWa-gP-U6H"/>
-                    </connections>
-                </tabBarController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dXM-Sv-xXF" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="968" y="-1021"/>
-        </scene>
-        <!--Profile View Controller-->
+        <!--Driver Profile-->
         <scene sceneID="We2-Tm-Kfh">
             <objects>
                 <viewController storyboardIdentifier="DriverDetails" id="4fL-tg-UUB" customClass="ProfileViewController" customModule="Poly_Rides" customModuleProvider="target" sceneMemberID="viewController">
@@ -212,7 +176,7 @@
                             <constraint firstItem="5eS-bu-VhV" firstAttribute="centerX" secondItem="890-sr-VHH" secondAttribute="centerX" id="utS-4M-f3b"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="lde-Gz-ypk"/>
+                    <navigationItem key="navigationItem" title="Driver Profile" id="lde-Gz-ypk"/>
                     <connections>
                         <outlet property="imageView" destination="5eS-bu-VhV" id="PTe-RO-Qwb"/>
                         <outlet property="nameLabel" destination="6fH-N8-bgu" id="6mP-5y-Rt5"/>
@@ -220,7 +184,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GcI-9f-feO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3233" y="-1021"/>
+            <point key="canvasLocation" x="3173" y="-999"/>
         </scene>
     </scenes>
     <resources>

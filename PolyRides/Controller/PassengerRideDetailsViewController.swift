@@ -48,6 +48,11 @@ class PassengerRideDetailsViewController: RideDetailsViewController {
     super.viewDidLoad()
 
     tableView?.dataSource = self
+  }
+
+  override func viewWillAppear(animated: Bool) {
+    super.viewWillAppear(animated)
+
     setSavedIcon()
   }
 
@@ -59,7 +64,6 @@ class PassengerRideDetailsViewController: RideDetailsViewController {
       }
     }
     saveButton?.image = image
-    navigationController?.navigationBar.items
   }
 
 }

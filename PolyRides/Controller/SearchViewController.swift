@@ -15,6 +15,8 @@ class SearchViewController: UIViewController {
   @IBOutlet weak var dateTextField: UITextField?
 
   var autocompleteTextField: UITextField?
+  var datePicker: UIDatePicker?
+  var dateFormatter: NSDateFormatter?
   var fromPlace: GMSPlace?
   var toPlace: GMSPlace?
 
@@ -26,27 +28,42 @@ class SearchViewController: UIViewController {
     fromPlaceTextField?.placeholder = "From"
     navigationItem.titleView = fromPlaceTextField
 
-
     fromPlaceTextField?.delegate = self
     toPlaceTextField?.delegate = self
 
-    let datePicker = UIDatePicker()
-    datePicker.minuteInterval = 15
+    dateFormatter = NSDateFormatter()
+    dateFormatter?.dateStyle = .MediumStyle
+    dateFormatter?.timeStyle = .ShortStyle
+
+    datePicker = UIDatePicker()
+    datePicker?.minuteInterval = 15
 
     let toolBar = UIToolbar()
     toolBar.barStyle = UIBarStyle.Default
     toolBar.translucent = true
     toolBar.sizeToFit()
 
-    let doneButton = UIBarButtonItem(title: "Done", style: UIBarButtonItemStyle.Plain, target: self, action: nil)
+    let doneButton = UIBarButtonItem(title: "Done", style: .Plain, target: self, action: #selector(onDone))
     let spaceButton = UIBarButtonItem(barButtonSystemItem: .FlexibleSpace, target: nil, action: nil)
-    let cancelButton = UIBarButtonItem(title: "Cancel", style: UIBarButtonItemStyle.Plain, target: self, action: nil)
+    let cancelButton = UIBarButtonItem(title: "Cancel", style: .Plain, target: self, action: #selector(onCancel))
 
     toolBar.setItems([cancelButton, spaceButton, doneButton], animated: false)
     toolBar.userInteractionEnabled = true
 
     dateTextField?.inputView = datePicker
     dateTextField?.inputAccessoryView = toolBar
+    dateTextField?.text = dateFormatter?.stringFromDate(DateHelper.nearestHalfHour())
+  }
+
+  func onCancel() {
+    dateTextField?.resignFirstResponder()
+  }
+
+  func onDone() {
+    if let datePicker = datePicker {
+      dateTextField?.text = dateFormatter?.stringFromDate(datePicker.date)
+    }
+    dateTextField?.resignFirstResponder()
   }
 
 }
@@ -55,8 +72,7 @@ class SearchViewController: UIViewController {
 extension SearchViewController: GMSAutocompleteViewControllerDelegate {
 
   // Handle the user's selection.
-  func viewController(viewController: GMSAutocompleteViewController,
-                      didAutocompleteWithPlace place: GMSPlace) {
+  func viewController(viewController: GMSAutocompleteViewController, didAutocompleteWithPlace place: GMSPlace) {
     autocompleteTextField?.text = place.formattedAddress
 
     if autocompleteTextField == toPlaceTextField {

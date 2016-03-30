@@ -31,6 +31,7 @@ class RegionRidesViewController: RidesViewController {
     super.viewDidLoad()
 
     rides = fromRides
+    title = region?.name()
     tableView?.delegate = self
     tableView?.emptyDataSetSource = self
 
@@ -40,14 +41,10 @@ class RegionRidesViewController: RidesViewController {
 
   override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
     if segue.identifier == "toPassengerRideDetails" {
-      if let tabVC = segue.destinationViewController as? UITabBarController {
-        if let navVC = tabVC.viewControllers?.first as? UINavigationController {
-          if let vc = navVC.topViewController as? RideDetailsViewController {
-            if let cell = sender as? RideTableViewCell {
-              vc.ride = cell.ride
-              vc.user = user
-            }
-          }
+      if let vc = segue.destinationViewController as? RideDetailsViewController {
+        if let cell = sender as? RideTableViewCell {
+          vc.ride = cell.ride
+          vc.user = user
         }
       }
     }
@@ -92,21 +89,14 @@ extension RegionRidesViewController: DZNEmptyDataSetSource {
 
   func descriptionForEmptyDataSet(scrollView: UIScrollView!) -> NSAttributedString! {
     var message = ""
-    if let title = title {
-      if title == "Other" {
+    if let region = region {
+      if region == .Other {
         message = "There are no other rides, try checking back in a little while."
       } else {
-        var displayTitle = title
-        if displayTitle == "Central Coast" {
-          displayTitle = "the Central Coast"
-        } else if title == "SF Bay" {
-          displayTitle = "the SF Bay Area"
-        }
-
         if segmentedControl?.selectedSegmentIndex == 0 {
-          message = "There are no rides leaving from \(displayTitle), try checking back in a little while."
+          message = "There are no rides leaving from \(region.referenceName()), try checking back in a little while."
         } else {
-          message = "There are no rides going to \(displayTitle), try checking back in a little while."
+          message = "There are no rides going to \(region.referenceName()), try checking back in a little while."
         }
       }
     }
