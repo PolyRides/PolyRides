@@ -7,27 +7,34 @@
 //
 
 import GoogleMaps
+import DZNEmptyDataSet
 
 class SearchViewController: UIViewController {
 
   @IBOutlet weak var fromPlaceTextField: UITextField?
   @IBOutlet weak var toPlaceTextField: UITextField?
   @IBOutlet weak var dateTextField: UITextField?
+  @IBOutlet weak var tableView: UITableView?
 
+  let calendar = NSCalendar.currentCalendar()
+
+  var allRides: [Ride]?
+  var rides: [Ride]?
   var autocompleteTextField: UITextField?
+  var date: NSDate?
   var datePicker: UIDatePicker?
   var dateFormatter: NSDateFormatter?
   var fromPlace: GMSPlace?
   var toPlace: GMSPlace?
+  var messageEmpty = "Enter from and to locations and your departure date, and rides within 24 hours will show up."
+  var titleEmpty = "Search for a ride."
+  var imageName = "arrow"
 
   override func viewDidLoad() {
     super.viewDidLoad()
 
-    fromPlaceTextField = UITextField(frame: CGRect(x: 0, y: 0, width: view.frame.size.width - 64, height: 28))
-    fromPlaceTextField?.backgroundColor = UIColor.lightGrayColor()
-    fromPlaceTextField?.placeholder = "From"
-    navigationItem.titleView = fromPlaceTextField
-
+    tableView?.dataSource = self
+    tableView?.emptyDataSetSource = self
     fromPlaceTextField?.delegate = self
     toPlaceTextField?.delegate = self
 
@@ -52,7 +59,11 @@ class SearchViewController: UIViewController {
 
     dateTextField?.inputView = datePicker
     dateTextField?.inputAccessoryView = toolBar
-    dateTextField?.text = dateFormatter?.stringFromDate(DateHelper.nearestHalfHour())
+    date = DateHelper.nearestHalfHour()
+    dateTextField?.text = dateFormatter?.stringFromDate(date!)
+
+    // Remove the cell separators in the empty table view.
+    tableView?.tableFooterView = UIView()
   }
 
   func onCancel() {
@@ -62,7 +73,9 @@ class SearchViewController: UIViewController {
   func onDone() {
     if let datePicker = datePicker {
       dateTextField?.text = dateFormatter?.stringFromDate(datePicker.date)
+      date = datePicker.date
     }
+    search()
     dateTextField?.resignFirstResponder()
   }
 
@@ -81,11 +94,11 @@ extension SearchViewController: GMSAutocompleteViewControllerDelegate {
       fromPlace = place
     }
 
+    search()
     dismissViewControllerAnimated(true, completion: nil)
   }
 
-  func viewController(viewController: GMSAutocompleteViewController,
-                      didFailAutocompleteWithError error: NSError) {
+  func viewController(viewController: GMSAutocompleteViewController, didFailAutocompleteWithError error: NSError) {
     let title = "Please check your connection and try again."
     presentAlert(AlertOptions(message: "Network Error", title: title))
     dismissViewControllerAnimated(true, completion: nil)
@@ -93,6 +106,25 @@ extension SearchViewController: GMSAutocompleteViewControllerDelegate {
 
   func wasCancelled(viewController: GMSAutocompleteViewController) {
     dismissViewControllerAnimated(true, completion: nil)
+  }
+
+  func search() {
+    if toPlace != nil && fromPlace != nil && date != nil {
+      if let date = date {
+        let startDate = date.dateByAddingTimeInterval(-60 * 60 * 24)
+        let endDate = date.dateByAddingTimeInterval(60 * 60 * 24)
+
+        print(allRides)
+        rides = allRides?.filter({ (ride) -> Bool in
+          return ride.date?.compare(startDate) == .OrderedDescending && ride.date?.compare(endDate) == .OrderedAscending
+        })
+      }
+
+      imageName = "empty"
+      titleEmpty = "No rides were found."
+      messageEmpty = "We don't have any rides departing within 24 hours of that date, please check again later."
+      tableView?.reloadData()
+    }
   }
 
 }
@@ -112,7 +144,6 @@ extension SearchViewController: UITextFieldDelegate {
     let bounds = GMSCoordinateBounds(coordinate: topLeft, coordinate: bottomRight)
 
     let autocompleteController = GMSAutocompleteViewController()
-    // autocompleteController.
     autocompleteController.autocompleteFilter = filter
     autocompleteController.autocompleteBounds = bounds
     autocompleteController.delegate = self
@@ -121,4 +152,75 @@ extension SearchViewController: UITextFieldDelegate {
     return false
   }
 
+}
+
+// MARK: - UITableViewDataSource
+extension SearchViewController: UITableViewDataSource {
+
+  func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    if let rides = rides {
+      return rides.count
+    }
+    return 0
+  }
+
+  func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    let cell = tableView.dequeueReusableCellWithIdentifier("rideCell", forIndexPath: indexPath)
+
+    if let ride = rides?[indexPath.row] {
+      if let rideCell = cell as? RideTableViewCell {
+        rideCell.textLabel?.text = ride.getFormattedLocation()
+        rideCell.detailTextLabel?.text = ride.getFormattedDate()
+
+        rideCell.ride = ride
+        return rideCell
+      }
+    }
+
+    return cell
+  }
+
+}
+
+// MARK: - DZNEmptyDataSetDataSource
+extension SearchViewController: DZNEmptyDataSetSource {
+
+  func imageForEmptyDataSet(scrollView: UIScrollView!) -> UIImage! {
+    return UIImage(named: imageName)
+  }
+
+  func imageAnimationForEmptyDataSet(scrollView: UIScrollView!) -> CAAnimation! {
+    let animation = CABasicAnimation(keyPath: "transform")
+
+    animation.fromValue = NSValue(CATransform3D: CATransform3DMakeRotation(CGFloat(M_PI_2), 0.0, 0.0, 1.0))
+    animation.duration = 0.25
+    animation.cumulative = true
+    animation.repeatCount = MAXFLOAT
+
+    return animation
+  }
+
+
+  func titleForEmptyDataSet(scrollView: UIScrollView!) -> NSAttributedString! {
+    let attributes = [
+      NSFontAttributeName: UIFont.systemFontOfSize(18),
+      NSForegroundColorAttributeName : UIColor.blackColor()]
+    return NSAttributedString(string: titleEmpty, attributes: attributes)
+  }
+
+  func descriptionForEmptyDataSet(scrollView: UIScrollView!) -> NSAttributedString! {
+    let paragraph = NSMutableParagraphStyle()
+    paragraph.lineBreakMode = NSLineBreakMode.ByWordWrapping
+    paragraph.alignment = NSTextAlignment.Center
+    let attributes = [
+      NSFontAttributeName: UIFont.systemFontOfSize(14),
+      NSForegroundColorAttributeName: UIColor.grayColor(),
+      NSParagraphStyleAttributeName: paragraph]
+
+    return NSAttributedString(string: messageEmpty, attributes: attributes)
+  }
+
+  func backgroundColorForEmptyDataSet(scrollView: UIScrollView!) -> UIColor! {
+    return UIColor.whiteColor()
+  }
 }

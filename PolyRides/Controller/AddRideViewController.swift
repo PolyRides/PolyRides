@@ -158,8 +158,7 @@ class AddRideViewController: UIViewController {
 extension AddRideViewController: GMSAutocompleteViewControllerDelegate {
 
   // Handle the user's selection.
-  func viewController(viewController: GMSAutocompleteViewController,
-    didAutocompleteWithPlace place: GMSPlace) {
+  func viewController(viewController: GMSAutocompleteViewController, didAutocompleteWithPlace place: GMSPlace) {
     autocompleteTextField?.text = place.formattedAddress
 
     if autocompleteTextField == toTextField {
@@ -168,11 +167,11 @@ extension AddRideViewController: GMSAutocompleteViewControllerDelegate {
       fromLocationPlace = place
     }
 
+    setEnableAddButton()
     dismissViewControllerAnimated(true, completion: nil)
   }
 
-  func viewController(viewController: GMSAutocompleteViewController,
-    didFailAutocompleteWithError error: NSError) {
+  func viewController(viewController: GMSAutocompleteViewController, didFailAutocompleteWithError error: NSError) {
     let title = "Please check your connection and try again."
     presentAlert(AlertOptions(message: "Network Error", title: title))
     dismissViewControllerAnimated(true, completion: nil)
@@ -199,7 +198,6 @@ extension AddRideViewController: UITextFieldDelegate {
     let bounds = GMSCoordinateBounds(coordinate: topLeft, coordinate: bottomRight)
 
     let autocompleteController = GMSAutocompleteViewController()
-   // autocompleteController.
     autocompleteController.autocompleteFilter = filter
     autocompleteController.autocompleteBounds = bounds
     autocompleteController.delegate = self

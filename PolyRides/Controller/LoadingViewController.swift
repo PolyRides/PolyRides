@@ -13,6 +13,7 @@ class LoadingViewController: UIViewController {
   let userService = UserService()
 
   var onLoadingComplete: (Void -> Void)?
+  var allRides = [Ride]()
   var toRegionToRides = [Region: [Ride]]()
   var fromRegionToRides = [Region: [Ride]]()
   var user: User?
@@ -51,6 +52,7 @@ class LoadingViewController: UIViewController {
 
       if let navVC = tabBarVC.viewControllers?.first as? UINavigationController {
         if let searchVC = navVC.topViewController as? RegionTableViewController {
+          searchVC.allRides = allRides
           searchVC.fromRegionToRides = fromRegionToRides
           searchVC.toRegionToRides = toRegionToRides
         }
@@ -71,6 +73,7 @@ extension LoadingViewController: FirebaseRidesDelegate {
     if let driverId = ride.driver?.id {
       if let userId = user?.id {
         if driverId != userId {
+          allRides.append(ride)
           if let toLocationCity = ride.toLocation?.city {
             let region = Region.getRegion(toLocationCity)
             toRegionToRides[region]?.append(ride)

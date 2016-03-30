@@ -23,6 +23,7 @@ class RegionTableViewCell: UITableViewCell {
 class RegionTableViewController: UITableViewController {
 
   var user: User?
+  var allRides: [Ride]?
   var toRegionToRides: [Region: [Ride]]?
   var fromRegionToRides: [Region: [Ride]]?
 
@@ -52,6 +53,10 @@ class RegionTableViewController: UITableViewController {
         }
       }
     } else if segue.identifier == "toRideSearch" {
+      if let vc = segue.destinationViewController as? SearchViewController {
+        vc.allRides = allRides
+      }
+
       let backItem = UIBarButtonItem()
       backItem.title = ""
       navigationItem.backBarButtonItem = backItem

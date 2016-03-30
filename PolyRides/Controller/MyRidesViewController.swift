@@ -158,8 +158,6 @@ extension MyRidesViewController: UITableViewDelegate {
 
 }
 
-
-
 // MARK: - DZNEmptyDataSetDataSource
 extension MyRidesViewController: DZNEmptyDataSetSource {
 
