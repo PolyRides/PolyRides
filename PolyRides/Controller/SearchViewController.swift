@@ -79,6 +79,45 @@ class SearchViewController: UIViewController {
     dateTextField?.resignFirstResponder()
   }
 
+  func search() {
+    if toPlace != nil && fromPlace != nil && date != nil {
+      if let date = date {
+        let startDate = date.dateByAddingTimeInterval(-60 * 60 * 24)
+        let endDate = date.dateByAddingTimeInterval(60 * 60 * 24)
+
+        rides = allRides?.filter({ (ride) -> Bool in
+          return ride.date?.compare(startDate) == .OrderedDescending && ride.date?.compare(endDate) == .OrderedAscending
+        })
+
+        let passengerRide = Ride(fromPlace: fromPlace!, toPlace: toPlace!)
+        rides?.sortInPlace { (ride1, ride2) -> Bool in
+          return getDistance(ride1, ride2: passengerRide) < getDistance(ride2, ride2: passengerRide)
+        }
+      }
+
+      imageName = "empty"
+      titleEmpty = "No rides were found."
+      messageEmpty = "We don't have any rides departing within 24 hours of the specified date, please check back later."
+      tableView?.reloadData()
+    }
+  }
+
+  func getDistance(ride1: Ride, ride2: Ride) -> Double? {
+    var distance = 0.0
+    if let fromCoordinate1 = ride1.fromLocation?.place?.coordinate {
+      if let toCoordinate1 = ride1.toLocation?.place?.coordinate {
+        if let fromCoordinate2 = ride2.fromLocation?.place?.coordinate {
+          if let toCoordinate2 = ride2.toLocation?.place?.coordinate {
+            distance += GMSGeometryDistance(fromCoordinate1, fromCoordinate2)
+            distance += GMSGeometryDistance(toCoordinate1, toCoordinate2)
+            return distance
+          }
+        }
+      }
+    }
+    return nil
+  }
+
 }
 
 // MARK: - GMSAutocompleteViewControllerDelegate
@@ -106,25 +145,6 @@ extension SearchViewController: GMSAutocompleteViewControllerDelegate {
 
   func wasCancelled(viewController: GMSAutocompleteViewController) {
     dismissViewControllerAnimated(true, completion: nil)
-  }
-
-  func search() {
-    if toPlace != nil && fromPlace != nil && date != nil {
-      if let date = date {
-        let startDate = date.dateByAddingTimeInterval(-60 * 60 * 24)
-        let endDate = date.dateByAddingTimeInterval(60 * 60 * 24)
-
-        print(allRides)
-        rides = allRides?.filter({ (ride) -> Bool in
-          return ride.date?.compare(startDate) == .OrderedDescending && ride.date?.compare(endDate) == .OrderedAscending
-        })
-      }
-
-      imageName = "empty"
-      titleEmpty = "No rides were found."
-      messageEmpty = "We don't have any rides departing within 24 hours of that date, please check again later."
-      tableView?.reloadData()
-    }
   }
 
 }

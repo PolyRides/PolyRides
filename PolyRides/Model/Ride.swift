@@ -7,6 +7,7 @@
 //
 
 import Firebase
+import GoogleMaps
 
 class Ride {
 
@@ -27,6 +28,11 @@ class Ride {
     self.seatsAvailable = seats
     self.description = description
     self.costPerSeat = cost
+  }
+
+  init(fromPlace: GMSPlace, toPlace: GMSPlace) {
+    self.fromLocation = Location(place: fromPlace, city: "")
+    self.toLocation = Location(place: toPlace, city: "")
   }
 
   init(fromSnapshot snapshot: FDataSnapshot) {
