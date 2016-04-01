@@ -21,8 +21,6 @@ class LoginViewController: LoadingViewController {
 
   let authService = AuthService()
 
-  var buttonTitle = ""
-
   @IBOutlet weak var emailTextField: UITextField?
   @IBOutlet weak var passwordTextField: UITextField?
 
@@ -32,8 +30,8 @@ class LoginViewController: LoadingViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
 
-    emailTextField?.addTargetForEditing(self, selector: #selector(LoginViewController.textFieldDidChange))
-    passwordTextField?.addTargetForEditing(self, selector: #selector(LoginViewController.textFieldDidChange))
+    // emailTextField?.addTargetForEditing(self, selector: #selector(LoginViewController.textFieldDidChange))
+    // passwordTextField?.addTargetForEditing(self, selector: #selector(LoginViewController.textFieldDidChange))
     authService.loginDelegate = self
   }
 
@@ -50,14 +48,14 @@ class LoginViewController: LoadingViewController {
 
   func startLoading() {
     UIApplication.sharedApplication().beginIgnoringInteractionEvents()
-    button?.setTitle("", forState: UIControlState.Normal)
+    button?.hidden = true
     indicator?.startAnimating()
   }
 
   func stopLoading() {
     UIApplication.sharedApplication().endIgnoringInteractionEvents()
     indicator?.stopAnimating()
-    button?.setTitle(buttonTitle, forState: UIControlState.Normal)
+    button?.hidden = false
   }
 
   func presentAlertForFirebaseError(error: NSError) {
@@ -97,7 +95,7 @@ class LoginViewController: LoadingViewController {
 
   func loginWithFacebook() {
     let facebookLogin = FBSDKLoginManager()
-    facebookLogin.logInWithReadPermissions(["email"], fromViewController: self) {
+    facebookLogin.logInWithReadPermissions(["email", "public_profile"], fromViewController: self) {
       facebookResult, facebookError -> Void in
       if facebookError != nil {
         self.onFacebookError()
@@ -156,7 +154,6 @@ extension LoginViewController: FirebaseLoginDelegate {
   }
 
   func onLoginSuccess(user: User) {
-    stopLoading()
     self.user = user
     startLoadingData() {
       self.stopLoading()

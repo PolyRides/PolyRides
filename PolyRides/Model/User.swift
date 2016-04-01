@@ -11,6 +11,7 @@ import Firebase
 class User {
 
   var id: String?
+  var facebookId: String?
   var email: String?
   var firstName: String?
   var lastName: String?
@@ -32,8 +33,11 @@ class User {
   }
 
   init(fromAuthData authData: FAuthData) {
-    self.id = authData.uid
-    self.timestamp = NSDate()
+    if let facebookId = authData.providerData["id"] as? String {
+      self.facebookId = facebookId
+      imageURL = "https://graph.facebook.com/\(facebookId)/picture?type=large"
+    }
+
     if let email = authData.providerData["email"] as? NSString {
       self.email = String(email)
     }
@@ -41,9 +45,6 @@ class User {
       let components = fullName.componentsSeparatedByString(" ")
       self.firstName = components.first
       self.lastName = components.last
-    }
-    if let imageURL = authData.providerData["profileImageURL"] as? NSString {
-      self.imageURL = String(imageURL)
     }
   }
 
@@ -82,6 +83,9 @@ class User {
     dictionary["lastName"] = lastName
     dictionary["imageURL"] = imageURL
 
+    if let facebookId = facebookId {
+      dictionary["facebookId"] = facebookId
+    }
     if let timestamp = timestamp {
       dictionary["timestamp"] = timestamp.timeIntervalSince1970
     }

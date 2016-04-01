@@ -8,10 +8,20 @@
 
 class LaunchScreenViewController: LoadingViewController {
 
+  let ref = FirebaseConnection.ref
+
   override func viewDidLoad() {
     super.viewDidLoad()
 
-    startLoadingData()
+    // if user?.id != nil {
+    //   self.startLoadingData()
+    // } else
+
+    if user?.facebookId != nil {
+      userService.getUserId(user!)
+    } else {
+      userService.logOut()
+    }
   }
 
 }

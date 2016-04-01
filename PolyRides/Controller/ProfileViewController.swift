@@ -42,11 +42,13 @@ class ProfileViewController: UIViewController {
     nameLabel?.text = name
 
     let defaultImage = UIImage(named: "empty_profile")
-    if let imageURL = user?.imageURL {
-      if let url =  NSURL(string: imageURL) {
+    if let url = user?.imageURL {
+      if let imageURL = NSURL(string: url) {
         if let placeholder = defaultImage {
-          imageView?.setImageWithURL(url, placeholderImage: placeholder)
+          imageView?.setImageWithURL(imageURL, placeholderImage: placeholder)
         }
+      } else {
+        imageView?.image = defaultImage
       }
     } else {
       imageView?.image = defaultImage

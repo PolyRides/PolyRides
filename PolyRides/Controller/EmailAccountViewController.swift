@@ -30,8 +30,6 @@ class EmailAccountViewController: LoginViewController {
     passwordTextField?.delegate = self
     firstNameTextField?.delegate = self
     lastNameTextField?.delegate = self
-
-    buttonTitle = "Create Account"
   }
 
   override func textFieldDidChange() {

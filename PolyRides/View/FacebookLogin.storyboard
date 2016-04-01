@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="zKH-0x-6I6">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <scenes>
+        <!--Navigation Controller-->
+        <scene sceneID="uKQ-am-x9a">
+            <objects>
+                <navigationController navigationBarHidden="YES" id="zKH-0x-6I6" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="syn-zb-Jsw">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="Ylm-HM-9cy">
+                        <rect key="frame" x="0.0" y="556" width="600" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </toolbar>
+                    <connections>
+                        <segue destination="qWD-Tg-O8E" kind="relationship" relationship="rootViewController" id="sZh-tP-Weu"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="LpQ-GY-bsz" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-254" y="477"/>
+        </scene>
+        <!--Main Login View Controller-->
+        <scene sceneID="Sek-xv-vTi">
+            <objects>
+                <viewController id="qWD-Tg-O8E" customClass="MainLoginViewController" customModule="Poly_Rides" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Usf-vF-hYM"/>
+                        <viewControllerLayoutGuide type="bottom" id="6RB-gZ-ui4"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="878-Gb-bR2">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="POLY RIDES" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fKC-sW-w2w">
+                                <rect key="frame" x="254" y="290" width="93" height="20"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wVu-un-8y5">
+                                <rect key="frame" x="190" y="326" width="220" height="40"/>
+                                <subviews>
+                                    <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="b7G-Ua-JdU">
+                                        <rect key="frame" x="100" y="10" width="20" height="20"/>
+                                    </activityIndicatorView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Oj2-HZ-DRu">
+                                        <rect key="frame" x="0.0" y="0.0" width="220" height="40"/>
+                                        <color key="backgroundColor" red="0.81176470590000005" green="0.81176470590000005" blue="0.81176470590000005" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="220" id="M3i-aj-QZQ"/>
+                                            <constraint firstAttribute="height" constant="40" id="mqV-ub-Kif"/>
+                                        </constraints>
+                                        <state key="normal" title="Log In With Facebook" image="facebook_white"/>
+                                        <connections>
+                                            <action selector="logInWithFacebookAction:" destination="qWD-Tg-O8E" eventType="touchUpInside" id="niJ-my-SPd"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" red="0.81176470590000005" green="0.81176470590000005" blue="0.81176470590000005" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="Oj2-HZ-DRu" secondAttribute="width" id="6hH-EB-cMt"/>
+                                    <constraint firstItem="b7G-Ua-JdU" firstAttribute="centerX" secondItem="wVu-un-8y5" secondAttribute="centerX" id="Dwt-Pr-anR"/>
+                                    <constraint firstItem="b7G-Ua-JdU" firstAttribute="centerY" secondItem="wVu-un-8y5" secondAttribute="centerY" id="Yks-5c-pP8"/>
+                                    <constraint firstItem="Oj2-HZ-DRu" firstAttribute="centerY" secondItem="wVu-un-8y5" secondAttribute="centerY" id="bBQ-BD-8XS"/>
+                                    <constraint firstAttribute="height" secondItem="Oj2-HZ-DRu" secondAttribute="height" id="wlV-tb-Vmt"/>
+                                    <constraint firstItem="Oj2-HZ-DRu" firstAttribute="centerX" secondItem="wVu-un-8y5" secondAttribute="centerX" id="zdV-wk-MAl"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="fKC-sW-w2w" firstAttribute="centerX" secondItem="878-Gb-bR2" secondAttribute="centerX" id="V9u-49-WII"/>
+                            <constraint firstItem="fKC-sW-w2w" firstAttribute="centerY" secondItem="878-Gb-bR2" secondAttribute="centerY" id="dB0-bW-Ogg"/>
+                            <constraint firstItem="wVu-un-8y5" firstAttribute="top" secondItem="fKC-sW-w2w" secondAttribute="bottom" constant="16" id="hAL-KS-idz"/>
+                            <constraint firstItem="wVu-un-8y5" firstAttribute="centerX" secondItem="878-Gb-bR2" secondAttribute="centerX" id="zjv-Wc-oxl"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="6Ag-Er-bL8"/>
+                    <connections>
+                        <outlet property="button" destination="Oj2-HZ-DRu" id="VPv-tY-UOp"/>
+                        <outlet property="indicator" destination="b7G-Ua-JdU" id="qXa-nw-egf"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="YnP-G9-H1C" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="440" y="477"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="facebook_white" width="22" height="22"/>
+    </resources>
+</document>

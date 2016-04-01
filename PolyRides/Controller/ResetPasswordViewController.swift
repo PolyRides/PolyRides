@@ -44,7 +44,6 @@ class ResetPasswordViewController: LoginViewController {
     }
 
     passwordTextField?.addTargetForEditing(self, selector: #selector(LoginViewController.textFieldDidChange))
-    buttonTitle = "Reset Password"
   }
 
   override func viewWillAppear(animated: Bool) {

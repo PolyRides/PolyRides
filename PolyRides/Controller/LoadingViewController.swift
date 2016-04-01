@@ -105,4 +105,8 @@ extension LoadingViewController: FirebaseUserDelegate {
     rideService.getAllRides()
   }
 
+  func onUserIdReceived() {
+    startLoadingData()
+  }
+
 }

@@ -68,9 +68,24 @@ class AuthService {
     let token = FBSDKAccessToken.currentAccessToken().tokenString
     ref.authWithOAuthProvider("facebook", token: token) { error, authData in
       if error == nil {
-        let user = User(fromAuthData: authData)
-        self.updateUserOnFirebase(user)
-        self.loginDelegate?.onLoginSuccess(user)
+        let query = self.ref.childByAppendingPath("userMappings").childByAppendingPath(authData.uid)
+        query.observeSingleEventOfType(.Value, withBlock: { snapshot in
+          let user = User(fromAuthData: authData)
+          if snapshot.exists() {
+            if let value = snapshot.value as? String {
+              user.id = value
+              self.updateUserOnFirebase(user)
+            }
+          } else {
+            // New user
+            let userRef = self.ref.childByAppendingPath("users").childByAutoId()
+            user.timestamp = NSDate()
+            user.id = userRef.key
+            self.updateUserOnFirebase(user)
+            query.setValue(userRef.key)
+          }
+          self.loginDelegate?.onLoginSuccess(user)
+        })
       } else {
         self.loginDelegate?.onLoginError(error)
       }

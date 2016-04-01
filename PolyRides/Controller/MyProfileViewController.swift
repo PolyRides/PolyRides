@@ -10,26 +10,12 @@ import FBSDKLoginKit
 
 class MyProfileViewController: ProfileViewController {
 
-  @IBOutlet weak var connectToFacebookStackView: UIStackView?
-
   @IBAction func logOutAction(sender: AnyObject) {
-    if let appDelegate: AppDelegate = UIApplication.sharedApplication().delegate as? AppDelegate {
-      let storyboard = UIStoryboard(name: "Login", bundle: NSBundle.mainBundle())
-      if let navVC = storyboard.instantiateViewControllerWithIdentifier("Login") as? UINavigationController {
-        FirebaseConnection.ref.unauth()
-        appDelegate.window?.rootViewController = navVC
-      }
-    }
-  }
-
-  @IBAction func connectToFacebookAction(sender: AnyObject) {
+    UserService().logOut()
   }
 
   override func viewDidLoad() {
     super.viewDidLoad()
 
-    if FBSDKAccessToken.currentAccessToken() != nil {
-      connectToFacebookStackView?.hidden = true
-    }
   }
 }

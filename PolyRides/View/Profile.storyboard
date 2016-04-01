@@ -37,69 +37,118 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hmk-rL-E0k">
-                                <rect key="frame" x="20" y="180" width="560" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="D6y-LJ-X3Z">
-                                <rect key="frame" x="250" y="72" width="100" height="100"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="100" id="eNr-5R-13s"/>
-                                    <constraint firstAttribute="height" constant="100" id="t7G-xZ-sLW"/>
-                                </constraints>
-                            </imageView>
-                            <stackView opaque="NO" contentMode="scaleToFill" alignment="bottom" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Gqz-qM-6Ct">
-                                <rect key="frame" x="211" y="217" width="177" height="22"/>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ch4-Hy-o4y">
+                                <rect key="frame" x="0.0" y="64" width="600" height="487"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="facebook_white" translatesAutoresizingMaskIntoConstraints="NO" id="d6t-8a-9ek">
-                                        <rect key="frame" x="0.0" y="0.0" width="22" height="22"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hmk-rL-E0k">
+                                        <rect key="frame" x="8" y="8" width="584" height="21"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="22" id="lXN-8E-d5I"/>
-                                            <constraint firstAttribute="height" constant="22" id="p9Y-gG-JY9"/>
+                                            <constraint firstAttribute="height" constant="21" id="dHS-xC-X2q"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="D6y-LJ-X3Z">
+                                        <rect key="frame" x="250" y="37" width="100" height="100"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="100" id="eNr-5R-13s"/>
+                                            <constraint firstAttribute="height" constant="100" id="t7G-xZ-sLW"/>
                                         </constraints>
                                     </imageView>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yLA-y8-1Qy">
-                                        <rect key="frame" x="30" y="0.0" width="147" height="22"/>
-                                        <state key="normal" title="Connect to Facebook"/>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="P8v-NG-60g">
+                                        <rect key="frame" x="8" y="145" width="584" height="75"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="75" id="El3-DZ-kaB"/>
+                                        </constraints>
+                                        <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Gray Volkswagon Beetle Convertible (2006)" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n8r-cR-CYq">
+                                        <rect key="frame" x="8" y="228" width="584" height="21"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="21" id="lri-O1-WhY"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cal_poly_verified" translatesAutoresizingMaskIntoConstraints="NO" id="OOg-ya-9WQ">
+                                        <rect key="frame" x="263" y="257" width="75" height="75"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="75" id="LbD-IM-Xov"/>
+                                            <constraint firstAttribute="width" constant="75" id="aRs-wC-z0z"/>
+                                        </constraints>
+                                    </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="H7l-qX-w84">
+                                        <rect key="frame" x="273" y="369" width="55" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="zmc-MI-tnn"/>
+                                        </constraints>
+                                        <state key="normal" title="Log Out"/>
                                         <connections>
-                                            <action selector="connectToFacebookAction:" destination="oWY-WK-zfY" eventType="touchUpInside" id="FMZ-yn-kFZ"/>
+                                            <action selector="logOutAction:" destination="oWY-WK-zfY" eventType="touchUpInside" id="L8o-ja-whk"/>
                                         </connections>
                                     </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cal Poly Verified" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Md1-Fv-5L8">
+                                        <rect key="frame" x="237.5" y="340" width="125" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstItem="d6t-8a-9ek" firstAttribute="centerY" secondItem="Gqz-qM-6Ct" secondAttribute="centerY" id="1dK-IC-Pkm"/>
+                                    <constraint firstAttribute="bottom" secondItem="H7l-qX-w84" secondAttribute="bottom" constant="8" id="0Rm-uN-B5K"/>
+                                    <constraint firstItem="Hmk-rL-E0k" firstAttribute="top" secondItem="Ch4-Hy-o4y" secondAttribute="top" constant="8" id="13l-XQ-2sn"/>
+                                    <constraint firstAttribute="trailing" secondItem="n8r-cR-CYq" secondAttribute="trailing" constant="8" id="6vS-XV-QOs"/>
+                                    <constraint firstItem="Md1-Fv-5L8" firstAttribute="top" secondItem="OOg-ya-9WQ" secondAttribute="bottom" constant="8" id="8gt-sY-6gs"/>
+                                    <constraint firstItem="P8v-NG-60g" firstAttribute="leading" secondItem="Ch4-Hy-o4y" secondAttribute="leading" constant="8" id="AvV-iv-Xgc"/>
+                                    <constraint firstAttribute="trailing" secondItem="Hmk-rL-E0k" secondAttribute="trailing" constant="8" id="CZI-64-M5u"/>
+                                    <constraint firstItem="Hmk-rL-E0k" firstAttribute="leading" secondItem="Ch4-Hy-o4y" secondAttribute="leading" constant="8" id="E2x-U6-zN0"/>
+                                    <constraint firstItem="H7l-qX-w84" firstAttribute="centerX" secondItem="Ch4-Hy-o4y" secondAttribute="centerX" id="EFe-8x-lbi"/>
+                                    <constraint firstItem="OOg-ya-9WQ" firstAttribute="top" secondItem="n8r-cR-CYq" secondAttribute="bottom" constant="8" id="HkP-aA-VVf"/>
+                                    <constraint firstItem="D6y-LJ-X3Z" firstAttribute="top" secondItem="Hmk-rL-E0k" secondAttribute="bottom" constant="8" id="ZU1-FW-QxT"/>
+                                    <constraint firstItem="H7l-qX-w84" firstAttribute="top" secondItem="Md1-Fv-5L8" secondAttribute="bottom" constant="8" id="duJ-tO-6za"/>
+                                    <constraint firstItem="D6y-LJ-X3Z" firstAttribute="centerX" secondItem="Ch4-Hy-o4y" secondAttribute="centerX" id="ihV-QX-7dU"/>
+                                    <constraint firstItem="H7l-qX-w84" firstAttribute="centerX" secondItem="Ch4-Hy-o4y" secondAttribute="centerX" id="jtG-5Z-s0c"/>
+                                    <constraint firstItem="Md1-Fv-5L8" firstAttribute="centerX" secondItem="Ch4-Hy-o4y" secondAttribute="centerX" id="kPb-VR-8rN"/>
+                                    <constraint firstItem="OOg-ya-9WQ" firstAttribute="centerX" secondItem="Ch4-Hy-o4y" secondAttribute="centerX" id="n2S-Uq-JAT"/>
+                                    <constraint firstItem="n8r-cR-CYq" firstAttribute="top" secondItem="P8v-NG-60g" secondAttribute="bottom" constant="8" id="psN-t0-6SB"/>
+                                    <constraint firstItem="n8r-cR-CYq" firstAttribute="leading" secondItem="Ch4-Hy-o4y" secondAttribute="leading" constant="8" id="uLQ-sq-OdK"/>
+                                    <constraint firstAttribute="trailing" secondItem="P8v-NG-60g" secondAttribute="trailing" constant="8" id="xhq-da-tuH"/>
+                                    <constraint firstItem="Hmk-rL-E0k" firstAttribute="centerX" secondItem="Ch4-Hy-o4y" secondAttribute="centerX" id="xoH-uq-Hwe"/>
+                                    <constraint firstItem="P8v-NG-60g" firstAttribute="top" secondItem="D6y-LJ-X3Z" secondAttribute="bottom" constant="8" id="xsy-rF-3Hc"/>
                                 </constraints>
-                            </stackView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="H7l-qX-w84">
-                                <rect key="frame" x="273" y="513" width="55" height="30"/>
-                                <state key="normal" title="Log Out"/>
-                                <connections>
-                                    <action selector="logOutAction:" destination="oWY-WK-zfY" eventType="touchUpInside" id="L8o-ja-whk"/>
-                                </connections>
-                            </button>
+                            </scrollView>
                         </subviews>
                         <color key="backgroundColor" red="0.81176470590000005" green="0.81176470590000005" blue="0.81176470590000005" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="Gqz-qM-6Ct" firstAttribute="centerX" secondItem="EGj-kx-eLm" secondAttribute="centerX" id="1Cr-RW-cGs"/>
-                            <constraint firstItem="D6y-LJ-X3Z" firstAttribute="top" secondItem="cEF-84-hKk" secondAttribute="bottom" constant="8" id="EpG-gr-5ap"/>
-                            <constraint firstItem="D6y-LJ-X3Z" firstAttribute="centerX" secondItem="EGj-kx-eLm" secondAttribute="centerX" id="N1e-KO-sFJ"/>
-                            <constraint firstItem="Hmk-rL-E0k" firstAttribute="top" secondItem="D6y-LJ-X3Z" secondAttribute="bottom" constant="8" id="S7h-e5-1kR"/>
-                            <constraint firstItem="Hmk-rL-E0k" firstAttribute="leading" secondItem="EGj-kx-eLm" secondAttribute="leadingMargin" id="Z6n-Yw-Xr4"/>
-                            <constraint firstItem="H7l-qX-w84" firstAttribute="centerX" secondItem="EGj-kx-eLm" secondAttribute="centerX" id="ZQS-3g-Oic"/>
-                            <constraint firstItem="Hmk-rL-E0k" firstAttribute="trailing" secondItem="EGj-kx-eLm" secondAttribute="trailingMargin" id="lpG-WS-NxU"/>
-                            <constraint firstItem="Gqz-qM-6Ct" firstAttribute="top" secondItem="Hmk-rL-E0k" secondAttribute="bottom" constant="16" id="r9X-ov-iMx"/>
-                            <constraint firstItem="rah-gI-kkF" firstAttribute="top" secondItem="H7l-qX-w84" secondAttribute="bottom" constant="8" id="ybu-S9-ag4"/>
+                            <constraint firstItem="Ch4-Hy-o4y" firstAttribute="leading" secondItem="EGj-kx-eLm" secondAttribute="leadingMargin" constant="-20" id="9lL-Rv-b2n"/>
+                            <constraint firstItem="Ch4-Hy-o4y" firstAttribute="centerX" secondItem="EGj-kx-eLm" secondAttribute="centerX" id="Bp6-03-Jwa"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Ch4-Hy-o4y" secondAttribute="trailing" constant="-20" id="K9K-cl-IHR"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="Hmk-rL-E0k" secondAttribute="leading" id="M1m-PW-aEv"/>
+                            <constraint firstItem="rah-gI-kkF" firstAttribute="top" secondItem="Ch4-Hy-o4y" secondAttribute="bottom" id="Oc7-bD-dxm"/>
+                            <constraint firstItem="Ch4-Hy-o4y" firstAttribute="top" secondItem="cEF-84-hKk" secondAttribute="bottom" id="UGu-0H-JCS"/>
+                            <constraint firstItem="Ch4-Hy-o4y" firstAttribute="width" secondItem="EGj-kx-eLm" secondAttribute="width" id="YHK-kS-sAR"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Hmk-rL-E0k" secondAttribute="trailing" id="ghe-KD-7T5"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="9lL-Rv-b2n"/>
+                                <exclude reference="K9K-cl-IHR"/>
+                                <exclude reference="M1m-PW-aEv"/>
+                                <exclude reference="ghe-KD-7T5"/>
+                            </mask>
+                        </variation>
                     </view>
                     <tabBarItem key="tabBarItem" title="Profile" image="user" selectedImage="user_filled" id="1k9-47-6cF"/>
                     <navigationItem key="navigationItem" id="xam-MZ-sLh">
-                        <barButtonItem key="leftBarButtonItem" enabled="NO" systemItem="edit" id="WRG-H5-zGx"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="edit" id="WRG-H5-zGx"/>
                     </navigationItem>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
-                        <outlet property="connectToFacebookStackView" destination="Gqz-qM-6Ct" id="ACu-ZR-hWQ"/>
                         <outlet property="imageView" destination="D6y-LJ-X3Z" id="irD-1f-eRn"/>
                         <outlet property="nameLabel" destination="Hmk-rL-E0k" id="3xj-d6-uGC"/>
                     </connections>
@@ -110,7 +159,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="facebook_white" width="22" height="22"/>
+        <image name="cal_poly_verified" width="134" height="134"/>
         <image name="user" width="33" height="33"/>
         <image name="user_filled" width="33" height="33"/>
     </resources>
