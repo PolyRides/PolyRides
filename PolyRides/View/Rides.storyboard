@@ -93,11 +93,6 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Rides" image="car" selectedImage="car_filled" id="ZFq-mP-AZB"/>
                     <navigationItem key="navigationItem" id="5lI-NJ-7wN">
-                        <barButtonItem key="leftBarButtonItem" title="Log Out" id="Omt-aY-nEt">
-                            <connections>
-                                <action selector="logOutAction:" destination="fnc-Oe-nPW" id="8TG-t2-DMm"/>
-                            </connections>
-                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="Gh5-r6-A9Z">
                             <connections>
                                 <segue destination="Wrf-eZ-0Tt" kind="presentation" identifier="toAddRide" id="ND4-C1-2fr"/>

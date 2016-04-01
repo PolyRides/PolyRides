@@ -38,17 +38,6 @@ class MyRidesViewController: RidesViewController {
     tableView?.reloadData()
   }
 
-  // Remove this when we add log out to settings.
-  @IBAction func logOutAction(sender: AnyObject) {
-    if let appDelegate: AppDelegate = UIApplication.sharedApplication().delegate as? AppDelegate {
-      let storyboard = UIStoryboard(name: "Login", bundle: NSBundle.mainBundle())
-      if let navVC = storyboard.instantiateViewControllerWithIdentifier("Login") as? UINavigationController {
-        FirebaseConnection.ref.unauth()
-        appDelegate.window?.rootViewController = navVC
-      }
-    }
-  }
-
   @IBAction func addRide(segue: UIStoryboardSegue) {
     if let addRideVC = segue.sourceViewController as? AddRideViewController {
       if let ride = addRideVC.ride {

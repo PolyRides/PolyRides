@@ -25,7 +25,7 @@
             </objects>
             <point key="canvasLocation" x="-1941" y="-1021"/>
         </scene>
-        <!--My Profile View Controller-->
+        <!--Profile-->
         <scene sceneID="gYo-aD-zB4">
             <objects>
                 <viewController id="oWY-WK-zfY" customClass="MyProfileViewController" customModule="Poly_Rides" customModuleProvider="target" sceneMemberID="viewController">
@@ -50,22 +50,56 @@
                                     <constraint firstAttribute="height" constant="100" id="t7G-xZ-sLW"/>
                                 </constraints>
                             </imageView>
+                            <stackView opaque="NO" contentMode="scaleToFill" alignment="bottom" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Gqz-qM-6Ct">
+                                <rect key="frame" x="211" y="217" width="177" height="22"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="facebook_white" translatesAutoresizingMaskIntoConstraints="NO" id="d6t-8a-9ek">
+                                        <rect key="frame" x="0.0" y="0.0" width="22" height="22"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="22" id="lXN-8E-d5I"/>
+                                            <constraint firstAttribute="height" constant="22" id="p9Y-gG-JY9"/>
+                                        </constraints>
+                                    </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yLA-y8-1Qy">
+                                        <rect key="frame" x="30" y="0.0" width="147" height="22"/>
+                                        <state key="normal" title="Connect to Facebook"/>
+                                        <connections>
+                                            <action selector="connectToFacebookAction:" destination="oWY-WK-zfY" eventType="touchUpInside" id="FMZ-yn-kFZ"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="d6t-8a-9ek" firstAttribute="centerY" secondItem="Gqz-qM-6Ct" secondAttribute="centerY" id="1dK-IC-Pkm"/>
+                                </constraints>
+                            </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="H7l-qX-w84">
+                                <rect key="frame" x="273" y="513" width="55" height="30"/>
+                                <state key="normal" title="Log Out"/>
+                                <connections>
+                                    <action selector="logOutAction:" destination="oWY-WK-zfY" eventType="touchUpInside" id="L8o-ja-whk"/>
+                                </connections>
+                            </button>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.81176470590000005" green="0.81176470590000005" blue="0.81176470590000005" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
+                            <constraint firstItem="Gqz-qM-6Ct" firstAttribute="centerX" secondItem="EGj-kx-eLm" secondAttribute="centerX" id="1Cr-RW-cGs"/>
                             <constraint firstItem="D6y-LJ-X3Z" firstAttribute="top" secondItem="cEF-84-hKk" secondAttribute="bottom" constant="8" id="EpG-gr-5ap"/>
                             <constraint firstItem="D6y-LJ-X3Z" firstAttribute="centerX" secondItem="EGj-kx-eLm" secondAttribute="centerX" id="N1e-KO-sFJ"/>
                             <constraint firstItem="Hmk-rL-E0k" firstAttribute="top" secondItem="D6y-LJ-X3Z" secondAttribute="bottom" constant="8" id="S7h-e5-1kR"/>
                             <constraint firstItem="Hmk-rL-E0k" firstAttribute="leading" secondItem="EGj-kx-eLm" secondAttribute="leadingMargin" id="Z6n-Yw-Xr4"/>
+                            <constraint firstItem="H7l-qX-w84" firstAttribute="centerX" secondItem="EGj-kx-eLm" secondAttribute="centerX" id="ZQS-3g-Oic"/>
                             <constraint firstItem="Hmk-rL-E0k" firstAttribute="trailing" secondItem="EGj-kx-eLm" secondAttribute="trailingMargin" id="lpG-WS-NxU"/>
+                            <constraint firstItem="Gqz-qM-6Ct" firstAttribute="top" secondItem="Hmk-rL-E0k" secondAttribute="bottom" constant="16" id="r9X-ov-iMx"/>
+                            <constraint firstItem="rah-gI-kkF" firstAttribute="top" secondItem="H7l-qX-w84" secondAttribute="bottom" constant="8" id="ybu-S9-ag4"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" systemItem="contacts" id="1k9-47-6cF"/>
+                    <tabBarItem key="tabBarItem" title="Profile" image="user" selectedImage="user_filled" id="1k9-47-6cF"/>
                     <navigationItem key="navigationItem" id="xam-MZ-sLh">
                         <barButtonItem key="leftBarButtonItem" enabled="NO" systemItem="edit" id="WRG-H5-zGx"/>
                     </navigationItem>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="connectToFacebookStackView" destination="Gqz-qM-6Ct" id="ACu-ZR-hWQ"/>
                         <outlet property="imageView" destination="D6y-LJ-X3Z" id="irD-1f-eRn"/>
                         <outlet property="nameLabel" destination="Hmk-rL-E0k" id="3xj-d6-uGC"/>
                     </connections>
@@ -75,4 +109,9 @@
             <point key="canvasLocation" x="-1199" y="-1021"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="facebook_white" width="22" height="22"/>
+        <image name="user" width="33" height="33"/>
+        <image name="user_filled" width="33" height="33"/>
+    </resources>
 </document>
