@@ -16,14 +16,17 @@ struct AlertOptions {
   let acceptText: String
   let handler: ((UIAlertAction) -> Void)?
   let showCancel: Bool
+  let configurationHandler: ((textField: UITextField!) -> Void)?
 
   init(message: String = DefaultMessage, title: String = DefaultTitle, acceptText: String = "OK",
-    handler: ((UIAlertAction) -> Void)? = nil, showCancel: Bool = false) {
-      self.message = message
-      self.title = title
-      self.acceptText = acceptText
-      self.handler = handler
-      self.showCancel = showCancel
+       handler: ((UIAlertAction) -> Void)? = nil, showCancel: Bool = false,
+       configurationHandler: ((textField: UITextField!) -> Void)? = nil) {
+    self.message = message
+    self.title = title
+    self.acceptText = acceptText
+    self.handler = handler
+    self.showCancel = showCancel
+    self.configurationHandler = configurationHandler
   }
 }
 
@@ -34,10 +37,14 @@ extension UIViewController {
     let message = alertOptions.message
     let acceptText = alertOptions.acceptText
     let handler = alertOptions.handler
+    let configurationHandler = alertOptions.configurationHandler
     let style = UIAlertControllerStyle.Alert
 
     let alert = UIAlertController(title: title, message: message, preferredStyle: style)
     alert.addAction(UIAlertAction(title: acceptText, style: .Default, handler: handler))
+    if configurationHandler != nil {
+      alert.addTextFieldWithConfigurationHandler(configurationHandler)
+    }
     if alertOptions.showCancel {
       alert.addAction(UIAlertAction(title: "Cancel", style: .Cancel, handler: nil))
     }

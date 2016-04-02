@@ -17,9 +17,12 @@ class User {
   var lastName: String?
   var imageURL: String?
   var timestamp: NSDate?
-  var savedRides = [Ride]()
   var description: String?
   var car: Car?
+
+  var savedRides = [Ride]()
+  var verifications = [Verification]()
+  var pendingVerifications = [Verification: Int]()
 
   init() {
   }
@@ -79,6 +82,20 @@ class User {
       }
       if let carDictionary = dictionary["car"] as? [String: AnyObject] {
         extractCarFromDictionary(carDictionary)
+      }
+      if let verifications = dictionary["verifications"] as? [String: Bool] {
+        for rawValue in verifications.keys {
+          if let verification = Verification(rawValue: rawValue) {
+            self.verifications.append(verification)
+          }
+        }
+      }
+      if let pendingVeritications = dictionary["pendingVerifications"] as? [String: Int] {
+        for pendingVerification in pendingVeritications {
+          if let verification = Verification(rawValue: pendingVerification.0) {
+            self.pendingVerifications[verification] = pendingVerification.1
+          }
+        }
       }
     }
   }

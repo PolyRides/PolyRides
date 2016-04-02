@@ -52,7 +52,7 @@
 		DB747AB81C98D79500A24F58 /* Messages.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB747AB71C98D79500A24F58 /* Messages.storyboard */; };
 		DB747ABA1C98D79E00A24F58 /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB747AB91C98D79E00A24F58 /* Profile.storyboard */; };
 		DB747ABC1C98DB2D00A24F58 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB747ABB1C98DB2D00A24F58 /* TabBarController.swift */; };
-		DB8DAE581CAF62AF0045195D /* VerificationHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB8DAE571CAF62AF0045195D /* VerificationHelper.swift */; };
+		DB8DAE5A1CB022EF0045195D /* Verification.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB8DAE591CB022EF0045195D /* Verification.swift */; };
 		DB956DD81C96833700809B4C /* FirebaseConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB956DD71C96833700809B4C /* FirebaseConnection.swift */; };
 		DBAB56801C968FAA0011167A /* UIViewControllerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBAB567F1C968FAA0011167A /* UIViewControllerExtensions.swift */; };
 		DBAB56871C96B0F10011167A /* RegionTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBAB56861C96B0F10011167A /* RegionTableViewController.swift */; };
@@ -154,7 +154,7 @@
 		DB747AB71C98D79500A24F58 /* Messages.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Messages.storyboard; sourceTree = "<group>"; };
 		DB747AB91C98D79E00A24F58 /* Profile.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
 		DB747ABB1C98DB2D00A24F58 /* TabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
-		DB8DAE571CAF62AF0045195D /* VerificationHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VerificationHelper.swift; sourceTree = "<group>"; };
+		DB8DAE591CB022EF0045195D /* Verification.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Verification.swift; sourceTree = "<group>"; };
 		DB956DD71C96833700809B4C /* FirebaseConnection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FirebaseConnection.swift; path = Model/FirebaseConnection.swift; sourceTree = "<group>"; };
 		DBAB567F1C968FAA0011167A /* UIViewControllerExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtensions.swift; sourceTree = "<group>"; };
 		DBAB56861C96B0F10011167A /* RegionTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegionTableViewController.swift; sourceTree = "<group>"; };
@@ -359,10 +359,11 @@
 				DBBBD13A1C9DE4D00085E3B9 /* Ride.swift */,
 				DBBBD13C1C9DE57B0085E3B9 /* Location.swift */,
 				6E53E3CA1C9E428400370108 /* Message.swift */,
-				DB43A9931C9F7A2500AC2AF9 /* Region.swift */,
 				6E628F9D1CA100CF00AAC2DB /* Conversation.swift */,
 				DB5F03BE1CAD898100E49A12 /* Request.swift */,
 				DB5F03CE1CAF312100E49A12 /* Car.swift */,
+				DB43A9931C9F7A2500AC2AF9 /* Region.swift */,
+				DB8DAE591CB022EF0045195D /* Verification.swift */,
 			);
 			name = Models;
 			path = Model;
@@ -412,7 +413,6 @@
 				DBB1558B1C9B76C500118F89 /* DateHelper.swift */,
 				DBF5E6DA1C93A66600693807 /* GoogleAnalyticsHelper.swift */,
 				DBBBD13E1C9DE8590085E3B9 /* GoogleMapsHelper.swift */,
-				DB8DAE571CAF62AF0045195D /* VerificationHelper.swift */,
 			);
 			name = Utils;
 			sourceTree = "<group>";
@@ -689,9 +689,9 @@
 				DB701ADD1CA24E3100B40C9C /* LaunchScreenViewController.swift in Sources */,
 				DBBBD13D1C9DE57B0085E3B9 /* Location.swift in Sources */,
 				DBF5E6F21C963D6400693807 /* CreateAccountViewController.swift in Sources */,
+				DB8DAE5A1CB022EF0045195D /* Verification.swift in Sources */,
 				DB701ADB1CA23E0600B40C9C /* RideService.swift in Sources */,
 				DB5F03BF1CAD898100E49A12 /* Request.swift in Sources */,
-				DB8DAE581CAF62AF0045195D /* VerificationHelper.swift in Sources */,
 				DBAB56951C9738870011167A /* UITextFieldExtensions.swift in Sources */,
 				6E628FA01CA100E400AAC2DB /* ConversationService.swift in Sources */,
 				DBF5E6F51C96719400693807 /* EmailAccountViewController.swift in Sources */,
