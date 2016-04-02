@@ -15,6 +15,7 @@ class ProfileViewController: UIViewController {
 
   @IBOutlet weak var nameLabel: UILabel?
   @IBOutlet weak var imageView: UIImageView?
+  @IBOutlet weak var descriptionTextView: UITextView?
 
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -52,6 +53,13 @@ class ProfileViewController: UIViewController {
       }
     } else {
       imageView?.image = defaultImage
+    }
+
+    if let description = user?.description {
+      descriptionTextView?.text = description
+      descriptionTextView?.hidden = false
+    } else {
+      descriptionTextView?.hidden = true
     }
   }
 

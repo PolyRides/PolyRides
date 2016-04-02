@@ -153,31 +153,45 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5eS-bu-VhV">
-                                <rect key="frame" x="255" y="72" width="90" height="90"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="5eS-bu-VhV">
+                                <rect key="frame" x="255" y="28" width="90" height="90"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="90" id="Va1-w0-LYZ"/>
                                     <constraint firstAttribute="height" constant="90" id="sAD-Hw-ggr"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6fH-N8-bgu">
-                                <rect key="frame" x="20" y="170" width="560" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6fH-N8-bgu">
+                                <rect key="frame" x="20" y="126" width="560" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="z2R-bC-8WF">
+                                <rect key="frame" x="20" y="155" width="560" height="112"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="112" id="9pf-Mh-ELt"/>
+                                </constraints>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="z2R-bC-8WF" firstAttribute="top" secondItem="6fH-N8-bgu" secondAttribute="bottom" constant="8" id="7KE-oS-pBK"/>
                             <constraint firstItem="5eS-bu-VhV" firstAttribute="top" secondItem="4ER-46-lxb" secondAttribute="bottom" constant="8" id="ETD-BB-Inl"/>
                             <constraint firstItem="6fH-N8-bgu" firstAttribute="top" secondItem="5eS-bu-VhV" secondAttribute="bottom" constant="8" id="Eiy-l4-1nw"/>
+                            <constraint firstItem="z2R-bC-8WF" firstAttribute="trailing" secondItem="890-sr-VHH" secondAttribute="trailingMargin" id="GAX-Tw-FKo"/>
                             <constraint firstItem="6fH-N8-bgu" firstAttribute="trailing" secondItem="890-sr-VHH" secondAttribute="trailingMargin" id="fZX-pB-MqW"/>
                             <constraint firstItem="6fH-N8-bgu" firstAttribute="leading" secondItem="890-sr-VHH" secondAttribute="leadingMargin" id="gB5-QN-mOR"/>
+                            <constraint firstItem="z2R-bC-8WF" firstAttribute="leading" secondItem="890-sr-VHH" secondAttribute="leadingMargin" id="gEk-3B-ydz"/>
                             <constraint firstItem="5eS-bu-VhV" firstAttribute="centerX" secondItem="890-sr-VHH" secondAttribute="centerX" id="utS-4M-f3b"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Driver Profile" id="lde-Gz-ypk"/>
                     <connections>
+                        <outlet property="descriptionTextView" destination="z2R-bC-8WF" id="EpE-bR-4mo"/>
                         <outlet property="imageView" destination="5eS-bu-VhV" id="PTe-RO-Qwb"/>
                         <outlet property="nameLabel" destination="6fH-N8-bgu" id="6mP-5y-Rt5"/>
                     </connections>

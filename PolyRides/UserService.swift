@@ -52,4 +52,12 @@ class UserService {
     }
   }
 
+  func updateProfile(user: User) {
+    if let userId = user.id {
+      let userRef = ref.childByAppendingPath("users/\(userId)")
+      userRef.childByAppendingPath("car").setValue(user.car?.toAnyObject())
+      userRef.childByAppendingPath("description").setValue(user.description)
+    }
+  }
+
 }

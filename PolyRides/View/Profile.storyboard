@@ -144,11 +144,17 @@
                         </variation>
                     </view>
                     <tabBarItem key="tabBarItem" title="Profile" image="user" selectedImage="user_filled" id="1k9-47-6cF"/>
-                    <navigationItem key="navigationItem" id="xam-MZ-sLh">
-                        <barButtonItem key="rightBarButtonItem" systemItem="edit" id="WRG-H5-zGx"/>
+                    <navigationItem key="navigationItem" title="Profile" id="xam-MZ-sLh">
+                        <barButtonItem key="rightBarButtonItem" systemItem="edit" id="WRG-H5-zGx">
+                            <connections>
+                                <segue destination="8RG-ub-u8u" kind="presentation" identifier="toEditProfile" id="0Y0-uj-gSl"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="carDetailsLabel" destination="n8r-cR-CYq" id="Or4-V1-8O0"/>
+                        <outlet property="descriptionTextView" destination="P8v-NG-60g" id="Q7m-Fu-Cca"/>
                         <outlet property="imageView" destination="D6y-LJ-X3Z" id="irD-1f-eRn"/>
                         <outlet property="nameLabel" destination="Hmk-rL-E0k" id="3xj-d6-uGC"/>
                     </connections>
@@ -156,6 +162,132 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Lgd-dB-saK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1199" y="-1021"/>
+        </scene>
+        <!--Edit Profile-->
+        <scene sceneID="V37-Fc-tBu">
+            <objects>
+                <viewController id="fm9-L0-hKD" customClass="EditProfileViewController" customModule="Poly_Rides" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="gBd-4c-6Kg"/>
+                        <viewControllerLayoutGuide type="bottom" id="3tj-ql-psQ"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="sjR-Me-t48">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Enter a short description about yourself." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="69A-dF-mxD">
+                                <rect key="frame" x="20" y="101" width="560" height="115"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="115" id="XTv-Yc-9a6"/>
+                                </constraints>
+                                <color key="textColor" red="0.81176470590000005" green="0.81176470590000005" blue="0.81176470590000005" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Car Information" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Td-VV-k1z">
+                                <rect key="frame" x="20" y="224" width="119" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Make" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lQI-GG-peC">
+                                <rect key="frame" x="20" y="253" width="560" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="fDC-Ps-lPF"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Model" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="d3e-za-gfp">
+                                <rect key="frame" x="20" y="291" width="560" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="Wco-5K-wv9"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Year" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jAY-Ma-k3U">
+                                <rect key="frame" x="20" y="329" width="560" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bio" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vwj-i2-aFL">
+                                <rect key="frame" x="20" y="72" width="25" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Color" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gSE-K2-JCu">
+                                <rect key="frame" x="20" y="367" width="560" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="gSE-K2-JCu" firstAttribute="top" secondItem="jAY-Ma-k3U" secondAttribute="bottom" constant="8" id="073-hF-GUx"/>
+                            <constraint firstItem="d3e-za-gfp" firstAttribute="top" secondItem="lQI-GG-peC" secondAttribute="bottom" constant="8" id="4qZ-e6-9jz"/>
+                            <constraint firstItem="lQI-GG-peC" firstAttribute="trailing" secondItem="sjR-Me-t48" secondAttribute="trailingMargin" id="Cdt-1m-VyH"/>
+                            <constraint firstItem="9Td-VV-k1z" firstAttribute="leading" secondItem="sjR-Me-t48" secondAttribute="leadingMargin" id="FU9-aW-ziU"/>
+                            <constraint firstItem="d3e-za-gfp" firstAttribute="leading" secondItem="sjR-Me-t48" secondAttribute="leadingMargin" id="GrJ-7d-srq"/>
+                            <constraint firstItem="Vwj-i2-aFL" firstAttribute="top" secondItem="gBd-4c-6Kg" secondAttribute="bottom" constant="8" id="M0x-rq-IBe"/>
+                            <constraint firstItem="69A-dF-mxD" firstAttribute="trailing" secondItem="sjR-Me-t48" secondAttribute="trailingMargin" id="NKc-pc-0O8"/>
+                            <constraint firstItem="lQI-GG-peC" firstAttribute="leading" secondItem="sjR-Me-t48" secondAttribute="leadingMargin" id="OxQ-ac-e3l"/>
+                            <constraint firstItem="Vwj-i2-aFL" firstAttribute="leading" secondItem="sjR-Me-t48" secondAttribute="leadingMargin" id="PMl-Ag-yIu"/>
+                            <constraint firstItem="69A-dF-mxD" firstAttribute="top" secondItem="Vwj-i2-aFL" secondAttribute="bottom" constant="8" id="SI7-0A-cBm"/>
+                            <constraint firstItem="d3e-za-gfp" firstAttribute="trailing" secondItem="sjR-Me-t48" secondAttribute="trailingMargin" id="UT7-W3-oem"/>
+                            <constraint firstItem="jAY-Ma-k3U" firstAttribute="top" secondItem="d3e-za-gfp" secondAttribute="bottom" constant="8" id="Xib-zj-EH5"/>
+                            <constraint firstItem="69A-dF-mxD" firstAttribute="leading" secondItem="sjR-Me-t48" secondAttribute="leadingMargin" id="YAa-Vy-YVE"/>
+                            <constraint firstItem="jAY-Ma-k3U" firstAttribute="leading" secondItem="sjR-Me-t48" secondAttribute="leadingMargin" id="dXv-ZU-zwz"/>
+                            <constraint firstItem="gSE-K2-JCu" firstAttribute="trailing" secondItem="sjR-Me-t48" secondAttribute="trailingMargin" id="dnB-8C-mDT"/>
+                            <constraint firstItem="jAY-Ma-k3U" firstAttribute="trailing" secondItem="sjR-Me-t48" secondAttribute="trailingMargin" id="eeJ-ht-sHE"/>
+                            <constraint firstItem="lQI-GG-peC" firstAttribute="top" secondItem="9Td-VV-k1z" secondAttribute="bottom" constant="8" id="hvz-L7-Rmm"/>
+                            <constraint firstItem="gSE-K2-JCu" firstAttribute="leading" secondItem="sjR-Me-t48" secondAttribute="leadingMargin" id="tJa-yV-Yqh"/>
+                            <constraint firstItem="9Td-VV-k1z" firstAttribute="top" secondItem="69A-dF-mxD" secondAttribute="bottom" constant="8" id="wm0-e8-Klm"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Edit Profile" id="N3z-0W-5ik">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="ZWS-Wm-PJV">
+                            <connections>
+                                <action selector="cancelButtonAction:" destination="fm9-L0-hKD" id="USL-Kc-1JA"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="mpe-3a-jkD">
+                            <connections>
+                                <action selector="saveButtonAction:" destination="fm9-L0-hKD" id="MBb-p7-LWB"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="colorLabel" destination="gSE-K2-JCu" id="et3-f6-ZYC"/>
+                        <outlet property="descriptionTextView" destination="69A-dF-mxD" id="2d0-I1-Fio"/>
+                        <outlet property="makeLabel" destination="lQI-GG-peC" id="JLg-oQ-Ys2"/>
+                        <outlet property="modelLabel" destination="d3e-za-gfp" id="hAN-m9-5f1"/>
+                        <outlet property="yearLabel" destination="jAY-Ma-k3U" id="rhV-Bc-py8"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="XwZ-HN-Ddv" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="310" y="-1021"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="kxd-yv-JdO">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="8RG-ub-u8u" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="RGX-9v-rhz">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="fm9-L0-hKD" kind="relationship" relationship="rootViewController" id="Rdm-h8-crc"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="UXh-ES-9ww" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-502" y="-1021"/>
         </scene>
     </scenes>
     <resources>

@@ -18,6 +18,8 @@ class User {
   var imageURL: String?
   var timestamp: NSDate?
   var savedRides = [Ride]()
+  var description: String?
+  var car: Car?
 
   init() {
   }
@@ -72,6 +74,28 @@ class User {
       if let imageURL = dictionary["imageURL"] as? String {
         self.imageURL = imageURL
       }
+      if let description = dictionary["description"] as? String {
+        self.description = description
+      }
+      if let carDictionary = dictionary["car"] as? [String: AnyObject] {
+        extractCarFromDictionary(carDictionary)
+      }
+    }
+  }
+
+  func extractCarFromDictionary(dictionary: [String: AnyObject]) {
+    car = Car()
+    if let model = dictionary["model"] as? String {
+      car?.model = model
+    }
+    if let make = dictionary["make"] as? String {
+      car?.make = make
+    }
+    if let year = dictionary["year"] as? Int {
+      car?.year = year
+    }
+    if let color = dictionary["color"] as? String {
+      car?.color = color
     }
   }
 
