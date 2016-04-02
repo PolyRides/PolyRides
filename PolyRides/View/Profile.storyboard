@@ -223,6 +223,13 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                             </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Te4-Mm-b6w">
+                                <rect key="frame" x="20" y="405" width="140" height="30"/>
+                                <state key="normal" title="Verify Cal Poly Email"/>
+                                <connections>
+                                    <action selector="verifyEmailAction:" destination="fm9-L0-hKD" eventType="touchUpInside" id="wTn-re-1yJ"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -237,8 +244,10 @@
                             <constraint firstItem="Vwj-i2-aFL" firstAttribute="leading" secondItem="sjR-Me-t48" secondAttribute="leadingMargin" id="PMl-Ag-yIu"/>
                             <constraint firstItem="69A-dF-mxD" firstAttribute="top" secondItem="Vwj-i2-aFL" secondAttribute="bottom" constant="8" id="SI7-0A-cBm"/>
                             <constraint firstItem="d3e-za-gfp" firstAttribute="trailing" secondItem="sjR-Me-t48" secondAttribute="trailingMargin" id="UT7-W3-oem"/>
+                            <constraint firstItem="Te4-Mm-b6w" firstAttribute="top" secondItem="gSE-K2-JCu" secondAttribute="bottom" constant="8" id="VgF-QT-SOb"/>
                             <constraint firstItem="jAY-Ma-k3U" firstAttribute="top" secondItem="d3e-za-gfp" secondAttribute="bottom" constant="8" id="Xib-zj-EH5"/>
                             <constraint firstItem="69A-dF-mxD" firstAttribute="leading" secondItem="sjR-Me-t48" secondAttribute="leadingMargin" id="YAa-Vy-YVE"/>
+                            <constraint firstItem="Te4-Mm-b6w" firstAttribute="leading" secondItem="sjR-Me-t48" secondAttribute="leadingMargin" id="bFS-7M-oms"/>
                             <constraint firstItem="jAY-Ma-k3U" firstAttribute="leading" secondItem="sjR-Me-t48" secondAttribute="leadingMargin" id="dXv-ZU-zwz"/>
                             <constraint firstItem="gSE-K2-JCu" firstAttribute="trailing" secondItem="sjR-Me-t48" secondAttribute="trailingMargin" id="dnB-8C-mDT"/>
                             <constraint firstItem="jAY-Ma-k3U" firstAttribute="trailing" secondItem="sjR-Me-t48" secondAttribute="trailingMargin" id="eeJ-ht-sHE"/>

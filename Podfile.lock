@@ -51,6 +51,7 @@ PODS:
   - JSQMessagesViewController (7.2.0):
     - JSQSystemSoundPlayer (~> 2.0.1)
   - JSQSystemSoundPlayer (2.0.1)
+  - SendGrid (0.0.2)
   - Siren (0.6.7)
 
 DEPENDENCIES:
@@ -65,7 +66,18 @@ DEPENDENCIES:
   - Google/Analytics
   - GoogleMaps
   - JSQMessagesViewController
+  - SendGrid (from `https://github.com/scottkawai/sendgrid-swift.git`)
   - Siren
+
+EXTERNAL SOURCES:
+  SendGrid:
+    :git: https://github.com/scottkawai/sendgrid-swift.git
+    :submodules: true
+
+CHECKOUT OPTIONS:
+  SendGrid:
+    :commit: 3dc773b933292119df303f7e9f7c95a556ffd34c
+    :git: https://github.com/scottkawai/sendgrid-swift.git
 
 SPEC CHECKSUMS:
   AFNetworking: a0075feb321559dc78d9d85b55d11caa19eabb93
@@ -86,6 +98,7 @@ SPEC CHECKSUMS:
   GoogleUtilities: 8ed9134debe11719097881711464752900668f10
   JSQMessagesViewController: 73cab48aa92fc2d512f3b6724f3425cc47a19eb5
   JSQSystemSoundPlayer: c5850e77a4363ffd374cd851154b9af93264ed8d
+  SendGrid: 471d22954c23666f139f5b2d62c19e8f7601f8fa
   Siren: 6d1c751d3ae4f1abcfeff17c77ee6576da8f09e1
 
 COCOAPODS: 0.39.0

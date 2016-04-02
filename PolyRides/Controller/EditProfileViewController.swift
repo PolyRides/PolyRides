@@ -41,6 +41,9 @@ class EditProfileViewController: UIViewController {
     }
     dismissViewControllerAnimated(true, completion: nil)
   }
+  
+  @IBAction func verifyEmailAction(sender: AnyObject) {
+  }
 
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -52,6 +55,10 @@ class EditProfileViewController: UIViewController {
 
     if let year = user?.car?.year {
       yearLabel?.text = "\(year)"
+    }
+
+    if let user = user {
+      VerificationHelper.sendVerificationEmail(user, schoolEmail: "vforney@calpoly.edu")
     }
   }
 
