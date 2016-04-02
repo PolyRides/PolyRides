@@ -10,24 +10,19 @@ import FBSDKLoginKit
 
 class MyProfileViewController: ProfileViewController {
 
-  @IBOutlet weak var carDetailsLabel: UILabel?
-
   @IBAction func logOutAction(sender: AnyObject) {
     UserService().logOut()
   }
 
   override func viewDidLoad() {
-    super.viewDidLoad()
-  }
-
-  override func setupProfile() {
-    super.setupProfile()
-
-    if let description = user?.description {
-      descriptionTextView?.text = description
+    if let tabBarController = tabBarController as? TabBarController {
+      user = tabBarController.user
     }
-    if let carDetails = user?.car?.getDescription() {
-      carDetailsLabel?.text = carDetails
+
+    super.viewDidLoad()
+
+    if user?.verifications.indexOf(Verification.CalPoly) != nil {
+      verifiedImage?.hidden = false
     }
   }
 

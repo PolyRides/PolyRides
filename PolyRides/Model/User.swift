@@ -22,7 +22,7 @@ class User {
 
   var savedRides = [Ride]()
   var verifications = [Verification]()
-  var pendingVerifications = [Verification: Int]()
+  var pendingVerifications = [Verification]()
 
   init() {
   }
@@ -90,10 +90,10 @@ class User {
           }
         }
       }
-      if let pendingVeritications = dictionary["pendingVerifications"] as? [String: Int] {
+      if let pendingVeritications = dictionary["pendingVerifications"] as? [String: AnyObject] {
         for pendingVerification in pendingVeritications {
           if let verification = Verification(rawValue: pendingVerification.0) {
-            self.pendingVerifications[verification] = pendingVerification.1
+            self.pendingVerifications.append(verification)
           }
         }
       }

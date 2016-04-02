@@ -176,24 +176,46 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Gray Volkswagon Beetle Convertible (2006)" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="j5v-5g-rTD">
+                                <rect key="frame" x="8" y="275" width="584" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="Ahc-TG-uAj"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cal_poly_verified" translatesAutoresizingMaskIntoConstraints="NO" id="pZb-Oa-Pn1">
+                                <rect key="frame" x="263" y="304" width="75" height="75"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="75" id="S2d-sK-rKP"/>
+                                    <constraint firstAttribute="width" constant="75" id="e79-2F-WpE"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="z2R-bC-8WF" firstAttribute="top" secondItem="6fH-N8-bgu" secondAttribute="bottom" constant="8" id="7KE-oS-pBK"/>
+                            <constraint firstItem="j5v-5g-rTD" firstAttribute="top" secondItem="z2R-bC-8WF" secondAttribute="bottom" constant="8" id="7oI-SI-wpz"/>
                             <constraint firstItem="5eS-bu-VhV" firstAttribute="top" secondItem="4ER-46-lxb" secondAttribute="bottom" constant="8" id="ETD-BB-Inl"/>
                             <constraint firstItem="6fH-N8-bgu" firstAttribute="top" secondItem="5eS-bu-VhV" secondAttribute="bottom" constant="8" id="Eiy-l4-1nw"/>
                             <constraint firstItem="z2R-bC-8WF" firstAttribute="trailing" secondItem="890-sr-VHH" secondAttribute="trailingMargin" id="GAX-Tw-FKo"/>
+                            <constraint firstItem="j5v-5g-rTD" firstAttribute="centerX" secondItem="890-sr-VHH" secondAttribute="centerX" id="Hhs-iq-map"/>
+                            <constraint firstItem="pZb-Oa-Pn1" firstAttribute="centerX" secondItem="890-sr-VHH" secondAttribute="centerX" id="PCl-sz-Qrz"/>
                             <constraint firstItem="6fH-N8-bgu" firstAttribute="trailing" secondItem="890-sr-VHH" secondAttribute="trailingMargin" id="fZX-pB-MqW"/>
                             <constraint firstItem="6fH-N8-bgu" firstAttribute="leading" secondItem="890-sr-VHH" secondAttribute="leadingMargin" id="gB5-QN-mOR"/>
                             <constraint firstItem="z2R-bC-8WF" firstAttribute="leading" secondItem="890-sr-VHH" secondAttribute="leadingMargin" id="gEk-3B-ydz"/>
                             <constraint firstItem="5eS-bu-VhV" firstAttribute="centerX" secondItem="890-sr-VHH" secondAttribute="centerX" id="utS-4M-f3b"/>
+                            <constraint firstItem="pZb-Oa-Pn1" firstAttribute="top" secondItem="j5v-5g-rTD" secondAttribute="bottom" constant="8" id="vxw-D0-leb"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Driver Profile" id="lde-Gz-ypk"/>
                     <connections>
+                        <outlet property="carDetailsLabel" destination="j5v-5g-rTD" id="3hh-7j-vPv"/>
                         <outlet property="descriptionTextView" destination="z2R-bC-8WF" id="EpE-bR-4mo"/>
                         <outlet property="imageView" destination="5eS-bu-VhV" id="PTe-RO-Qwb"/>
                         <outlet property="nameLabel" destination="6fH-N8-bgu" id="6mP-5y-Rt5"/>
+                        <outlet property="verifiedImage" destination="pZb-Oa-Pn1" id="s0I-FF-udC"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GcI-9f-feO" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -202,6 +224,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="cal_poly_verified" width="134" height="134"/>
         <image name="star" width="33" height="33"/>
     </resources>
 </document>

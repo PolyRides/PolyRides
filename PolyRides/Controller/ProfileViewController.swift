@@ -16,13 +16,11 @@ class ProfileViewController: UIViewController {
   @IBOutlet weak var nameLabel: UILabel?
   @IBOutlet weak var imageView: UIImageView?
   @IBOutlet weak var descriptionTextView: UITextView?
+  @IBOutlet weak var carDetailsLabel: UILabel?
+  @IBOutlet weak var verifiedImage: UIImageView?
 
   override func viewDidLoad() {
     super.viewDidLoad()
-
-    if let tabBarController = tabBarController as? TabBarController {
-      user = tabBarController.user
-    }
 
     setupProfile()
   }
@@ -60,6 +58,16 @@ class ProfileViewController: UIViewController {
       descriptionTextView?.hidden = false
     } else {
       descriptionTextView?.hidden = true
+    }
+
+    if user?.verifications.indexOf(Verification.CalPoly) != nil {
+
+    }
+
+    if let carDetails = user?.car?.getDescription() {
+      carDetailsLabel?.text = carDetails
+    } else {
+      carDetailsLabel?.text = ""
     }
   }
 

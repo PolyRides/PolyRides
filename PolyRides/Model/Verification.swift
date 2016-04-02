@@ -14,8 +14,11 @@ enum Verification: String {
   static let verificationNames = [
     CalPoly: "Cal Poly"
   ]
-  static let verificationImages = [
-    CalPoly: "calpoly"
+  static let verifiedImages = [
+    CalPoly: "cal_poly_verified"
+  ]
+  static let unverifiedImages = [
+    CalPoly: "cal_poly_unverified"
   ]
   static let extensionToVerifications = [
     "@calpoly.edu": CalPoly
@@ -25,8 +28,12 @@ enum Verification: String {
     return Verification.verificationNames[self]!
   }
 
-  func image() -> UIImage {
-    return UIImage(named: Verification.verificationImages[self]!)!
+  func getVerifiedImage() -> UIImage {
+    return UIImage(named: Verification.verifiedImages[self]!)!
+  }
+
+  func getUnverifiedImage() -> UIImage {
+    return UIImage(named: Verification.unverifiedImages[self]!)!
   }
 
   static func getVerification(email: String) -> Verification? {

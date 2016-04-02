@@ -53,6 +53,7 @@
 		DB747ABA1C98D79E00A24F58 /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB747AB91C98D79E00A24F58 /* Profile.storyboard */; };
 		DB747ABC1C98DB2D00A24F58 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB747ABB1C98DB2D00A24F58 /* TabBarController.swift */; };
 		DB8DAE5A1CB022EF0045195D /* Verification.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB8DAE591CB022EF0045195D /* Verification.swift */; };
+		DB8DAE5C1CB02FD40045195D /* VerificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB8DAE5B1CB02FD40045195D /* VerificationService.swift */; };
 		DB956DD81C96833700809B4C /* FirebaseConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB956DD71C96833700809B4C /* FirebaseConnection.swift */; };
 		DBAB56801C968FAA0011167A /* UIViewControllerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBAB567F1C968FAA0011167A /* UIViewControllerExtensions.swift */; };
 		DBAB56871C96B0F10011167A /* RegionTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBAB56861C96B0F10011167A /* RegionTableViewController.swift */; };
@@ -155,6 +156,7 @@
 		DB747AB91C98D79E00A24F58 /* Profile.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
 		DB747ABB1C98DB2D00A24F58 /* TabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		DB8DAE591CB022EF0045195D /* Verification.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Verification.swift; sourceTree = "<group>"; };
+		DB8DAE5B1CB02FD40045195D /* VerificationService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VerificationService.swift; sourceTree = "<group>"; };
 		DB956DD71C96833700809B4C /* FirebaseConnection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FirebaseConnection.swift; path = Model/FirebaseConnection.swift; sourceTree = "<group>"; };
 		DBAB567F1C968FAA0011167A /* UIViewControllerExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtensions.swift; sourceTree = "<group>"; };
 		DBAB56861C96B0F10011167A /* RegionTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegionTableViewController.swift; sourceTree = "<group>"; };
@@ -222,6 +224,7 @@
 				DB701ADA1CA23E0600B40C9C /* RideService.swift */,
 				DB701ADE1CA2537E00B40C9C /* UserService.swift */,
 				DB701AE21CA2582100B40C9C /* AuthService.swift */,
+				DB8DAE5B1CB02FD40045195D /* VerificationService.swift */,
 			);
 			name = Services;
 			sourceTree = "<group>";
@@ -684,6 +687,7 @@
 				DB43A9941C9F7A2500AC2AF9 /* Region.swift in Sources */,
 				DBAB56801C968FAA0011167A /* UIViewControllerExtensions.swift in Sources */,
 				DB43A9961C9F95E400AC2AF9 /* RegionRidesViewController.swift in Sources */,
+				DB8DAE5C1CB02FD40045195D /* VerificationService.swift in Sources */,
 				DB2433411CA3A1AC0025680B /* MyProfileViewController.swift in Sources */,
 				DB4151041C9B05340062E5A0 /* AddRideViewController.swift in Sources */,
 				DB701ADD1CA24E3100B40C9C /* LaunchScreenViewController.swift in Sources */,

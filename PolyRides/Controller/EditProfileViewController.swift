@@ -19,6 +19,7 @@ class EditProfileViewController: UIViewController {
   let key = "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"
   let emptyDescription = "Enter a short description about yourself."
   let userService = UserService()
+  let verificationService = VerificationService()
 
   var delegate: EditProfileDelegate?
   var user: User?
@@ -29,6 +30,17 @@ class EditProfileViewController: UIViewController {
   @IBOutlet weak var colorLabel: UITextField?
   @IBOutlet weak var descriptionTextView: UITextView?
   @IBOutlet weak var verificationCodeField: UITextField?
+  @IBOutlet weak var verifyButton: UIButton?
+  @IBOutlet weak var verifiedImage: UIButton?
+
+  @IBAction func verifyButtonAction(sender: AnyObject) {
+    // action sheet: Enter Code, Resend Email, Remove
+    let title = "Enter Code"
+    let message = "Enter the code sent to your Cal Poly email address."
+    let options = AlertOptions(message: message, title: title, acceptText: "Submit", handler: onCodeEntered,
+                               showCancel: true, configurationHandler: addVerificationHandler)
+    presentAlert(options)
+  }
 
   @IBAction func cancelButtonAction(sender: AnyObject) {
     dismissViewControllerAnimated(true, completion: nil)
@@ -57,6 +69,7 @@ class EditProfileViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
 
+    verificationService.delegate = self
     descriptionTextView?.text = user?.description ?? emptyDescription
     makeLabel?.text = user?.car?.make
     modelLabel?.text = user?.car?.model
@@ -64,6 +77,17 @@ class EditProfileViewController: UIViewController {
 
     if let year = user?.car?.year {
       yearLabel?.text = "\(year)"
+    }
+
+    if user?.verifications.indexOf(Verification.CalPoly) != nil {
+      verifiedImage?.setImage(Verification.CalPoly.getVerifiedImage(), forState: .Normal)
+      verifiedImage?.userInteractionEnabled = false
+      verifiedImage?.hidden = false
+      verifyButton?.hidden = true
+    } else if user?.pendingVerifications.indexOf(Verification.CalPoly) != nil {
+      verifiedImage?.setImage(Verification.CalPoly.getUnverifiedImage(), forState: .Normal)
+      verifiedImage?.hidden = false
+      verifyButton?.hidden = true
     }
   }
 
@@ -74,8 +98,8 @@ class EditProfileViewController: UIViewController {
   func onSendVerification(alert: UIAlertAction) {
     if let user = user {
       if let email = verificationCodeField?.text {
-        if email.hasSuffix("@calpoly.edu") {
-          sendVerificationEmail(user, schoolEmail: email)
+        if let verification = Verification.getVerification(email) {
+          sendVerificationEmail(user, verification: verification, email: email)
         } else {
           let title = "Invalid Email"
           let message = "Please enter a valid Cal Poly email."
@@ -85,7 +109,17 @@ class EditProfileViewController: UIViewController {
     }
   }
 
-  func sendVerificationEmail(user: User, schoolEmail: String) {
+  func onCodeEntered(alert: UIAlertAction) {
+    if let user = user {
+      if let codeString = verificationCodeField?.text {
+        if let code = Int(codeString) {
+          verificationService.verify(user, verification: Verification.CalPoly, enteredCode: code)
+        }
+      }
+    }
+  }
+
+  func sendVerificationEmail(user: User, verification: Verification, email schoolEmail: String) {
     let code = Int(arc4random_uniform(10000))
     let userName = user.firstName ?? "Poly Rides User"
     let message = "<p>Hi \(userName),</p>" +
@@ -112,10 +146,15 @@ class EditProfileViewController: UIViewController {
     do {
       try sendGrid.send(email, completionHandler: { (response, data, error) -> Void in
         if error == nil {
+          self.verificationService.addPendingVerification(user, verification: verification, code: code)
+
           let message = "Please check your email for a verification code."
-          let title = "Success"
+          let title = "Email Sent"
           dispatch_async(dispatch_get_main_queue(), {
             self.presentAlert(AlertOptions(message: message, title: title))
+            self.verifyButton?.hidden = true
+            self.verifiedImage?.setImage(Verification.CalPoly.getUnverifiedImage(), forState: .Normal)
+            self.verifiedImage?.hidden = false
           })
         }
       })
@@ -126,6 +165,30 @@ class EditProfileViewController: UIViewController {
         self.presentAlert(AlertOptions(message: message, title: title))
       })
     }
+  }
+
+}
+
+// MARK: - FirebaseVerificationDelegate
+extension EditProfileViewController: FirebaseVerificationDelegate {
+
+  func onVerificationSuccessful(verification: Verification) {
+    let title = "Verification Successful"
+    dispatch_async(dispatch_get_main_queue(), {
+      self.presentAlert(AlertOptions(message: "", title: title))
+    })
+
+    verifyButton?.hidden = true
+    self.verifiedImage?.setImage(Verification.CalPoly.getVerifiedImage(), forState: .Normal)
+    verifiedImage?.userInteractionEnabled = false
+  }
+
+  func onVerificationUnsuccessful() {
+    let message = "The code you have entered does not match our records."
+    let title = "Verification Error"
+    dispatch_async(dispatch_get_main_queue(), {
+      self.presentAlert(AlertOptions(message: message, title: title))
+    })
   }
 
 }

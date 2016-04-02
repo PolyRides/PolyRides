@@ -66,6 +66,14 @@ class PassengerRideDetailsViewController: RideDetailsViewController {
     saveButton?.image = image
   }
 
+  override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    if segue.identifier == "toDriverDetails" {
+      if let vc = segue.destinationViewController as? ProfileViewController {
+        vc.user = ride?.driver
+      }
+    }
+  }
+
 }
 
 // MARK: - UITableViewDataSource
