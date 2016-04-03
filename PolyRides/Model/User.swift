@@ -27,6 +27,14 @@ class User {
   init() {
   }
 
+  init(facebookId: String, name: String) {
+    self.facebookId = facebookId
+    let components = name.componentsSeparatedByString(" ")
+    firstName = components.first
+    lastName = components.last
+    imageURL = "https://graph.facebook.com/\(facebookId)/picture?type=large"
+  }
+
   init(id: String) {
     self.id = id
   }
@@ -65,6 +73,9 @@ class User {
   func updateFromSnapshot(snapshot: FDataSnapshot) {
     if let dictionary = snapshot.value as? [String : AnyObject] {
       self.id = snapshot.key
+      if let facebookId = dictionary["facebookId"] as? String {
+        self.facebookId = facebookId
+      }
       if let email = dictionary["email"] as? String {
         self.email = email
       }

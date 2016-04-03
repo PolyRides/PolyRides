@@ -54,6 +54,9 @@
 		DB747ABC1C98DB2D00A24F58 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB747ABB1C98DB2D00A24F58 /* TabBarController.swift */; };
 		DB8DAE5A1CB022EF0045195D /* Verification.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB8DAE591CB022EF0045195D /* Verification.swift */; };
 		DB8DAE5C1CB02FD40045195D /* VerificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB8DAE5B1CB02FD40045195D /* VerificationService.swift */; };
+		DB8DAE5E1CB1B3820045195D /* PassengerProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB8DAE5D1CB1B3820045195D /* PassengerProfileViewController.swift */; };
+		DB8DAE601CB1B3910045195D /* DriverProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB8DAE5F1CB1B3910045195D /* DriverProfileViewController.swift */; };
+		DB8DAE621CB1CF210045195D /* MutualFriendsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB8DAE611CB1CF210045195D /* MutualFriendsTableViewController.swift */; };
 		DB956DD81C96833700809B4C /* FirebaseConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB956DD71C96833700809B4C /* FirebaseConnection.swift */; };
 		DBAB56801C968FAA0011167A /* UIViewControllerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBAB567F1C968FAA0011167A /* UIViewControllerExtensions.swift */; };
 		DBAB56871C96B0F10011167A /* RegionTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBAB56861C96B0F10011167A /* RegionTableViewController.swift */; };
@@ -157,6 +160,9 @@
 		DB747ABB1C98DB2D00A24F58 /* TabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		DB8DAE591CB022EF0045195D /* Verification.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Verification.swift; sourceTree = "<group>"; };
 		DB8DAE5B1CB02FD40045195D /* VerificationService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VerificationService.swift; sourceTree = "<group>"; };
+		DB8DAE5D1CB1B3820045195D /* PassengerProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PassengerProfileViewController.swift; sourceTree = "<group>"; };
+		DB8DAE5F1CB1B3910045195D /* DriverProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DriverProfileViewController.swift; sourceTree = "<group>"; };
+		DB8DAE611CB1CF210045195D /* MutualFriendsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MutualFriendsTableViewController.swift; sourceTree = "<group>"; };
 		DB956DD71C96833700809B4C /* FirebaseConnection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FirebaseConnection.swift; path = Model/FirebaseConnection.swift; sourceTree = "<group>"; };
 		DBAB567F1C968FAA0011167A /* UIViewControllerExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtensions.swift; sourceTree = "<group>"; };
 		DBAB56861C96B0F10011167A /* RegionTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegionTableViewController.swift; sourceTree = "<group>"; };
@@ -273,6 +279,9 @@
 			children = (
 				DB2433401CA3A1AC0025680B /* MyProfileViewController.swift */,
 				DB5F03D01CAF323400E49A12 /* EditProfileViewController.swift */,
+				DB8DAE5D1CB1B3820045195D /* PassengerProfileViewController.swift */,
+				DB8DAE5F1CB1B3910045195D /* DriverProfileViewController.swift */,
+				DB8DAE611CB1CF210045195D /* MutualFriendsTableViewController.swift */,
 			);
 			name = Profile;
 			sourceTree = "<group>";
@@ -687,6 +696,7 @@
 				DB43A9941C9F7A2500AC2AF9 /* Region.swift in Sources */,
 				DBAB56801C968FAA0011167A /* UIViewControllerExtensions.swift in Sources */,
 				DB43A9961C9F95E400AC2AF9 /* RegionRidesViewController.swift in Sources */,
+				DB8DAE621CB1CF210045195D /* MutualFriendsTableViewController.swift in Sources */,
 				DB8DAE5C1CB02FD40045195D /* VerificationService.swift in Sources */,
 				DB2433411CA3A1AC0025680B /* MyProfileViewController.swift in Sources */,
 				DB4151041C9B05340062E5A0 /* AddRideViewController.swift in Sources */,
@@ -703,6 +713,7 @@
 				DB70B8D01C9389EA0065CC4D /* MainLoginViewController.swift in Sources */,
 				DB701AE11CA2568900B40C9C /* LoadingViewController.swift in Sources */,
 				6E628F9C1CA0FF6900AAC2DB /* MessageService.swift in Sources */,
+				DB8DAE5E1CB1B3820045195D /* PassengerProfileViewController.swift in Sources */,
 				DBF5E6F01C963D3A00693807 /* ResetPasswordViewController.swift in Sources */,
 				DB5F03CF1CAF312100E49A12 /* Car.swift in Sources */,
 				DB5F03D11CAF323400E49A12 /* EditProfileViewController.swift in Sources */,
@@ -716,6 +727,7 @@
 				6E53E3CE1C9E5A6100370108 /* MessagesViewController.swift in Sources */,
 				DB747ABC1C98DB2D00A24F58 /* TabBarController.swift in Sources */,
 				DB43A98F1C9F071800AC2AF9 /* RideDetailsViewController.swift in Sources */,
+				DB8DAE601CB1B3910045195D /* DriverProfileViewController.swift in Sources */,
 				DBAB56931C96C6300011167A /* LoginViewController.swift in Sources */,
 				6E53E3CB1C9E428400370108 /* Message.swift in Sources */,
 				DB5F03C81CAE1F6600E49A12 /* UIButtonExtensions.swift in Sources */,

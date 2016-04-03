@@ -95,7 +95,7 @@ class LoginViewController: LoadingViewController {
 
   func loginWithFacebook() {
     let facebookLogin = FBSDKLoginManager()
-    facebookLogin.logInWithReadPermissions(["email", "public_profile"], fromViewController: self) {
+    facebookLogin.logInWithReadPermissions(["email", "public_profile", "user_friends"], fromViewController: self) {
       facebookResult, facebookError -> Void in
       if facebookError != nil {
         self.onFacebookError()

@@ -12,17 +12,27 @@ import AFNetworking
 class ProfileViewController: UIViewController {
 
   var user: User?
+  var mutualFriends: [User]?
 
   @IBOutlet weak var nameLabel: UILabel?
   @IBOutlet weak var imageView: UIImageView?
   @IBOutlet weak var descriptionTextView: UITextView?
   @IBOutlet weak var carDetailsLabel: UILabel?
   @IBOutlet weak var verifiedImage: UIImageView?
+  @IBOutlet weak var mutualFriendsButton: UIButton?
 
   override func viewDidLoad() {
     super.viewDidLoad()
 
     setupProfile()
+  }
+
+  override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    if segue.identifier == "toMutualFriends" {
+      if let vc = segue.destinationViewController as? MutualFriendsTableViewController {
+        vc.mutualFriends = mutualFriends
+      }
+    }
   }
 
   func setupProfile() {
@@ -69,6 +79,9 @@ class ProfileViewController: UIViewController {
     } else {
       carDetailsLabel?.text = ""
     }
+
+    mutualFriendsButton?.setTitle("\(mutualFriends?.count ?? 0) mutual friends", forState: .Normal)
+    mutualFriendsButton?.centerTextAndImage(4)
   }
 
 }
