@@ -10,10 +10,6 @@ import GoogleMaps
 
 class SearchViewController: TableViewController {
 
-  @IBOutlet weak var fromPlaceTextField: UITextField?
-  @IBOutlet weak var toPlaceTextField: UITextField?
-  @IBOutlet weak var dateTextField: UITextField?
-
   let calendar = NSCalendar.currentCalendar()
 
   var allRides: [Ride]?
@@ -25,6 +21,40 @@ class SearchViewController: TableViewController {
   var fromPlace: GMSPlace?
   var toPlace: GMSPlace?
 
+  @IBOutlet weak var fromPlaceTextField: UITextField?
+  @IBOutlet weak var toPlaceTextField: UITextField?
+  @IBOutlet weak var dateTextField: UITextField?
+
+  @IBAction func fromCurrentLocationAction(sender: AnyObject) {
+    GoogleMapsHelper.PlacesClient.currentPlaceWithCallback({ (placeLikelihoods, error) -> Void in
+      if error != nil {
+        self.presentAlert(AlertOptions(message: Error.CurrentLocationMessage, title: Error.CurrentLocationTitle))
+      }
+
+      if let placeLikelihood = placeLikelihoods?.likelihoods.first {
+        let place = placeLikelihood.place
+        self.fromPlaceTextField?.text = place.formattedAddress
+        self.fromPlace = place
+      } else {
+        self.presentAlert(AlertOptions(message: Error.CurrentLocationMessage, title: Error.CurrentLocationTitle))
+      }
+    })
+  }
+
+  @IBAction func toCurrentLocationAction(sender: AnyObject) {
+    GoogleMapsHelper.PlacesClient.currentPlaceWithCallback({ (placeLikelihoods, error) -> Void in
+      if error != nil {
+        self.presentAlert(AlertOptions(message: Error.CurrentLocationMessage, title: Error.CurrentLocationTitle))
+      }
+
+      if let placeLikelihood = placeLikelihoods?.likelihoods.first {
+        let place = placeLikelihood.place
+        self.toPlaceTextField?.text = place.formattedAddress
+        self.toPlace = place
+      }
+    })
+  }
+
   override func viewDidLoad() {
     super.viewDidLoad()
 
@@ -35,14 +65,33 @@ class SearchViewController: TableViewController {
 
     emptyTitle = Empty.BeginSearchTitle
     emptyMessage = Empty.BeginSearchMessage
-    imageName = "arrow"
+    emptyImage = "arrow"
 
     setupDatePicker()
-    setupTextFields()
+    //setupTextFields()
   }
 
   func setupTextFields() {
-  //  fromPlaceTextField?.setLeft
+    let fromLabel = UILabel(frame: CGRect(x: 50, y: 0, width: 50, height: fromPlaceTextField!.frame.size.height))
+    fromLabel.text = "From"
+    fromLabel.textColor = Color.Navy
+    fromLabel.font = Font.TextFieldPlaceholder
+    fromPlaceTextField?.leftView = fromLabel
+    fromPlaceTextField?.leftViewMode = .Always
+
+    let toLabel = UILabel(frame: fromPlaceTextField!.frame)
+    toLabel.text = "To"
+    toLabel.textColor = Color.Navy
+    toLabel.font = Font.TextFieldPlaceholder
+    toPlaceTextField?.leftView = toLabel
+    toPlaceTextField?.leftViewMode = .Always
+
+    let dateLabel = UILabel(frame: fromPlaceTextField!.frame)
+    dateLabel.text = "Date"
+    dateLabel.textColor = Color.Gray
+    dateLabel.font = Font.TextFieldPlaceholder
+    dateTextField?.leftView = dateLabel
+    dateTextField?.leftViewMode = .Always
   }
 
   func setupDatePicker() {
@@ -100,7 +149,7 @@ class SearchViewController: TableViewController {
         }
       }
 
-      imageName = "empty"
+      emptyImage = "empty"
       emptyTitle = Empty.SearchTitle
       emptyMessage = Empty.SearchMessage
       tableView?.reloadData()

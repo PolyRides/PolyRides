@@ -154,6 +154,9 @@
                                         </constraints>
                                         <color key="tintColor" red="0.92549019610000005" green="0.94117647059999998" blue="0.94509803920000002" alpha="1" colorSpace="calibratedRGB"/>
                                         <state key="normal" image="location"/>
+                                        <connections>
+                                            <action selector="fromCurrentLocationAction:" destination="rDq-gs-kpx" eventType="touchUpInside" id="run-f9-Llt"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A0J-iZ-O9c">
                                         <rect key="frame" x="567" y="40.5" width="25" height="25"/>
@@ -162,6 +165,9 @@
                                         </constraints>
                                         <color key="tintColor" red="0.92549019610000005" green="0.94117647059999998" blue="0.94509803920000002" alpha="1" colorSpace="calibratedRGB"/>
                                         <state key="normal" image="location"/>
+                                        <connections>
+                                            <action selector="toCurrentLocationAction:" destination="rDq-gs-kpx" eventType="touchUpInside" id="BER-W0-oY0"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.1764705882" green="0.24313725489999999" blue="0.30980392159999998" alpha="1" colorSpace="calibratedRGB"/>

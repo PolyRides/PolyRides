@@ -20,7 +20,7 @@ class Location {
 
   init(placeId: String, city: String) {
     self.city = city
-    GoogleMapsHelper.placesClient.lookUpPlaceID(placeId) { [weak self] place, error in
+    GoogleMapsHelper.PlacesClient.lookUpPlaceID(placeId) { [weak self] place, error in
       if error == nil {
         self?.place = place
       }

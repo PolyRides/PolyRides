@@ -26,7 +26,9 @@ struct Font {
   static let SearchBar = UIFont(name: "OpenSans", size: 13.5)!
   static let TableHeader = UIFont(name: "OpenSans", size: 13.5)!
   static let TableRow = UIFont(name: "OpenSans", size: 16.5)!
+  static let EmptyTableHeader = UIFont(name: "OpenSans-Semibold", size: 16.5)!
   static let TableRowSubline = UIFont(name: "OpenSans", size: 12)!
+  static let TextFieldPlaceholder = UIFont(name: "OpenSans-Semibold", size: 13.5)!
 
 }
 
@@ -54,5 +56,12 @@ struct Filter {
     filter.country = "US"
     return filter
   }
+
+}
+
+struct Error {
+
+  static let CurrentLocationTitle = "Error Finding Current Location"
+  static let CurrentLocationMessage = "Please ensure location services are enabled and try again."
 
 }

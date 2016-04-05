@@ -12,7 +12,7 @@ class TableViewController: UIViewController {
 
   @IBOutlet weak var tableView: UITableView?
 
-  var imageName = ""
+  var emptyImage = ""
   var emptyTitle = ""
   var emptyMessage = ""
 
@@ -33,7 +33,7 @@ class TableViewController: UIViewController {
 extension TableViewController: DZNEmptyDataSetSource {
 
   func imageForEmptyDataSet(scrollView: UIScrollView!) -> UIImage! {
-    return UIImage(named: imageName)
+    return UIImage(named: emptyImage)
   }
 
   func imageAnimationForEmptyDataSet(scrollView: UIScrollView!) -> CAAnimation! {
@@ -50,8 +50,8 @@ extension TableViewController: DZNEmptyDataSetSource {
 
   func titleForEmptyDataSet(scrollView: UIScrollView!) -> NSAttributedString! {
     let attributes = [
-      NSFontAttributeName: Font.TableRow,
-      NSForegroundColorAttributeName : UIColor.blackColor()]
+      NSFontAttributeName: Font.EmptyTableHeader,
+      NSForegroundColorAttributeName : Color.Navy]
     return NSAttributedString(string: emptyTitle, attributes: attributes)
   }
 
@@ -61,13 +61,13 @@ extension TableViewController: DZNEmptyDataSetSource {
     paragraph.alignment = NSTextAlignment.Center
     let attributes = [
       NSFontAttributeName: Font.TableRowSubline,
-      NSForegroundColorAttributeName: UIColor.grayColor(),
+      NSForegroundColorAttributeName: Color.Gray,
       NSParagraphStyleAttributeName: paragraph]
 
     return NSAttributedString(string: emptyMessage, attributes: attributes)
   }
 
   func backgroundColorForEmptyDataSet(scrollView: UIScrollView!) -> UIColor! {
-    return UIColor.whiteColor()
+    return Color.White
   }
 }

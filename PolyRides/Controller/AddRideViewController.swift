@@ -38,9 +38,9 @@ class AddRideViewController: UIViewController {
   }
 
   @IBAction func toCurrentLocationAction(sender: AnyObject) {
-    placesClient?.currentPlaceWithCallback({ (placeLikelihoods, error) -> Void in
+    GoogleMapsHelper.PlacesClient.currentPlaceWithCallback({ (placeLikelihoods, error) -> Void in
       if error != nil {
-        self.currentLocationError()
+        self.presentAlert(AlertOptions(message: Error.CurrentLocationMessage, title: Error.CurrentLocationTitle))
       }
 
       if let placeLikelihood = placeLikelihoods?.likelihoods.first {
@@ -52,9 +52,9 @@ class AddRideViewController: UIViewController {
   }
 
   @IBAction func fromCurrentLocationAction(sender: AnyObject) {
-    placesClient?.currentPlaceWithCallback({ (placeLikelihoods, error) -> Void in
+    GoogleMapsHelper.PlacesClient.currentPlaceWithCallback({ (placeLikelihoods, error) -> Void in
       if error != nil {
-        self.currentLocationError()
+        self.presentAlert(AlertOptions(message: Error.CurrentLocationMessage, title: Error.CurrentLocationTitle))
       }
 
       if let placeLikelihood = placeLikelihoods?.likelihoods.first {
@@ -127,12 +127,6 @@ class AddRideViewController: UIViewController {
       }
     }
     return true
-  }
-
-  func currentLocationError() {
-    let title = "Error Finding Current Location"
-    let message = "Please ensure location services are enabled and try again."
-    presentAlert(AlertOptions(message: message, title: title))
   }
 
   func setEnableAddButton() {
