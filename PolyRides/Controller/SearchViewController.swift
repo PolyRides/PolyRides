@@ -57,6 +57,15 @@ class SearchViewController: TableViewController {
     })
   }
 
+  @IBAction func switchToFromAction(sender: AnyObject) {
+    let tempPlace = toPlace
+    let tempText = toPlaceTextField?.text
+    toPlace = fromPlace
+    toPlaceTextField?.text = fromPlaceTextField?.text
+    fromPlace = tempPlace
+    fromPlaceTextField?.text = tempText
+  }
+
   override func viewDidLoad() {
     super.viewDidLoad()
 
