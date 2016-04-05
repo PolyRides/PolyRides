@@ -22,12 +22,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
   func application(application: UIApplication, didFinishLaunchingWithOptions
     launchOptions: [NSObject: AnyObject]?) -> Bool {
 
-    // Tab bar appearance
-    UITabBarItem.appearance().setTitleTextAttributes(
-      [NSFontAttributeName: UIFont(name:"OpenSans", size:11)!],
-      forState: .Normal)
+    // Tab bar appearance.
+    UITabBarItem.appearance().setTitleTextAttributes([NSFontAttributeName: Font.TabBar], forState: .Normal)
 
-    // Google Analytics
+    // Navigation bar appearance.
+    UINavigationBar.appearance().titleTextAttributes = [NSFontAttributeName: Font.NavigationBarTitle,
+                                                        NSForegroundColorAttributeName: Color.White]
+    UINavigationBar.appearance().tintColor = Color.White
+    UINavigationBar.appearance().setBackgroundImage(UIImage(), forBarPosition: .Any, barMetrics: .Default)
+    UINavigationBar.appearance().shadowImage = UIImage()
+
+    // Google Analytics.
     var configureError: NSError?
     GGLContext.sharedInstance().configureWithError(&configureError)
     assert(configureError == nil, "Error configuring Google services: \(configureError)")

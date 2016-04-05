@@ -7,14 +7,12 @@
 //
 
 import GoogleMaps
-import DZNEmptyDataSet
 
-class SearchViewController: UIViewController {
+class SearchViewController: TableViewController {
 
   @IBOutlet weak var fromPlaceTextField: UITextField?
   @IBOutlet weak var toPlaceTextField: UITextField?
   @IBOutlet weak var dateTextField: UITextField?
-  @IBOutlet weak var tableView: UITableView?
 
   let calendar = NSCalendar.currentCalendar()
 
@@ -26,18 +24,28 @@ class SearchViewController: UIViewController {
   var dateFormatter: NSDateFormatter?
   var fromPlace: GMSPlace?
   var toPlace: GMSPlace?
-  var messageEmpty = "Enter from and to locations and your departure date, and rides within 24 hours will show up."
-  var titleEmpty = "Search for a ride."
-  var imageName = "arrow"
 
   override func viewDidLoad() {
     super.viewDidLoad()
 
     tableView?.dataSource = self
-    tableView?.emptyDataSetSource = self
     fromPlaceTextField?.delegate = self
     toPlaceTextField?.delegate = self
+    dateTextField?.delegate = self
 
+    emptyTitle = Empty.BeginSearchTitle
+    emptyMessage = Empty.BeginSearchMessage
+    imageName = "arrow"
+
+    setupDatePicker()
+    setupTextFields()
+  }
+
+  func setupTextFields() {
+  //  fromPlaceTextField?.setLeft
+  }
+
+  func setupDatePicker() {
     dateFormatter = NSDateFormatter()
     dateFormatter?.dateStyle = .MediumStyle
     dateFormatter?.timeStyle = .ShortStyle
@@ -61,9 +69,6 @@ class SearchViewController: UIViewController {
     dateTextField?.inputAccessoryView = toolBar
     date = DateHelper.nearestHalfHour()
     dateTextField?.text = dateFormatter?.stringFromDate(date!)
-
-    // Remove the cell separators in the empty table view.
-    tableView?.tableFooterView = UIView()
   }
 
   func onCancel() {
@@ -96,8 +101,8 @@ class SearchViewController: UIViewController {
       }
 
       imageName = "empty"
-      titleEmpty = "No rides were found."
-      messageEmpty = "We don't have any rides departing within 24 hours of the specified date, please check back later."
+      emptyTitle = Empty.SearchTitle
+      emptyMessage = Empty.SearchMessage
       tableView?.reloadData()
     }
   }
@@ -134,17 +139,17 @@ extension SearchViewController: GMSAutocompleteViewControllerDelegate {
     }
 
     search()
-    dismissViewControllerAnimated(true, completion: nil)
+    dismissViewControllerAnimated(false, completion: nil)
   }
 
   func viewController(viewController: GMSAutocompleteViewController, didFailAutocompleteWithError error: NSError) {
     let title = "Please check your connection and try again."
-    presentAlert(AlertOptions(message: "Network Error", title: title))
-    dismissViewControllerAnimated(true, completion: nil)
+    presentAlert(AlertOptions(message: "Autcomplete Error", title: title))
+    dismissViewControllerAnimated(false, completion: nil)
   }
 
   func wasCancelled(viewController: GMSAutocompleteViewController) {
-    dismissViewControllerAnimated(true, completion: nil)
+    dismissViewControllerAnimated(false, completion: nil)
   }
 
 }
@@ -152,22 +157,30 @@ extension SearchViewController: GMSAutocompleteViewControllerDelegate {
 // MARK: - UITextFieldDelegate
 extension SearchViewController: UITextFieldDelegate {
 
+  func textFieldDidBeginEditing(textField: UITextField) {
+    if textField == dateTextField {
+      textField.textColor = Color.Navy
+    }
+  }
+
+  func textFieldDidEndEditing(textField: UITextField) {
+    if textField == dateTextField {
+      textField.textColor = UIColor.blackColor()
+    }
+  }
+
   func textFieldShouldBeginEditing(textField: UITextField) -> Bool {
+    if textField == dateTextField {
+      return true
+    }
+
     autocompleteTextField = textField
 
-    let filter = GMSAutocompleteFilter()
-    filter.country = "US"
-
-    // Set the bounds to have bias around California.
-    let topLeft = CLLocationCoordinate2DMake(41.975926, -124.509506)
-    let bottomRight = CLLocationCoordinate2DMake(32.974171, -113.799198)
-    let bounds = GMSCoordinateBounds(coordinate: topLeft, coordinate: bottomRight)
-
     let autocompleteController = GMSAutocompleteViewController()
-    autocompleteController.autocompleteFilter = filter
-    autocompleteController.autocompleteBounds = bounds
+    autocompleteController.autocompleteFilter = Filter.US()
+    autocompleteController.autocompleteBounds = Bounds.California
     autocompleteController.delegate = self
-    self.presentViewController(autocompleteController, animated: true, completion: nil)
+    self.presentViewController(autocompleteController, animated: false, completion: nil)
 
     return false
   }
@@ -200,47 +213,4 @@ extension SearchViewController: UITableViewDataSource {
     return cell
   }
 
-}
-
-// MARK: - DZNEmptyDataSetDataSource
-extension SearchViewController: DZNEmptyDataSetSource {
-
-  func imageForEmptyDataSet(scrollView: UIScrollView!) -> UIImage! {
-    return UIImage(named: imageName)
-  }
-
-  func imageAnimationForEmptyDataSet(scrollView: UIScrollView!) -> CAAnimation! {
-    let animation = CABasicAnimation(keyPath: "transform")
-
-    animation.fromValue = NSValue(CATransform3D: CATransform3DMakeRotation(CGFloat(M_PI_2), 0.0, 0.0, 1.0))
-    animation.duration = 0.25
-    animation.cumulative = true
-    animation.repeatCount = MAXFLOAT
-
-    return animation
-  }
-
-
-  func titleForEmptyDataSet(scrollView: UIScrollView!) -> NSAttributedString! {
-    let attributes = [
-      NSFontAttributeName: UIFont.systemFontOfSize(18),
-      NSForegroundColorAttributeName : UIColor.blackColor()]
-    return NSAttributedString(string: titleEmpty, attributes: attributes)
-  }
-
-  func descriptionForEmptyDataSet(scrollView: UIScrollView!) -> NSAttributedString! {
-    let paragraph = NSMutableParagraphStyle()
-    paragraph.lineBreakMode = NSLineBreakMode.ByWordWrapping
-    paragraph.alignment = NSTextAlignment.Center
-    let attributes = [
-      NSFontAttributeName: UIFont.systemFontOfSize(14),
-      NSForegroundColorAttributeName: UIColor.grayColor(),
-      NSParagraphStyleAttributeName: paragraph]
-
-    return NSAttributedString(string: messageEmpty, attributes: attributes)
-  }
-
-  func backgroundColorForEmptyDataSet(scrollView: UIScrollView!) -> UIColor! {
-    return UIColor.whiteColor()
-  }
 }

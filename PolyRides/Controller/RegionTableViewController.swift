@@ -18,14 +18,19 @@ class RegionTableViewCell: UITableViewCell {
   var toRides: [Ride]?
   var fromRides: [Ride]?
   var region: Region?
+  var disclosure: UITableViewCell?
 
   override func setHighlighted(highlighted: Bool, animated: Bool) {
     if highlighted {
       backgroundImageView?.alpha = 0.5
+      locationBackgroundView?.alpha = 0.5
+      disclosure?.alpha = 0.5
       location?.textColor = Color.Gray
       numRides?.textColor = Color.Gray
     } else {
       backgroundImageView?.alpha = 1.0
+      locationBackgroundView?.alpha = 0.65
+      disclosure?.alpha = 0.8
       location?.textColor = Color.White
       numRides?.textColor = Color.White
     }
@@ -72,11 +77,11 @@ class RegionTableViewController: UITableViewController {
       if let vc = segue.destinationViewController as? SearchViewController {
         vc.allRides = allRides
       }
-
-      let backItem = UIBarButtonItem()
-      backItem.title = ""
-      navigationItem.backBarButtonItem = backItem
     }
+
+    let backItem = UIBarButtonItem()
+    backItem.title = ""
+    navigationItem.backBarButtonItem = backItem
   }
 
 }
@@ -106,12 +111,14 @@ extension RegionTableViewController {
         count += fromRides.count
       }
       regionCell.numRides?.text = "\(count) rides"
-    }
 
-    let disclosure = UITableViewCell()
-    disclosure.accessoryType = .DisclosureIndicator
-    
-    cell.addSubview(disclosure)
+      let disclosure = UITableViewCell()
+      disclosure.accessoryType = .DisclosureIndicator
+      disclosure.frame = cell.bounds
+      disclosure.userInteractionEnabled = false
+      regionCell.addSubview(disclosure)
+      regionCell.disclosure = disclosure
+    }
 
     return cell
   }
