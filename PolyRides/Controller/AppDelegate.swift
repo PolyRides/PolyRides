@@ -23,8 +23,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     launchOptions: [NSObject: AnyObject]?) -> Bool {
 
     // Tab bar appearance
-    UITabBar.appearance().tintColor = Color.White
-    UITabBar.appearance().backgroundColor = Color.Navy
+    UITabBarItem.appearance().setTitleTextAttributes(
+      [NSFontAttributeName: UIFont(name:"OpenSans", size:11)!],
+      forState: .Normal)
 
     // Google Analytics
     var configureError: NSError?

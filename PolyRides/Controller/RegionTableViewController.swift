@@ -11,12 +11,25 @@ import CoreLocation
 class RegionTableViewCell: UITableViewCell {
 
   @IBOutlet weak var backgroundImageView: UIImageView?
+  @IBOutlet weak var locationBackgroundView: UIView?
   @IBOutlet weak var location: UILabel?
   @IBOutlet weak var numRides: UILabel?
 
   var toRides: [Ride]?
   var fromRides: [Ride]?
   var region: Region?
+
+  override func setHighlighted(highlighted: Bool, animated: Bool) {
+    if highlighted {
+      backgroundImageView?.alpha = 0.5
+      location?.textColor = Color.Gray
+      numRides?.textColor = Color.Gray
+    } else {
+      backgroundImageView?.alpha = 1.0
+      location?.textColor = Color.White
+      numRides?.textColor = Color.White
+    }
+  }
 
 }
 
@@ -95,7 +108,16 @@ extension RegionTableViewController {
       regionCell.numRides?.text = "\(count) rides"
     }
 
+    let disclosure = UITableViewCell()
+    disclosure.accessoryType = .DisclosureIndicator
+    
+    cell.addSubview(disclosure)
+
     return cell
+  }
+
+  override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    tableView.deselectRowAtIndexPath(indexPath, animated: true)
   }
 
 }

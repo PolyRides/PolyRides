@@ -60,6 +60,7 @@
                                             </constraints>
                                         </view>
                                     </subviews>
+                                    <color key="backgroundColor" red="0.14901960780000001" green="0.14901960780000001" blue="0.14901960780000001" alpha="1" colorSpace="calibratedRGB"/>
                                     <constraints>
                                         <constraint firstAttribute="bottomMargin" secondItem="IZs-ef-taA" secondAttribute="bottom" constant="-8" id="0fR-AG-CgJ"/>
                                         <constraint firstAttribute="trailingMargin" secondItem="WGh-Tn-OWr" secondAttribute="trailing" constant="-8" id="5aZ-cu-Bjc"/>
@@ -74,6 +75,7 @@
                                 <connections>
                                     <outlet property="backgroundImageView" destination="IZs-ef-taA" id="5Ib-e5-Qmw"/>
                                     <outlet property="location" destination="QgS-iV-Lrf" id="OML-F8-uWg"/>
+                                    <outlet property="locationBackgroundView" destination="WGh-Tn-OWr" id="Y9E-Y7-qzK"/>
                                     <outlet property="numRides" destination="yvu-6C-oTd" id="c8Q-bd-gwN"/>
                                     <segue destination="OMY-dk-k3w" kind="show" identifier="toRegionRides" id="LbU-Gs-gPm"/>
                                 </connections>
