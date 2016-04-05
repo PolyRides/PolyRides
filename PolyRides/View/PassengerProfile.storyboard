@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Gq3-Tq-7j9">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <scenes>
+        <!--Driver Profile-->
+        <scene sceneID="8TB-xS-IK0">
+            <objects>
+                <viewController storyboardIdentifier="DriverDetails" id="Gq3-Tq-7j9" customClass="ProfileViewController" customModule="Poly_Rides" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="tmt-N3-smT"/>
+                        <viewControllerLayoutGuide type="bottom" id="Q3W-G5-V06"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Epp-t1-zaG">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="t8K-TB-qew">
+                                <rect key="frame" x="255" y="28" width="90" height="90"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="90" id="MfQ-dN-Dl6"/>
+                                    <constraint firstAttribute="width" constant="90" id="zgf-za-8iE"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ukJ-RB-76s">
+                                <rect key="frame" x="20" y="126" width="560" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="1JH-yg-ge4">
+                                <rect key="frame" x="20" y="155" width="560" height="112"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="112" id="bdR-Js-ntS"/>
+                                </constraints>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cal_poly_verified" translatesAutoresizingMaskIntoConstraints="NO" id="kWE-9v-5WG">
+                                <rect key="frame" x="263" y="304" width="75" height="75"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="75" id="8EY-2Y-DvT"/>
+                                    <constraint firstAttribute="width" constant="75" id="H92-0G-afT"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WVY-qF-uOl">
+                                <rect key="frame" x="233" y="387" width="134" height="22"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <state key="normal" title="13 mutual friends" image="facebook_white"/>
+                                <connections>
+                                    <segue destination="J72-Dm-vAl" kind="show" identifier="toMutualFriends" id="rfB-fO-GZ0"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.81176470590000005" green="0.81176470590000005" blue="0.81176470590000005" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="ukJ-RB-76s" firstAttribute="top" secondItem="t8K-TB-qew" secondAttribute="bottom" constant="8" id="2j8-ee-jee"/>
+                            <constraint firstItem="t8K-TB-qew" firstAttribute="top" secondItem="tmt-N3-smT" secondAttribute="bottom" constant="8" id="58K-7H-3ZK"/>
+                            <constraint firstItem="t8K-TB-qew" firstAttribute="centerX" secondItem="Epp-t1-zaG" secondAttribute="centerX" id="5l7-WH-L04"/>
+                            <constraint firstItem="1JH-yg-ge4" firstAttribute="trailing" secondItem="Epp-t1-zaG" secondAttribute="trailingMargin" id="GpD-rd-OZh"/>
+                            <constraint firstItem="WVY-qF-uOl" firstAttribute="top" secondItem="kWE-9v-5WG" secondAttribute="bottom" constant="8" id="Hsa-hd-29r"/>
+                            <constraint firstItem="kWE-9v-5WG" firstAttribute="top" secondItem="1JH-yg-ge4" secondAttribute="bottom" constant="37" id="Mk9-zJ-6Fy"/>
+                            <constraint firstItem="WVY-qF-uOl" firstAttribute="centerX" secondItem="Epp-t1-zaG" secondAttribute="centerX" id="OUf-AH-Dbv"/>
+                            <constraint firstItem="ukJ-RB-76s" firstAttribute="trailing" secondItem="Epp-t1-zaG" secondAttribute="trailingMargin" id="XV4-fp-oQ6"/>
+                            <constraint firstItem="kWE-9v-5WG" firstAttribute="centerX" secondItem="Epp-t1-zaG" secondAttribute="centerX" id="fWd-rT-0I3"/>
+                            <constraint firstItem="1JH-yg-ge4" firstAttribute="top" secondItem="ukJ-RB-76s" secondAttribute="bottom" constant="8" id="jdL-mA-0MZ"/>
+                            <constraint firstItem="1JH-yg-ge4" firstAttribute="leading" secondItem="Epp-t1-zaG" secondAttribute="leadingMargin" id="kV8-Ax-Wkh"/>
+                            <constraint firstItem="ukJ-RB-76s" firstAttribute="leading" secondItem="Epp-t1-zaG" secondAttribute="leadingMargin" id="tZY-BP-ZOa"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Driver Profile" id="b6Y-hn-DX9"/>
+                    <connections>
+                        <outlet property="descriptionTextView" destination="1JH-yg-ge4" id="7e4-Nh-Jef"/>
+                        <outlet property="imageView" destination="t8K-TB-qew" id="FSs-Xw-bvM"/>
+                        <outlet property="mutualFriendsButton" destination="WVY-qF-uOl" id="ol1-xD-PFY"/>
+                        <outlet property="nameLabel" destination="ukJ-RB-76s" id="Fcq-jM-Upe"/>
+                        <outlet property="verifiedImage" destination="kWE-9v-5WG" id="nsr-1T-4Sk"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4kH-fp-7sx" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3173" y="-999"/>
+        </scene>
+        <!--MutualFriends-->
+        <scene sceneID="zvg-ic-BFD">
+            <objects>
+                <viewControllerPlaceholder storyboardName="MutualFriends" id="J72-Dm-vAl" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4ju-Ke-J7v" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3643.5" y="-999"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="cal_poly_verified" width="134" height="134"/>
+        <image name="facebook_white" width="22" height="22"/>
+    </resources>
+</document>

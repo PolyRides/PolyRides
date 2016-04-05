@@ -3,6 +3,18 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <mutableArray key="OpenSans-Light.ttf">
+            <string>OpenSans-Light</string>
+        </mutableArray>
+        <mutableArray key="OpenSans-Regular.ttf">
+            <string>OpenSans</string>
+            <string>OpenSans</string>
+        </mutableArray>
+        <mutableArray key="OpenSans-Semibold.ttf">
+            <string>OpenSans-Semibold</string>
+        </mutableArray>
+    </customFonts>
     <scenes>
         <!--Navigation Controller-->
         <scene sceneID="uKQ-am-x9a">
@@ -36,53 +48,99 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="POLY RIDES" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fKC-sW-w2w">
-                                <rect key="frame" x="254" y="290" width="93" height="20"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wVu-un-8y5">
-                                <rect key="frame" x="190" y="326" width="220" height="40"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="8AE-i9-4tn">
+                                <rect key="frame" x="170" y="255" width="261" height="91"/>
                                 <subviews>
-                                    <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="b7G-Ua-JdU">
-                                        <rect key="frame" x="100" y="10" width="20" height="20"/>
-                                    </activityIndicatorView>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Oj2-HZ-DRu">
-                                        <rect key="frame" x="0.0" y="0.0" width="220" height="40"/>
-                                        <color key="backgroundColor" red="0.81176470590000005" green="0.81176470590000005" blue="0.81176470590000005" alpha="1" colorSpace="calibratedRGB"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="i5W-Ot-XOI">
+                                        <rect key="frame" x="0.0" y="0.0" width="261" height="69"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="POLY" textAlignment="center" lineBreakMode="clip" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fKC-sW-w2w">
+                                                <rect key="frame" x="0.0" y="0.0" width="119" height="69"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="119" id="mnc-tG-cAu"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="OpenSans-Light" family="Open Sans" pointSize="50"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="RIDES" lineBreakMode="clip" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZuL-JZ-Nvk">
+                                                <rect key="frame" x="122" y="0.0" width="139" height="69"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="139" id="yNm-DK-avM"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="OpenSans-Semibold" family="Open Sans" pointSize="50"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="220" id="M3i-aj-QZQ"/>
-                                            <constraint firstAttribute="height" constant="40" id="mqV-ub-Kif"/>
+                                            <constraint firstAttribute="width" constant="261" id="1xm-vr-cNM"/>
+                                            <constraint firstAttribute="height" constant="69" id="z0X-sj-8Yx"/>
                                         </constraints>
-                                        <state key="normal" title="Log In With Facebook" image="facebook_white"/>
-                                        <connections>
-                                            <action selector="logInWithFacebookAction:" destination="qWD-Tg-O8E" eventType="touchUpInside" id="niJ-my-SPd"/>
-                                        </connections>
-                                    </button>
+                                        <variation key="default">
+                                            <mask key="constraints">
+                                                <exclude reference="1xm-vr-cNM"/>
+                                            </mask>
+                                        </variation>
+                                    </stackView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ridesharing designed for students" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kfe-Ue-7qx">
+                                        <rect key="frame" x="19" y="71" width="224" height="20"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="224" id="3X5-T1-exF"/>
+                                            <constraint firstAttribute="height" constant="20" id="ubM-gy-PyI"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="14"/>
+                                        <color key="textColor" red="0.92549019610000005" green="0.94117647059999998" blue="0.94509803920000002" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
-                                <color key="backgroundColor" red="0.81176470590000005" green="0.81176470590000005" blue="0.81176470590000005" alpha="1" colorSpace="calibratedRGB"/>
+                            </stackView>
+                            <view alpha="0.5" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wVu-un-8y5">
+                                <rect key="frame" x="190" y="528" width="220" height="40"/>
+                                <subviews>
+                                    <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="b7G-Ua-JdU">
+                                        <rect key="frame" x="100" y="10" width="20" height="20"/>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <color key="color" red="0.20784313730000001" green="0.28627450980000002" blue="0.36470588240000001" alpha="1" colorSpace="calibratedRGB"/>
+                                    </activityIndicatorView>
+                                </subviews>
+                                <color key="backgroundColor" red="0.92549019610000005" green="0.94117647059999998" blue="0.94509803920000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" secondItem="Oj2-HZ-DRu" secondAttribute="width" id="6hH-EB-cMt"/>
                                     <constraint firstItem="b7G-Ua-JdU" firstAttribute="centerX" secondItem="wVu-un-8y5" secondAttribute="centerX" id="Dwt-Pr-anR"/>
                                     <constraint firstItem="b7G-Ua-JdU" firstAttribute="centerY" secondItem="wVu-un-8y5" secondAttribute="centerY" id="Yks-5c-pP8"/>
-                                    <constraint firstItem="Oj2-HZ-DRu" firstAttribute="centerY" secondItem="wVu-un-8y5" secondAttribute="centerY" id="bBQ-BD-8XS"/>
-                                    <constraint firstAttribute="height" secondItem="Oj2-HZ-DRu" secondAttribute="height" id="wlV-tb-Vmt"/>
-                                    <constraint firstItem="Oj2-HZ-DRu" firstAttribute="centerX" secondItem="wVu-un-8y5" secondAttribute="centerX" id="zdV-wk-MAl"/>
                                 </constraints>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Oj2-HZ-DRu">
+                                <rect key="frame" x="190" y="528" width="220" height="40"/>
+                                <color key="backgroundColor" red="0.92549019610000005" green="0.94117647059999998" blue="0.94509803920000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="220" id="M3i-aj-QZQ"/>
+                                    <constraint firstAttribute="height" constant="40" id="mqV-ub-Kif"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="15"/>
+                                <color key="tintColor" red="0.20784313725490194" green="0.28627450980392155" blue="0.36470588235294116" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Log In With Facebook" image="facebook_white"/>
+                                <connections>
+                                    <action selector="logInWithFacebookAction:" destination="qWD-Tg-O8E" eventType="touchUpInside" id="niJ-my-SPd"/>
+                                </connections>
+                            </button>
                         </subviews>
-                        <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.20784313725490194" green="0.28627450980392155" blue="0.36470588235294116" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="fKC-sW-w2w" firstAttribute="centerX" secondItem="878-Gb-bR2" secondAttribute="centerX" id="V9u-49-WII"/>
-                            <constraint firstItem="fKC-sW-w2w" firstAttribute="centerY" secondItem="878-Gb-bR2" secondAttribute="centerY" id="dB0-bW-Ogg"/>
-                            <constraint firstItem="wVu-un-8y5" firstAttribute="top" secondItem="fKC-sW-w2w" secondAttribute="bottom" constant="16" id="hAL-KS-idz"/>
+                            <constraint firstItem="Oj2-HZ-DRu" firstAttribute="height" secondItem="wVu-un-8y5" secondAttribute="height" id="12a-dr-EUK"/>
+                            <constraint firstItem="Oj2-HZ-DRu" firstAttribute="width" secondItem="wVu-un-8y5" secondAttribute="width" id="E9Q-F8-Mba"/>
+                            <constraint firstItem="8AE-i9-4tn" firstAttribute="centerX" secondItem="878-Gb-bR2" secondAttribute="centerX" id="Ktg-72-QNp"/>
+                            <constraint firstItem="6RB-gZ-ui4" firstAttribute="top" secondItem="wVu-un-8y5" secondAttribute="bottom" constant="32" id="WSF-Es-FMY"/>
+                            <constraint firstItem="8AE-i9-4tn" firstAttribute="centerY" secondItem="878-Gb-bR2" secondAttribute="centerY" id="XUa-Zf-HIK"/>
+                            <constraint firstItem="Oj2-HZ-DRu" firstAttribute="centerX" secondItem="878-Gb-bR2" secondAttribute="centerX" id="cFn-0a-bNS"/>
+                            <constraint firstItem="6RB-gZ-ui4" firstAttribute="top" secondItem="Oj2-HZ-DRu" secondAttribute="bottom" constant="32" id="xXY-jm-b8o"/>
                             <constraint firstItem="wVu-un-8y5" firstAttribute="centerX" secondItem="878-Gb-bR2" secondAttribute="centerX" id="zjv-Wc-oxl"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="6Ag-Er-bL8"/>
                     <connections>
                         <outlet property="button" destination="Oj2-HZ-DRu" id="VPv-tY-UOp"/>
+                        <outlet property="buttonView" destination="wVu-un-8y5" id="WpL-8k-Nza"/>
                         <outlet property="indicator" destination="b7G-Ua-JdU" id="qXa-nw-egf"/>
                     </connections>
                 </viewController>

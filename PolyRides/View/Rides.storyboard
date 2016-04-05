@@ -103,7 +103,7 @@
                     <connections>
                         <outlet property="segmentedControl" destination="YQo-Ub-837" id="yE0-xn-qvm"/>
                         <outlet property="tableView" destination="Byt-o3-3gz" id="2v9-0M-6Kh"/>
-                        <segue destination="UKr-D7-a7T" kind="show" identifier="toDriverRideDetails" id="yyg-lA-89K"/>
+                        <segue destination="UKr-D7-a7T" kind="show" identifier="toMyRideDetails" id="yyg-lA-89K"/>
                         <segue destination="5T8-f0-521" kind="show" identifier="toPassengerRideDetails" id="LJ8-6J-hxE"/>
                     </connections>
                 </viewController>
@@ -264,10 +264,10 @@
             </objects>
             <point key="canvasLocation" x="-479" y="-1021"/>
         </scene>
-        <!--DriverRideDetails-->
+        <!--MyRideDetails-->
         <scene sceneID="jFg-HJ-ITP">
             <objects>
-                <viewControllerPlaceholder storyboardName="DriverRideDetails" id="UKr-D7-a7T" sceneMemberID="viewController"/>
+                <viewControllerPlaceholder storyboardName="MyRideDetails" id="UKr-D7-a7T" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cW2-Z1-LPA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1072" y="-537"/>

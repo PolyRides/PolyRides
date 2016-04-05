@@ -36,10 +36,13 @@ class RegionTableViewController: UITableViewController {
 
     let searchBar = UISearchBar()
     searchBar.sizeToFit()
+    searchBar.barStyle = .BlackTranslucent
     searchBar.delegate = self
     navigationItem.titleView = searchBar
 
     tableView.separatorStyle = UITableViewCellSeparatorStyle.None
+
+    setupAppearance()
   }
 
   override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {

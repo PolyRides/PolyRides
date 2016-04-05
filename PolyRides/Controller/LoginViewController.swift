@@ -26,6 +26,7 @@ class LoginViewController: LoadingViewController {
 
   @IBOutlet weak var indicator: UIActivityIndicatorView?
   @IBOutlet weak var button: UIButton?
+  @IBOutlet weak var buttonView: UIView?
 
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -33,6 +34,10 @@ class LoginViewController: LoadingViewController {
     // emailTextField?.addTargetForEditing(self, selector: #selector(LoginViewController.textFieldDidChange))
     // passwordTextField?.addTargetForEditing(self, selector: #selector(LoginViewController.textFieldDidChange))
     authService.loginDelegate = self
+
+    buttonView?.layer.cornerRadius = 5
+    button?.layer.cornerRadius = 5
+    //button?.layer.borderWidth = 1
   }
 
   override func viewWillAppear(animated: Bool) {

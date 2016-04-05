@@ -22,44 +22,47 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
   func application(application: UIApplication, didFinishLaunchingWithOptions
     launchOptions: [NSObject: AnyObject]?) -> Bool {
 
-      // Google Analytics
-      var configureError: NSError?
-      GGLContext.sharedInstance().configureWithError(&configureError)
-      assert(configureError == nil, "Error configuring Google services: \(configureError)")
+    // Tab bar appearance
+    UITabBar.appearance().tintColor = Color.White
+    UITabBar.appearance().backgroundColor = Color.Navy
 
-      let gai = GAI.sharedInstance()
-      gai.trackUncaughtExceptions = true  // Report uncaught exceptions.
-      gai.trackerWithTrackingId("UA-69182247-4")
+    // Google Analytics
+    var configureError: NSError?
+    GGLContext.sharedInstance().configureWithError(&configureError)
+    assert(configureError == nil, "Error configuring Google services: \(configureError)")
 
-      // Siren
-      let siren = Siren.sharedInstance
-      siren.appID = "991595932"
-      siren.alertType = SirenAlertType.Force
-      siren.checkVersion(.Immediately)
+    let gai = GAI.sharedInstance()
+    gai.trackUncaughtExceptions = true  // Report uncaught exceptions.
+    gai.trackerWithTrackingId("UA-69182247-4")
 
-      // Register with Google Maps.
-      GMSServices.provideAPIKey("AIzaSyBmxCispciOMZhn4FNbRPv_-Rcj8r_AtAk")
+    // Siren
+    let siren = Siren.sharedInstance
+    siren.appID = "991595932"
+    siren.alertType = SirenAlertType.Force
+    siren.checkVersion(.Immediately)
 
-      if FirebaseConnection.ref.authData != nil {
-        let storyboard = UIStoryboard(name: "LoadingLaunchScreen", bundle: nil)
-        if let controller = storyboard.instantiateInitialViewController() as? LaunchScreenViewController {
-          let user = User()
-          if FirebaseConnection.ref.authData.provider == "facebook" {
-            user.facebookId = FirebaseConnection.ref.authData.uid
-          } else {
-            user.id = FirebaseConnection.ref.authData.uid
-          }
-          controller.user = user
-          self.window?.rootViewController = controller
+    // Register with Google Maps.
+    GMSServices.provideAPIKey("AIzaSyBmxCispciOMZhn4FNbRPv_-Rcj8r_AtAk")
+
+    if FirebaseConnection.ref.authData != nil {
+      let storyboard = UIStoryboard(name: "LoadingLaunchScreen", bundle: nil)
+      if let controller = storyboard.instantiateInitialViewController() as? LaunchScreenViewController {
+        let user = User()
+        if FirebaseConnection.ref.authData.provider == "facebook" {
+          user.facebookId = FirebaseConnection.ref.authData.uid
+        } else {
+          user.id = FirebaseConnection.ref.authData.uid
         }
+        controller.user = user
+        self.window?.rootViewController = controller
       }
+    }
 
-      // Fabric (must be the last call in didFinishLaunchingWithOptions).
-      Fabric.with([Crashlytics.self])
+    // Fabric (must be the last call in didFinishLaunchingWithOptions).
+    Fabric.with([Crashlytics.self])
 
-      return FBSDKApplicationDelegate.sharedInstance()
-        .application(application, didFinishLaunchingWithOptions: launchOptions)
-
+    return FBSDKApplicationDelegate.sharedInstance()
+      .application(application, didFinishLaunchingWithOptions: launchOptions)
   }
 
   func applicationWillResignActive(application: UIApplication) {

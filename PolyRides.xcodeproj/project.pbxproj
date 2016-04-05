@@ -14,7 +14,7 @@
 		6E628FA01CA100E400AAC2DB /* ConversationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E628F9F1CA100E400AAC2DB /* ConversationService.swift */; };
 		8F32E580C33AC6C26F5C4050 /* Pods_PolyRides.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B472AC953EC1C3E0C19CECA0 /* Pods_PolyRides.framework */; };
 		DB1C76721CA0F08C0052D3B9 /* PassengerRideDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB1C76711CA0F08C0052D3B9 /* PassengerRideDetailsViewController.swift */; };
-		DB24333B1CA397940025680B /* DriverRideDetails.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB24333A1CA397940025680B /* DriverRideDetails.storyboard */; };
+		DB24333B1CA397940025680B /* MyRideDetails.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB24333A1CA397940025680B /* MyRideDetails.storyboard */; };
 		DB24333D1CA397E80025680B /* PassengerRideDetails.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB24333C1CA397E80025680B /* PassengerRideDetails.storyboard */; };
 		DB2433411CA3A1AC0025680B /* MyProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2433401CA3A1AC0025680B /* MyProfileViewController.swift */; };
 		DB4151001C9A74500062E5A0 /* MyRidesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB4150FF1C9A74500062E5A0 /* MyRidesViewController.swift */; };
@@ -57,6 +57,20 @@
 		DB8DAE5E1CB1B3820045195D /* PassengerProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB8DAE5D1CB1B3820045195D /* PassengerProfileViewController.swift */; };
 		DB8DAE601CB1B3910045195D /* DriverProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB8DAE5F1CB1B3910045195D /* DriverProfileViewController.swift */; };
 		DB8DAE621CB1CF210045195D /* MutualFriendsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB8DAE611CB1CF210045195D /* MutualFriendsTableViewController.swift */; };
+		DB8DAE651CB2EEED0045195D /* PassengerProfile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB8DAE641CB2EEED0045195D /* PassengerProfile.storyboard */; };
+		DB8DAE671CB2EEFA0045195D /* DriverProfile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB8DAE661CB2EEFA0045195D /* DriverProfile.storyboard */; };
+		DB8DAE691CB2EF750045195D /* MutualFriends.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB8DAE681CB2EF750045195D /* MutualFriends.storyboard */; };
+		DB8DAE6B1CB3080C0045195D /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB8DAE6A1CB3080C0045195D /* Constants.swift */; };
+		DB8DAE771CB31E660045195D /* OpenSans-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DB8DAE6D1CB309DD0045195D /* OpenSans-Bold.ttf */; };
+		DB8DAE781CB31E660045195D /* OpenSans-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DB8DAE6E1CB309DD0045195D /* OpenSans-BoldItalic.ttf */; };
+		DB8DAE791CB31E660045195D /* OpenSans-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DB8DAE6F1CB309DD0045195D /* OpenSans-ExtraBold.ttf */; };
+		DB8DAE7A1CB31E660045195D /* OpenSans-ExtraBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DB8DAE701CB309DD0045195D /* OpenSans-ExtraBoldItalic.ttf */; };
+		DB8DAE7B1CB31E660045195D /* OpenSans-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DB8DAE711CB309DD0045195D /* OpenSans-Italic.ttf */; };
+		DB8DAE7C1CB31E660045195D /* OpenSans-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DB8DAE721CB309DD0045195D /* OpenSans-Light.ttf */; };
+		DB8DAE7D1CB31E660045195D /* OpenSans-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DB8DAE731CB309DD0045195D /* OpenSans-LightItalic.ttf */; };
+		DB8DAE7E1CB31E660045195D /* OpenSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DB8DAE741CB309DD0045195D /* OpenSans-Regular.ttf */; };
+		DB8DAE7F1CB31E660045195D /* OpenSans-Semibold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DB8DAE751CB309DD0045195D /* OpenSans-Semibold.ttf */; };
+		DB8DAE801CB31E660045195D /* OpenSans-SemiboldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DB8DAE761CB309DD0045195D /* OpenSans-SemiboldItalic.ttf */; };
 		DB956DD81C96833700809B4C /* FirebaseConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB956DD71C96833700809B4C /* FirebaseConnection.swift */; };
 		DBAB56801C968FAA0011167A /* UIViewControllerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBAB567F1C968FAA0011167A /* UIViewControllerExtensions.swift */; };
 		DBAB56871C96B0F10011167A /* RegionTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBAB56861C96B0F10011167A /* RegionTableViewController.swift */; };
@@ -113,7 +127,7 @@
 		B472AC953EC1C3E0C19CECA0 /* Pods_PolyRides.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PolyRides.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CC61BB155FFE8FE24FA32C81 /* Pods-PolyRides.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PolyRides.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PolyRides/Pods-PolyRides.debug.xcconfig"; sourceTree = "<group>"; };
 		DB1C76711CA0F08C0052D3B9 /* PassengerRideDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PassengerRideDetailsViewController.swift; sourceTree = "<group>"; };
-		DB24333A1CA397940025680B /* DriverRideDetails.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = DriverRideDetails.storyboard; sourceTree = "<group>"; };
+		DB24333A1CA397940025680B /* MyRideDetails.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MyRideDetails.storyboard; sourceTree = "<group>"; };
 		DB24333C1CA397E80025680B /* PassengerRideDetails.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = PassengerRideDetails.storyboard; sourceTree = "<group>"; };
 		DB2433401CA3A1AC0025680B /* MyProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyProfileViewController.swift; sourceTree = "<group>"; };
 		DB4150FF1C9A74500062E5A0 /* MyRidesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyRidesViewController.swift; sourceTree = "<group>"; };
@@ -163,6 +177,20 @@
 		DB8DAE5D1CB1B3820045195D /* PassengerProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PassengerProfileViewController.swift; sourceTree = "<group>"; };
 		DB8DAE5F1CB1B3910045195D /* DriverProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DriverProfileViewController.swift; sourceTree = "<group>"; };
 		DB8DAE611CB1CF210045195D /* MutualFriendsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MutualFriendsTableViewController.swift; sourceTree = "<group>"; };
+		DB8DAE641CB2EEED0045195D /* PassengerProfile.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = PassengerProfile.storyboard; sourceTree = "<group>"; };
+		DB8DAE661CB2EEFA0045195D /* DriverProfile.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = DriverProfile.storyboard; sourceTree = "<group>"; };
+		DB8DAE681CB2EF750045195D /* MutualFriends.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MutualFriends.storyboard; sourceTree = "<group>"; };
+		DB8DAE6A1CB3080C0045195D /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		DB8DAE6D1CB309DD0045195D /* OpenSans-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Bold.ttf"; sourceTree = "<group>"; };
+		DB8DAE6E1CB309DD0045195D /* OpenSans-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-BoldItalic.ttf"; sourceTree = "<group>"; };
+		DB8DAE6F1CB309DD0045195D /* OpenSans-ExtraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-ExtraBold.ttf"; sourceTree = "<group>"; };
+		DB8DAE701CB309DD0045195D /* OpenSans-ExtraBoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-ExtraBoldItalic.ttf"; sourceTree = "<group>"; };
+		DB8DAE711CB309DD0045195D /* OpenSans-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Italic.ttf"; sourceTree = "<group>"; };
+		DB8DAE721CB309DD0045195D /* OpenSans-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Light.ttf"; sourceTree = "<group>"; };
+		DB8DAE731CB309DD0045195D /* OpenSans-LightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-LightItalic.ttf"; sourceTree = "<group>"; };
+		DB8DAE741CB309DD0045195D /* OpenSans-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Regular.ttf"; sourceTree = "<group>"; };
+		DB8DAE751CB309DD0045195D /* OpenSans-Semibold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Semibold.ttf"; sourceTree = "<group>"; };
+		DB8DAE761CB309DD0045195D /* OpenSans-SemiboldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-SemiboldItalic.ttf"; sourceTree = "<group>"; };
 		DB956DD71C96833700809B4C /* FirebaseConnection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FirebaseConnection.swift; path = Model/FirebaseConnection.swift; sourceTree = "<group>"; };
 		DBAB567F1C968FAA0011167A /* UIViewControllerExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtensions.swift; sourceTree = "<group>"; };
 		DBAB56861C96B0F10011167A /* RegionTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegionTableViewController.swift; sourceTree = "<group>"; };
@@ -247,8 +275,12 @@
 		DB2433391CA397800025680B /* Base */ = {
 			isa = PBXGroup;
 			children = (
-				DB24333A1CA397940025680B /* DriverRideDetails.storyboard */,
+				DBAB56901C96C5270011167A /* Main.storyboard */,
+				DB24333A1CA397940025680B /* MyRideDetails.storyboard */,
 				DB24333C1CA397E80025680B /* PassengerRideDetails.storyboard */,
+				DB8DAE641CB2EEED0045195D /* PassengerProfile.storyboard */,
+				DB8DAE661CB2EEFA0045195D /* DriverProfile.storyboard */,
+				DB8DAE681CB2EF750045195D /* MutualFriends.storyboard */,
 			);
 			name = Base;
 			sourceTree = "<group>";
@@ -384,11 +416,7 @@
 		DB70B8FD1C938A090065CC4D /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				DB70B9031C938CDC0065CC4D /* LaunchScreen.storyboard */,
-				DB701AE41CA2607D00B40C9C /* LoadingLaunchScreen.storyboard */,
-				DB70B9041C938CDC0065CC4D /* Login.storyboard */,
-				DB5F03C51CAE1D0800E49A12 /* FacebookLogin.storyboard */,
-				DBAB56901C96C5270011167A /* Main.storyboard */,
+				DB8DAE631CB2EDE60045195D /* Login */,
 				DB747AB41C98D74F00A24F58 /* Tabs */,
 				DB2433391CA397800025680B /* Base */,
 			);
@@ -399,6 +427,7 @@
 		DB70B8FE1C938A1B0065CC4D /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				DB8DAE6C1CB309CD0045195D /* Fonts */,
 				DB70B8D41C9389EA0065CC4D /* Assets.xcassets */,
 				DB70B9091C938F870065CC4D /* PolyRides-Bridging-Header.h */,
 				DB70B9071C938F540065CC4D /* GoogleService-Info.plist */,
@@ -418,9 +447,38 @@
 			name = Tabs;
 			sourceTree = "<group>";
 		};
+		DB8DAE631CB2EDE60045195D /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				DB70B9031C938CDC0065CC4D /* LaunchScreen.storyboard */,
+				DB701AE41CA2607D00B40C9C /* LoadingLaunchScreen.storyboard */,
+				DB5F03C51CAE1D0800E49A12 /* FacebookLogin.storyboard */,
+				DB70B9041C938CDC0065CC4D /* Login.storyboard */,
+			);
+			name = Login;
+			sourceTree = "<group>";
+		};
+		DB8DAE6C1CB309CD0045195D /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				DB8DAE6D1CB309DD0045195D /* OpenSans-Bold.ttf */,
+				DB8DAE6E1CB309DD0045195D /* OpenSans-BoldItalic.ttf */,
+				DB8DAE6F1CB309DD0045195D /* OpenSans-ExtraBold.ttf */,
+				DB8DAE701CB309DD0045195D /* OpenSans-ExtraBoldItalic.ttf */,
+				DB8DAE711CB309DD0045195D /* OpenSans-Italic.ttf */,
+				DB8DAE721CB309DD0045195D /* OpenSans-Light.ttf */,
+				DB8DAE731CB309DD0045195D /* OpenSans-LightItalic.ttf */,
+				DB8DAE741CB309DD0045195D /* OpenSans-Regular.ttf */,
+				DB8DAE751CB309DD0045195D /* OpenSans-Semibold.ttf */,
+				DB8DAE761CB309DD0045195D /* OpenSans-SemiboldItalic.ttf */,
+			);
+			name = Fonts;
+			sourceTree = "<group>";
+		};
 		DBAB56811C9693930011167A /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				DB8DAE6A1CB3080C0045195D /* Constants.swift */,
 				DB956DD71C96833700809B4C /* FirebaseConnection.swift */,
 				DBB1558B1C9B76C500118F89 /* DateHelper.swift */,
 				DBF5E6DA1C93A66600693807 /* GoogleAnalyticsHelper.swift */,
@@ -575,18 +633,31 @@
 			buildActionMask = 2147483647;
 			files = (
 				DB24333D1CA397E80025680B /* PassengerRideDetails.storyboard in Resources */,
+				DB8DAE7D1CB31E660045195D /* OpenSans-LightItalic.ttf in Resources */,
 				DB70B9061C938CDC0065CC4D /* Login.storyboard in Resources */,
+				DB8DAE691CB2EF750045195D /* MutualFriends.storyboard in Resources */,
+				DB8DAE771CB31E660045195D /* OpenSans-Bold.ttf in Resources */,
 				DBAB56911C96C5270011167A /* Main.storyboard in Resources */,
 				DB747AB81C98D79500A24F58 /* Messages.storyboard in Resources */,
+				DB8DAE7B1CB31E660045195D /* OpenSans-Italic.ttf in Resources */,
+				DB8DAE781CB31E660045195D /* OpenSans-BoldItalic.ttf in Resources */,
+				DB8DAE7A1CB31E660045195D /* OpenSans-ExtraBoldItalic.ttf in Resources */,
 				DB70B9081C938F540065CC4D /* GoogleService-Info.plist in Resources */,
+				DB8DAE671CB2EEFA0045195D /* DriverProfile.storyboard in Resources */,
 				DB5F03C61CAE1D0800E49A12 /* FacebookLogin.storyboard in Resources */,
+				DB8DAE791CB31E660045195D /* OpenSans-ExtraBold.ttf in Resources */,
+				DB8DAE801CB31E660045195D /* OpenSans-SemiboldItalic.ttf in Resources */,
 				DB747AB61C98D76900A24F58 /* Rides.storyboard in Resources */,
 				DB70B8D51C9389EA0065CC4D /* Assets.xcassets in Resources */,
 				DB747ABA1C98D79E00A24F58 /* Profile.storyboard in Resources */,
-				DB24333B1CA397940025680B /* DriverRideDetails.storyboard in Resources */,
+				DB24333B1CA397940025680B /* MyRideDetails.storyboard in Resources */,
 				DB747AB31C98D28A00A24F58 /* Search.storyboard in Resources */,
+				DB8DAE7F1CB31E660045195D /* OpenSans-Semibold.ttf in Resources */,
 				DB70B9051C938CDC0065CC4D /* LaunchScreen.storyboard in Resources */,
 				DB701AE51CA2607D00B40C9C /* LoadingLaunchScreen.storyboard in Resources */,
+				DB8DAE7C1CB31E660045195D /* OpenSans-Light.ttf in Resources */,
+				DB8DAE7E1CB31E660045195D /* OpenSans-Regular.ttf in Resources */,
+				DB8DAE651CB2EEED0045195D /* PassengerProfile.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -731,6 +802,7 @@
 				DBAB56931C96C6300011167A /* LoginViewController.swift in Sources */,
 				6E53E3CB1C9E428400370108 /* Message.swift in Sources */,
 				DB5F03C81CAE1F6600E49A12 /* UIButtonExtensions.swift in Sources */,
+				DB8DAE6B1CB3080C0045195D /* Constants.swift in Sources */,
 				DB4151001C9A74500062E5A0 /* MyRidesViewController.swift in Sources */,
 				DBF5E6DB1C93A66600693807 /* GoogleAnalyticsHelper.swift in Sources */,
 			);

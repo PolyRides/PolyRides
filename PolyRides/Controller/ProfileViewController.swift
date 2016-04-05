@@ -31,6 +31,7 @@ class ProfileViewController: UIViewController {
     if segue.identifier == "toMutualFriends" {
       if let vc = segue.destinationViewController as? MutualFriendsTableViewController {
         vc.mutualFriends = mutualFriends
+        vc.otherUser = user
       }
     }
   }

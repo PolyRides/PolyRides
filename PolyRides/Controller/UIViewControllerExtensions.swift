@@ -32,6 +32,15 @@ struct AlertOptions {
 
 extension UIViewController {
 
+  func setupAppearance() {
+    navigationController?.navigationBar.translucent = false
+    navigationController?.navigationBar.barStyle = .Black
+    navigationController?.navigationBar.barTintColor = Color.DarkNavy
+
+    tabBarController?.tabBar.translucent = false
+    tabBarController?.tabBar.tintColor = Color.Navy
+  }
+
   func presentAlert(alertOptions: AlertOptions = AlertOptions()) {
     let title = alertOptions.title
     let message = alertOptions.message

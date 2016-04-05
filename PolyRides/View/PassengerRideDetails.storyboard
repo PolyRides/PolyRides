@@ -51,6 +51,10 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7hx-Ha-M0P">
+                                <rect key="frame" x="255" y="513" width="91" height="30"/>
+                                <state key="normal" title="Request Ride"/>
+                            </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="87" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="cka-1f-hgU">
                                 <rect key="frame" x="0.0" y="64" width="600" height="108"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -90,15 +94,11 @@
                                         <connections>
                                             <outlet property="driverImageView" destination="H6b-CO-3Ix" id="wBW-fH-995"/>
                                             <outlet property="name" destination="zfo-XM-hJA" id="a6A-bu-JYQ"/>
-                                            <segue destination="4fL-tg-UUB" kind="show" identifier="toDriverDetails" id="IHZ-ZR-BIa"/>
+                                            <segue destination="eKB-u4-3BK" kind="show" identifier="toDriverProfile" id="HIt-m6-rXK"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7hx-Ha-M0P">
-                                <rect key="frame" x="255" y="513" width="91" height="30"/>
-                                <state key="normal" title="Request Ride"/>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -141,145 +141,16 @@
             </objects>
             <point key="canvasLocation" x="2487" y="-999"/>
         </scene>
-        <!--Driver Profile-->
-        <scene sceneID="We2-Tm-Kfh">
+        <!--DriverProfile-->
+        <scene sceneID="cTI-M5-yVo">
             <objects>
-                <viewController storyboardIdentifier="DriverDetails" id="4fL-tg-UUB" customClass="ProfileViewController" customModule="Poly_Rides" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="4ER-46-lxb"/>
-                        <viewControllerLayoutGuide type="bottom" id="Qdt-PF-ub6"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="890-sr-VHH">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="5eS-bu-VhV">
-                                <rect key="frame" x="255" y="28" width="90" height="90"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="90" id="Va1-w0-LYZ"/>
-                                    <constraint firstAttribute="height" constant="90" id="sAD-Hw-ggr"/>
-                                </constraints>
-                            </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6fH-N8-bgu">
-                                <rect key="frame" x="20" y="126" width="560" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="z2R-bC-8WF">
-                                <rect key="frame" x="20" y="155" width="560" height="112"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="112" id="9pf-Mh-ELt"/>
-                                </constraints>
-                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Gray Volkswagon Beetle Convertible (2006)" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="j5v-5g-rTD">
-                                <rect key="frame" x="133.5" y="275" width="333.5" height="21"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="21" id="Ahc-TG-uAj"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cal_poly_verified" translatesAutoresizingMaskIntoConstraints="NO" id="pZb-Oa-Pn1">
-                                <rect key="frame" x="263" y="304" width="75" height="75"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="75" id="S2d-sK-rKP"/>
-                                    <constraint firstAttribute="width" constant="75" id="e79-2F-WpE"/>
-                                </constraints>
-                            </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ljr-0c-KOp">
-                                <rect key="frame" x="233" y="387" width="134" height="22"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <state key="normal" title="13 mutual friends" image="facebook_white"/>
-                                <connections>
-                                    <segue destination="HtZ-oQ-1Q1" kind="show" identifier="toMutualFriends" id="MPS-Wo-nET"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                        <color key="backgroundColor" red="0.81176470590000005" green="0.81176470590000005" blue="0.81176470590000005" alpha="1" colorSpace="calibratedRGB"/>
-                        <constraints>
-                            <constraint firstItem="z2R-bC-8WF" firstAttribute="top" secondItem="6fH-N8-bgu" secondAttribute="bottom" constant="8" id="7KE-oS-pBK"/>
-                            <constraint firstItem="j5v-5g-rTD" firstAttribute="top" secondItem="z2R-bC-8WF" secondAttribute="bottom" constant="8" id="7oI-SI-wpz"/>
-                            <constraint firstItem="Ljr-0c-KOp" firstAttribute="centerX" secondItem="890-sr-VHH" secondAttribute="centerX" id="9Qd-2Q-RoK"/>
-                            <constraint firstItem="5eS-bu-VhV" firstAttribute="top" secondItem="4ER-46-lxb" secondAttribute="bottom" constant="8" id="ETD-BB-Inl"/>
-                            <constraint firstItem="6fH-N8-bgu" firstAttribute="top" secondItem="5eS-bu-VhV" secondAttribute="bottom" constant="8" id="Eiy-l4-1nw"/>
-                            <constraint firstItem="z2R-bC-8WF" firstAttribute="trailing" secondItem="890-sr-VHH" secondAttribute="trailingMargin" id="GAX-Tw-FKo"/>
-                            <constraint firstItem="j5v-5g-rTD" firstAttribute="centerX" secondItem="890-sr-VHH" secondAttribute="centerX" id="Hhs-iq-map"/>
-                            <constraint firstItem="pZb-Oa-Pn1" firstAttribute="centerX" secondItem="890-sr-VHH" secondAttribute="centerX" id="PCl-sz-Qrz"/>
-                            <constraint firstItem="6fH-N8-bgu" firstAttribute="trailing" secondItem="890-sr-VHH" secondAttribute="trailingMargin" id="fZX-pB-MqW"/>
-                            <constraint firstItem="6fH-N8-bgu" firstAttribute="leading" secondItem="890-sr-VHH" secondAttribute="leadingMargin" id="gB5-QN-mOR"/>
-                            <constraint firstItem="z2R-bC-8WF" firstAttribute="leading" secondItem="890-sr-VHH" secondAttribute="leadingMargin" id="gEk-3B-ydz"/>
-                            <constraint firstItem="5eS-bu-VhV" firstAttribute="centerX" secondItem="890-sr-VHH" secondAttribute="centerX" id="utS-4M-f3b"/>
-                            <constraint firstItem="Ljr-0c-KOp" firstAttribute="top" secondItem="pZb-Oa-Pn1" secondAttribute="bottom" constant="8" id="vkh-GO-VDR"/>
-                            <constraint firstItem="pZb-Oa-Pn1" firstAttribute="top" secondItem="j5v-5g-rTD" secondAttribute="bottom" constant="8" id="vxw-D0-leb"/>
-                        </constraints>
-                    </view>
-                    <navigationItem key="navigationItem" title="Driver Profile" id="lde-Gz-ypk"/>
-                    <connections>
-                        <outlet property="carDetailsLabel" destination="j5v-5g-rTD" id="3hh-7j-vPv"/>
-                        <outlet property="descriptionTextView" destination="z2R-bC-8WF" id="EpE-bR-4mo"/>
-                        <outlet property="imageView" destination="5eS-bu-VhV" id="PTe-RO-Qwb"/>
-                        <outlet property="mutualFriendsButton" destination="Ljr-0c-KOp" id="V1b-WI-RF0"/>
-                        <outlet property="nameLabel" destination="6fH-N8-bgu" id="6mP-5y-Rt5"/>
-                        <outlet property="verifiedImage" destination="pZb-Oa-Pn1" id="s0I-FF-udC"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="GcI-9f-feO" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewControllerPlaceholder storyboardName="DriverProfile" id="eKB-u4-3BK" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0a4-Xu-M3w" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3173" y="-999"/>
-        </scene>
-        <!--Mutual Friends-->
-        <scene sceneID="YU4-UD-a0H">
-            <objects>
-                <tableViewController id="HtZ-oQ-1Q1" userLabel="Mutual Friends" customClass="MutualFriendsTableViewController" customModule="Poly_Rides" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="70" sectionHeaderHeight="28" sectionFooterHeight="28" id="aDp-xd-1Gg">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="friendCell" textLabel="Fxs-7k-REx" imageView="0Yz-3z-9in" style="IBUITableViewCellStyleDefault" id="57d-bT-Eaq">
-                                <rect key="frame" x="0.0" y="28" width="600" height="70"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="57d-bT-Eaq" id="xKy-3C-6NH">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="69.5"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Fxs-7k-REx">
-                                            <rect key="frame" x="80" y="0.0" width="505" height="69.5"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" image="empty_profile" id="0Yz-3z-9in">
-                                            <rect key="frame" x="15" y="9" width="50" height="50"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                        </imageView>
-                                    </subviews>
-                                </tableViewCellContentView>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="HtZ-oQ-1Q1" id="Qfg-zY-XYE"/>
-                            <outlet property="delegate" destination="HtZ-oQ-1Q1" id="wqD-6G-ovE"/>
-                        </connections>
-                    </tableView>
-                    <navigationItem key="navigationItem" title="Mutual Friends" id="QW7-FF-1YH" userLabel="Mutual Friends"/>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="C0B-vU-Lvx" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="3843" y="-999"/>
+            <point key="canvasLocation" x="2930.5" y="-999"/>
         </scene>
     </scenes>
     <resources>
-        <image name="cal_poly_verified" width="134" height="134"/>
-        <image name="empty_profile" width="50" height="50"/>
-        <image name="facebook_white" width="22" height="22"/>
         <image name="star" width="33" height="33"/>
     </resources>
 </document>

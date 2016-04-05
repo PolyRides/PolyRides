@@ -90,7 +90,7 @@ class MyRidesViewController: RidesViewController {
           addRideVC.user = user
         }
       }
-    } else if segue.identifier == "toPassengerRideDetails" || segue.identifier == "toDriverRideDetails" {
+    } else if segue.identifier == "toPassengerRideDetails" || segue.identifier == "toMyRideDetails" {
       if let vc = segue.destinationViewController as? RideDetailsViewController {
         if let cell = sender as? RideTableViewCell {
           vc.ride = cell.ride
@@ -141,7 +141,7 @@ extension MyRidesViewController: UITableViewDelegate {
     if segmentedControl?.selectedSegmentIndex == 2 {
       performSegueWithIdentifier("toPassengerRideDetails", sender: cell)
     } else {
-      performSegueWithIdentifier("toDriverRideDetails", sender: cell)
+      performSegueWithIdentifier("toMyRideDetails", sender: cell)
     }
   }
 

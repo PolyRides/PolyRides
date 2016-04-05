@@ -4,6 +4,12 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <mutableArray key="OpenSans-Regular.ttf">
+            <string>OpenSans</string>
+            <string>OpenSans</string>
+        </mutableArray>
+    </customFonts>
     <scenes>
         <!--Region Table View Controller-->
         <scene sceneID="DRy-Ed-XEH">
@@ -24,33 +30,33 @@
                                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="san_francisco" translatesAutoresizingMaskIntoConstraints="NO" id="IZs-ef-taA">
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="199.5"/>
                                         </imageView>
-                                        <view alpha="0.65000000000000002" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WGh-Tn-OWr">
-                                            <rect key="frame" x="0.0" y="167.5" width="600" height="32"/>
+                                        <view alpha="0.75" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WGh-Tn-OWr">
+                                            <rect key="frame" x="0.0" y="171.5" width="600" height="28"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="SF Bay" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QgS-iV-Lrf">
-                                                    <rect key="frame" x="8" y="6" width="476" height="21.5"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" misplaced="YES" text="SF Bay" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QgS-iV-Lrf">
+                                                    <rect key="frame" x="8" y="5" width="476" height="22"/>
+                                                    <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="16"/>
+                                                    <color key="textColor" red="0.92549019610000005" green="0.94117647059999998" blue="0.94509803920000002" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="36 rides" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yvu-6C-oTd">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="36 rides" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yvu-6C-oTd">
                                                     <rect key="frame" x="492" y="7.5" width="100" height="17"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="100" id="9eR-yC-jMh"/>
                                                     </constraints>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                                    <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="14"/>
+                                                    <color key="textColor" red="0.92549019610000005" green="0.94117647059999998" blue="0.94509803920000002" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
-                                            <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                            <color key="backgroundColor" red="0.14901960780000001" green="0.14901960780000001" blue="0.14901960780000001" alpha="1" colorSpace="calibratedRGB"/>
                                             <constraints>
                                                 <constraint firstItem="yvu-6C-oTd" firstAttribute="centerY" secondItem="WGh-Tn-OWr" secondAttribute="centerY" id="BLg-Pg-k7i"/>
                                                 <constraint firstItem="QgS-iV-Lrf" firstAttribute="leading" secondItem="WGh-Tn-OWr" secondAttribute="leading" constant="8" id="EZj-Yf-ZdL"/>
                                                 <constraint firstItem="QgS-iV-Lrf" firstAttribute="centerY" secondItem="WGh-Tn-OWr" secondAttribute="centerY" id="FtG-Cp-lhS"/>
                                                 <constraint firstItem="yvu-6C-oTd" firstAttribute="leading" secondItem="QgS-iV-Lrf" secondAttribute="trailing" constant="8" id="KPg-Od-SVp"/>
                                                 <constraint firstAttribute="trailing" secondItem="yvu-6C-oTd" secondAttribute="trailing" constant="8" id="S9H-mg-pJe"/>
-                                                <constraint firstAttribute="height" constant="32" id="e7d-VW-9w7"/>
+                                                <constraint firstAttribute="height" constant="28" id="e7d-VW-9w7"/>
                                             </constraints>
                                         </view>
                                     </subviews>

@@ -25,7 +25,7 @@
             </objects>
             <point key="canvasLocation" x="-1941" y="-1021"/>
         </scene>
-        <!--Profile-->
+        <!--My Profile-->
         <scene sceneID="gYo-aD-zB4">
             <objects>
                 <viewController id="oWY-WK-zfY" customClass="MyProfileViewController" customModule="Poly_Rides" customModuleProvider="target" sceneMemberID="viewController">
@@ -136,7 +136,7 @@
                         </variation>
                     </view>
                     <tabBarItem key="tabBarItem" title="Profile" image="user" selectedImage="user_filled" id="1k9-47-6cF"/>
-                    <navigationItem key="navigationItem" title="Profile" id="xam-MZ-sLh">
+                    <navigationItem key="navigationItem" title="My Profile" id="xam-MZ-sLh">
                         <barButtonItem key="rightBarButtonItem" systemItem="edit" id="WRG-H5-zGx">
                             <connections>
                                 <segue destination="8RG-ub-u8u" kind="presentation" identifier="toEditProfile" id="0Y0-uj-gSl"/>

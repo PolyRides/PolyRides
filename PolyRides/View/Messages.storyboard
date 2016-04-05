@@ -197,11 +197,29 @@
                         <segue destination="15n-Ym-mYu" kind="popoverPresentation" identifier="toRequestStatus" popoverAnchorView="F1M-0A-xvy" id="prV-8L-Md1">
                             <popoverArrowDirection key="popoverArrowDirection" up="YES"/>
                         </segue>
+                        <segue destination="uqG-0N-pKa" kind="show" identifier="toPassengerRideDetails" id="ym0-to-XdU"/>
+                        <segue destination="EX5-TD-Yxt" kind="show" identifier="toDriverRideDetails" id="5q5-oE-NNb"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ek9-h5-ZrV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="305" y="-1021"/>
+        </scene>
+        <!--PassengerProfile-->
+        <scene sceneID="kam-pV-1uX">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="a4y-6x-2cR" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewControllerPlaceholder storyboardName="PassengerProfile" id="uqG-0N-pKa" sceneMemberID="viewController"/>
+            </objects>
+            <point key="canvasLocation" x="200.5" y="-547"/>
+        </scene>
+        <!--DriverProfile-->
+        <scene sceneID="7uE-WD-0z2">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7cd-eS-ElJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewControllerPlaceholder storyboardName="DriverProfile" id="EX5-TD-Yxt" sceneMemberID="viewController"/>
+            </objects>
+            <point key="canvasLocation" x="396" y="-547"/>
         </scene>
         <!--Table View Controller-->
         <scene sceneID="MXm-fI-ScK">

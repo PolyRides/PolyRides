@@ -5,10 +5,10 @@
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--Driver Ride Details View Controller-->
+        <!--My Ride Details View Controller-->
         <scene sceneID="rEN-jG-oYo">
             <objects>
-                <viewController id="uOg-wu-1cg" customClass="DriverRideDetailsViewController" customModule="Poly_Rides" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="uOg-wu-1cg" customClass="MyRideDetailsViewController" customModule="Poly_Rides" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="lyW-fN-8Q5"/>
                         <viewControllerLayoutGuide type="bottom" id="3Wo-mt-G9r"/>
@@ -58,22 +58,38 @@
                                     <action selector="removeRideAction:" destination="uOg-wu-1cg" eventType="touchUpInside" id="XVh-ed-TO0"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Accepted Passengers" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HMP-s1-qcB">
+                                <rect key="frame" x="20" y="277" width="167" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pending Passengers" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fgT-6Z-2tA">
+                                <rect key="frame" x="20" y="361" width="156" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="fgT-6Z-2tA" firstAttribute="leading" secondItem="bLN-lE-mip" secondAttribute="leadingMargin" id="14Q-Xb-Rww"/>
                             <constraint firstItem="3Wo-mt-G9r" firstAttribute="top" secondItem="gzW-Mv-Fx5" secondAttribute="bottom" constant="8" id="7F7-Ci-R2e"/>
                             <constraint firstItem="gzW-Mv-Fx5" firstAttribute="centerX" secondItem="bLN-lE-mip" secondAttribute="centerX" id="BDd-wt-Ygl"/>
                             <constraint firstAttribute="leadingMargin" secondItem="j34-Lj-gEX" secondAttribute="leading" id="GTE-vP-bV0"/>
                             <constraint firstAttribute="leadingMargin" secondItem="YHi-JH-nbn" secondAttribute="leading" id="ICR-tk-H7U"/>
+                            <constraint firstItem="fgT-6Z-2tA" firstAttribute="top" secondItem="HMP-s1-qcB" secondAttribute="bottom" constant="63" id="LJM-U8-9lM"/>
                             <constraint firstItem="YTs-Dp-35h" firstAttribute="leading" secondItem="bLN-lE-mip" secondAttribute="leadingMargin" id="LW5-HW-Zjq"/>
                             <constraint firstItem="YTs-Dp-35h" firstAttribute="top" secondItem="YHi-JH-nbn" secondAttribute="bottom" constant="8" id="WhN-cr-T68"/>
                             <constraint firstItem="YHi-JH-nbn" firstAttribute="top" secondItem="TwU-cW-vPr" secondAttribute="bottom" constant="8" id="bPZ-7d-WpY"/>
+                            <constraint firstItem="HMP-s1-qcB" firstAttribute="top" secondItem="YTs-Dp-35h" secondAttribute="bottom" constant="8" id="hVv-zL-m5Y"/>
                             <constraint firstAttribute="leadingMargin" secondItem="TwU-cW-vPr" secondAttribute="leading" id="hWZ-4l-PN5"/>
                             <constraint firstItem="SKn-Bs-XrB" firstAttribute="top" secondItem="lyW-fN-8Q5" secondAttribute="bottom" constant="8" id="kK0-i2-707"/>
                             <constraint firstItem="SKn-Bs-XrB" firstAttribute="leading" secondItem="bLN-lE-mip" secondAttribute="leadingMargin" id="phx-Z1-jSN"/>
                             <constraint firstItem="TwU-cW-vPr" firstAttribute="top" secondItem="j34-Lj-gEX" secondAttribute="bottom" constant="8" id="sOi-bg-A1h"/>
                             <constraint firstItem="j34-Lj-gEX" firstAttribute="top" secondItem="SKn-Bs-XrB" secondAttribute="bottom" constant="8" id="t6z-gU-e3j"/>
                             <constraint firstItem="YTs-Dp-35h" firstAttribute="trailing" secondItem="bLN-lE-mip" secondAttribute="trailingMargin" id="t7B-bH-49r"/>
+                            <constraint firstItem="HMP-s1-qcB" firstAttribute="leading" secondItem="bLN-lE-mip" secondAttribute="leadingMargin" id="xta-ui-Xgu"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="B1w-Ue-2zA"/>
