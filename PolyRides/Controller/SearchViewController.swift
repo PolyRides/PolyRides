@@ -220,6 +220,7 @@ extension SearchViewController: UITextFieldDelegate {
   func textFieldDidBeginEditing(textField: UITextField) {
     if textField == dateTextField {
       textField.textColor = Color.Navy
+      datePicker?.date = DateHelper.nearestHalfHour()
     }
   }
 
