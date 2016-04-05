@@ -35,6 +35,7 @@ class SearchViewController: TableViewController {
         let place = placeLikelihood.place
         self.fromPlaceTextField?.text = place.formattedAddress
         self.fromPlace = place
+        self.search()
       } else {
         self.presentAlert(AlertOptions(message: Error.CurrentLocationMessage, title: Error.CurrentLocationTitle))
       }
@@ -51,6 +52,7 @@ class SearchViewController: TableViewController {
         let place = placeLikelihood.place
         self.toPlaceTextField?.text = place.formattedAddress
         self.toPlace = place
+        self.search()
       }
     })
   }
