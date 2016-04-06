@@ -12,11 +12,13 @@ class RideTableViewCell: UITableViewCell {
 
 }
 
-class RidesViewController: UIViewController {
+class RidesViewController: TableViewController {
 
-  @IBOutlet weak var tableView: UITableView?
-
-  var rides: [Ride]?
+  var rides: [Ride]? {
+    didSet {
+      tableView?.reloadData()
+    }
+  }
   var user: User?
 
   override func viewDidLoad() {
@@ -24,6 +26,7 @@ class RidesViewController: UIViewController {
 
     tableView?.dataSource = self
   }
+
 }
 
 // MARK: - UITableViewDataSource

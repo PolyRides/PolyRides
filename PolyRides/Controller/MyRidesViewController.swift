@@ -29,10 +29,16 @@ class MyRidesViewController: RidesViewController {
     if let segmentedControl = sender as? UISegmentedControl {
       if segmentedControl.selectedSegmentIndex == 0 {
         rides = currentRides
+        emptyTitle = Empty.CurrentRidesTitle
+        emptyMessage = Empty.CurrentRidesMessage
       } else if segmentedControl.selectedSegmentIndex == 1 {
         rides = pastRides
+        emptyTitle = Empty.PastRidesTitle
+        emptyMessage = Empty.PastRidesMessage
       } else {
         rides = user?.savedRides
+        emptyTitle = Empty.SavedRidesTitle
+        emptyMessage = Empty.SavedRidesMessage
       }
     }
     tableView?.reloadData()
@@ -71,8 +77,7 @@ class MyRidesViewController: RidesViewController {
       rideService.getSavedRidesForUser(user)
     }
 
-    // Remove the cell separators in the empty table view.
-    tableView?.tableFooterView = UIView()
+    emptyImage = "empty"
   }
 
   override func viewWillAppear(animated: Bool) {
@@ -143,65 +148,6 @@ extension MyRidesViewController: UITableViewDelegate {
     } else {
       performSegueWithIdentifier("toMyRideDetails", sender: cell)
     }
-  }
-
-}
-
-// MARK: - DZNEmptyDataSetDataSource
-extension MyRidesViewController: DZNEmptyDataSetSource {
-
-  func imageForEmptyDataSet(scrollView: UIScrollView!) -> UIImage! {
-    return UIImage(named: "empty")
-  }
-
-  func imageAnimationForEmptyDataSet(scrollView: UIScrollView!) -> CAAnimation! {
-    let animation = CABasicAnimation(keyPath: "transform")
-
-    animation.fromValue = NSValue(CATransform3D: CATransform3DMakeRotation(CGFloat(M_PI_2), 0.0, 0.0, 1.0))
-    animation.duration = 0.25
-    animation.cumulative = true
-    animation.repeatCount = MAXFLOAT
-
-    return animation
-  }
-
-
-  func titleForEmptyDataSet(scrollView: UIScrollView!) -> NSAttributedString! {
-    let attributes = [
-      NSFontAttributeName: UIFont.systemFontOfSize(18),
-      NSForegroundColorAttributeName : UIColor.blackColor()]
-    var message = "You haven't posted any rides, yet."
-    if segmentedControl?.selectedSegmentIndex == 1 {
-      message = "You haven't completed any rides, yet."
-    } else if segmentedControl?.selectedSegmentIndex == 2 {
-      message = "You haven't saved any rides, yet."
-    }
-    return NSAttributedString(string: message, attributes: attributes)
-  }
-
-  func descriptionForEmptyDataSet(scrollView: UIScrollView!) -> NSAttributedString! {
-    var message = ""
-    if segmentedControl?.selectedSegmentIndex == 0 {
-      message = "Offer a ride by tapping the plus symbol\nin the top right."
-    } else if segmentedControl?.selectedSegmentIndex == 1 {
-      message = "When you offer and complete a ride,\nthat ride will appear here."
-    } else {
-      message = "When viewing a ride in the search tab, you may save a ride by tapping the star in the top right."
-    }
-
-    let paragraph = NSMutableParagraphStyle()
-    paragraph.lineBreakMode = NSLineBreakMode.ByWordWrapping
-    paragraph.alignment = NSTextAlignment.Center
-    let attributes = [
-      NSFontAttributeName: UIFont.systemFontOfSize(14),
-      NSForegroundColorAttributeName: UIColor.grayColor(),
-      NSParagraphStyleAttributeName: paragraph]
-
-    return NSAttributedString(string: message, attributes: attributes)
-  }
-
-  func backgroundColorForEmptyDataSet(scrollView: UIScrollView!) -> UIColor! {
-    return UIColor.whiteColor()
   }
 
 }

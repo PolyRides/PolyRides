@@ -96,6 +96,39 @@ extension LoadingViewController: FirebaseRidesDelegate {
     // Do nothing since we are loading all rides.
   }
 
+  func onRideAdded(ride: Ride) {
+    if allRides.indexOf(ride) == nil {
+      allRides.append(ride)
+      if let toLocationCity = ride.toLocation?.city {
+        let region = Region.getRegion(toLocationCity)
+        toRegionToRides[region]?.append(ride)
+      }
+      if let fromLocationCity = ride.fromLocation?.city {
+        let region = Region.getRegion(fromLocationCity)
+        fromRegionToRides[region]?.append(ride)
+      }
+
+    }
+  }
+
+  func onRideRemoved(ride: Ride) {
+    if let index = allRides.indexOf(ride) {
+      allRides.removeAtIndex(index)
+    }
+    if let toLocationCity = ride.toLocation?.city {
+      let region = Region.getRegion(toLocationCity)
+      if let index = toRegionToRides[region]?.indexOf(ride) {
+        toRegionToRides[region]?.removeAtIndex(index)
+      }
+    }
+    if let fromLocationCity = ride.fromLocation?.city {
+      let region = Region.getRegion(fromLocationCity)
+      if let index = fromRegionToRides[region]?.indexOf(ride) {
+        fromRegionToRides[region]?.removeAtIndex(index)
+      }
+    }
+  }
+
 }
 
 // MARK: - FirebaseUserDelegate

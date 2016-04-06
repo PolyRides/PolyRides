@@ -20,8 +20,14 @@ class RegionRidesViewController: RidesViewController {
     if let segmentedControl = sender as? UISegmentedControl {
       if segmentedControl.selectedSegmentIndex == 0 {
         rides = fromRides
+        if let region = region {
+          emptyMessage = Empty.FromRegion(region)
+        }
       } else {
         rides = toRides
+        if let region = region {
+          emptyMessage = Empty.ToRegion(region)
+        }
       }
     }
     tableView?.reloadData()
@@ -31,12 +37,14 @@ class RegionRidesViewController: RidesViewController {
     super.viewDidLoad()
 
     rides = fromRides
+    tableView?.reloadData()
     title = region?.name()
-    tableView?.delegate = self
-    tableView?.emptyDataSetSource = self
 
-    // Remove the cell separators in the empty table view.
-    tableView?.tableFooterView = UIView()
+    emptyImage = "empty"
+    emptyTitle = Empty.RegionTitle
+    if let region = region {
+      emptyMessage = Empty.FromRegion(region)
+    }
   }
 
   override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
@@ -57,62 +65,6 @@ extension RegionRidesViewController: UITableViewDelegate {
 
   func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
     tableView.deselectRowAtIndexPath(indexPath, animated: true)
-  }
-
-}
-
-// MARK: - DZNEmptyDataSetDataSource
-extension RegionRidesViewController: DZNEmptyDataSetSource {
-
-  func imageForEmptyDataSet(scrollView: UIScrollView!) -> UIImage! {
-    return UIImage(named: "empty")
-  }
-
-  func imageAnimationForEmptyDataSet(scrollView: UIScrollView!) -> CAAnimation! {
-    let animation = CABasicAnimation(keyPath: "transform")
-
-    animation.fromValue = NSValue(CATransform3D: CATransform3DMakeRotation(CGFloat(M_PI_2), 0.0, 0.0, 1.0))
-    animation.duration = 0.25
-    animation.cumulative = true
-    animation.repeatCount = MAXFLOAT
-
-    return animation
-  }
-
-
-  func titleForEmptyDataSet(scrollView: UIScrollView!) -> NSAttributedString! {
-    let attributes = [
-      NSFontAttributeName: UIFont.systemFontOfSize(18),
-      NSForegroundColorAttributeName : UIColor.blackColor()]
-    return NSAttributedString(string: "No rides were found", attributes: attributes)
-  }
-
-  func descriptionForEmptyDataSet(scrollView: UIScrollView!) -> NSAttributedString! {
-    var message = ""
-    if let region = region {
-      if region == .Other {
-        message = "There are no other rides, try checking back in a little while."
-      } else {
-        if segmentedControl?.selectedSegmentIndex == 0 {
-          message = "There are no rides leaving from \(region.referenceName()), try checking back in a little while."
-        } else {
-          message = "There are no rides going to \(region.referenceName()), try checking back in a little while."
-        }
-      }
-    }
-    let paragraph = NSMutableParagraphStyle()
-    paragraph.lineBreakMode = NSLineBreakMode.ByWordWrapping
-    paragraph.alignment = NSTextAlignment.Center
-    let attributes = [
-      NSFontAttributeName: UIFont.systemFontOfSize(14),
-      NSForegroundColorAttributeName: UIColor.grayColor(),
-      NSParagraphStyleAttributeName: paragraph]
-
-    return NSAttributedString(string: message, attributes: attributes)
-  }
-
-  func backgroundColorForEmptyDataSet(scrollView: UIScrollView!) -> UIColor! {
-    return UIColor.whiteColor()
   }
 
 }

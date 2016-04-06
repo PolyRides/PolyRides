@@ -35,7 +35,7 @@ extension UIViewController {
   func setupAppearance() {
     navigationController?.navigationBar.translucent = false
     navigationController?.navigationBar.barStyle = .Black
-    navigationController?.navigationBar.barTintColor = Color.DarkNavy
+    navigationController?.navigationBar.barTintColor = Color.Navy
 
     tabBarController?.tabBar.translucent = false
     tabBarController?.tabBar.tintColor = Color.Navy

@@ -20,7 +20,6 @@ class TableViewController: UIViewController {
     super.viewDidLoad()
 
     tableView?.emptyDataSetSource = self
-
     setupAppearance()
 
     // Remove the cell separators in the empty table view.

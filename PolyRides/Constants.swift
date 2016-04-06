@@ -38,6 +38,28 @@ struct Empty {
   static let SearchMessage = "We don't have any rides departing within 24 hours of the specified date, please check back later."
   static let BeginSearchTitle = "Search for a ride."
   static let BeginSearchMessage = "Enter from and to locations and a departure date,\nand rides within 24 hours will show up."
+  static let RegionTitle = "No rides were found"
+
+  static let CurrentRidesTitle = "You haven't posted any rides, yet."
+  static let CurrentRidesMessage = "Offer a ride by tapping the plus symbol\nin the top right."
+  static let PastRidesTitle = "You haven't completed any rides, yet."
+  static let PastRidesMessage = "When you offer and complete a ride,\nthat ride will appear here."
+  static let SavedRidesTitle = "You haven't saved any rides, yet."
+  static let SavedRidesMessage = "When viewing a ride in the search tab, you may save a ride by tapping the star in the top right."
+
+  static func FromRegion(region: Region) -> String {
+    if region == .Other {
+      return "There are no other rides posted,\ntry checking back in a little while."
+    }
+    return "There are no rides leaving from \(region.referenceName()),\ntry checking back in a little while."
+  }
+
+  static func ToRegion(region: Region) -> String {
+    if region == .Other {
+      return "There are no other rides posted,\ntry checking back in a little while."
+    }
+    return "There are no rides going to \(region.referenceName()),\ntry checking back in a little while."
+  }
 
 }
 
