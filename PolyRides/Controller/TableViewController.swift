@@ -32,6 +32,9 @@ class TableViewController: UIViewController {
 extension TableViewController: DZNEmptyDataSetSource {
 
   func imageForEmptyDataSet(scrollView: UIScrollView!) -> UIImage! {
+    if emptyImage == "" {
+      return nil
+    }
     return UIImage(named: emptyImage)
   }
 

@@ -28,9 +28,9 @@ class MutualFriendsTableViewController: UITableViewController {
 extension MutualFriendsTableViewController {
 
   override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//    if let mutualFriends = mutualFriends {
-//      return mutualFriends.count
-//    }
+    if let mutualFriends = mutualFriends {
+      return mutualFriends.count
+    }
     return 0
   }
 

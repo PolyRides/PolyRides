@@ -16,7 +16,6 @@ class MyRidesViewController: RidesViewController {
   var expectedRides = -1 {
     didSet {
       if expectedRides == 0 {
-        // set empty data set
         rides = currentRides
         tableView?.reloadData()
       }
@@ -69,7 +68,6 @@ class MyRidesViewController: RidesViewController {
       user = tabBarController.user
     }
 
-    tableView?.emptyDataSetSource = self
     tableView?.delegate = self
     rideService.delegate = self
     if let user = user {

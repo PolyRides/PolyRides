@@ -48,7 +48,6 @@ extension RidesViewController: UITableViewDataSource {
         rideCell.detailTextLabel?.text = ride.getFormattedDate()
 
         rideCell.ride = ride
-        return rideCell
       }
     }
 

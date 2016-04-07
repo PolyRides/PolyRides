@@ -26,6 +26,7 @@ struct Font {
   static let SearchBar = UIFont(name: "OpenSans", size: 13.5)!
   static let TableHeader = UIFont(name: "OpenSans", size: 13.5)!
   static let TableRow = UIFont(name: "OpenSans", size: 16.5)!
+  static let TableRowBold = UIFont(name: "OpenSans-Semibold", size: 16.5)!
   static let EmptyTableHeader = UIFont(name: "OpenSans-Semibold", size: 16.5)!
   static let TableRowSubline = UIFont(name: "OpenSans", size: 12)!
   static let TextFieldPlaceholder = UIFont(name: "OpenSans-Semibold", size: 13.5)!

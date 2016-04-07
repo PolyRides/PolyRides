@@ -24,38 +24,7 @@ class SearchViewController: TableViewController {
   @IBOutlet weak var fromPlaceTextField: UITextField?
   @IBOutlet weak var toPlaceTextField: UITextField?
   @IBOutlet weak var dateTextField: UITextField?
-
-  @IBAction func fromCurrentLocationAction(sender: AnyObject) {
-    GoogleMapsHelper.PlacesClient.currentPlaceWithCallback({ (placeLikelihoods, error) -> Void in
-      if error != nil {
-        self.presentAlert(AlertOptions(message: Error.CurrentLocationMessage, title: Error.CurrentLocationTitle))
-      }
-
-      if let placeLikelihood = placeLikelihoods?.likelihoods.first {
-        let place = placeLikelihood.place
-        self.fromPlaceTextField?.text = place.formattedAddress
-        self.fromPlace = place
-        self.search()
-      } else {
-        self.presentAlert(AlertOptions(message: Error.CurrentLocationMessage, title: Error.CurrentLocationTitle))
-      }
-    })
-  }
-
-  @IBAction func toCurrentLocationAction(sender: AnyObject) {
-    GoogleMapsHelper.PlacesClient.currentPlaceWithCallback({ (placeLikelihoods, error) -> Void in
-      if error != nil {
-        self.presentAlert(AlertOptions(message: Error.CurrentLocationMessage, title: Error.CurrentLocationTitle))
-      }
-
-      if let placeLikelihood = placeLikelihoods?.likelihoods.first {
-        let place = placeLikelihood.place
-        self.toPlaceTextField?.text = place.formattedAddress
-        self.toPlace = place
-        self.search()
-      }
-    })
-  }
+  @IBOutlet weak var placeStackView: UIStackView?
 
   @IBAction func switchToFromAction(sender: AnyObject) {
     let tempPlace = toPlace
@@ -79,7 +48,6 @@ class SearchViewController: TableViewController {
     emptyImage = "arrow"
 
     setupDatePicker()
-    //setupTextFields()
   }
 
   func setupTextFields() {
@@ -154,6 +122,7 @@ class SearchViewController: TableViewController {
           return ride.date?.compare(startDate) == .OrderedDescending && ride.date?.compare(endDate) == .OrderedAscending
         })
 
+        //Location(
         let passengerRide = Ride(fromPlace: fromPlace!, toPlace: toPlace!)
         rides?.sortInPlace { (ride1, ride2) -> Bool in
           return getDistance(ride1, ride2: passengerRide) < getDistance(ride2, ride2: passengerRide)
@@ -183,14 +152,23 @@ class SearchViewController: TableViewController {
     return nil
   }
 
+  override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    if segue.identifier == "toAutocomplete" {
+      if let navVC = segue.destinationViewController as? UINavigationController {
+        if let vc = navVC.topViewController as? AutocompleteViewController {
+          vc.delegate = self
+        }
+      }
+    }
+  }
+
 }
 
-// MARK: - GMSAutocompleteViewControllerDelegate
-extension SearchViewController: GMSAutocompleteViewControllerDelegate {
+// MARK: - AutocompleteDelegate
+extension SearchViewController: AutocompleteDelegate {
 
-  // Handle the user's selection.
-  func viewController(viewController: GMSAutocompleteViewController, didAutocompleteWithPlace place: GMSPlace) {
-    autocompleteTextField?.text = place.formattedAddress
+  func onPlaceSelected(place: GMSPlace?) {
+    autocompleteTextField?.text = place?.formattedAddress
 
     if autocompleteTextField == toPlaceTextField {
       toPlace = place
@@ -199,17 +177,6 @@ extension SearchViewController: GMSAutocompleteViewControllerDelegate {
     }
 
     search()
-    dismissViewControllerAnimated(false, completion: nil)
-  }
-
-  func viewController(viewController: GMSAutocompleteViewController, didFailAutocompleteWithError error: NSError) {
-    let title = "Please check your connection and try again."
-    presentAlert(AlertOptions(message: "Autcomplete Error", title: title))
-    dismissViewControllerAnimated(false, completion: nil)
-  }
-
-  func wasCancelled(viewController: GMSAutocompleteViewController) {
-    dismissViewControllerAnimated(false, completion: nil)
   }
 
 }
@@ -234,15 +201,8 @@ extension SearchViewController: UITextFieldDelegate {
     if textField == dateTextField {
       return true
     }
-
     autocompleteTextField = textField
-
-    let autocompleteController = GMSAutocompleteViewController()
-    autocompleteController.autocompleteFilter = Filter.US()
-    autocompleteController.autocompleteBounds = Bounds.California
-    autocompleteController.delegate = self
-    self.presentViewController(autocompleteController, animated: false, completion: nil)
-
+    performSegueWithIdentifier("toAutocomplete", sender: nil)
     return false
   }
 
