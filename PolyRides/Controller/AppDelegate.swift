@@ -27,8 +27,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     // Navigation bar appearance.
     UINavigationBar.appearance().titleTextAttributes = [NSFontAttributeName: Font.NavigationBarTitle,
-                                                        NSForegroundColorAttributeName: Color.White]
-    UINavigationBar.appearance().tintColor = Color.White
+                                                        NSForegroundColorAttributeName: Color.DarkGray]
+   // UINavigationBar.appearance().tintColor = Color.Blue
     UINavigationBar.appearance().setBackgroundImage(UIImage(), forBarPosition: .Any, barMetrics: .Default)
     UINavigationBar.appearance().shadowImage = UIImage()
 

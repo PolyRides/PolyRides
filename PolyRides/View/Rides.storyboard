@@ -38,19 +38,18 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="YQo-Ub-837">
-                                <rect key="frame" x="20" y="72" width="560" height="29"/>
+                                <rect key="frame" x="20" y="28" width="560" height="29"/>
                                 <segments>
                                     <segment title="Current"/>
                                     <segment title="Past"/>
                                     <segment title="Saved"/>
                                 </segments>
-                                <color key="tintColor" red="0.92549019610000005" green="0.94117647059999998" blue="0.94509803920000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
                                     <action selector="segmentedAction:" destination="fnc-Oe-nPW" eventType="valueChanged" id="ToX-42-tl6"/>
                                 </connections>
                             </segmentedControl>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="60" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Byt-o3-3gz">
-                                <rect key="frame" x="0.0" y="108" width="600" height="443"/>
+                                <rect key="frame" x="0.0" y="64" width="600" height="487"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="rideCell" textLabel="82s-h3-hxQ" detailTextLabel="yZN-2X-zZV" style="IBUITableViewCellStyleSubtitle" id="QpA-pm-jdK" customClass="RideTableViewCell" customModule="Poly_Rides" customModuleProvider="target">
@@ -79,29 +78,40 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Zm-Jg-Aw0">
+                                <rect key="frame" x="524" y="487" width="56" height="56"/>
+                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="56" id="9Nc-w6-ci4"/>
+                                    <constraint firstAttribute="width" constant="56" id="PHl-uG-TWe"/>
+                                </constraints>
+                                <color key="tintColor" red="0.92549019610000005" green="0.94117647059999998" blue="0.94509803920000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" image="plus"/>
+                                <connections>
+                                    <segue destination="Wrf-eZ-0Tt" kind="presentation" identifier="toAddRide" id="Y3x-Bv-b4X"/>
+                                </connections>
+                            </button>
                         </subviews>
-                        <color key="backgroundColor" red="0.20784313730000001" green="0.28627450980000002" blue="0.36470588240000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="YQo-Ub-837" firstAttribute="leading" secondItem="ioP-ZV-Euv" secondAttribute="leadingMargin" id="CS1-SJ-oED"/>
                             <constraint firstItem="wRW-a5-fDd" firstAttribute="top" secondItem="Byt-o3-3gz" secondAttribute="bottom" id="IDO-kM-Oab"/>
                             <constraint firstItem="Byt-o3-3gz" firstAttribute="leading" secondItem="ioP-ZV-Euv" secondAttribute="leadingMargin" constant="-20" id="OMI-Hk-BDO"/>
+                            <constraint firstItem="wRW-a5-fDd" firstAttribute="top" secondItem="2Zm-Jg-Aw0" secondAttribute="bottom" constant="16" id="RaZ-ma-pyN"/>
                             <constraint firstItem="YQo-Ub-837" firstAttribute="top" secondItem="ifF-Ho-9MW" secondAttribute="bottom" constant="8" id="UFa-BD-whH"/>
                             <constraint firstItem="Byt-o3-3gz" firstAttribute="top" secondItem="YQo-Ub-837" secondAttribute="bottom" constant="8" id="WEX-F6-Db4"/>
+                            <constraint firstItem="2Zm-Jg-Aw0" firstAttribute="trailing" secondItem="ioP-ZV-Euv" secondAttribute="trailingMargin" id="bKq-fl-KZ8"/>
                             <constraint firstItem="YQo-Ub-837" firstAttribute="trailing" secondItem="ioP-ZV-Euv" secondAttribute="trailingMargin" id="h4L-Y2-a5X"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Byt-o3-3gz" secondAttribute="trailing" constant="-20" id="hTZ-r2-gtt"/>
                             <constraint firstItem="YQo-Ub-837" firstAttribute="centerX" secondItem="ioP-ZV-Euv" secondAttribute="centerX" id="xQW-eN-Ceq"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Rides" image="car" selectedImage="car_filled" id="ZFq-mP-AZB"/>
-                    <navigationItem key="navigationItem" id="5lI-NJ-7wN">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="Gh5-r6-A9Z">
-                            <connections>
-                                <segue destination="Wrf-eZ-0Tt" kind="presentation" identifier="toAddRide" id="ND4-C1-2fr"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" id="5lI-NJ-7wN"/>
+                    <nil key="simulatedTopBarMetrics"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="addButton" destination="2Zm-Jg-Aw0" id="pho-jf-ssA"/>
                         <outlet property="segmentedControl" destination="YQo-Ub-837" id="yE0-xn-qvm"/>
                         <outlet property="tableView" destination="Byt-o3-3gz" id="2v9-0M-6Kh"/>
                         <segue destination="UKr-D7-a7T" kind="show" identifier="toMyRideDetails" id="yyg-lA-89K"/>
@@ -290,5 +300,6 @@
         <image name="car" width="33" height="33"/>
         <image name="car_filled" width="33" height="33"/>
         <image name="flip" width="22" height="18"/>
+        <image name="plus" width="24" height="24"/>
     </resources>
 </document>

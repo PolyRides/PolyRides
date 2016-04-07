@@ -13,8 +13,21 @@ struct Color {
   static let White = UIColor(red: 236.0/255, green: 240.0/255, blue: 241.0/255, alpha: 1.0)
   static let DarkNavy = UIColor(red: 45.0/255, green: 62.0/255, blue: 79.0/255, alpha: 1.0)
   static let Navy = UIColor(red: 9.0/255, green: 41.0/255, blue: 48.0/255, alpha: 1.0)
-  static let Gray = UIColor(red: 143.0/255, green: 142.0/255, blue: 148.0/255, alpha: 1.0)
+
+
   static let Blue = UIColor(red: 0.0/255, green: 122.0/255, blue: 255.0/255, alpha: 1.0)
+  static let LightGray = UIColor(red: 240.0/255, green: 240.0/255, blue: 240.0/255, alpha: 1.0)
+  static let Gray = UIColor(red: 130.0/255, green: 137.0/255, blue: 141.0/255, alpha: 1.0)
+  static let DarkGray = UIColor(red: 86.0/255, green: 90.0/255, blue: 92.0/255, alpha: 1.0)
+
+
+}
+
+struct Attributes {
+
+  static let NavigationBar = [NSFontAttributeName: Font.NavigationBarTitle,
+                              NSForegroundColorAttributeName: Color.DarkGray]
+  static let SegmentedControl = [NSFontAttributeName: Font.SegmentedControl]
 
 }
 

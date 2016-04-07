@@ -69,11 +69,6 @@ class RegionTableViewController: TableViewController {
     super.viewWillAppear(animated)
   }
 
-  override func viewWillDisappear(animated: Bool) {
-    navigationController?.setNavigationBarHidden(false, animated: true)
-    super.viewWillDisappear(animated)
-  }
-
   override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
     if segue.identifier == "toRegionRides" {
       if let vc = segue.destinationViewController as? RegionRidesViewController {
@@ -141,7 +136,9 @@ extension RegionTableViewController: UITableViewDataSource {
 extension RegionTableViewController: UIViewControllerTransitioningDelegate {
 
   func animationControllerForPresentedController(presented: UIViewController,
-                                                 presentingController presenting: UIViewController, sourceController source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+                                                 presentingController presenting: UIViewController,
+                                                 sourceController source: UIViewController)
+                                                 -> UIViewControllerAnimatedTransitioning? {
     transition.transitionMode = .Present
     if let searchButton = searchButton {
       transition.startingPoint = searchButton.center
@@ -151,7 +148,7 @@ extension RegionTableViewController: UIViewControllerTransitioningDelegate {
   }
 
   func animationControllerForDismissedController(dismissed: UIViewController)
-    -> UIViewControllerAnimatedTransitioning? {
+                                                 -> UIViewControllerAnimatedTransitioning? {
     transition.transitionMode = .Dismiss
       if let searchButton = searchButton {
         transition.startingPoint = searchButton.center
