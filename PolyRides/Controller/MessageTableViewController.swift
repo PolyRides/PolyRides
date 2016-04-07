@@ -22,6 +22,8 @@ class ConversationTableViewController: UITableViewController {
 
   override func viewDidLoad() {
     super.viewDidLoad()
+
+    setupAppearance()
   }
 
 }

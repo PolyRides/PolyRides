@@ -70,6 +70,6 @@ extension TableViewController: DZNEmptyDataSetSource {
   }
 
   func backgroundColorForEmptyDataSet(scrollView: UIScrollView!) -> UIColor! {
-    return Color.White
+    return Color.Blue
   }
 }

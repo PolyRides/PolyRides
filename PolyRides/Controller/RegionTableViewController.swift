@@ -7,6 +7,7 @@
 //
 
 import CoreLocation
+import BubbleTransition
 
 class RegionTableViewCell: UITableViewCell {
 
@@ -18,19 +19,16 @@ class RegionTableViewCell: UITableViewCell {
   var toRides: [Ride]?
   var fromRides: [Ride]?
   var region: Region?
-  var disclosure: UITableViewCell?
 
   override func setHighlighted(highlighted: Bool, animated: Bool) {
     if highlighted {
       backgroundImageView?.alpha = 0.5
       locationBackgroundView?.alpha = 0.5
-      disclosure?.alpha = 0.5
       location?.textColor = Color.Gray
       numRides?.textColor = Color.Gray
     } else {
       backgroundImageView?.alpha = 1.0
       locationBackgroundView?.alpha = 0.65
-      disclosure?.alpha = 0.8
       location?.textColor = Color.White
       numRides?.textColor = Color.White
     }
@@ -38,7 +36,11 @@ class RegionTableViewCell: UITableViewCell {
 
 }
 
-class RegionTableViewController: UITableViewController {
+class RegionTableViewController: TableViewController {
+
+  @IBOutlet weak var searchButton: UIButton?
+
+  let transition = BubbleTransition()
 
   var user: User?
   var allRides: [Ride]?
@@ -52,15 +54,16 @@ class RegionTableViewController: UITableViewController {
       user = tabBarController.user
     }
 
-    let searchBar = UISearchBar()
-    searchBar.sizeToFit()
-    searchBar.barStyle = .BlackTranslucent
-    searchBar.delegate = self
-    navigationItem.titleView = searchBar
-
-    tableView.separatorStyle = UITableViewCellSeparatorStyle.None
+    tableView?.separatorStyle = UITableViewCellSeparatorStyle.None
+    tableView?.dataSource = self
 
     setupAppearance()
+  }
+
+  override func viewWillAppear(animated: Bool) {
+    super.viewWillAppear(animated)
+
+    navigationController?.navigationBarHidden = true
   }
 
   override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
@@ -73,10 +76,12 @@ class RegionTableViewController: UITableViewController {
           vc.region = cell.region
         }
       }
-    } else if segue.identifier == "toRideSearch" {
+    } else if segue.identifier == "toSearch" {
       if let vc = segue.destinationViewController as? SearchViewController {
         vc.allRides = allRides
         vc.user = user
+        vc.transitioningDelegate = self
+        vc.modalPresentationStyle = .Custom
       }
     }
 
@@ -88,15 +93,15 @@ class RegionTableViewController: UITableViewController {
 }
 
 // MARK: - UITableViewDataSource
-extension RegionTableViewController {
+extension RegionTableViewController: UITableViewDataSource {
 
-  override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+  func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     return Region.allRegions.count
   }
 
-  override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+  func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
     let region = Region.allRegions[indexPath.row]
-    let cell = tableView.dequeueReusableCellWithIdentifier("regionCell", forIndexPath: indexPath)
+    let cell = tableView.dequeueReusableCellWithIdentifier("RegionCell", forIndexPath: indexPath)
 
     if let regionCell = cell as? RegionTableViewCell {
       regionCell.region = region
@@ -112,30 +117,39 @@ extension RegionTableViewController {
         count += fromRides.count
       }
       regionCell.numRides?.text = "\(count) rides"
-
-      let disclosure = UITableViewCell()
-      disclosure.accessoryType = .DisclosureIndicator
-      disclosure.frame = cell.bounds
-      disclosure.userInteractionEnabled = false
-      regionCell.addSubview(disclosure)
-      regionCell.disclosure = disclosure
     }
 
     return cell
   }
 
-  override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+  func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
     tableView.deselectRowAtIndexPath(indexPath, animated: true)
   }
 
 }
 
-// MARK: - UISearchBarDelegate
-extension RegionTableViewController: UISearchBarDelegate {
 
-  func searchBarShouldBeginEditing(searchBar: UISearchBar) -> Bool {
-    performSegueWithIdentifier("toRideSearch", sender: self)
-    return false
+// MARK: - UIViewControllerTransitioningDelegate
+extension RegionTableViewController: UIViewControllerTransitioningDelegate {
+
+  func animationControllerForPresentedController(presented: UIViewController,
+                                                 presentingController presenting: UIViewController, sourceController source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+    transition.transitionMode = .Present
+    if let searchButton = searchButton {
+      transition.startingPoint = searchButton.center
+    }
+    transition.bubbleColor = Color.Blue
+    return transition
+  }
+
+  func animationControllerForDismissedController(dismissed: UIViewController)
+    -> UIViewControllerAnimatedTransitioning? {
+    transition.transitionMode = .Dismiss
+      if let searchButton = searchButton {
+        transition.startingPoint = searchButton.center
+      }
+    transition.bubbleColor = Color.Blue
+    return transition
   }
 
 }

@@ -6,8 +6,6 @@
 //  Copyright © 2016 Vanessa Forney. All rights reserved.
 //
 
-import Foundation
-
 class TabBarController: UITabBarController {
 
   let locationManager = CLLocationManager()

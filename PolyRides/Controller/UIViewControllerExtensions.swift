@@ -34,11 +34,11 @@ extension UIViewController {
 
   func setupAppearance() {
     navigationController?.navigationBar.translucent = false
-    navigationController?.navigationBar.barStyle = .Black
-    navigationController?.navigationBar.barTintColor = Color.Navy
+   // navigationController?.navigationBar.barStyle = .Black
+   // navigationController?.navigationBar.barTintColor = Color.Blue
 
     tabBarController?.tabBar.translucent = false
-    tabBarController?.tabBar.tintColor = Color.Navy
+    tabBarController?.tabBar.tintColor = Color.Blue
   }
 
   func presentAlert(alertOptions: AlertOptions = AlertOptions()) {

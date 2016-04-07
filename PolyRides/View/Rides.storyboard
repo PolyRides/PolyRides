@@ -44,6 +44,7 @@
                                     <segment title="Past"/>
                                     <segment title="Saved"/>
                                 </segments>
+                                <color key="tintColor" red="0.92549019610000005" green="0.94117647059999998" blue="0.94509803920000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
                                     <action selector="segmentedAction:" destination="fnc-Oe-nPW" eventType="valueChanged" id="ToX-42-tl6"/>
                                 </connections>
@@ -79,7 +80,7 @@
                                 </prototypes>
                             </tableView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.20784313730000001" green="0.28627450980000002" blue="0.36470588240000001" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="YQo-Ub-837" firstAttribute="leading" secondItem="ioP-ZV-Euv" secondAttribute="leadingMargin" id="CS1-SJ-oED"/>
                             <constraint firstItem="wRW-a5-fDd" firstAttribute="top" secondItem="Byt-o3-3gz" secondAttribute="bottom" id="IDO-kM-Oab"/>
@@ -131,6 +132,7 @@
                             </datePicker>
                             <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minimumValue="1" maximumValue="8" translatesAutoresizingMaskIntoConstraints="NO" id="8ul-zB-9Pu">
                                 <rect key="frame" x="486" y="372" width="94" height="29"/>
+                                <color key="tintColor" red="0.92549019610000005" green="0.94117647059999998" blue="0.94509803920000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
                                     <action selector="stepperValChanged:" destination="sad-jW-Up4" eventType="valueChanged" id="eVm-DC-iB7"/>
                                 </connections>
@@ -138,7 +140,7 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hQj-3p-YOW">
                                 <rect key="frame" x="470" y="377" width="8" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="textColor" red="0.92549019610000005" green="0.94117647059999998" blue="0.94509803920000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="$" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xIz-bR-u4X">
@@ -169,6 +171,9 @@
                                         </constraints>
                                         <color key="tintColor" red="0.92549019610000005" green="0.94117647059999998" blue="0.94509803920000002" alpha="1" colorSpace="calibratedRGB"/>
                                         <state key="normal" image="flip"/>
+                                        <connections>
+                                            <action selector="switchToFromAction:" destination="sad-jW-Up4" eventType="touchUpInside" id="ZH8-jV-Hqp"/>
+                                        </connections>
                                     </button>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="WVE-X6-k27">
                                         <rect key="frame" x="33" y="0.0" width="527" height="68"/>
@@ -190,7 +195,7 @@
                                 </subviews>
                             </stackView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.20784313730000001" green="0.28627450980000002" blue="0.36470588240000001" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="0tL-xY-nMx" firstAttribute="trailing" secondItem="ZwG-jc-XDH" secondAttribute="trailingMargin" id="4rD-8a-ACr"/>
                             <constraint firstItem="f3D-LS-bbZ" firstAttribute="top" secondItem="ZYs-S9-nE0" secondAttribute="bottom" constant="8" id="7F6-ms-H6R"/>
@@ -226,10 +231,10 @@
                         <outlet property="addButton" destination="AAY-fi-0Ho" id="AO0-uR-G4W"/>
                         <outlet property="costTextField" destination="xIz-bR-u4X" id="jc2-qa-rf1"/>
                         <outlet property="datePicker" destination="f3D-LS-bbZ" id="ZCo-sW-ao3"/>
-                        <outlet property="fromTextField" destination="uNY-yu-gPM" id="SZB-oe-wqE"/>
+                        <outlet property="fromPlaceTextField" destination="uNY-yu-gPM" id="tGb-eQ-oIl"/>
                         <outlet property="notesTextView" destination="0tL-xY-nMx" id="vmx-5u-dbU"/>
                         <outlet property="seatsLabel" destination="hQj-3p-YOW" id="QQc-Oe-TPq"/>
-                        <outlet property="toTextField" destination="fq6-ux-Vsg" id="MlS-Cy-spH"/>
+                        <outlet property="toPlaceTextField" destination="fq6-ux-Vsg" id="8pz-z1-oU7"/>
                         <segue destination="0HH-00-F9e" kind="presentation" identifier="toAutocomplete" id="NxT-jt-L8K"/>
                     </connections>
                 </viewController>

@@ -76,6 +76,7 @@ class MyRidesViewController: RidesViewController {
     }
 
     emptyImage = "empty"
+    setupAppearance()
   }
 
   override func viewWillAppear(animated: Bool) {

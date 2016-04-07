@@ -36,6 +36,10 @@ class SearchViewController: TableViewController {
     fromPlaceTextField?.text = tempText
   }
 
+  @IBAction func onCloseButtonAction(sender: AnyObject) {
+    dismissViewControllerAnimated(true, completion: nil)
+  }
+
   override func viewDidLoad() {
     super.viewDidLoad()
 
@@ -49,6 +53,11 @@ class SearchViewController: TableViewController {
     emptyImage = "arrow"
 
     setupDatePicker()
+  }
+
+  override func viewWillAppear(animated: Bool) {
+    super.viewWillAppear(animated)
+    navigationController?.navigationBarHidden = false
   }
 
   func setupTextFields() {

@@ -21,13 +21,22 @@ class AddRideViewController: UIViewController {
   var autocompleteTextField: UITextField?
   var placesClient: GMSPlacesClient?
 
-  @IBOutlet weak var toTextField: UITextField?
-  @IBOutlet weak var fromTextField: UITextField?
+  @IBOutlet weak var toPlaceTextField: UITextField?
+  @IBOutlet weak var fromPlaceTextField: UITextField?
   @IBOutlet weak var datePicker: UIDatePicker?
   @IBOutlet weak var seatsLabel: UILabel?
   @IBOutlet weak var costTextField: UITextField?
   @IBOutlet weak var notesTextView: UITextView?
   @IBOutlet weak var addButton: UIBarButtonItem?
+
+  @IBAction func switchToFromAction(sender: AnyObject) {
+    let tempPlace = toPlace
+    let tempText = toPlaceTextField?.text
+    toPlace = fromPlace
+    toPlaceTextField?.text = fromPlaceTextField?.text
+    fromPlace = tempPlace
+    fromPlaceTextField?.text = tempText
+  }
 
   @IBAction func cancelButtonAction(sender: AnyObject) {
     navigationController?.dismissViewControllerAnimated(true, completion: nil)
@@ -54,10 +63,11 @@ class AddRideViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
 
-    toTextField?.delegate = self
-    fromTextField?.delegate = self
+    toPlaceTextField?.delegate = self
+    fromPlaceTextField?.delegate = self
 
     placesClient = GMSPlacesClient()
+    setupAppearance()
   }
 
   override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
@@ -133,7 +143,7 @@ extension AddRideViewController: AutocompleteDelegate {
 
   func onPlaceSelected(place: GMSPlace?) {
     autocompleteTextField?.text = place?.formattedAddress
-    if autocompleteTextField == toTextField {
+    if autocompleteTextField == toPlaceTextField {
       toPlace = place
     } else {
       fromPlace = place

@@ -303,14 +303,14 @@
 			name = Rides;
 			sourceTree = "<group>";
 		};
-		DB43A98B1C9E582800AC2AF9 /* Search */ = {
+		DB43A98B1C9E582800AC2AF9 /* Home */ = {
 			isa = PBXGroup;
 			children = (
 				DBAB56861C96B0F10011167A /* RegionTableViewController.swift */,
 				DB43A9951C9F95E400AC2AF9 /* RegionRidesViewController.swift */,
 				DB5F03B31CA8550F00E49A12 /* SearchViewController.swift */,
 			);
-			name = Search;
+			name = Home;
 			sourceTree = "<group>";
 		};
 		DB43A9901C9F0F4100AC2AF9 /* Profile */ = {
@@ -512,7 +512,7 @@
 			isa = PBXGroup;
 			children = (
 				DB747ABB1C98DB2D00A24F58 /* TabBarController.swift */,
-				DB43A98B1C9E582800AC2AF9 /* Search */,
+				DB43A98B1C9E582800AC2AF9 /* Home */,
 				DB4151021C9B05240062E5A0 /* Rides */,
 				6E53E3CC1C9E59E800370108 /* Messages */,
 				DB43A9901C9F0F4100AC2AF9 /* Profile */,
