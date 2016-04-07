@@ -16,12 +16,6 @@ protocol AutocompleteDelegate {
 
 }
 
-class AutocompleteCell: UITableViewCell {
-
-  var prediction: GMSPlace?
-
-}
-
 enum AutocompleteSection: Int {
 
   case CurrentLocation = 0, AutocompleteResult = 1, PoweredByGoogle = 2
@@ -36,6 +30,7 @@ class AutocompleteViewController: TableViewController {
   var delegate: AutocompleteDelegate?
   var fetcher: GMSAutocompleteFetcher?
   var locationManager = CLLocationManager()
+  var initialText: String?
   var currentLocation: GMSPlace?
 
   override func viewDidLoad() {
@@ -53,6 +48,7 @@ class AutocompleteViewController: TableViewController {
     searchBar.becomeFirstResponder()
     searchBar.placeholder = "Search for place or address"
     searchBar.delegate = self
+    searchBar.text = initialText
     navigationItem.titleView = searchBar
 
     GoogleMapsHelper.PlacesClient.currentPlaceWithCallback({ (placeLikelihoods, error) -> Void in
@@ -86,22 +82,19 @@ extension AutocompleteViewController: UITableViewDataSource {
       return cell
     } else if indexPath.section == AutocompleteSection.AutocompleteResult.rawValue {
       let cell = tableView.dequeueReusableCellWithIdentifier("AutocompleteCell", forIndexPath: indexPath)
+      let prediction = predictions[indexPath.row]
+      let regularFont = Font.TableRow
+      let boldFont = Font.TableRowBold
 
-      if let autocompleteCell = cell as? AutocompleteCell {
-        let prediction = predictions[indexPath.row]
-        let regularFont = Font.TableRow
-        let boldFont = Font.TableRowBold
-
-        if let bolded = prediction.attributedPrimaryText.mutableCopy() as? NSMutableAttributedString {
-          bolded.enumerateAttribute(kGMSAutocompleteMatchAttribute, inRange: NSMakeRange(0, bolded.length),
-                                    options: .LongestEffectiveRangeNotRequired) {
-                                      (value, range: NSRange, stop: UnsafeMutablePointer<ObjCBool>) -> Void in
-            let font = (value == nil) ? regularFont : boldFont
-            bolded.addAttribute(NSFontAttributeName, value: font, range: range)
-          }
-          autocompleteCell.textLabel?.attributedText = bolded
-          autocompleteCell.detailTextLabel?.attributedText = prediction.attributedSecondaryText
+      if let bolded = prediction.attributedPrimaryText.mutableCopy() as? NSMutableAttributedString {
+        bolded.enumerateAttribute(kGMSAutocompleteMatchAttribute, inRange: NSMakeRange(0, bolded.length),
+                                  options: .LongestEffectiveRangeNotRequired) {
+                                    (value, range: NSRange, stop: UnsafeMutablePointer<ObjCBool>) -> Void in
+          let font = (value == nil) ? regularFont : boldFont
+          bolded.addAttribute(NSFontAttributeName, value: font, range: range)
         }
+        cell.textLabel?.attributedText = bolded
+        cell.detailTextLabel?.attributedText = prediction.attributedSecondaryText
       }
 
       return cell

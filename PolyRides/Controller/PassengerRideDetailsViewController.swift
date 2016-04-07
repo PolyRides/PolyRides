@@ -20,7 +20,6 @@ class PassengerRideDetailsViewController: RideDetailsViewController {
   let rideService = RideService()
 
   var mutualFriends = [User]()
-  var driver: User?
 
   @IBOutlet weak var tableView: UITableView?
   @IBOutlet weak var saveButton: UIBarButtonItem?
@@ -72,7 +71,7 @@ class PassengerRideDetailsViewController: RideDetailsViewController {
   }
 
   override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-    if segue.identifier == "toDriverDetails" {
+    if segue.identifier == "toDriverProfile" {
       if let vc = segue.destinationViewController as? ProfileViewController {
         vc.user = ride?.driver
         vc.mutualFriends = mutualFriends
@@ -115,7 +114,6 @@ extension PassengerRideDetailsViewController: UITableViewDataSource {
       let request = FBSDKGraphRequest(graphPath: path, parameters: params, HTTPMethod: "GET")
       request.startWithCompletionHandler { (connection, result, error) -> Void in
         if error == nil {
-          print(result)
           if let context = result.objectForKey("context") as? NSMutableDictionary {
             if let mutualFriends = context.objectForKey("mutual_friends") as? NSMutableDictionary {
               if let data = mutualFriends.objectForKey("data") as? NSMutableArray {

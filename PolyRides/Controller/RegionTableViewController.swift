@@ -76,6 +76,7 @@ class RegionTableViewController: UITableViewController {
     } else if segue.identifier == "toRideSearch" {
       if let vc = segue.destinationViewController as? SearchViewController {
         vc.allRides = allRides
+        vc.user = user
       }
     }
 

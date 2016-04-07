@@ -37,7 +37,6 @@ class RegionRidesViewController: RidesViewController {
     super.viewDidLoad()
 
     rides = fromRides
-    tableView?.reloadData()
     title = region?.name()
 
     emptyImage = "empty"
@@ -45,6 +44,7 @@ class RegionRidesViewController: RidesViewController {
     if let region = region {
       emptyMessage = Empty.FromRegion(region)
     }
+    tableView?.reloadData()
   }
 
   override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
@@ -55,6 +55,11 @@ class RegionRidesViewController: RidesViewController {
           vc.user = user
         }
       }
+    } else if segue.identifier == "toRideSearch" {
+      if let vc = segue.destinationViewController as? SearchViewController {
+        vc.user = user
+      }
+
     }
   }
 

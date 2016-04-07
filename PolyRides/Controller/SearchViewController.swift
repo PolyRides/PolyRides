@@ -12,6 +12,7 @@ class SearchViewController: TableViewController {
 
   let calendar = NSCalendar.currentCalendar()
 
+  var user: User?
   var allRides: [Ride]?
   var rides: [Ride]?
   var autocompleteTextField: UITextField?
@@ -155,8 +156,17 @@ class SearchViewController: TableViewController {
   override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
     if segue.identifier == "toAutocomplete" {
       if let navVC = segue.destinationViewController as? UINavigationController {
-        if let vc = navVC.topViewController as? AutocompleteViewController {
+        if let vc = navVC.topViewController as? AutocompleteViewController, let textField = sender as? UITextField {
+          autocompleteTextField = textField
           vc.delegate = self
+          vc.initialText = textField.text
+        }
+      }
+    } else if segue.identifier == "toPassengerRideDetails" {
+      if let vc = segue.destinationViewController as? PassengerRideDetailsViewController {
+        if let cell = sender as? RideTableViewCell {
+          vc.user = user
+          vc.ride = cell.ride
         }
       }
     }
@@ -201,8 +211,7 @@ extension SearchViewController: UITextFieldDelegate {
     if textField == dateTextField {
       return true
     }
-    autocompleteTextField = textField
-    performSegueWithIdentifier("toAutocomplete", sender: nil)
+    performSegueWithIdentifier("toAutocomplete", sender: textField)
     return false
   }
 

@@ -200,6 +200,9 @@
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="hEd-W4-DIT" kind="show" identifier="toPassengerRideDetails" id="Wer-VH-MhG"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -250,7 +253,7 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="sectionIndexBackgroundColor" red="0.92549019610000005" green="0.94117647059999998" blue="0.94509803920000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="AutocompleteCell" textLabel="l8y-Lk-TXn" detailTextLabel="mWN-Vd-6R0" imageView="1aU-0B-Tyo" style="IBUITableViewCellStyleSubtitle" id="k5c-5M-pDd" customClass="AutocompleteCell" customModule="Poly_Rides" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="AutocompleteCell" textLabel="l8y-Lk-TXn" detailTextLabel="mWN-Vd-6R0" imageView="1aU-0B-Tyo" style="IBUITableViewCellStyleSubtitle" id="k5c-5M-pDd">
                                         <rect key="frame" x="0.0" y="92" width="600" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="k5c-5M-pDd" id="EOv-l1-CJq">
@@ -440,6 +443,14 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ouE-IM-g6E" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="276" y="-1021"/>
+        </scene>
+        <!--PassengerRideDetails-->
+        <scene sceneID="iTV-Cg-at6">
+            <objects>
+                <viewControllerPlaceholder storyboardName="PassengerRideDetails" id="hEd-W4-DIT" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bYV-Ng-eb4" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="752.5" y="-1363"/>
         </scene>
         <!--PassengerRideDetails-->
         <scene sceneID="Ii4-13-XGX">
