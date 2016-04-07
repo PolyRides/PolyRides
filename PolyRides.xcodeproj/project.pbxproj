@@ -73,6 +73,7 @@
 		DB8DAE801CB31E660045195D /* OpenSans-SemiboldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DB8DAE761CB309DD0045195D /* OpenSans-SemiboldItalic.ttf */; };
 		DB8DAE821CB4318E0045195D /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB8DAE811CB4318E0045195D /* TableViewController.swift */; };
 		DB8DAE851CB4C3A10045195D /* AutocompleteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB8DAE841CB4C3A10045195D /* AutocompleteViewController.swift */; };
+		DB8DAE871CB6058B0045195D /* Autocomplete.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB8DAE861CB6058B0045195D /* Autocomplete.storyboard */; };
 		DB956DD81C96833700809B4C /* FirebaseConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB956DD71C96833700809B4C /* FirebaseConnection.swift */; };
 		DBAB56801C968FAA0011167A /* UIViewControllerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBAB567F1C968FAA0011167A /* UIViewControllerExtensions.swift */; };
 		DBAB56871C96B0F10011167A /* RegionTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBAB56861C96B0F10011167A /* RegionTableViewController.swift */; };
@@ -195,6 +196,7 @@
 		DB8DAE761CB309DD0045195D /* OpenSans-SemiboldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-SemiboldItalic.ttf"; sourceTree = "<group>"; };
 		DB8DAE811CB4318E0045195D /* TableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
 		DB8DAE841CB4C3A10045195D /* AutocompleteViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutocompleteViewController.swift; sourceTree = "<group>"; };
+		DB8DAE861CB6058B0045195D /* Autocomplete.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Autocomplete.storyboard; sourceTree = "<group>"; };
 		DB956DD71C96833700809B4C /* FirebaseConnection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FirebaseConnection.swift; path = Model/FirebaseConnection.swift; sourceTree = "<group>"; };
 		DBAB567F1C968FAA0011167A /* UIViewControllerExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtensions.swift; sourceTree = "<group>"; };
 		DBAB56861C96B0F10011167A /* RegionTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegionTableViewController.swift; sourceTree = "<group>"; };
@@ -285,6 +287,7 @@
 				DB8DAE641CB2EEED0045195D /* PassengerProfile.storyboard */,
 				DB8DAE661CB2EEFA0045195D /* DriverProfile.storyboard */,
 				DB8DAE681CB2EF750045195D /* MutualFriends.storyboard */,
+				DB8DAE861CB6058B0045195D /* Autocomplete.storyboard */,
 			);
 			name = Base;
 			sourceTree = "<group>";
@@ -640,6 +643,7 @@
 			files = (
 				DB24333D1CA397E80025680B /* PassengerRideDetails.storyboard in Resources */,
 				DB8DAE7D1CB31E660045195D /* OpenSans-LightItalic.ttf in Resources */,
+				DB8DAE871CB6058B0045195D /* Autocomplete.storyboard in Resources */,
 				DB70B9061C938CDC0065CC4D /* Login.storyboard in Resources */,
 				DB8DAE691CB2EF750045195D /* MutualFriends.storyboard in Resources */,
 				DB8DAE771CB31E660045195D /* OpenSans-Bold.ttf in Resources */,

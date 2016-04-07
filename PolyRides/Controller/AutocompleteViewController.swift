@@ -26,12 +26,12 @@ enum AutocompleteSection: Int {
 
 class AutocompleteViewController: TableViewController {
 
+  var user: User?
   var predictions = [GMSAutocompletePrediction]()
   var delegate: AutocompleteDelegate?
   var fetcher: GMSAutocompleteFetcher?
   var locationManager = CLLocationManager()
   var initialText: String?
-  var currentLocation: GMSPlace?
 
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -53,7 +53,7 @@ class AutocompleteViewController: TableViewController {
 
     GoogleMapsHelper.PlacesClient.currentPlaceWithCallback({ (placeLikelihoods, error) -> Void in
       if let placeLikelihood = placeLikelihoods?.likelihoods.first {
-        self.currentLocation = placeLikelihood.place
+        self.user?.currentLocation = placeLikelihood.place
         self.tableView?.reloadData()
       }
     })
@@ -68,7 +68,7 @@ extension AutocompleteViewController: UITableViewDataSource {
   }
 
   func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-    if indexPath.section == AutocompleteSection.CurrentLocation.rawValue && currentLocation == nil {
+    if indexPath.section == AutocompleteSection.CurrentLocation.rawValue && user?.currentLocation == nil {
       return 0
     }
     return UITableViewAutomaticDimension
@@ -78,7 +78,7 @@ extension AutocompleteViewController: UITableViewDataSource {
 
     if indexPath.section == AutocompleteSection.CurrentLocation.rawValue {
       let cell = tableView.dequeueReusableCellWithIdentifier("LocationCell", forIndexPath: indexPath)
-      cell.detailTextLabel?.text = currentLocation?.formattedAddress
+      cell.detailTextLabel?.text = user?.currentLocation?.formattedAddress
       return cell
     } else if indexPath.section == AutocompleteSection.AutocompleteResult.rawValue {
       let cell = tableView.dequeueReusableCellWithIdentifier("AutocompleteCell", forIndexPath: indexPath)
@@ -127,7 +127,7 @@ extension AutocompleteViewController: UITableViewDelegate {
         }
       }
     } else {
-      delegate?.onPlaceSelected(currentLocation)
+      delegate?.onPlaceSelected(user?.currentLocation)
       dismissViewControllerAnimated(false, completion: nil)
     }
   }

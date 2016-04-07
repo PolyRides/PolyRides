@@ -7,6 +7,7 @@
 //
 
 import Firebase
+import GoogleMaps
 
 class User {
 
@@ -19,6 +20,7 @@ class User {
   var timestamp: NSDate?
   var description: String?
   var car: Car?
+  var currentLocation: GMSPlace?
 
   var savedRides = [Ride]()
   var verifications = [Verification]()

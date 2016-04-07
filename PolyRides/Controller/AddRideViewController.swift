@@ -16,8 +16,8 @@ class AddRideViewController: UIViewController {
   var user: User?
   var savedRides: [Ride]?
   var ride: Ride?
-  var toLocationPlace: GMSPlace?
-  var fromLocationPlace: GMSPlace?
+  var toPlace: GMSPlace?
+  var fromPlace: GMSPlace?
   var autocompleteTextField: UITextField?
   var placesClient: GMSPlacesClient?
 
@@ -35,34 +35,6 @@ class AddRideViewController: UIViewController {
 
   @IBAction func stepperValChanged(sender: UIStepper) {
       seatsLabel?.text = Int(sender.value).description
-  }
-
-  @IBAction func toCurrentLocationAction(sender: AnyObject) {
-    GoogleMapsHelper.PlacesClient.currentPlaceWithCallback({ (placeLikelihoods, error) -> Void in
-      if error != nil {
-        self.presentAlert(AlertOptions(message: Error.CurrentLocationMessage, title: Error.CurrentLocationTitle))
-      }
-
-      if let placeLikelihood = placeLikelihoods?.likelihoods.first {
-        let place = placeLikelihood.place
-        self.toTextField?.text = place.formattedAddress
-        self.toLocationPlace = place
-      }
-    })
-  }
-
-  @IBAction func fromCurrentLocationAction(sender: AnyObject) {
-    GoogleMapsHelper.PlacesClient.currentPlaceWithCallback({ (placeLikelihoods, error) -> Void in
-      if error != nil {
-        self.presentAlert(AlertOptions(message: Error.CurrentLocationMessage, title: Error.CurrentLocationTitle))
-      }
-
-      if let placeLikelihood = placeLikelihoods?.likelihoods.first {
-        let place = placeLikelihood.place
-        self.fromTextField?.text = place.formattedAddress
-        self.fromLocationPlace = place
-      }
-    })
   }
 
   @IBAction func costEditingChanged(sender: AnyObject) {
@@ -101,14 +73,22 @@ class AddRideViewController: UIViewController {
                 }
 
               let ride = Ride(driver: user, date: date, seats: Int(seats), description: description, cost: Int(cost))
-                ride.fromLocation = locationFromPlace(fromLocationPlace)
-                ride.toLocation = locationFromPlace(toLocationPlace)
+                ride.fromLocation = locationFromPlace(fromPlace)
+                ride.toLocation = locationFromPlace(toPlace)
                 ride.timestamp = NSDate()
                 rideService.pushRideToFirebase(ride)
                 self.ride = ride
               }
             }
           }
+        }
+      }
+    } else if segue.identifier == "toAutocomplete" {
+      if let navVC = segue.destinationViewController as? UINavigationController {
+        if let vc = navVC.topViewController as? AutocompleteViewController, let textField = sender as? UITextField {
+          vc.delegate = self
+          vc.initialText = textField.text
+          vc.user = user
         }
       }
     }
@@ -130,7 +110,7 @@ class AddRideViewController: UIViewController {
   }
 
   func setEnableAddButton() {
-    if toLocationPlace != nil && fromLocationPlace != nil && costTextField?.text != nil {
+    if toPlace != nil && fromPlace != nil && costTextField?.text != nil {
       addButton?.enabled = true
     }
   }
@@ -148,31 +128,16 @@ class AddRideViewController: UIViewController {
 
 }
 
-// MARK: - GMSAutocompleteViewControllerDelegate
-extension AddRideViewController: GMSAutocompleteViewControllerDelegate {
+// MARK: - AutocompleteDelegate
+extension AddRideViewController: AutocompleteDelegate {
 
-  // Handle the user's selection.
-  func viewController(viewController: GMSAutocompleteViewController, didAutocompleteWithPlace place: GMSPlace) {
-    autocompleteTextField?.text = place.formattedAddress
-
+  func onPlaceSelected(place: GMSPlace?) {
+    autocompleteTextField?.text = place?.formattedAddress
     if autocompleteTextField == toTextField {
-      toLocationPlace = place
+      toPlace = place
     } else {
-      fromLocationPlace = place
+      fromPlace = place
     }
-
-    setEnableAddButton()
-    dismissViewControllerAnimated(true, completion: nil)
-  }
-
-  func viewController(viewController: GMSAutocompleteViewController, didFailAutocompleteWithError error: NSError) {
-    let title = "Please check your connection and try again."
-    presentAlert(AlertOptions(message: "Network Error", title: title))
-    dismissViewControllerAnimated(true, completion: nil)
-  }
-
-  func wasCancelled(viewController: GMSAutocompleteViewController) {
-    dismissViewControllerAnimated(true, completion: nil)
   }
 
 }
@@ -182,21 +147,7 @@ extension AddRideViewController: UITextFieldDelegate {
 
   func textFieldShouldBeginEditing(textField: UITextField) -> Bool {
     autocompleteTextField = textField
-
-    let filter = GMSAutocompleteFilter()
-    filter.country = "US"
-
-    // Set the bounds to have bias around California.
-    let topLeft = CLLocationCoordinate2DMake(41.975926, -124.509506)
-    let bottomRight = CLLocationCoordinate2DMake(32.974171, -113.799198)
-    let bounds = GMSCoordinateBounds(coordinate: topLeft, coordinate: bottomRight)
-
-    let autocompleteController = GMSAutocompleteViewController()
-    autocompleteController.autocompleteFilter = filter
-    autocompleteController.autocompleteBounds = bounds
-    autocompleteController.delegate = self
-    self.presentViewController(autocompleteController, animated: true, completion: nil)
-
+    performSegueWithIdentifier("toAutocomplete", sender: textField)
     return false
   }
 
