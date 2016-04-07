@@ -47,7 +47,7 @@
 		DB70B9051C938CDC0065CC4D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB70B9031C938CDC0065CC4D /* LaunchScreen.storyboard */; };
 		DB70B9061C938CDC0065CC4D /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB70B9041C938CDC0065CC4D /* Login.storyboard */; };
 		DB70B9081C938F540065CC4D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = DB70B9071C938F540065CC4D /* GoogleService-Info.plist */; };
-		DB747AB31C98D28A00A24F58 /* Search.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB747AB21C98D28A00A24F58 /* Search.storyboard */; };
+		DB747AB31C98D28A00A24F58 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB747AB21C98D28A00A24F58 /* Home.storyboard */; };
 		DB747AB61C98D76900A24F58 /* Rides.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB747AB51C98D76900A24F58 /* Rides.storyboard */; };
 		DB747AB81C98D79500A24F58 /* Messages.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB747AB71C98D79500A24F58 /* Messages.storyboard */; };
 		DB747ABA1C98D79E00A24F58 /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB747AB91C98D79E00A24F58 /* Profile.storyboard */; };
@@ -170,7 +170,7 @@
 		DB70B9041C938CDC0065CC4D /* Login.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
 		DB70B9071C938F540065CC4D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		DB70B9091C938F870065CC4D /* PolyRides-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "PolyRides-Bridging-Header.h"; path = "../Model/PolyRides-Bridging-Header.h"; sourceTree = "<group>"; };
-		DB747AB21C98D28A00A24F58 /* Search.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Search.storyboard; sourceTree = "<group>"; };
+		DB747AB21C98D28A00A24F58 /* Home.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
 		DB747AB51C98D76900A24F58 /* Rides.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Rides.storyboard; sourceTree = "<group>"; };
 		DB747AB71C98D79500A24F58 /* Messages.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Messages.storyboard; sourceTree = "<group>"; };
 		DB747AB91C98D79E00A24F58 /* Profile.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
@@ -448,7 +448,7 @@
 		DB747AB41C98D74F00A24F58 /* Tabs */ = {
 			isa = PBXGroup;
 			children = (
-				DB747AB21C98D28A00A24F58 /* Search.storyboard */,
+				DB747AB21C98D28A00A24F58 /* Home.storyboard */,
 				DB747AB51C98D76900A24F58 /* Rides.storyboard */,
 				DB747AB71C98D79500A24F58 /* Messages.storyboard */,
 				DB747AB91C98D79E00A24F58 /* Profile.storyboard */,
@@ -661,7 +661,7 @@
 				DB70B8D51C9389EA0065CC4D /* Assets.xcassets in Resources */,
 				DB747ABA1C98D79E00A24F58 /* Profile.storyboard in Resources */,
 				DB24333B1CA397940025680B /* MyRideDetails.storyboard in Resources */,
-				DB747AB31C98D28A00A24F58 /* Search.storyboard in Resources */,
+				DB747AB31C98D28A00A24F58 /* Home.storyboard in Resources */,
 				DB8DAE7F1CB31E660045195D /* OpenSans-Semibold.ttf in Resources */,
 				DB70B9051C938CDC0065CC4D /* LaunchScreen.storyboard in Resources */,
 				DB701AE51CA2607D00B40C9C /* LoadingLaunchScreen.storyboard in Resources */,

@@ -57,13 +57,21 @@ class RegionTableViewController: TableViewController {
     tableView?.separatorStyle = UITableViewCellSeparatorStyle.None
     tableView?.dataSource = self
 
+    if let searchButton = searchButton {
+      searchButton.clipsToBounds = true
+      searchButton.layer.cornerRadius = searchButton.layer.frame.size.width / 2
+    }
     setupAppearance()
   }
 
   override func viewWillAppear(animated: Bool) {
+    navigationController?.setNavigationBarHidden(true, animated: true)
     super.viewWillAppear(animated)
+  }
 
-    navigationController?.navigationBarHidden = true
+  override func viewWillDisappear(animated: Bool) {
+    navigationController?.setNavigationBarHidden(false, animated: true)
+    super.viewWillDisappear(animated)
   }
 
   override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {

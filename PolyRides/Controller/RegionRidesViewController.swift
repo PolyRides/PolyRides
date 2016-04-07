@@ -47,11 +47,6 @@ class RegionRidesViewController: RidesViewController {
     tableView?.reloadData()
   }
 
-  override func viewWillAppear(animated: Bool) {
-    super.viewWillAppear(animated)
-    navigationController?.navigationBarHidden = false
-  }
-
   override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
     if segue.identifier == "toPassengerRideDetails" {
       if let vc = segue.destinationViewController as? RideDetailsViewController {

@@ -10,22 +10,11 @@ import GoogleMaps
 
 class SearchViewController: TableViewController {
 
-  let calendar = NSCalendar.currentCalendar()
-
-  var user: User?
-  var allRides: [Ride]?
-  var rides: [Ride]?
-  var autocompleteTextField: UITextField?
-  var date: NSDate?
-  var datePicker: UIDatePicker?
-  var dateFormatter: NSDateFormatter?
-  var fromPlace: GMSPlace?
-  var toPlace: GMSPlace?
-
   @IBOutlet weak var fromPlaceTextField: UITextField?
   @IBOutlet weak var toPlaceTextField: UITextField?
   @IBOutlet weak var dateTextField: UITextField?
   @IBOutlet weak var placeStackView: UIStackView?
+  @IBOutlet weak var closeButton: UIButton?
 
   @IBAction func switchToFromAction(sender: AnyObject) {
     let tempPlace = toPlace
@@ -40,6 +29,18 @@ class SearchViewController: TableViewController {
     dismissViewControllerAnimated(true, completion: nil)
   }
 
+  let calendar = NSCalendar.currentCalendar()
+
+  var user: User?
+  var allRides: [Ride]?
+  var rides: [Ride]?
+  var autocompleteTextField: UITextField?
+  var date: NSDate?
+  var datePicker: UIDatePicker?
+  var dateFormatter: NSDateFormatter?
+  var fromPlace: GMSPlace?
+  var toPlace: GMSPlace?
+
   override func viewDidLoad() {
     super.viewDidLoad()
 
@@ -52,12 +53,11 @@ class SearchViewController: TableViewController {
     emptyMessage = Empty.BeginSearchMessage
     emptyImage = "arrow"
 
+    if let closeButton = closeButton {
+      closeButton.clipsToBounds = true
+      closeButton.layer.cornerRadius = closeButton.layer.frame.size.width / 2
+    }
     setupDatePicker()
-  }
-
-  override func viewWillAppear(animated: Bool) {
-    super.viewWillAppear(animated)
-    navigationController?.navigationBarHidden = false
   }
 
   func setupTextFields() {
