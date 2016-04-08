@@ -20,11 +20,10 @@ class TableViewController: UIViewController {
     super.viewDidLoad()
 
     tableView?.emptyDataSetSource = self
-    
+
     // Remove the cell separators in the empty table view.
     tableView?.tableFooterView = UIView()
 
-    addSearchButton()
     setupAppearance()
   }
 
@@ -55,7 +54,7 @@ extension TableViewController: DZNEmptyDataSetSource {
   func titleForEmptyDataSet(scrollView: UIScrollView!) -> NSAttributedString! {
     let attributes = [
       NSFontAttributeName: Font.EmptyTableHeader,
-      NSForegroundColorAttributeName : Color.Blue]
+      NSForegroundColorAttributeName : Color.White]
     return NSAttributedString(string: emptyTitle, attributes: attributes)
   }
 
@@ -72,6 +71,6 @@ extension TableViewController: DZNEmptyDataSetSource {
   }
 
   func backgroundColorForEmptyDataSet(scrollView: UIScrollView!) -> UIColor! {
-    return Color.LightGray
+    return Color.DarkWhite
   }
 }

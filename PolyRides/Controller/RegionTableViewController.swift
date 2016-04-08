@@ -38,14 +38,13 @@ class RegionTableViewCell: UITableViewCell {
 
 class RegionTableViewController: TableViewController {
 
-  @IBOutlet weak var searchButton: UIButton?
-
   let transition = BubbleTransition()
 
   var user: User?
   var allRides: [Ride]?
   var toRegionToRides: [Region: [Ride]]?
   var fromRegionToRides: [Region: [Ride]]?
+  var searchButton: UIButton?
 
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -53,6 +52,7 @@ class RegionTableViewController: TableViewController {
     if let tabBarController = tabBarController as? TabBarController {
       user = tabBarController.user
     }
+    addSearchButton()
 
     tableView?.separatorStyle = UITableViewCellSeparatorStyle.None
     tableView?.dataSource = self
@@ -85,6 +85,31 @@ class RegionTableViewController: TableViewController {
     let backItem = UIBarButtonItem()
     backItem.title = ""
     navigationItem.backBarButtonItem = backItem
+  }
+
+  override func preferredStatusBarStyle() -> UIStatusBarStyle {
+    return .LightContent
+  }
+
+  func addSearchButton() {
+    let borderWidth: CGFloat = 4
+    searchButton = UIButton(type: .Custom)
+    if let searchButton = searchButton {
+      searchButton.frame = CGRect(x: 0, y: 0, width: 56, height: 56)
+      searchButton.frame = CGRectInset(searchButton.frame, -borderWidth, -borderWidth)
+      searchButton.center = CGPoint(x: view.frame.midX, y: view.frame.maxY - 34)
+      searchButton.layer.cornerRadius = searchButton.frame.width / 2
+      searchButton.layer.borderColor = UIColor.whiteColor().CGColor
+      searchButton.layer.borderWidth = borderWidth
+      searchButton.setImage(UIImage(named:"search_circle"), forState: .Normal)
+      searchButton.contentMode = .ScaleAspectFit
+      searchButton.addTarget(self, action: #selector(onSearchButtonPressed), forControlEvents: .TouchUpInside)
+      tabBarController?.view.addSubview(searchButton)
+    }
+  }
+
+  func onSearchButtonPressed() {
+    performSegueWithIdentifier("toSearch", sender: self)
   }
 
 }
@@ -137,7 +162,7 @@ extension RegionTableViewController: UIViewControllerTransitioningDelegate {
     if let searchButton = searchButton {
       transition.startingPoint = searchButton.center
     }
-    transition.bubbleColor = Color.Accent
+    transition.bubbleColor = Color.Navy
     return transition
   }
 
@@ -147,7 +172,7 @@ extension RegionTableViewController: UIViewControllerTransitioningDelegate {
       if let searchButton = searchButton {
         transition.startingPoint = searchButton.center
       }
-    transition.bubbleColor = Color.Accent
+    transition.bubbleColor = Color.Navy
     return transition
   }
 

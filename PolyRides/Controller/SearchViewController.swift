@@ -60,6 +60,10 @@ class SearchViewController: TableViewController {
     setupDatePicker()
   }
 
+  override func preferredStatusBarStyle() -> UIStatusBarStyle {
+    return .LightContent
+  }
+
   func setupTextFields() {
     let fromLabel = UILabel(frame: CGRect(x: 50, y: 0, width: 50, height: fromPlaceTextField!.frame.size.height))
     fromLabel.text = "From"

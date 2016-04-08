@@ -62,9 +62,6 @@ class AddRideViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
 
-
-
-
     toPlaceTextField?.delegate = self
     fromPlaceTextField?.delegate = self
 

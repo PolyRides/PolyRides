@@ -51,10 +51,10 @@ class LoadingViewController: UIViewController {
       tabBarVC.user = user
 
       if let navVC = tabBarVC.viewControllers?.first as? UINavigationController {
-        if let searchVC = navVC.topViewController as? RegionTableViewController {
-          searchVC.allRides = allRides
-          searchVC.fromRegionToRides = fromRegionToRides
-          searchVC.toRegionToRides = toRegionToRides
+        if let vc = navVC.topViewController as? RegionTableViewController {
+          vc.allRides = allRides
+          vc.fromRegionToRides = fromRegionToRides
+          vc.toRegionToRides = toRegionToRides
         }
       }
       if let delegate: AppDelegate = UIApplication.sharedApplication().delegate as? AppDelegate {

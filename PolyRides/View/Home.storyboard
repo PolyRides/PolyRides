@@ -81,7 +81,7 @@
                                 </prototypes>
                             </tableView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.20784313730000001" green="0.28627450980000002" blue="0.36470588240000001" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="LO3-mx-0By" firstAttribute="leading" secondItem="8kX-Kc-357" secondAttribute="leadingMargin" constant="-20" id="Ifc-ma-4Kd"/>
                             <constraint firstItem="Pvg-rb-I06" firstAttribute="top" secondItem="LO3-mx-0By" secondAttribute="bottom" id="bMq-3b-CTP"/>
@@ -94,11 +94,12 @@
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="tableView" destination="LO3-mx-0By" id="Pev-Ma-Dbq"/>
+                        <segue destination="rDq-gs-kpx" kind="presentation" identifier="toSearch" id="wjK-Dm-kY2"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="D9z-hg-RCe" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-427" y="-993"/>
+            <point key="canvasLocation" x="-418" y="-987"/>
         </scene>
         <!--Search-->
         <scene sceneID="csg-7v-X5R">
@@ -208,24 +209,26 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V6o-Lc-JGL">
-                                <rect key="frame" x="524" y="484" width="56" height="56"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V6o-Lc-JGL">
+                                <rect key="frame" x="272" y="538" width="56" height="56"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="56" id="8wy-0e-v9k"/>
                                     <constraint firstAttribute="width" constant="56" id="xgV-FG-fnz"/>
                                 </constraints>
-                                <state key="normal" image="cross"/>
+                                <color key="tintColor" red="0.20784313730000001" green="0.28627450980000002" blue="0.36470588240000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" image="cross">
+                                    <color key="titleColor" red="0.20784313730000001" green="0.28627450980000002" blue="0.36470588240000001" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
                                 <connections>
                                     <action selector="onCloseButtonAction:" destination="rDq-gs-kpx" eventType="touchUpInside" id="vi2-PP-qnn"/>
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.20784313730000001" green="0.28627450980000002" blue="0.36470588240000001" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstAttribute="trailingMargin" secondItem="V6o-Lc-JGL" secondAttribute="trailing" id="3dP-sB-TlZ"/>
-                            <constraint firstItem="jBX-sz-lc5" firstAttribute="top" secondItem="V6o-Lc-JGL" secondAttribute="bottom" constant="16" id="3vb-1B-j4A"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Hnc-NN-onX" secondAttribute="trailing" constant="-20" id="CN6-Me-gyT"/>
+                            <constraint firstItem="V6o-Lc-JGL" firstAttribute="bottom" secondItem="sw9-fb-7Nf" secondAttribute="bottomMargin" constant="-6" id="OJj-b0-Bh0"/>
                             <constraint firstAttribute="trailingMargin" secondItem="mOx-NM-0RF" secondAttribute="trailing" constant="-20" id="Qbo-y1-NRm"/>
                             <constraint firstItem="Hnc-NN-onX" firstAttribute="top" secondItem="do3-Xb-baT" secondAttribute="bottom" id="RZo-wl-X71"/>
                             <constraint firstItem="mOx-NM-0RF" firstAttribute="top" secondItem="Hnc-NN-onX" secondAttribute="bottom" id="air-Ua-Jyt"/>
@@ -233,6 +236,7 @@
                             <constraint firstItem="mOx-NM-0RF" firstAttribute="leading" secondItem="sw9-fb-7Nf" secondAttribute="leadingMargin" constant="-20" id="gNS-zu-74P"/>
                             <constraint firstItem="mOx-NM-0RF" firstAttribute="leading" secondItem="sw9-fb-7Nf" secondAttribute="leadingMargin" constant="-20" id="ncz-85-rUX"/>
                             <constraint firstItem="mOx-NM-0RF" firstAttribute="bottom" secondItem="sw9-fb-7Nf" secondAttribute="bottomMargin" id="oXS-EA-Gqc"/>
+                            <constraint firstItem="V6o-Lc-JGL" firstAttribute="centerX" secondItem="sw9-fb-7Nf" secondAttribute="centerX" id="pMY-hS-amz"/>
                             <constraint firstAttribute="trailingMargin" secondItem="mOx-NM-0RF" secondAttribute="trailing" constant="-20" id="sJj-dn-Fqj"/>
                         </constraints>
                     </view>
@@ -280,7 +284,7 @@
                                         </connections>
                                     </segmentedControl>
                                 </subviews>
-                                <color key="backgroundColor" red="0.11764705882352941" green="0.23529411764705882" blue="0.30196078431372547" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.20784313725490194" green="0.28627450980392155" blue="0.36470588235294116" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="TVZ-gk-JSW" secondAttribute="trailing" constant="12" id="3cY-oa-OE8"/>
                                     <constraint firstAttribute="height" secondItem="TVZ-gk-JSW" secondAttribute="height" constant="16" id="7i8-Ls-Lxu"/>

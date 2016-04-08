@@ -40,10 +40,10 @@ extension UIViewController {
   func setupAppearance() {
     navigationController?.navigationBar.translucent = false
     navigationController?.navigationBar.barStyle = .Black
-    navigationController?.navigationBar.barTintColor = Color.Accent
+    navigationController?.navigationBar.barTintColor = Color.Navy
 
     tabBarController?.tabBar.translucent = false
-    tabBarController?.tabBar.tintColor = Color.Accent
+    tabBarController?.tabBar.tintColor = Color.Navy
   }
 
   func presentAlert(alertOptions: AlertOptions = AlertOptions()) {
@@ -67,21 +67,6 @@ extension UIViewController {
 
   func trackScreen(screenName: String) {
     GoogleAnalyticsHelper.trackScreen(screenName)
-  }
-
-  func addSearchButton() {
-    let borderWidth: CGFloat = 4
-    let button = UIButton(type: .Custom)
-    button.frame = CGRect(x: 0, y: 0, width: 56, height: 56)
-    button.frame = CGRectInset(button.frame, -borderWidth, -borderWidth)
-    button.center = CGPoint(x: view.frame.midX, y: view.frame.maxY - 32)
-    button.layer.cornerRadius = button.frame.width / 2
-    button.layer.borderColor = UIColor.whiteColor().CGColor
-    button.layer.borderWidth = borderWidth
-    button.setImage(UIImage(named:"search_circle"), forState: .Normal)
-    button.contentMode = .ScaleAspectFit
-   // button.addTarget(self, action: #selector(searchButtonPressed), forControlEvents: .TouchUpInside)
-    tabBarController?.view.addSubview(button)
   }
 
 }
