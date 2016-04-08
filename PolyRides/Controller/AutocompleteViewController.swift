@@ -26,6 +26,8 @@ enum AutocompleteSection: Int {
 
 class AutocompleteViewController: TableViewController {
 
+  let defaultInsets = UIEdgeInsetsMake(0, 52, 0, 0)
+
   var user: User?
   var predictions = [GMSAutocompletePrediction]()
   var delegate: AutocompleteDelegate?
@@ -43,6 +45,7 @@ class AutocompleteViewController: TableViewController {
     tableView?.dataSource = self
 
     let searchBar = UISearchBar()
+    searchBar.tintColor = Color.Navy
     searchBar.sizeToFit()
     searchBar.showsCancelButton = true
     searchBar.becomeFirstResponder()
@@ -50,6 +53,9 @@ class AutocompleteViewController: TableViewController {
     searchBar.delegate = self
     searchBar.text = initialText
     navigationItem.titleView = searchBar
+
+    let textFieldInsideSearchBar = searchBar.valueForKey("searchField") as? UITextField
+    textFieldInsideSearchBar?.textColor = Color.Black
 
     GoogleMapsHelper.PlacesClient.currentPlaceWithCallback({ (placeLikelihoods, error) -> Void in
       if let placeLikelihood = placeLikelihoods?.likelihoods.first {
@@ -65,13 +71,6 @@ extension AutocompleteViewController: UITableViewDataSource {
 
   func numberOfSectionsInTableView(tableView: UITableView) -> Int {
     return AutocompleteSection.AllSections.count
-  }
-
-  func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-    if indexPath.section == AutocompleteSection.CurrentLocation.rawValue && user?.currentLocation == nil {
-      return 0
-    }
-    return UITableViewAutomaticDimension
   }
 
   func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -106,8 +105,27 @@ extension AutocompleteViewController: UITableViewDataSource {
   func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     if section == AutocompleteSection.AutocompleteResult.rawValue {
       return predictions.count
+    } else if section == AutocompleteSection.CurrentLocation.rawValue {
+      return user?.currentLocation == nil ? 0 : 1
     } else {
       return 1
+    }
+  }
+
+  func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell,
+                 forRowAtIndexPath indexPath: NSIndexPath) {
+    if indexPath.section == AutocompleteSection.PoweredByGoogle.rawValue {
+      cell.layoutMargins = UIEdgeInsetsZero
+      cell.separatorInset = UIEdgeInsetsMake(0, 0, 0, cell.bounds.size.width)
+    } else if predictions.count == 0 {
+      cell.layoutMargins = UIEdgeInsetsZero
+      cell.separatorInset = UIEdgeInsetsMake(0, 0, 0, cell.bounds.size.width)
+    } else if indexPath.section == AutocompleteSection.AutocompleteResult.rawValue &&
+     indexPath.row == predictions.count - 1 {
+      cell.layoutMargins = UIEdgeInsetsZero
+      cell.separatorInset = UIEdgeInsetsMake(0, 0, 0, cell.bounds.size.width)
+    } else {
+      cell.separatorInset = defaultInsets
     }
   }
 
@@ -149,7 +167,6 @@ extension AutocompleteViewController: GMSAutocompleteFetcherDelegate {
   }
 
   func didFailAutocompleteWithError(error: NSError) {
-    // TODO handle error
     print(error.localizedDescription)
   }
 

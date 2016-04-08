@@ -54,7 +54,7 @@ extension TableViewController: DZNEmptyDataSetSource {
   func titleForEmptyDataSet(scrollView: UIScrollView!) -> NSAttributedString! {
     let attributes = [
       NSFontAttributeName: Font.EmptyTableHeader,
-      NSForegroundColorAttributeName : Color.White]
+      NSForegroundColorAttributeName : Color.Navy]
     return NSAttributedString(string: emptyTitle, attributes: attributes)
   }
 
@@ -64,13 +64,13 @@ extension TableViewController: DZNEmptyDataSetSource {
     paragraph.alignment = NSTextAlignment.Center
     let attributes = [
       NSFontAttributeName: Font.TableRowSubline,
-      NSForegroundColorAttributeName: Color.DarkGray,
+      NSForegroundColorAttributeName: Color.Gray,
       NSParagraphStyleAttributeName: paragraph]
 
     return NSAttributedString(string: emptyMessage, attributes: attributes)
   }
 
   func backgroundColorForEmptyDataSet(scrollView: UIScrollView!) -> UIColor! {
-    return Color.DarkWhite
+    return Color.White
   }
 }

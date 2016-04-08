@@ -9,19 +9,15 @@
 import GoogleMaps
 
 struct Color {
-
-  static let White = UIColor(red: 251.0/255, green: 249.0/255, blue: 243.0/255, alpha: 1.0)
-  static let DarkNavy = UIColor(red: 45.0/255, green: 62.0/255, blue: 79.0/255, alpha: 1.0)
-
-  static let DarkBlue = UIColor(red: 29.0/255, green: 60.0/255, blue: 78.0/255, alpha: 1.0)
-  static let Blue = UIColor(red: 0.0/255, green: 122.0/255, blue: 255.0/255, alpha: 1.0)
   static let LightGray = UIColor(red: 240.0/255, green: 240.0/255, blue: 240.0/255, alpha: 1.0)
-  static let Gray = UIColor(red: 130.0/255, green: 137.0/255, blue: 141.0/255, alpha: 1.0)
-  static let DarkGray = UIColor(red: 86.0/255, green: 90.0/255, blue: 92.0/255, alpha: 1.0)
 
   static let Navy = UIColor(red: 53.0/255, green: 73.0/255, blue: 93.0/255, alpha: 1.0)
-
+  static let DarkNavy = UIColor(red: 45.0/255, green: 62.0/255, blue: 79.0/255, alpha: 1.0)
+  static let White = UIColor(red: 236.0/255, green: 240.0/255, blue: 241.0/255, alpha: 1.0)
   static let DarkWhite = UIColor(red: 189.0/255, green: 195.0/255, blue: 199.0/255, alpha: 1.0)
+  static let Gray = UIColor(red: 86.0/255, green: 90.0/255, blue: 92.0/255, alpha: 1.0)
+  static let Black = UIColor(red: 43.0/255, green: 43.0/255, blue: 43.0/255, alpha: 1.0)
+
 }
 
 struct Attributes {

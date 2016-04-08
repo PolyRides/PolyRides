@@ -30,6 +30,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     UINavigationBar.appearance().tintColor = Color.White
     UINavigationBar.appearance().setBackgroundImage(UIImage(), forBarPosition: .Any, barMetrics: .Default)
     UINavigationBar.appearance().shadowImage = UIImage()
+    UIBarButtonItem.appearanceWhenContainedInInstancesOfClasses([UISearchBar.self]).tintColor = Color.White
+    UITextField.appearanceWhenContainedInInstancesOfClasses([UISearchBar.self]).tintColor = Color.White
+
+    UIScrollView.appearance().backgroundColor = Color.White
 
     // Google Analytics.
     var configureError: NSError?
