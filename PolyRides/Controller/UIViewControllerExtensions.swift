@@ -32,11 +32,18 @@ struct AlertOptions {
 
 extension UIViewController {
 
+  override public func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+    view.endEditing(true)
+    super.touchesBegan(touches, withEvent: event)
+  }
+
   func setupAppearance() {
     navigationController?.navigationBar.translucent = false
+    navigationController?.navigationBar.barStyle = .Black
+    navigationController?.navigationBar.barTintColor = Color.Accent
 
     tabBarController?.tabBar.translucent = false
-    tabBarController?.tabBar.tintColor = Color.Blue
+    tabBarController?.tabBar.tintColor = Color.Accent
   }
 
   func presentAlert(alertOptions: AlertOptions = AlertOptions()) {
@@ -62,9 +69,19 @@ extension UIViewController {
     GoogleAnalyticsHelper.trackScreen(screenName)
   }
 
-  override public func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
-    view.endEditing(true)
-    super.touchesBegan(touches, withEvent: event)
+  func addSearchButton() {
+    let borderWidth: CGFloat = 4
+    let button = UIButton(type: .Custom)
+    button.frame = CGRect(x: 0, y: 0, width: 56, height: 56)
+    button.frame = CGRectInset(button.frame, -borderWidth, -borderWidth)
+    button.center = CGPoint(x: view.frame.midX, y: view.frame.maxY - 32)
+    button.layer.cornerRadius = button.frame.width / 2
+    button.layer.borderColor = UIColor.whiteColor().CGColor
+    button.layer.borderWidth = borderWidth
+    button.setImage(UIImage(named:"search_circle"), forState: .Normal)
+    button.contentMode = .ScaleAspectFit
+   // button.addTarget(self, action: #selector(searchButtonPressed), forControlEvents: .TouchUpInside)
+    tabBarController?.view.addSubview(button)
   }
 
 }

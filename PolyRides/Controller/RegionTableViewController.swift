@@ -56,12 +56,6 @@ class RegionTableViewController: TableViewController {
 
     tableView?.separatorStyle = UITableViewCellSeparatorStyle.None
     tableView?.dataSource = self
-
-    if let searchButton = searchButton {
-      searchButton.clipsToBounds = true
-      searchButton.layer.cornerRadius = searchButton.layer.frame.size.width / 2
-    }
-    setupAppearance()
   }
 
   override func viewWillAppear(animated: Bool) {
@@ -143,7 +137,7 @@ extension RegionTableViewController: UIViewControllerTransitioningDelegate {
     if let searchButton = searchButton {
       transition.startingPoint = searchButton.center
     }
-    transition.bubbleColor = Color.Blue
+    transition.bubbleColor = Color.Accent
     return transition
   }
 
@@ -153,7 +147,7 @@ extension RegionTableViewController: UIViewControllerTransitioningDelegate {
       if let searchButton = searchButton {
         transition.startingPoint = searchButton.center
       }
-    transition.bubbleColor = Color.Blue
+    transition.bubbleColor = Color.Accent
     return transition
   }
 

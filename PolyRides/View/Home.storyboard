@@ -80,35 +80,19 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jKN-cF-KKz">
-                                <rect key="frame" x="524" y="479" width="56" height="56"/>
-                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="56" id="RPh-DY-rSo"/>
-                                    <constraint firstAttribute="width" constant="56" id="u7v-ai-7Gv"/>
-                                </constraints>
-                                <color key="tintColor" red="0.92549019610000005" green="0.94117647059999998" blue="0.94509803920000002" alpha="1" colorSpace="calibratedRGB"/>
-                                <state key="normal" image="search"/>
-                                <connections>
-                                    <segue destination="rDq-gs-kpx" kind="presentation" identifier="toSearch" id="cLR-0s-aXb"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="LO3-mx-0By" firstAttribute="leading" secondItem="8kX-Kc-357" secondAttribute="leadingMargin" constant="-20" id="Ifc-ma-4Kd"/>
                             <constraint firstItem="Pvg-rb-I06" firstAttribute="top" secondItem="LO3-mx-0By" secondAttribute="bottom" id="bMq-3b-CTP"/>
-                            <constraint firstItem="Pvg-rb-I06" firstAttribute="top" secondItem="jKN-cF-KKz" secondAttribute="bottom" constant="16" id="bdw-2q-tZi"/>
                             <constraint firstItem="LO3-mx-0By" firstAttribute="top" secondItem="loi-VM-Z6k" secondAttribute="bottom" id="eqV-8d-mcA"/>
                             <constraint firstAttribute="trailingMargin" secondItem="LO3-mx-0By" secondAttribute="trailing" constant="-20" id="jSW-c4-1De"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="jKN-cF-KKz" secondAttribute="trailing" id="tpK-p2-6kH"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Home" image="home" selectedImage="home_filled" id="jLJ-EB-j6L"/>
                     <navigationItem key="navigationItem" id="U3p-oQ-CtE"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
-                        <outlet property="searchButton" destination="jKN-cF-KKz" id="pEC-sK-hmy"/>
                         <outlet property="tableView" destination="LO3-mx-0By" id="Pev-Ma-Dbq"/>
                     </connections>
                 </viewController>
@@ -290,12 +274,13 @@
                                             <segment title="From"/>
                                             <segment title="To"/>
                                         </segments>
-                                        <color key="tintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="tintColor" red="0.98431372549019602" green="0.97647058823529409" blue="0.95294117647058818" alpha="1" colorSpace="calibratedRGB"/>
                                         <connections>
                                             <action selector="segmentedControlAction:" destination="OMY-dk-k3w" eventType="valueChanged" id="Ahn-AU-Sgm"/>
                                         </connections>
                                     </segmentedControl>
                                 </subviews>
+                                <color key="backgroundColor" red="0.11764705882352941" green="0.23529411764705882" blue="0.30196078431372547" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="TVZ-gk-JSW" secondAttribute="trailing" constant="12" id="3cY-oa-OE8"/>
                                     <constraint firstAttribute="height" secondItem="TVZ-gk-JSW" secondAttribute="height" constant="16" id="7i8-Ls-Lxu"/>
@@ -420,6 +405,5 @@
         <image name="home" width="25" height="25"/>
         <image name="home_filled" width="25" height="25"/>
         <image name="san_francisco" width="798" height="322"/>
-        <image name="search" width="24" height="24"/>
     </resources>
 </document>

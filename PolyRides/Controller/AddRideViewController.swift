@@ -14,7 +14,6 @@ class AddRideViewController: UIViewController {
   let rideService = RideService()
 
   var user: User?
-  var savedRides: [Ride]?
   var ride: Ride?
   var toPlace: GMSPlace?
   var fromPlace: GMSPlace?
@@ -62,6 +61,9 @@ class AddRideViewController: UIViewController {
 
   override func viewDidLoad() {
     super.viewDidLoad()
+
+
+
 
     toPlaceTextField?.delegate = self
     fromPlaceTextField?.delegate = self
