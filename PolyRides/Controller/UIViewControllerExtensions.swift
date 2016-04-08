@@ -32,6 +32,11 @@ struct AlertOptions {
 
 extension UIViewController {
 
+  override public func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+    view.endEditing(true)
+    super.touchesBegan(touches, withEvent: event)
+  }
+
   func setupAppearance() {
     navigationController?.navigationBar.translucent = false
     navigationController?.navigationBar.barStyle = .Black
@@ -62,11 +67,6 @@ extension UIViewController {
 
   func trackScreen(screenName: String) {
     GoogleAnalyticsHelper.trackScreen(screenName)
-  }
-
-  override public func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
-    view.endEditing(true)
-    super.touchesBegan(touches, withEvent: event)
   }
 
 }

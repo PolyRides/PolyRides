@@ -20,6 +20,7 @@ PODS:
   - Bolts/AppLinks (1.6.0):
     - Bolts/Tasks
   - Bolts/Tasks (1.6.0)
+  - BubbleTransition (1.0.3)
   - Crashlytics (3.7.0):
     - Fabric (~> 1.6.3)
   - DZNEmptyDataSet (1.7.3)
@@ -56,6 +57,7 @@ PODS:
 
 DEPENDENCIES:
   - AFNetworking
+  - BubbleTransition (~> 1.0.0)
   - Crashlytics
   - DZNEmptyDataSet
   - Fabric
@@ -82,6 +84,7 @@ CHECKOUT OPTIONS:
 SPEC CHECKSUMS:
   AFNetworking: a0075feb321559dc78d9d85b55d11caa19eabb93
   Bolts: f52a250053bb517ca874523c3913776359ab3def
+  BubbleTransition: a7ae6678721406d60f604cbbea1ace505563119d
   Crashlytics: c3a2333dea9e2733d2777f730910321fc9e25c0d
   DZNEmptyDataSet: dd7cca17c1d07dfa78956859b1e70a52505678ef
   Fabric: caf7580c725e64db144f610ac65cd60956911dc7

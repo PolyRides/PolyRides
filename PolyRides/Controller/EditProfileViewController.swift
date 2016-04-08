@@ -69,6 +69,7 @@ class EditProfileViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
 
+    setupAppearance()
     verificationService.delegate = self
     descriptionTextView?.text = user?.description ?? emptyDescription
     makeLabel?.text = user?.car?.make

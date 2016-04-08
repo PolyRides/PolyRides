@@ -1,28 +1,17 @@
 //
-//  RidesViewController.swift
+//  MyRidesViewController.swift
 //  PolyRides
 //
 //  Created by Vanessa Forney on 3/16/16.
 //  Copyright © 2016 Vanessa Forney. All rights reserved.
 //
 
-import DZNEmptyDataSet
+import BubbleTransition
 
-class MyRidesViewController: RidesViewController {
-
-  var rideService = RideService()
-  var currentRides = [Ride]()
-  var pastRides = [Ride]()
-  var expectedRides = -1 {
-    didSet {
-      if expectedRides == 0 {
-        rides = currentRides
-        tableView?.reloadData()
-      }
-    }
-  }
+class MyRidesViewController: RidesTableViewController {
 
   @IBOutlet weak var segmentedControl: UISegmentedControl?
+  @IBOutlet weak var addButton: UIButton?
 
   @IBAction func segmentedAction(sender: AnyObject) {
     if let segmentedControl = sender as? UISegmentedControl {
@@ -61,6 +50,20 @@ class MyRidesViewController: RidesViewController {
     }
   }
 
+  let transition = BubbleTransition()
+
+  var rideService = RideService()
+  var currentRides = [Ride]()
+  var pastRides = [Ride]()
+  var expectedRides = -1 {
+    didSet {
+      if expectedRides == 0 {
+        rides = currentRides
+        tableView?.reloadData()
+      }
+    }
+  }
+
   override func viewDidLoad() {
     super.viewDidLoad()
 
@@ -76,6 +79,11 @@ class MyRidesViewController: RidesViewController {
     }
 
     emptyImage = "empty"
+    if let addButton = addButton {
+      addButton.clipsToBounds = true
+      addButton.layer.cornerRadius = addButton.layer.frame.size.width / 2
+    }
+    setupAppearance()
   }
 
   override func viewWillAppear(animated: Bool) {
@@ -84,14 +92,18 @@ class MyRidesViewController: RidesViewController {
     if let segmentedControl = segmentedControl {
       segmentedAction(segmentedControl)
     }
+    navigationController?.setNavigationBarHidden(true, animated: true)
   }
 
   override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
     if segue.identifier == "toAddRide" {
       if let navVC = segue.destinationViewController as? UINavigationController {
-        if let addRideVC = navVC.topViewController as? AddRideViewController {
-          addRideVC.user = user
+        if let vc = navVC.topViewController as? AddRideViewController {
+          vc.user = user
+
         }
+        navVC.transitioningDelegate = self
+        navVC.modalPresentationStyle = .Custom
       }
     } else if segue.identifier == "toPassengerRideDetails" || segue.identifier == "toMyRideDetails" {
       if let vc = segue.destinationViewController as? RideDetailsViewController {
@@ -100,6 +112,10 @@ class MyRidesViewController: RidesViewController {
           vc.user = user
         }
       }
+
+      let backItem = UIBarButtonItem()
+      backItem.title = ""
+      navigationItem.backBarButtonItem = backItem
     }
   }
 
@@ -146,6 +162,33 @@ extension MyRidesViewController: UITableViewDelegate {
     } else {
       performSegueWithIdentifier("toMyRideDetails", sender: cell)
     }
+  }
+
+}
+
+// MARK: - UIViewControllerTransitioningDelegate
+extension MyRidesViewController: UIViewControllerTransitioningDelegate {
+
+  func animationControllerForPresentedController(presented: UIViewController,
+                                                 presentingController presenting: UIViewController,
+                                                                      sourceController source: UIViewController)
+    -> UIViewControllerAnimatedTransitioning? {
+      transition.transitionMode = .Present
+      if let addButton = addButton {
+        transition.startingPoint = addButton.center
+      }
+      transition.bubbleColor = Color.Navy
+      return transition
+  }
+
+  func animationControllerForDismissedController(dismissed: UIViewController)
+    -> UIViewControllerAnimatedTransitioning? {
+      transition.transitionMode = .Dismiss
+      if let addButton = addButton {
+        transition.startingPoint = addButton.center
+      }
+      transition.bubbleColor = Color.Navy
+      return transition
   }
 
 }

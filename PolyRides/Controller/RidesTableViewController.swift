@@ -1,5 +1,5 @@
 //
-//  RidesViewController.swift
+//  RidesTableViewController.swift
 //  PolyRides
 //
 //  Created by Vanessa Forney on 3/20/16.
@@ -12,7 +12,7 @@ class RideTableViewCell: UITableViewCell {
 
 }
 
-class RidesViewController: TableViewController {
+class RidesTableViewController: TableViewController {
 
   var rides: [Ride]? {
     didSet {
@@ -30,7 +30,7 @@ class RidesViewController: TableViewController {
 }
 
 // MARK: - UITableViewDataSource
-extension RidesViewController: UITableViewDataSource {
+extension RidesTableViewController: UITableViewDataSource {
 
   func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     if let rides = rides {
@@ -53,4 +53,5 @@ extension RidesViewController: UITableViewDataSource {
 
     return cell
   }
+
 }

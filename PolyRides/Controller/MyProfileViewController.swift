@@ -21,6 +21,8 @@ class MyProfileViewController: ProfileViewController {
 
     super.viewDidLoad()
 
+    setupAppearance()
+
     if user?.verifications.indexOf(Verification.CalPoly) != nil {
       verifiedImage?.hidden = false
     }

@@ -3,6 +3,7 @@ use_frameworks!
 inhibit_all_warnings!
 
 target 'PolyRides' do
+   pod 'BubbleTransition', '~> 1.0.0'
    pod 'SendGrid', :git => 'https://github.com/scottkawai/sendgrid-swift.git', :submodules => true
    pod 'DZNEmptyDataSet'
    pod 'AFNetworking'

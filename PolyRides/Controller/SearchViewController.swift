@@ -10,6 +10,25 @@ import GoogleMaps
 
 class SearchViewController: TableViewController {
 
+  @IBOutlet weak var fromPlaceTextField: UITextField?
+  @IBOutlet weak var toPlaceTextField: UITextField?
+  @IBOutlet weak var dateTextField: UITextField?
+  @IBOutlet weak var placeStackView: UIStackView?
+  @IBOutlet weak var closeButton: UIButton?
+
+  @IBAction func switchToFromAction(sender: AnyObject) {
+    let tempPlace = toPlace
+    let tempText = toPlaceTextField?.text
+    toPlace = fromPlace
+    toPlaceTextField?.text = fromPlaceTextField?.text
+    fromPlace = tempPlace
+    fromPlaceTextField?.text = tempText
+  }
+
+  @IBAction func onCloseButtonAction(sender: AnyObject) {
+    dismissViewControllerAnimated(true, completion: nil)
+  }
+
   let calendar = NSCalendar.currentCalendar()
 
   var user: User?
@@ -21,20 +40,6 @@ class SearchViewController: TableViewController {
   var dateFormatter: NSDateFormatter?
   var fromPlace: GMSPlace?
   var toPlace: GMSPlace?
-
-  @IBOutlet weak var fromPlaceTextField: UITextField?
-  @IBOutlet weak var toPlaceTextField: UITextField?
-  @IBOutlet weak var dateTextField: UITextField?
-  @IBOutlet weak var placeStackView: UIStackView?
-
-  @IBAction func switchToFromAction(sender: AnyObject) {
-    let tempPlace = toPlace
-    let tempText = toPlaceTextField?.text
-    toPlace = fromPlace
-    toPlaceTextField?.text = fromPlaceTextField?.text
-    fromPlace = tempPlace
-    fromPlaceTextField?.text = tempText
-  }
 
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -48,7 +53,15 @@ class SearchViewController: TableViewController {
     emptyMessage = Empty.BeginSearchMessage
     emptyImage = "arrow"
 
+    if let closeButton = closeButton {
+      closeButton.clipsToBounds = true
+      closeButton.layer.cornerRadius = closeButton.layer.frame.size.width / 2
+    }
     setupDatePicker()
+  }
+
+  override func preferredStatusBarStyle() -> UIStatusBarStyle {
+    return .LightContent
   }
 
   func setupTextFields() {
@@ -157,9 +170,9 @@ class SearchViewController: TableViewController {
     if segue.identifier == "toAutocomplete" {
       if let navVC = segue.destinationViewController as? UINavigationController {
         if let vc = navVC.topViewController as? AutocompleteViewController, let textField = sender as? UITextField {
-          autocompleteTextField = textField
           vc.delegate = self
           vc.initialText = textField.text
+          vc.user = user
         }
       }
     } else if segue.identifier == "toPassengerRideDetails" {

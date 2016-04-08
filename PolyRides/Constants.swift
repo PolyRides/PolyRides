@@ -9,11 +9,23 @@
 import GoogleMaps
 
 struct Color {
+  static let LightGray = UIColor(red: 240.0/255, green: 240.0/255, blue: 240.0/255, alpha: 1.0)
 
-  static let White = UIColor(red: 236.0/255, green: 240.0/255, blue: 241.0/255, alpha: 1.0)
-  static let DarkNavy = UIColor(red: 45.0/255, green: 62.0/255, blue: 79.0/255, alpha: 1.0)
   static let Navy = UIColor(red: 53.0/255, green: 73.0/255, blue: 93.0/255, alpha: 1.0)
-  static let Gray = UIColor(red: 143.0/255, green: 142.0/255, blue: 148.0/255, alpha: 1.0)
+  static let DarkNavy = UIColor(red: 45.0/255, green: 62.0/255, blue: 79.0/255, alpha: 1.0)
+  static let White = UIColor(red: 236.0/255, green: 240.0/255, blue: 241.0/255, alpha: 1.0)
+  static let DarkWhite = UIColor(red: 189.0/255, green: 195.0/255, blue: 199.0/255, alpha: 1.0)
+  static let Gray = UIColor(red: 86.0/255, green: 90.0/255, blue: 92.0/255, alpha: 1.0)
+  static let Black = UIColor(red: 43.0/255, green: 43.0/255, blue: 43.0/255, alpha: 1.0)
+
+}
+
+struct Attributes {
+
+  static let NavigationBar = [NSFontAttributeName: Font.NavigationBarTitle,
+                              NSForegroundColorAttributeName: Color.White]
+  static let SegmentedControl = [NSFontAttributeName: Font.SegmentedControl]
+  static let TabBar = [NSFontAttributeName: Font.TabBar]
 
 }
 
@@ -39,7 +51,7 @@ struct Empty {
   static let SearchMessage = "We don't have any rides departing within 24 hours of the specified date, please check back later."
   static let BeginSearchTitle = "Search for a ride."
   static let BeginSearchMessage = "Enter from and to locations and a departure date,\nand rides within 24 hours will show up."
-  static let RegionTitle = "No rides were found"
+  static let RegionTitle = "No rides were found."
 
   static let CurrentRidesTitle = "You haven't posted any rides, yet."
   static let CurrentRidesMessage = "Offer a ride by tapping the plus symbol\nin the top right."

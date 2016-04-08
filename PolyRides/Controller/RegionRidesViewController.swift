@@ -8,7 +8,7 @@
 
 import DZNEmptyDataSet
 
-class RegionRidesViewController: RidesViewController {
+class RegionRidesViewController: RidesTableViewController {
 
   var region: Region?
   var toRides: [Ride]?
@@ -44,7 +44,14 @@ class RegionRidesViewController: RidesViewController {
     if let region = region {
       emptyMessage = Empty.FromRegion(region)
     }
+    tableView?.delegate = self
     tableView?.reloadData()
+    segmentedControl?.setTitleTextAttributes(Attributes.SegmentedControl, forState: .Normal)
+  }
+
+  override func viewWillAppear(animated: Bool) {
+    navigationController?.setNavigationBarHidden(false, animated: true)
+    super.viewWillAppear(animated)
   }
 
   override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
@@ -59,8 +66,10 @@ class RegionRidesViewController: RidesViewController {
       if let vc = segue.destinationViewController as? SearchViewController {
         vc.user = user
       }
-
     }
+    let backItem = UIBarButtonItem()
+    backItem.title = ""
+    navigationItem.backBarButtonItem = backItem
   }
 
 }

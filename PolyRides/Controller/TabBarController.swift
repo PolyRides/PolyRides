@@ -6,8 +6,6 @@
 //  Copyright © 2016 Vanessa Forney. All rights reserved.
 //
 
-import Foundation
-
 class TabBarController: UITabBarController {
 
   let locationManager = CLLocationManager()
@@ -17,13 +15,18 @@ class TabBarController: UITabBarController {
   override func viewDidLoad() {
     super.viewDidLoad()
 
-    locationManager.requestWhenInUseAuthorization()
-
     viewControllers?.forEach {
       if let vc = $0 as? UINavigationController {
         vc.topViewController?.view
       }
     }
+
+    locationManager.requestWhenInUseAuthorization()
+    GoogleMapsHelper.PlacesClient.currentPlaceWithCallback({ placeLikelihoods, error -> Void in
+      if let placeLikelihood = placeLikelihoods?.likelihoods.first {
+        self.user?.currentLocation = placeLikelihood.place
+      }
+    })
   }
 
   override func viewDidAppear(animated: Bool) {
@@ -31,5 +34,7 @@ class TabBarController: UITabBarController {
 
     navigationController?.navigationBarHidden = false
   }
+
+
 
 }

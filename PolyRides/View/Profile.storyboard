@@ -9,6 +9,7 @@
         <scene sceneID="agY-2Y-7FF">
             <objects>
                 <navigationController useStoryboardIdentifierAsRestorationIdentifier="YES" id="twN-Cg-lOh" sceneMemberID="viewController">
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="zrh-Sv-chm">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -135,7 +136,7 @@
                             </mask>
                         </variation>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Profile" image="user" selectedImage="user_filled" id="1k9-47-6cF"/>
+                    <tabBarItem key="tabBarItem" title="Profile" image="profile" selectedImage="profile_filled" id="1k9-47-6cF"/>
                     <navigationItem key="navigationItem" title="My Profile" id="xam-MZ-sLh">
                         <barButtonItem key="rightBarButtonItem" systemItem="edit" id="WRG-H5-zGx">
                             <connections>
@@ -309,7 +310,7 @@
     </scenes>
     <resources>
         <image name="cal_poly_verified" width="134" height="134"/>
-        <image name="user" width="33" height="33"/>
-        <image name="user_filled" width="33" height="33"/>
+        <image name="profile" width="30" height="30"/>
+        <image name="profile_filled" width="30" height="30"/>
     </resources>
 </document>

@@ -23,14 +23,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     launchOptions: [NSObject: AnyObject]?) -> Bool {
 
     // Tab bar appearance.
-    UITabBarItem.appearance().setTitleTextAttributes([NSFontAttributeName: Font.TabBar], forState: .Normal)
+    UITabBarItem.appearance().setTitleTextAttributes(Attributes.TabBar, forState: .Normal)
 
     // Navigation bar appearance.
-    UINavigationBar.appearance().titleTextAttributes = [NSFontAttributeName: Font.NavigationBarTitle,
-                                                        NSForegroundColorAttributeName: Color.White]
+    UINavigationBar.appearance().titleTextAttributes = Attributes.NavigationBar
     UINavigationBar.appearance().tintColor = Color.White
     UINavigationBar.appearance().setBackgroundImage(UIImage(), forBarPosition: .Any, barMetrics: .Default)
     UINavigationBar.appearance().shadowImage = UIImage()
+    UIBarButtonItem.appearanceWhenContainedInInstancesOfClasses([UISearchBar.self]).tintColor = Color.White
+    UITextField.appearanceWhenContainedInInstancesOfClasses([UISearchBar.self]).tintColor = Color.White
+
+    UIScrollView.appearance().backgroundColor = Color.White
 
     // Google Analytics.
     var configureError: NSError?

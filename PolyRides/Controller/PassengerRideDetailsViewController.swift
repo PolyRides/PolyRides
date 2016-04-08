@@ -50,7 +50,6 @@ class PassengerRideDetailsViewController: RideDetailsViewController {
     super.viewDidLoad()
 
     tableView?.dataSource = self
-
     makeMutualFriendsRequest()
   }
 
@@ -58,6 +57,7 @@ class PassengerRideDetailsViewController: RideDetailsViewController {
     super.viewWillAppear(animated)
 
     setSavedIcon()
+    navigationController?.setNavigationBarHidden(false, animated: true)
   }
 
   func setSavedIcon() {
