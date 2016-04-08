@@ -22,39 +22,53 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
   func application(application: UIApplication, didFinishLaunchingWithOptions
     launchOptions: [NSObject: AnyObject]?) -> Bool {
 
-      // Google Analytics
-      var configureError: NSError?
-      GGLContext.sharedInstance().configureWithError(&configureError)
-      assert(configureError == nil, "Error configuring Google services: \(configureError)")
+    // Tab bar appearance.
+    UITabBarItem.appearance().setTitleTextAttributes([NSFontAttributeName: Font.TabBar], forState: .Normal)
 
-      let gai = GAI.sharedInstance()
-      gai.trackUncaughtExceptions = true  // Report uncaught exceptions.
-      gai.trackerWithTrackingId("UA-69182247-4")
+    // Navigation bar appearance.
+    UINavigationBar.appearance().titleTextAttributes = [NSFontAttributeName: Font.NavigationBarTitle,
+                                                        NSForegroundColorAttributeName: Color.White]
+    UINavigationBar.appearance().tintColor = Color.White
+    UINavigationBar.appearance().setBackgroundImage(UIImage(), forBarPosition: .Any, barMetrics: .Default)
+    UINavigationBar.appearance().shadowImage = UIImage()
 
-      // Siren
-      let siren = Siren.sharedInstance
-      siren.appID = "991595932"
-      siren.alertType = SirenAlertType.Force
-      siren.checkVersion(.Immediately)
+    // Google Analytics.
+    var configureError: NSError?
+    GGLContext.sharedInstance().configureWithError(&configureError)
+    assert(configureError == nil, "Error configuring Google services: \(configureError)")
 
-      // Register with Google Maps.
-      GMSServices.provideAPIKey("AIzaSyBmxCispciOMZhn4FNbRPv_-Rcj8r_AtAk")
+    let gai = GAI.sharedInstance()
+    gai.trackUncaughtExceptions = true  // Report uncaught exceptions.
+    gai.trackerWithTrackingId("UA-69182247-4")
 
-      if FirebaseConnection.ref.authData != nil {
-        let storyboard = UIStoryboard(name: "LoadingLaunchScreen", bundle: nil)
-        if let controller = storyboard.instantiateInitialViewController() as? LoadingLaunchScreenViewController {
-          let user = User(id: FirebaseConnection.ref.authData.uid)
-          controller.user = user
-          self.window?.rootViewController = controller
+    // Siren
+    let siren = Siren.sharedInstance
+    siren.appID = "991595932"
+    siren.alertType = SirenAlertType.Force
+    siren.checkVersion(.Immediately)
+
+    // Register with Google Maps.
+    GMSServices.provideAPIKey("AIzaSyBmxCispciOMZhn4FNbRPv_-Rcj8r_AtAk")
+
+    if FirebaseConnection.ref.authData != nil {
+      let storyboard = UIStoryboard(name: "LoadingLaunchScreen", bundle: nil)
+      if let controller = storyboard.instantiateInitialViewController() as? LaunchScreenViewController {
+        let user = User()
+        if FirebaseConnection.ref.authData.provider == "facebook" {
+          user.facebookId = FirebaseConnection.ref.authData.uid
+        } else {
+          user.id = FirebaseConnection.ref.authData.uid
         }
+        controller.user = user
+        self.window?.rootViewController = controller
       }
+    }
 
-      // Fabric (must be the last call in didFinishLaunchingWithOptions).
-      Fabric.with([Crashlytics.self])
+    // Fabric (must be the last call in didFinishLaunchingWithOptions).
+    Fabric.with([Crashlytics.self])
 
-      return FBSDKApplicationDelegate.sharedInstance()
-        .application(application, didFinishLaunchingWithOptions: launchOptions)
-
+    return FBSDKApplicationDelegate.sharedInstance()
+      .application(application, didFinishLaunchingWithOptions: launchOptions)
   }
 
   func applicationWillResignActive(application: UIApplication) {

@@ -11,14 +11,28 @@ import Firebase
 class User {
 
   var id: String?
+  var facebookId: String?
   var email: String?
   var firstName: String?
   var lastName: String?
   var imageURL: String?
   var timestamp: NSDate?
+  var description: String?
+  var car: Car?
+
   var savedRides = [Ride]()
+  var verifications = [Verification]()
+  var pendingVerifications = [Verification]()
 
   init() {
+  }
+
+  init(facebookId: String, name: String) {
+    self.facebookId = facebookId
+    let components = name.componentsSeparatedByString(" ")
+    firstName = components.first
+    lastName = components.last
+    imageURL = "https://graph.facebook.com/\(facebookId)/picture?type=large"
   }
 
   init(id: String) {
@@ -32,7 +46,11 @@ class User {
   }
 
   init(fromAuthData authData: FAuthData) {
-    self.id = authData.uid
+    if let facebookId = authData.providerData["id"] as? String {
+      self.facebookId = facebookId
+      imageURL = "https://graph.facebook.com/\(facebookId)/picture?type=large"
+    }
+
     if let email = authData.providerData["email"] as? NSString {
       self.email = String(email)
     }
@@ -41,18 +59,23 @@ class User {
       self.firstName = components.first
       self.lastName = components.last
     }
-    if let imageURL = authData.providerData["profileImageURL"] as? NSString {
-      self.imageURL = String(imageURL)
-    }
   }
 
   init(fromSnapshot snapshot: FDataSnapshot) {
-    updateFromSnapshot(snapshot)
+    if let dictionary = snapshot.value as? [String : AnyObject] {
+      self.id = snapshot.key
+      if let email = dictionary["email"] as? String {
+        self.email = email
+      }
+    }
   }
 
   func updateFromSnapshot(snapshot: FDataSnapshot) {
     if let dictionary = snapshot.value as? [String : AnyObject] {
       self.id = snapshot.key
+      if let facebookId = dictionary["facebookId"] as? String {
+        self.facebookId = facebookId
+      }
       if let email = dictionary["email"] as? String {
         self.email = email
       }
@@ -65,6 +88,42 @@ class User {
       if let imageURL = dictionary["imageURL"] as? String {
         self.imageURL = imageURL
       }
+      if let description = dictionary["description"] as? String {
+        self.description = description
+      }
+      if let carDictionary = dictionary["car"] as? [String: AnyObject] {
+        extractCarFromDictionary(carDictionary)
+      }
+      if let verifications = dictionary["verifications"] as? [String: Bool] {
+        for rawValue in verifications.keys {
+          if let verification = Verification(rawValue: rawValue) {
+            self.verifications.append(verification)
+          }
+        }
+      }
+      if let pendingVeritications = dictionary["pendingVerifications"] as? [String: AnyObject] {
+        for pendingVerification in pendingVeritications {
+          if let verification = Verification(rawValue: pendingVerification.0) {
+            self.pendingVerifications.append(verification)
+          }
+        }
+      }
+    }
+  }
+
+  func extractCarFromDictionary(dictionary: [String: AnyObject]) {
+    car = Car()
+    if let model = dictionary["model"] as? String {
+      car?.model = model
+    }
+    if let make = dictionary["make"] as? String {
+      car?.make = make
+    }
+    if let year = dictionary["year"] as? Int {
+      car?.year = year
+    }
+    if let color = dictionary["color"] as? String {
+      car?.color = color
     }
   }
 
@@ -76,6 +135,9 @@ class User {
     dictionary["lastName"] = lastName
     dictionary["imageURL"] = imageURL
 
+    if let facebookId = facebookId {
+      dictionary["facebookId"] = facebookId
+    }
     if let timestamp = timestamp {
       dictionary["timestamp"] = timestamp.timeIntervalSince1970
     }

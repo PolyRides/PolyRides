@@ -10,7 +10,7 @@ import GoogleMaps
 
 class GoogleMapsHelper {
 
-  static let placesClient = GMSPlacesClient()
+  static let PlacesClient = GMSPlacesClient()
 
 }
 

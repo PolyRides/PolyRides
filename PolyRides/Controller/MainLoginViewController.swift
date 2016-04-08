@@ -12,6 +12,7 @@ import FBSDKLoginKit
 class MainLoginViewController: LoginViewController {
 
   @IBAction func logInWithFacebookAction(sender: AnyObject) {
+    startLoading()
     loginWithFacebook()
   }
 
@@ -24,8 +25,11 @@ class MainLoginViewController: LoginViewController {
     super.viewDidLoad()
 
     trackScreen(String(MainLoginViewController))
-    emailTextField?.delegate = self
-    passwordTextField?.delegate = self
+    button?.centerTextAndImage(8.0)
+
+    // When we enable login with email.
+    // emailTextField?.delegate = self
+    // passwordTextField?.delegate = self
   }
 
   override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {

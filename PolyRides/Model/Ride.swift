@@ -7,8 +7,13 @@
 //
 
 import Firebase
+import GoogleMaps
 
-class Ride {
+func == (lhs: Ride, rhs: Ride) -> Bool {
+  return lhs.id == rhs.id
+}
+
+class Ride: Equatable {
 
   var id: String?
   var driver: User?
@@ -27,6 +32,11 @@ class Ride {
     self.seatsAvailable = seats
     self.description = description
     self.costPerSeat = cost
+  }
+
+  init(fromPlace: GMSPlace, toPlace: GMSPlace) {
+    self.fromLocation = Location(place: fromPlace, city: "")
+    self.toLocation = Location(place: toPlace, city: "")
   }
 
   init(fromSnapshot snapshot: FDataSnapshot) {

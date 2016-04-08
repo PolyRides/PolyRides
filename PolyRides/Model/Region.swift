@@ -7,16 +7,16 @@
 //
 
 enum Region: Int {
-  case SFBay, LosAngeles, CentralCoast, SanDiego, Sacramento, SanJoaquin, Other
+  case CentralCoast, SFBay, LosAngeles, OrangeCounty, SanDiego, Sacramento, Other
 
-  static let allRegions = [SFBay, LosAngeles, CentralCoast, SanDiego, Sacramento, SanJoaquin, Other]
+  static let allRegions = [CentralCoast, SFBay, LosAngeles, OrangeCounty, SanDiego, Sacramento, Other]
   static let regionNames = [
+    CentralCoast: "Central Coast",
     SFBay: "SF Bay",
     LosAngeles: "Los Angeles",
-    CentralCoast: "Central Coast",
+    OrangeCounty: "Orange County",
     SanDiego: "San Diego",
     Sacramento: "Sacramento",
-    SanJoaquin: "San Joaquin",
     Other: "Other"
   ]
   static let regionImages = [
@@ -25,12 +25,22 @@ enum Region: Int {
     CentralCoast: "central_coast",
     SanDiego: "san_diego",
     Sacramento: "sacramento",
-    SanJoaquin: "san_joaquin",
+    OrangeCounty: "orange_county",
     Other: "other"
   ]
 
   func name() -> String {
     return Region.regionNames[self]!
+  }
+
+  func referenceName() -> String {
+    if self == CentralCoast {
+      return "the \(name())"
+    } else if self == SFBay {
+      return "the \(name()) Area"
+    } else {
+      return name()
+    }
   }
 
   func image() -> UIImage {
@@ -111,11 +121,22 @@ enum Region: Int {
     "Rancho Murieta": Sacramento, "Rio Linda": Sacramento, "Rosemont": Sacramento, "Vineyard": Sacramento,
     "Walnut Grove": Sacramento, "Wilton": Sacramento, "Locke": Sacramento,
 
-    // SanJoaquin
-    "Stockton": SanJoaquin, "Lodi": SanJoaquin, "Lathrop": SanJoaquin, "Acampo": SanJoaquin, "Tracy": SanJoaquin,
-    "Manteca": SanJoaquin, "Ripon": SanJoaquin, "Escalon": SanJoaquin, "Mountain House": SanJoaquin,
-    "Woodbridge": SanJoaquin, "Thornton": SanJoaquin, "Charming": SanJoaquin, "Victor": SanJoaquin,
-    "South Woodbridge": SanJoaquin
+    // OrangeCounty
+    "Orange": OrangeCounty, "Aliso Viejo": OrangeCounty, "Anaheim": OrangeCounty, "Brea": OrangeCounty,
+    "Buena Park": OrangeCounty, "Costa Mesa": OrangeCounty, "Cypress": OrangeCounty, "Dana Point": OrangeCounty,
+    "Fountain Valley": OrangeCounty, "Fullerton": OrangeCounty, "Garden Grove": OrangeCounty,
+    "Huntington Beach": OrangeCounty, "Irvine": OrangeCounty, "La Habra": OrangeCounty, "La Palma": OrangeCounty,
+    "Laguna Beach": OrangeCounty, "Laguna Hills": OrangeCounty, "Laguna Niguel": OrangeCounty,
+    "Laguna Woods": OrangeCounty, "Lake Forest": OrangeCounty, "Los Alamitos": OrangeCounty,
+    "Mission Viejo": OrangeCounty, "Newport Beach": OrangeCounty, "Placentia": OrangeCounty,
+    "Rancho Santa Margarita": OrangeCounty, "San Clemente": OrangeCounty, "San Juan Capistrano": OrangeCounty,
+    "Santa Ana": OrangeCounty, "Seal Beach": OrangeCounty, "Stanton": OrangeCounty, "Tustin": OrangeCounty,
+    "Villa Park": OrangeCounty, "Westminster": OrangeCounty, "Yorba Linda": OrangeCounty, "Coto de Caza": OrangeCounty,
+    "Emerald Bay": OrangeCounty, "Ladera Ranch": OrangeCounty, "Las Flores": OrangeCounty, "Midway City": OrangeCounty,
+    "Modjeska Canyon": OrangeCounty, "North Tustin": OrangeCounty, "Cowan Heights": OrangeCounty,
+    "Lemon Heights": OrangeCounty, "Red Hill": OrangeCounty, "Rancho Mission Viejo": OrangeCounty,
+    "Rossmoor": OrangeCounty, "Olive": OrangeCounty, "Orange Park Acres": OrangeCounty, "Silverado": OrangeCounty,
+    "Trabuco Canyon": OrangeCounty, "Orange County": OrangeCounty,
   ]
 
 }

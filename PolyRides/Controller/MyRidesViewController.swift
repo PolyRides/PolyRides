@@ -6,32 +6,16 @@
 //  Copyright © 2016 Vanessa Forney. All rights reserved.
 //
 
+import DZNEmptyDataSet
+
 class MyRidesViewController: RidesViewController {
 
   var rideService = RideService()
-
-  var currentRides = [Ride]() {
-    didSet {
-      if segmentedControl?.selectedSegmentIndex == 0 {
-        sortRides(&currentRides)
-        rides = currentRides
-        tableView?.reloadData()
-      }
-    }
-  }
-  var pastRides = [Ride]() {
-    didSet {
-      if segmentedControl?.selectedSegmentIndex == 1 {
-        sortRides(&pastRides)
-        rides = pastRides
-        tableView?.reloadData()
-      }
-    }
-  }
+  var currentRides = [Ride]()
+  var pastRides = [Ride]()
   var expectedRides = -1 {
     didSet {
       if expectedRides == 0 {
-        // set empty data set
         rides = currentRides
         tableView?.reloadData()
       }
@@ -44,24 +28,19 @@ class MyRidesViewController: RidesViewController {
     if let segmentedControl = sender as? UISegmentedControl {
       if segmentedControl.selectedSegmentIndex == 0 {
         rides = currentRides
+        emptyTitle = Empty.CurrentRidesTitle
+        emptyMessage = Empty.CurrentRidesMessage
       } else if segmentedControl.selectedSegmentIndex == 1 {
         rides = pastRides
+        emptyTitle = Empty.PastRidesTitle
+        emptyMessage = Empty.PastRidesMessage
       } else {
         rides = user?.savedRides
+        emptyTitle = Empty.SavedRidesTitle
+        emptyMessage = Empty.SavedRidesMessage
       }
     }
     tableView?.reloadData()
-  }
-
-  // Remove this when we add log out to settings.
-  @IBAction func logOutAction(sender: AnyObject) {
-    if let appDelegate: AppDelegate = UIApplication.sharedApplication().delegate as? AppDelegate {
-      let storyboard = UIStoryboard(name: "Login", bundle: NSBundle.mainBundle())
-      if let navVC = storyboard.instantiateViewControllerWithIdentifier("Login") as? UINavigationController {
-        FirebaseConnection.ref.unauth()
-        appDelegate.window?.rootViewController = navVC
-      }
-    }
   }
 
   @IBAction func addRide(segue: UIStoryboardSegue) {
@@ -69,8 +48,14 @@ class MyRidesViewController: RidesViewController {
       if let ride = addRideVC.ride {
         if ride.date?.compare(NSDate()) == .OrderedDescending {
           currentRides.append(ride)
+          sortRides(&currentRides)
         } else {
           pastRides.append(ride)
+          sortRides(&pastRides)
+        }
+
+        if let segmentedControl = segmentedControl {
+          segmentedAction(segmentedControl)
         }
       }
     }
@@ -89,6 +74,16 @@ class MyRidesViewController: RidesViewController {
       rideService.getRidesForUser(user)
       rideService.getSavedRidesForUser(user)
     }
+
+    emptyImage = "empty"
+  }
+
+  override func viewWillAppear(animated: Bool) {
+    super.viewWillAppear(animated)
+
+    if let segmentedControl = segmentedControl {
+      segmentedAction(segmentedControl)
+    }
   }
 
   override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
@@ -98,15 +93,11 @@ class MyRidesViewController: RidesViewController {
           addRideVC.user = user
         }
       }
-    } else if segue.identifier == "toPassengerRideDetails" || segue.identifier == "toDriverRideDetails" {
-      if let tabVC = segue.destinationViewController as? UITabBarController {
-        if let navVC = tabVC.viewControllers?.first as? UINavigationController {
-          if let vc = navVC.topViewController as? RideDetailsViewController {
-            if let cell = sender as? RideTableViewCell {
-              vc.ride = cell.ride
-              vc.user = user
-            }
-          }
+    } else if segue.identifier == "toPassengerRideDetails" || segue.identifier == "toMyRideDetails" {
+      if let vc = segue.destinationViewController as? RideDetailsViewController {
+        if let cell = sender as? RideTableViewCell {
+          vc.ride = cell.ride
+          vc.user = user
         }
       }
     }
@@ -153,7 +144,7 @@ extension MyRidesViewController: UITableViewDelegate {
     if segmentedControl?.selectedSegmentIndex == 2 {
       performSegueWithIdentifier("toPassengerRideDetails", sender: cell)
     } else {
-      performSegueWithIdentifier("toDriverRideDetails", sender: cell)
+      performSegueWithIdentifier("toMyRideDetails", sender: cell)
     }
   }
 

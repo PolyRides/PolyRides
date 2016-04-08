@@ -6,9 +6,9 @@
 //  Copyright © 2016 Vanessa Forney. All rights reserved.
 //
 
-class DriverTableViewCell: UITableViewCell {
+import FBSDKCoreKit
 
-  var driver: User?
+class DriverTableViewCell: UITableViewCell {
 
   @IBOutlet weak var driverImageView: UIImageView?
   @IBOutlet weak var name: UILabel?
@@ -19,13 +19,14 @@ class PassengerRideDetailsViewController: RideDetailsViewController {
 
   let rideService = RideService()
 
+  var mutualFriends = [User]()
+
   @IBOutlet weak var tableView: UITableView?
   @IBOutlet weak var saveButton: UIBarButtonItem?
 
   @IBAction func saveRideAction(sender: AnyObject) {
     if let ride = ride {
       let index = user?.savedRides.indexOf({ $0.id == ride.id })
-      print(index)
       if let index = index {
         let title = "Are you sure you want to remove this ride from saved?"
         presentAlert(AlertOptions(title: title, message: "", handler: { action in
@@ -49,6 +50,13 @@ class PassengerRideDetailsViewController: RideDetailsViewController {
     super.viewDidLoad()
 
     tableView?.dataSource = self
+
+    makeMutualFriendsRequest()
+  }
+
+  override func viewWillAppear(animated: Bool) {
+    super.viewWillAppear(animated)
+
     setSavedIcon()
   }
 
@@ -60,6 +68,15 @@ class PassengerRideDetailsViewController: RideDetailsViewController {
       }
     }
     saveButton?.image = image
+  }
+
+  override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    if segue.identifier == "toDriverProfile" {
+      if let vc = segue.destinationViewController as? ProfileViewController {
+        vc.user = ride?.driver
+        vc.mutualFriends = mutualFriends
+      }
+    }
   }
 
 }
@@ -82,12 +99,40 @@ extension PassengerRideDetailsViewController: UITableViewDataSource {
           }
         }
 
-        driverCell.driver = driver
         driverCell.name?.text = driver.getFullName()
       }
     }
 
     return cell
+  }
+
+  func makeMutualFriendsRequest() {
+    let params = ["fields": "context.fields(mutual_friends)"]
+    if let id = ride?.driver?.facebookId {
+      let path: String = "/\(id)"
+
+      let request = FBSDKGraphRequest(graphPath: path, parameters: params, HTTPMethod: "GET")
+      request.startWithCompletionHandler { (connection, result, error) -> Void in
+        if error == nil {
+          if let context = result.objectForKey("context") as? NSMutableDictionary {
+            if let mutualFriends = context.objectForKey("mutual_friends") as? NSMutableDictionary {
+              if let data = mutualFriends.objectForKey("data") as? NSMutableArray {
+
+                for user in data {
+                  if let id = user["id"] as? String {
+                    if let name = user["name"] as? String {
+                      self.mutualFriends.append(User(facebookId: id, name: name))
+                    }
+                  }
+                }
+              }
+            }
+          }
+        } else {
+          print(error)
+        }
+      }
+    }
   }
 
 }

@@ -8,10 +8,17 @@
 
 import Firebase
 
-protocol FirebaseRidesDelegate: class {
+protocol FirebaseRidesDelegate {
 
   func onRideReceived(ride: Ride)
   func onNumRidesReceived(numRides: Int)
+
+}
+
+extension FirebaseRidesDelegate {
+
+  func onRideAdded(ride: Ride) {}
+  func onRideRemoved(ride: Ride) {}
 
 }
 
@@ -52,7 +59,16 @@ class RideService {
               let rideRef = self.ref.childByAppendingPath("rides/\(key)")
               rideRef.observeSingleEventOfType(.Value, withBlock: { snapshot in
                 let ride = Ride(fromSnapshot: snapshot)
-                user.savedRides.append(ride)
+
+                if let driverId = ride.driver?.id {
+                  let driverRef = self.ref.childByAppendingPath("users/\(driverId)")
+                  driverRef?.observeSingleEventOfType(.Value, withBlock: { snapshot in
+                    if let driver = ride.driver {
+                      driver.updateFromSnapshot(snapshot)
+                      user.savedRides.append(ride)
+                    }
+                  })
+                }
               })
             }
           }
@@ -65,6 +81,7 @@ class RideService {
     let currentDateMillis = NSDate().timeIntervalSince1970
     let ridesRef = ref.childByAppendingPath("rides")
     let query = ridesRef?.queryOrderedByChild("date").queryStartingAtValue(currentDateMillis)
+
     query?.observeSingleEventOfType(.Value, withBlock: { snapshot in
       self.delegate?.onNumRidesReceived(snapshot.children.allObjects.count)
 
@@ -83,6 +100,30 @@ class RideService {
           }
         }
       }
+    })
+  }
+
+  func monitorRides() {
+    let currentDateMillis = NSDate().timeIntervalSince1970
+    let ridesRef = ref.childByAppendingPath("rides")
+    let query = ridesRef?.queryOrderedByChild("date").queryStartingAtValue(currentDateMillis)
+
+    query?.observeEventType(.ChildAdded, withBlock: { snapshot in
+      let ride = Ride(fromSnapshot: snapshot)
+
+      if let driverId = ride.driver?.id {
+        let driverRef = self.ref.childByAppendingPath("users/\(driverId)")
+        driverRef?.observeSingleEventOfType(.Value, withBlock: { snapshot in
+          if let driver = ride.driver {
+            driver.updateFromSnapshot(snapshot)
+            self.delegate?.onRideAdded(ride)
+          }
+        })
+      }
+    })
+
+    query?.observeEventType(.ChildRemoved, withBlock: { snapshot in
+      self.delegate?.onRideRemoved(Ride(fromSnapshot: snapshot))
     })
   }
 

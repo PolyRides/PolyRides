@@ -3,6 +3,8 @@ use_frameworks!
 inhibit_all_warnings!
 
 target 'PolyRides' do
+   pod 'SendGrid', :git => 'https://github.com/scottkawai/sendgrid-swift.git', :submodules => true
+   pod 'DZNEmptyDataSet'
    pod 'AFNetworking'
    pod 'GoogleMaps'
    pod 'FBSDKShareKit'

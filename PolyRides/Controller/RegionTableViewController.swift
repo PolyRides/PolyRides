@@ -11,18 +11,37 @@ import CoreLocation
 class RegionTableViewCell: UITableViewCell {
 
   @IBOutlet weak var backgroundImageView: UIImageView?
+  @IBOutlet weak var locationBackgroundView: UIView?
   @IBOutlet weak var location: UILabel?
   @IBOutlet weak var numRides: UILabel?
 
   var toRides: [Ride]?
   var fromRides: [Ride]?
   var region: Region?
+  var disclosure: UITableViewCell?
+
+  override func setHighlighted(highlighted: Bool, animated: Bool) {
+    if highlighted {
+      backgroundImageView?.alpha = 0.5
+      locationBackgroundView?.alpha = 0.5
+      disclosure?.alpha = 0.5
+      location?.textColor = Color.Gray
+      numRides?.textColor = Color.Gray
+    } else {
+      backgroundImageView?.alpha = 1.0
+      locationBackgroundView?.alpha = 0.65
+      disclosure?.alpha = 0.8
+      location?.textColor = Color.White
+      numRides?.textColor = Color.White
+    }
+  }
 
 }
 
-class SearchTableViewController: UITableViewController {
+class RegionTableViewController: UITableViewController {
 
   var user: User?
+  var allRides: [Ride]?
   var toRegionToRides: [Region: [Ride]]?
   var fromRegionToRides: [Region: [Ride]]?
 
@@ -35,10 +54,13 @@ class SearchTableViewController: UITableViewController {
 
     let searchBar = UISearchBar()
     searchBar.sizeToFit()
+    searchBar.barStyle = .BlackTranslucent
     searchBar.delegate = self
     navigationItem.titleView = searchBar
 
     tableView.separatorStyle = UITableViewCellSeparatorStyle.None
+
+    setupAppearance()
   }
 
   override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
@@ -48,16 +70,25 @@ class SearchTableViewController: UITableViewController {
           vc.user = user
           vc.toRides = cell.toRides
           vc.fromRides = cell.fromRides
-          vc.title = cell.region?.name()
+          vc.region = cell.region
         }
       }
+    } else if segue.identifier == "toRideSearch" {
+      if let vc = segue.destinationViewController as? SearchViewController {
+        vc.allRides = allRides
+        vc.user = user
+      }
     }
+
+    let backItem = UIBarButtonItem()
+    backItem.title = ""
+    navigationItem.backBarButtonItem = backItem
   }
 
 }
 
 // MARK: - UITableViewDataSource
-extension SearchTableViewController {
+extension RegionTableViewController {
 
   override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     return Region.allRegions.count
@@ -81,18 +112,29 @@ extension SearchTableViewController {
         count += fromRides.count
       }
       regionCell.numRides?.text = "\(count) rides"
+
+      let disclosure = UITableViewCell()
+      disclosure.accessoryType = .DisclosureIndicator
+      disclosure.frame = cell.bounds
+      disclosure.userInteractionEnabled = false
+      regionCell.addSubview(disclosure)
+      regionCell.disclosure = disclosure
     }
 
     return cell
   }
 
+  override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    tableView.deselectRowAtIndexPath(indexPath, animated: true)
+  }
+
 }
 
 // MARK: - UISearchBarDelegate
-extension SearchTableViewController: UISearchBarDelegate {
+extension RegionTableViewController: UISearchBarDelegate {
 
   func searchBarShouldBeginEditing(searchBar: UISearchBar) -> Bool {
-    // segue to search page
+    performSegueWithIdentifier("toRideSearch", sender: self)
     return false
   }
 
