@@ -23,6 +23,8 @@ class TableViewController: UIViewController {
 
     // Remove the cell separators in the empty table view.
     tableView?.tableFooterView = UIView()
+    tableView?.backgroundView = nil
+    tableView?.backgroundColor = Color.White
 
     setupAppearance()
   }

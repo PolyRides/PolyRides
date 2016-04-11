@@ -170,6 +170,7 @@ class SearchViewController: TableViewController {
     if segue.identifier == "toAutocomplete" {
       if let navVC = segue.destinationViewController as? UINavigationController {
         if let vc = navVC.topViewController as? AutocompleteViewController, let textField = sender as? UITextField {
+          autocompleteTextField = textField
           vc.delegate = self
           vc.initialText = textField.text
           vc.user = user

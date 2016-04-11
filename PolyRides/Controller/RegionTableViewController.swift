@@ -97,7 +97,7 @@ class RegionTableViewController: TableViewController {
     if let searchButton = searchButton {
       searchButton.frame = CGRect(x: 0, y: 0, width: 56, height: 56)
       searchButton.frame = CGRectInset(searchButton.frame, -borderWidth, -borderWidth)
-      searchButton.center = CGPoint(x: view.frame.midX, y: view.frame.maxY - 34)
+      searchButton.center = CGPoint(x: view.frame.midX, y: view.frame.maxY - 32)
       searchButton.layer.cornerRadius = searchButton.frame.width / 2
       searchButton.layer.borderColor = UIColor.whiteColor().CGColor
       searchButton.layer.borderWidth = borderWidth

@@ -161,6 +161,7 @@ extension AutocompleteViewController: UISearchBarDelegate {
 }
 
 extension AutocompleteViewController: GMSAutocompleteFetcherDelegate {
+
   func didAutocompleteWithPredictions(predictions: [GMSAutocompletePrediction]) {
     self.predictions = predictions
     tableView?.reloadData()
@@ -173,4 +174,5 @@ extension AutocompleteViewController: GMSAutocompleteFetcherDelegate {
   func searchBarCancelButtonClicked(searchBar: UISearchBar) {
     dismissViewControllerAnimated(false, completion: nil)
   }
+  
 }

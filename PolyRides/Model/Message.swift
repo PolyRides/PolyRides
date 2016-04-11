@@ -9,7 +9,7 @@
 import Foundation
 import JSQMessagesViewController
 
-protocol MessageDeligate: class {
+protocol MessageDelegate: class {
 
   func onMessagesReceived(messages: [Message])
 }
@@ -70,3 +70,4 @@ class Message: NSObject, JSQMessageData {
     return senderIdVar
   }
 }
+
