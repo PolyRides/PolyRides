@@ -15,6 +15,14 @@ class TabBarController: UITabBarController {
   override func viewDidLoad() {
     super.viewDidLoad()
 
+    let border = UIView()
+    border.frame = CGRect(x: 0, y: 0, width: 65, height: 65)
+    border.center = CGPoint(x: view.frame.midX, y: view.frame.maxY - 32)
+    border.layer.cornerRadius = border.frame.width / 2
+    border.backgroundColor = UIColor(red: 178.0/255, green: 178.0/255, blue: 178.0/255, alpha: 1.0)
+    view.addSubview(border)
+    view.bringSubviewToFront(tabBar)
+
     viewControllers?.forEach {
       if let vc = $0 as? UINavigationController {
         vc.topViewController?.view

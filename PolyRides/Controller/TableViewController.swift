@@ -29,6 +29,10 @@ class TableViewController: UIViewController {
     setupAppearance()
   }
 
+  override func preferredStatusBarStyle() -> UIStatusBarStyle {
+    return .LightContent
+  }
+
 }
 
 // MARK: - DZNEmptyDataSetDataSource

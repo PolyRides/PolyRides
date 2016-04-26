@@ -87,10 +87,6 @@ class RegionTableViewController: TableViewController {
     navigationItem.backBarButtonItem = backItem
   }
 
-  override func preferredStatusBarStyle() -> UIStatusBarStyle {
-    return .LightContent
-  }
-
   func addSearchButton() {
     let borderWidth: CGFloat = 4
     searchButton = UIButton(type: .Custom)
