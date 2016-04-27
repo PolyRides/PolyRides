@@ -29,8 +29,8 @@ class RegionTableViewCell: UITableViewCell {
     } else {
       backgroundImageView?.alpha = 1.0
       locationBackgroundView?.alpha = 0.65
-      location?.textColor = Color.White
-      numRides?.textColor = Color.White
+      location?.textColor = UIColor.whiteColor()
+      numRides?.textColor = UIColor.whiteColor()
     }
   }
 

@@ -27,10 +27,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     // Navigation bar appearance.
     UINavigationBar.appearance().titleTextAttributes = Attributes.NavigationBar
-    UINavigationBar.appearance().tintColor = Color.White
+    UINavigationBar.appearance().tintColor = UIColor.whiteColor()
     UINavigationBar.appearance().setBackgroundImage(UIImage(), forBarPosition: .Any, barMetrics: .Default)
     UINavigationBar.appearance().shadowImage = UIImage()
-    UIBarButtonItem.appearanceWhenContainedInInstancesOfClasses([UISearchBar.self]).tintColor = Color.White
+    UIBarButtonItem.appearanceWhenContainedInInstancesOfClasses([UISearchBar.self]).tintColor = UIColor.whiteColor()
 
  //   UIScrollView.appearance().backgroundColor = Color.White
 

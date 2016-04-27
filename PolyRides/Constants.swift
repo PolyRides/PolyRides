@@ -13,8 +13,8 @@ struct Color {
 
   static let Navy = UIColor(red: 53.0/255, green: 73.0/255, blue: 93.0/255, alpha: 1.0)
   static let DarkNavy = UIColor(red: 45.0/255, green: 62.0/255, blue: 79.0/255, alpha: 1.0)
-  static let White = UIColor(red: 236.0/255, green: 240.0/255, blue: 241.0/255, alpha: 1.0)
-  static let DarkWhite = UIColor(red: 189.0/255, green: 195.0/255, blue: 199.0/255, alpha: 1.0)
+  //static let White = UIColor(red: 236.0/255, green: 240.0/255, blue: 241.0/255, alpha: 1.0)
+  //static let DarkWhite = UIColor(red: 189.0/255, green: 195.0/255, blue: 199.0/255, alpha: 1.0)
   static let Gray = UIColor(red: 86.0/255, green: 90.0/255, blue: 92.0/255, alpha: 1.0)
   static let Black = UIColor(red: 43.0/255, green: 43.0/255, blue: 43.0/255, alpha: 1.0)
 
@@ -23,7 +23,7 @@ struct Color {
 struct Attributes {
 
   static let NavigationBar = [NSFontAttributeName: Font.NavigationBarTitle,
-                              NSForegroundColorAttributeName: Color.White]
+                              NSForegroundColorAttributeName: UIColor.whiteColor()]
   static let SegmentedControl = [NSFontAttributeName: Font.SegmentedControl]
   static let TabBar = [NSFontAttributeName: Font.TabBar]
 
@@ -31,17 +31,17 @@ struct Attributes {
 
 struct Font {
 
-  static let NavigationBarTitle = UIFont(name: "OpenSans-Semibold", size: 17)!
-  static let NavigationBarButton = UIFont(name: "OpenSans", size: 17)!
-  static let TabBar = UIFont(name: "OpenSans", size: 10)!
-  static let SegmentedControl = UIFont(name: "OpenSans", size: 13)!
-  static let SearchBar = UIFont(name: "OpenSans", size: 13.5)!
-  static let TableHeader = UIFont(name: "OpenSans", size: 13.5)!
-  static let TableRow = UIFont(name: "OpenSans", size: 16.5)!
-  static let TableRowBold = UIFont(name: "OpenSans-Semibold", size: 16.5)!
-  static let EmptyTableHeader = UIFont(name: "OpenSans-Semibold", size: 16.5)!
-  static let TableRowSubline = UIFont(name: "OpenSans", size: 12)!
-  static let TextFieldPlaceholder = UIFont(name: "OpenSans-Semibold", size: 13.5)!
+  static let NavigationBarTitle = UIFont(name: "SFUIText-Semibold", size: 17)!
+  static let NavigationBarButton = UIFont(name: "SFUIText-Regular", size: 17)!
+  static let TabBar = UIFont(name: "SFUIText-Regular", size: 10)!
+  static let SegmentedControl = UIFont(name: "SFUIText-Regular", size: 13)!
+  static let SearchBar = UIFont(name: "SFUIText-Regular", size: 13.5)!
+  static let TableHeader = UIFont(name: "SFUIText-Regular", size: 13.5)!
+  static let TableRow = UIFont(name: "SFUIText-Regular", size: 16.5)!
+  static let TableRowBold = UIFont(name: "SFUIText-Semibold", size: 16.5)!
+  static let EmptyTableHeader = UIFont(name: "SFUIText-Semibold", size: 16.5)!
+  static let TableRowSubline = UIFont(name: "SFUIText-Regular", size: 12)!
+  static let TextFieldPlaceholder = UIFont(name: "SFUIText-Semibold", size: 13.5)!
 
 }
 
