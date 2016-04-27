@@ -44,6 +44,10 @@ extension UIViewController {
 
     tabBarController?.tabBar.translucent = false
     tabBarController?.tabBar.tintColor = Color.Navy
+
+    let backItem = UIBarButtonItem()
+    backItem.title = ""
+    navigationItem.backBarButtonItem = backItem
   }
 
   func presentAlert(alertOptions: AlertOptions = AlertOptions()) {

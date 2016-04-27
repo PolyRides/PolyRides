@@ -110,7 +110,7 @@ class RegionTableViewController: TableViewController {
 
 }
 
-// MARK: - UITableViewDataSource
+// MARK: UITableViewDataSource
 extension RegionTableViewController: UITableViewDataSource {
 
   func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -147,7 +147,7 @@ extension RegionTableViewController: UITableViewDataSource {
 }
 
 
-// MARK: - UIViewControllerTransitioningDelegate
+// MARK: UIViewControllerTransitioningDelegate
 extension RegionTableViewController: UIViewControllerTransitioningDelegate {
 
   func animationControllerForPresentedController(presented: UIViewController,
@@ -158,7 +158,7 @@ extension RegionTableViewController: UIViewControllerTransitioningDelegate {
     if let searchButton = searchButton {
       transition.startingPoint = searchButton.center
     }
-    transition.bubbleColor = Color.Navy
+    transition.bubbleColor = UIColor.whiteColor()
     return transition
   }
 

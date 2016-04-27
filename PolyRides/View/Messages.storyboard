@@ -4,6 +4,11 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <mutableArray key="SF-UI-Text-Semibold.otf">
+            <string>SFUIText-Semibold</string>
+        </mutableArray>
+    </customFonts>
     <scenes>
         <!--Navigation Controller-->
         <scene sceneID="6kC-cC-WmS">
@@ -177,10 +182,10 @@
             </objects>
             <point key="canvasLocation" x="-395" y="-1021"/>
         </scene>
-        <!--Vanessa ▾-->
+        <!--Messages View Controller-->
         <scene sceneID="8MY-yx-8wN">
             <objects>
-                <viewController id="HjY-hL-Bxi" sceneMemberID="viewController">
+                <viewController id="HjY-hL-Bxi" customClass="MessagesViewController" customModule="Poly_Rides" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="MM0-6L-M3v"/>
                         <viewControllerLayoutGuide type="bottom" id="vaT-3F-Pl5"/>
@@ -190,13 +195,26 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Vanessa ▾" id="RVU-zg-EyA">
+                    <navigationItem key="navigationItem" id="RVU-zg-EyA">
+                        <nil key="title"/>
+                        <button key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="etL-44-UCF">
+                            <rect key="frame" x="180" y="5" width="240" height="34"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <fontDescription key="fontDescription" name="SFUIText-Semibold" family="SF UI Text" pointSize="18"/>
+                            <state key="normal" title="Vanessa ▾"/>
+                            <connections>
+                                <segue destination="15n-Ym-mYu" kind="popoverPresentation" identifier="toPopover" popoverAnchorView="etL-44-UCF" id="HW0-iF-9Rj">
+                                    <popoverArrowDirection key="popoverArrowDirection" up="YES"/>
+                                    <popoverPassthroughViews>
+                                        <button reference="etL-44-UCF"/>
+                                    </popoverPassthroughViews>
+                                </segue>
+                            </connections>
+                        </button>
                         <barButtonItem key="rightBarButtonItem" title="Details" id="g4B-ow-WmR"/>
                     </navigationItem>
                     <connections>
-                        <segue destination="15n-Ym-mYu" kind="popoverPresentation" identifier="toRequestStatus" popoverAnchorView="F1M-0A-xvy" id="prV-8L-Md1">
-                            <popoverArrowDirection key="popoverArrowDirection" up="YES"/>
-                        </segue>
+                        <outlet property="nameButton" destination="etL-44-UCF" id="EgM-Rb-Kcx"/>
                         <segue destination="uqG-0N-pKa" kind="show" identifier="toPassengerRideDetails" id="ym0-to-XdU"/>
                         <segue destination="EX5-TD-Yxt" kind="show" identifier="toDriverRideDetails" id="5q5-oE-NNb"/>
                     </connections>
@@ -208,16 +226,16 @@
         <!--PassengerProfile-->
         <scene sceneID="kam-pV-1uX">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="a4y-6x-2cR" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewControllerPlaceholder storyboardName="PassengerProfile" id="uqG-0N-pKa" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="a4y-6x-2cR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="200.5" y="-547"/>
         </scene>
         <!--DriverProfile-->
         <scene sceneID="7uE-WD-0z2">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="7cd-eS-ElJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewControllerPlaceholder storyboardName="DriverProfile" id="EX5-TD-Yxt" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7cd-eS-ElJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="396" y="-547"/>
         </scene>
@@ -225,7 +243,7 @@
         <scene sceneID="MXm-fI-ScK">
             <objects>
                 <tableViewController id="15n-Ym-mYu" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="58" sectionHeaderHeight="28" sectionFooterHeight="28" id="NWT-Pl-s6A">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="static" style="plain" separatorStyle="default" rowHeight="58" sectionHeaderHeight="28" sectionFooterHeight="28" id="NWT-Pl-s6A">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -297,7 +315,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jq3-ZA-nCW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1024" y="-1021"/>
+            <point key="canvasLocation" x="981" y="-1021"/>
         </scene>
     </scenes>
     <resources>
