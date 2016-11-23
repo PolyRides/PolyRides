@@ -56,10 +56,6 @@
 	<true/>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>Poly Rides uses your location to improve your ride search experience.</string>
-	<key>UILaunchStoryboardName</key>
-	<string>LaunchScreen</string>
-	<key>UIMainStoryboardFile</key>
-	<string>FacebookLogin</string>
 	<key>UIAppFonts</key>
 	<array>
 		<string>SF-UI-Display-Black.otf</string>
@@ -83,6 +79,10 @@
 		<string>SF-UI-Text-Semibold.otf</string>
 		<string>SF-UI-Text-SemiboldItalic.otf</string>
 	</array>
+	<key>UILaunchStoryboardName</key>
+	<string>LaunchScreen</string>
+	<key>UIMainStoryboardFile</key>
+	<string>FacebookLogin</string>
 	<key>UIRequiredDeviceCapabilities</key>
 	<array>
 		<string>armv7</string>

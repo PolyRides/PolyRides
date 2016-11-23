@@ -7,13 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1918465B9E0F71CB1F35939C /* Pods_PolyRidesTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC278F6A1EA0392BFCB61FC8 /* Pods_PolyRidesTests.framework */; };
 		6E4373601CA4E3EB00630D07 /* ConversationsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E43735F1CA4E3EB00630D07 /* ConversationsTableViewController.swift */; };
 		6E53E3CB1C9E428400370108 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E53E3CA1C9E428400370108 /* Message.swift */; };
 		6E53E3CE1C9E5A6100370108 /* MessagesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E53E3CD1C9E5A6100370108 /* MessagesViewController.swift */; };
 		6E628F9C1CA0FF6900AAC2DB /* MessageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E628F9B1CA0FF6900AAC2DB /* MessageService.swift */; };
 		6E628F9E1CA100CF00AAC2DB /* Conversation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E628F9D1CA100CF00AAC2DB /* Conversation.swift */; };
 		6E628FA01CA100E400AAC2DB /* ConversationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E628F9F1CA100E400AAC2DB /* ConversationService.swift */; };
-		8F32E580C33AC6C26F5C4050 /* Pods_PolyRides.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B472AC953EC1C3E0C19CECA0 /* Pods_PolyRides.framework */; };
+		6F0CD61C0CA1BF5E3F2C4637 /* Pods_PolyRides.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B57C9947CBFC1D929A1370A /* Pods_PolyRides.framework */; };
+		D4A36E8F67BFA93F4683C450 /* Pods_PolyRidesUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 33776C172972E3E4DF0CA06A /* Pods_PolyRidesUITests.framework */; };
 		DB1C76721CA0F08C0052D3B9 /* PassengerRideDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB1C76711CA0F08C0052D3B9 /* PassengerRideDetailsViewController.swift */; };
 		DB24333B1CA397940025680B /* MyRideDetails.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB24333A1CA397940025680B /* MyRideDetails.storyboard */; };
 		DB24333D1CA397E80025680B /* PassengerRideDetails.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB24333C1CA397E80025680B /* PassengerRideDetails.storyboard */; };
@@ -133,15 +135,20 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		2241301BA6D0CFD44D162D7E /* Pods-PolyRides.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PolyRides.release.xcconfig"; path = "Pods/Target Support Files/Pods-PolyRides/Pods-PolyRides.release.xcconfig"; sourceTree = "<group>"; };
+		134E6090D8164DDCE96194DA /* Pods-PolyRidesTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PolyRidesTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PolyRidesTests/Pods-PolyRidesTests.debug.xcconfig"; sourceTree = "<group>"; };
+		33776C172972E3E4DF0CA06A /* Pods_PolyRidesUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PolyRidesUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		61872E5AC265900EE5CECC7E /* Pods-PolyRidesTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PolyRidesTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-PolyRidesTests/Pods-PolyRidesTests.release.xcconfig"; sourceTree = "<group>"; };
 		6E43735F1CA4E3EB00630D07 /* ConversationsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConversationsTableViewController.swift; sourceTree = "<group>"; };
 		6E53E3CA1C9E428400370108 /* Message.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 		6E53E3CD1C9E5A6100370108 /* MessagesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessagesViewController.swift; sourceTree = "<group>"; };
 		6E628F9B1CA0FF6900AAC2DB /* MessageService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageService.swift; sourceTree = "<group>"; };
 		6E628F9D1CA100CF00AAC2DB /* Conversation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Conversation.swift; sourceTree = "<group>"; };
 		6E628F9F1CA100E400AAC2DB /* ConversationService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConversationService.swift; sourceTree = "<group>"; };
-		B472AC953EC1C3E0C19CECA0 /* Pods_PolyRides.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PolyRides.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		CC61BB155FFE8FE24FA32C81 /* Pods-PolyRides.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PolyRides.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PolyRides/Pods-PolyRides.debug.xcconfig"; sourceTree = "<group>"; };
+		81CC02B17857E2806BB42C22 /* Pods-PolyRidesUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PolyRidesUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-PolyRidesUITests/Pods-PolyRidesUITests.release.xcconfig"; sourceTree = "<group>"; };
+		82011CF1277CF5359603B02F /* Pods-PolyRidesUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PolyRidesUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PolyRidesUITests/Pods-PolyRidesUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		88D7E45D7D50601055142313 /* Pods-PolyRides.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PolyRides.release.xcconfig"; path = "Pods/Target Support Files/Pods-PolyRides/Pods-PolyRides.release.xcconfig"; sourceTree = "<group>"; };
+		8B57C9947CBFC1D929A1370A /* Pods_PolyRides.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PolyRides.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9D9E525E9ED946969488040F /* Pods-PolyRides.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PolyRides.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PolyRides/Pods-PolyRides.debug.xcconfig"; sourceTree = "<group>"; };
 		DB1C76711CA0F08C0052D3B9 /* PassengerRideDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PassengerRideDetailsViewController.swift; sourceTree = "<group>"; };
 		DB24333A1CA397940025680B /* MyRideDetails.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MyRideDetails.storyboard; sourceTree = "<group>"; };
 		DB24333C1CA397E80025680B /* PassengerRideDetails.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = PassengerRideDetails.storyboard; sourceTree = "<group>"; };
@@ -235,6 +242,7 @@
 		DBF5E6EF1C963D3A00693807 /* ResetPasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResetPasswordViewController.swift; sourceTree = "<group>"; };
 		DBF5E6F11C963D6400693807 /* CreateAccountViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateAccountViewController.swift; sourceTree = "<group>"; };
 		DBF5E6F41C96719400693807 /* EmailAccountViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmailAccountViewController.swift; sourceTree = "<group>"; };
+		EC278F6A1EA0392BFCB61FC8 /* Pods_PolyRidesTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PolyRidesTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -242,7 +250,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8F32E580C33AC6C26F5C4050 /* Pods_PolyRides.framework in Frameworks */,
+				6F0CD61C0CA1BF5E3F2C4637 /* Pods_PolyRides.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -250,6 +258,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1918465B9E0F71CB1F35939C /* Pods_PolyRidesTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -257,18 +266,24 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D4A36E8F67BFA93F4683C450 /* Pods_PolyRidesUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		0D09E705A1F8EBAED514426C /* Frameworks */ = {
+		123F0E7D1ADEE8A8D6FA6A38 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				B472AC953EC1C3E0C19CECA0 /* Pods_PolyRides.framework */,
+				9D9E525E9ED946969488040F /* Pods-PolyRides.debug.xcconfig */,
+				88D7E45D7D50601055142313 /* Pods-PolyRides.release.xcconfig */,
+				134E6090D8164DDCE96194DA /* Pods-PolyRidesTests.debug.xcconfig */,
+				61872E5AC265900EE5CECC7E /* Pods-PolyRidesTests.release.xcconfig */,
+				82011CF1277CF5359603B02F /* Pods-PolyRidesUITests.debug.xcconfig */,
+				81CC02B17857E2806BB42C22 /* Pods-PolyRidesUITests.release.xcconfig */,
 			);
-			name = Frameworks;
+			name = Pods;
 			sourceTree = "<group>";
 		};
 		6E53E3CC1C9E59E800370108 /* Messages */ = {
@@ -294,13 +309,14 @@
 			name = Services;
 			sourceTree = "<group>";
 		};
-		8044E3CB71FAAEEA14091F08 /* Pods */ = {
+		D6FEBAF92E09C94B5A3B56F8 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				CC61BB155FFE8FE24FA32C81 /* Pods-PolyRides.debug.xcconfig */,
-				2241301BA6D0CFD44D162D7E /* Pods-PolyRides.release.xcconfig */,
+				8B57C9947CBFC1D929A1370A /* Pods_PolyRides.framework */,
+				EC278F6A1EA0392BFCB61FC8 /* Pods_PolyRidesTests.framework */,
+				33776C172972E3E4DF0CA06A /* Pods_PolyRidesUITests.framework */,
 			);
-			name = Pods;
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		DB2433391CA397800025680B /* Base */ = {
@@ -369,8 +385,8 @@
 				DB70B8E11C9389EA0065CC4D /* PolyRidesTests */,
 				DB70B8EC1C9389EA0065CC4D /* PolyRidesUITests */,
 				DB70B8CB1C9389EA0065CC4D /* Products */,
-				8044E3CB71FAAEEA14091F08 /* Pods */,
-				0D09E705A1F8EBAED514426C /* Frameworks */,
+				123F0E7D1ADEE8A8D6FA6A38 /* Pods */,
+				D6FEBAF92E09C94B5A3B56F8 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -574,15 +590,15 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = DB70B8F21C9389EA0065CC4D /* Build configuration list for PBXNativeTarget "PolyRides" */;
 			buildPhases = (
-				3C0B81416A1B531601CE3E3B /* Check Pods Manifest.lock */,
+				25D39645B9FA7DF83E3B5514 /* [CP] Check Pods Manifest.lock */,
 				DB70B8C61C9389EA0065CC4D /* Sources */,
 				DB70B8C71C9389EA0065CC4D /* Frameworks */,
 				DB70B8C81C9389EA0065CC4D /* Resources */,
-				5D9F5B583749EC6382981DA0 /* Embed Pods Frameworks */,
-				5CDD1A82C261E6FA8AF92F58 /* Copy Pods Resources */,
 				DBF5E6D91C93A56B00693807 /* ShellScript */,
 				DBF5E6DD1C93A75E00693807 /* ShellScript */,
 				DB793EB61C9C981C001BB0EE /* Embed Frameworks */,
+				DCE643889801AC4ADEFBEF89 /* [CP] Embed Pods Frameworks */,
+				836912842D490B8A0E057081 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -597,9 +613,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = DB70B8F51C9389EA0065CC4D /* Build configuration list for PBXNativeTarget "PolyRidesTests" */;
 			buildPhases = (
+				7EDC1A3171BD4C11AC922FBC /* [CP] Check Pods Manifest.lock */,
 				DB70B8DA1C9389EA0065CC4D /* Sources */,
 				DB70B8DB1C9389EA0065CC4D /* Frameworks */,
 				DB70B8DC1C9389EA0065CC4D /* Resources */,
+				29B543F173E623428A1995E6 /* [CP] Embed Pods Frameworks */,
+				A4CADF3FD7B9439A358C715C /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -615,9 +634,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = DB70B8F81C9389EA0065CC4D /* Build configuration list for PBXNativeTarget "PolyRidesUITests" */;
 			buildPhases = (
+				DBE57CA1E6AE73BDE94239EB /* [CP] Check Pods Manifest.lock */,
 				DB70B8E51C9389EA0065CC4D /* Sources */,
 				DB70B8E61C9389EA0065CC4D /* Frameworks */,
 				DB70B8E71C9389EA0065CC4D /* Resources */,
+				5933417AD8931E24B2841298 /* [CP] Embed Pods Frameworks */,
+				A4859E39DC0DCA49C2FDD6C6 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -642,13 +664,16 @@
 					DB70B8C91C9389EA0065CC4D = {
 						CreatedOnToolsVersion = 7.2.1;
 						DevelopmentTeam = ZBB8HWSY4F;
+						LastSwiftMigration = 0810;
 					};
 					DB70B8DD1C9389EA0065CC4D = {
 						CreatedOnToolsVersion = 7.2.1;
+						LastSwiftMigration = 0810;
 						TestTargetID = DB70B8C91C9389EA0065CC4D;
 					};
 					DB70B8E81C9389EA0065CC4D = {
 						CreatedOnToolsVersion = 7.2.1;
+						LastSwiftMigration = 0810;
 						TestTargetID = DB70B8C91C9389EA0065CC4D;
 					};
 				};
@@ -736,29 +761,74 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		3C0B81416A1B531601CE3E3B /* Check Pods Manifest.lock */ = {
+		25D39645B9FA7DF83E3B5514 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Check Pods Manifest.lock";
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
-		5CDD1A82C261E6FA8AF92F58 /* Copy Pods Resources */ = {
+		29B543F173E623428A1995E6 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Copy Pods Resources";
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PolyRidesTests/Pods-PolyRidesTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		5933417AD8931E24B2841298 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PolyRidesUITests/Pods-PolyRidesUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		7EDC1A3171BD4C11AC922FBC /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		836912842D490B8A0E057081 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -766,19 +836,49 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PolyRides/Pods-PolyRides-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		5D9F5B583749EC6382981DA0 /* Embed Pods Frameworks */ = {
+		A4859E39DC0DCA49C2FDD6C6 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Embed Pods Frameworks";
+			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PolyRides/Pods-PolyRides-frameworks.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PolyRidesUITests/Pods-PolyRidesUITests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A4CADF3FD7B9439A358C715C /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PolyRidesTests/Pods-PolyRidesTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DBE57CA1E6AE73BDE94239EB /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		DBF5E6D91C93A56B00693807 /* ShellScript */ = {
@@ -806,6 +906,21 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "echo \"BUIDLING\"\nif which swiftlint >/dev/null; then\nswiftlint\nelse\necho \"error: SwiftLint does not exist, download it from https://github.com/realm/SwiftLint\"\nexit 1\nfi";
+		};
+		DCE643889801AC4ADEFBEF89 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PolyRides/Pods-PolyRides-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -986,7 +1101,7 @@
 		};
 		DB70B8F31C9389EA0065CC4D /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = CC61BB155FFE8FE24FA32C81 /* Pods-PolyRides.debug.xcconfig */;
+			baseConfigurationReference = 9D9E525E9ED946969488040F /* Pods-PolyRides.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -1098,17 +1213,18 @@
 					"-framework",
 					"\"GoogleMaps\"",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.Vanessa.PolyRides;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Vanessa.PolyRides2;
 				PRODUCT_NAME = "Poly Rides";
 				SWIFT_OBJC_BRIDGING_HEADER = "PolyRides/Model/PolyRides-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
 		DB70B8F41C9389EA0065CC4D /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 2241301BA6D0CFD44D162D7E /* Pods-PolyRides.release.xcconfig */;
+			baseConfigurationReference = 88D7E45D7D50601055142313 /* Pods-PolyRides.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -1219,44 +1335,51 @@
 					"-framework",
 					"\"GoogleMaps\"",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.Vanessa.PolyRides;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Vanessa.PolyRides2;
 				PRODUCT_NAME = "Poly Rides";
 				SWIFT_OBJC_BRIDGING_HEADER = "PolyRides/Model/PolyRides-Bridging-Header.h";
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
 		DB70B8F61C9389EA0065CC4D /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 134E6090D8164DDCE96194DA /* Pods-PolyRidesTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = PolyRidesTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Vanessa.PolyRidesTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PolyRides.app/PolyRides";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Poly Rides.app/Poly Rides";
 			};
 			name = Debug;
 		};
 		DB70B8F71C9389EA0065CC4D /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 61872E5AC265900EE5CECC7E /* Pods-PolyRidesTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = PolyRidesTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Vanessa.PolyRidesTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PolyRides.app/PolyRides";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Poly Rides.app/Poly Rides";
 			};
 			name = Release;
 		};
 		DB70B8F91C9389EA0065CC4D /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 82011CF1277CF5359603B02F /* Pods-PolyRidesUITests.debug.xcconfig */;
 			buildSettings = {
 				INFOPLIST_FILE = PolyRidesUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Vanessa.PolyRidesUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_TARGET_NAME = PolyRides;
 				USES_XCTRUNNER = YES;
 			};
@@ -1264,11 +1387,13 @@
 		};
 		DB70B8FA1C9389EA0065CC4D /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 81CC02B17857E2806BB42C22 /* Pods-PolyRidesUITests.release.xcconfig */;
 			buildSettings = {
 				INFOPLIST_FILE = PolyRidesUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Vanessa.PolyRidesUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_TARGET_NAME = PolyRides;
 				USES_XCTRUNNER = YES;
 			};
