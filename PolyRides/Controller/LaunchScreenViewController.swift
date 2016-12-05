@@ -6,9 +6,11 @@
 //  Copyright © 2016 Vanessa Forney. All rights reserved.
 //
 
+import FirebaseDatabase
+
 class LaunchScreenViewController: LoadingViewController {
 
-  let ref = FirebaseConnection.ref
+  let ref = FIRDatabase.database().reference()
 
   override func viewDidLoad() {
     super.viewDidLoad()

@@ -6,6 +6,8 @@
 //  Copyright © 2016 Vanessa Forney. All rights reserved.
 //
 
+import FirebaseDatabase
+
 protocol FirebaseVerificationDelegate {
 
   func onVerificationSuccessful(verification: Verification)
@@ -15,7 +17,7 @@ protocol FirebaseVerificationDelegate {
 
 class VerificationService {
 
-  let ref = FirebaseConnection.ref
+  let ref = FIRDatabase.database().reference()
 
   var delegate: FirebaseVerificationDelegate?
 

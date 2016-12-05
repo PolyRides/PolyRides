@@ -11,7 +11,7 @@ import Foundation
 import JSQMessagesViewController
 
 class MessagesViewController: UIViewController {
-  
+
   @IBOutlet weak var nameButton: UIButton!
 //
 //  var sender: User?
@@ -193,7 +193,8 @@ class MessagesViewController: UIViewController {
 // MARK: UIPopoverPresentationControllerDelegate
 extension MessagesViewController: UIPopoverPresentationControllerDelegate {
 
-  func popoverPresentationControllerDidDismissPopover(_ popoverPresentationController: UIPopoverPresentationController) {
+  func popoverPresentationControllerDidDismissPopover(
+    _ popoverPresentationController: UIPopoverPresentationController) {
 
   }
 

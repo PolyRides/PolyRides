@@ -24,7 +24,7 @@ extension FirebaseRidesDelegate {
 
 class RideService {
 
-  let ref = FirebaseConnection.ref
+  let ref = FIRDatabase.database().reference()
 
   var delegate: FirebaseRidesDelegate?
 

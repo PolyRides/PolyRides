@@ -14,12 +14,21 @@ import FBSDKCoreKit
 import FBSDKLoginKit
 import GoogleMaps
 import SendGrid
+import FirebaseDatabase
 import FirebaseAuth
+import FirebaseAnalytics
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
   var window: UIWindow?
+
+  override init() {
+    super.init()
+
+    // Firebase
+    FIRApp.configure()
+  }
 
   private func application(application: UIApplication, didFinishLaunchingWithOptions
     launchOptions: [NSObject: AnyObject]?) -> Bool {

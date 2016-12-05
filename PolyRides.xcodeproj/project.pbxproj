@@ -16,6 +16,7 @@
 		6E628FA01CA100E400AAC2DB /* ConversationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E628F9F1CA100E400AAC2DB /* ConversationService.swift */; };
 		6F0CD61C0CA1BF5E3F2C4637 /* Pods_PolyRides.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B57C9947CBFC1D929A1370A /* Pods_PolyRides.framework */; };
 		D4A36E8F67BFA93F4683C450 /* Pods_PolyRidesUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 33776C172972E3E4DF0CA06A /* Pods_PolyRidesUITests.framework */; };
+		DB16CA371DF61EE4006A73F6 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = DB16CA361DF61EE4006A73F6 /* GoogleService-Info.plist */; };
 		DB1C76721CA0F08C0052D3B9 /* PassengerRideDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB1C76711CA0F08C0052D3B9 /* PassengerRideDetailsViewController.swift */; };
 		DB24333B1CA397940025680B /* MyRideDetails.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB24333A1CA397940025680B /* MyRideDetails.storyboard */; };
 		DB24333D1CA397E80025680B /* PassengerRideDetails.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB24333C1CA397E80025680B /* PassengerRideDetails.storyboard */; };
@@ -68,7 +69,6 @@
 		DB70B8EE1C9389EA0065CC4D /* PolyRidesUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB70B8ED1C9389EA0065CC4D /* PolyRidesUITests.swift */; };
 		DB70B9021C938B230065CC4D /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB70B9011C938B230065CC4D /* User.swift */; };
 		DB70B9051C938CDC0065CC4D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB70B9031C938CDC0065CC4D /* LaunchScreen.storyboard */; };
-		DB70B9081C938F540065CC4D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = DB70B9071C938F540065CC4D /* GoogleService-Info.plist */; };
 		DB747AB31C98D28A00A24F58 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB747AB21C98D28A00A24F58 /* Home.storyboard */; };
 		DB747AB61C98D76900A24F58 /* Rides.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB747AB51C98D76900A24F58 /* Rides.storyboard */; };
 		DB747AB81C98D79500A24F58 /* Messages.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB747AB71C98D79500A24F58 /* Messages.storyboard */; };
@@ -86,7 +86,6 @@
 		DB8DAE821CB4318E0045195D /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB8DAE811CB4318E0045195D /* TableViewController.swift */; };
 		DB8DAE851CB4C3A10045195D /* AutocompleteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB8DAE841CB4C3A10045195D /* AutocompleteViewController.swift */; };
 		DB8DAE871CB6058B0045195D /* Autocomplete.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB8DAE861CB6058B0045195D /* Autocomplete.storyboard */; };
-		DB956DD81C96833700809B4C /* FirebaseConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB956DD71C96833700809B4C /* FirebaseConnection.swift */; };
 		DBA6FBC81DF5E3B200A953AB /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBA6FBC71DF5E3B200A953AB /* LoginViewController.swift */; };
 		DBAB56801C968FAA0011167A /* UIViewControllerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBAB567F1C968FAA0011167A /* UIViewControllerExtensions.swift */; };
 		DBAB56871C96B0F10011167A /* RegionTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBAB56861C96B0F10011167A /* RegionTableViewController.swift */; };
@@ -144,6 +143,7 @@
 		88D7E45D7D50601055142313 /* Pods-PolyRides.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PolyRides.release.xcconfig"; path = "Pods/Target Support Files/Pods-PolyRides/Pods-PolyRides.release.xcconfig"; sourceTree = "<group>"; };
 		8B57C9947CBFC1D929A1370A /* Pods_PolyRides.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PolyRides.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9D9E525E9ED946969488040F /* Pods-PolyRides.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PolyRides.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PolyRides/Pods-PolyRides.debug.xcconfig"; sourceTree = "<group>"; };
+		DB16CA361DF61EE4006A73F6 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		DB1C76711CA0F08C0052D3B9 /* PassengerRideDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PassengerRideDetailsViewController.swift; sourceTree = "<group>"; };
 		DB24333A1CA397940025680B /* MyRideDetails.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MyRideDetails.storyboard; sourceTree = "<group>"; };
 		DB24333C1CA397E80025680B /* PassengerRideDetails.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = PassengerRideDetails.storyboard; sourceTree = "<group>"; };
@@ -202,7 +202,6 @@
 		DB70B8EF1C9389EA0065CC4D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DB70B9011C938B230065CC4D /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		DB70B9031C938CDC0065CC4D /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
-		DB70B9071C938F540065CC4D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		DB70B9091C938F870065CC4D /* PolyRides-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "PolyRides-Bridging-Header.h"; path = "../Model/PolyRides-Bridging-Header.h"; sourceTree = "<group>"; };
 		DB747AB21C98D28A00A24F58 /* Home.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
 		DB747AB51C98D76900A24F58 /* Rides.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Rides.storyboard; sourceTree = "<group>"; };
@@ -221,7 +220,6 @@
 		DB8DAE811CB4318E0045195D /* TableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
 		DB8DAE841CB4C3A10045195D /* AutocompleteViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutocompleteViewController.swift; sourceTree = "<group>"; };
 		DB8DAE861CB6058B0045195D /* Autocomplete.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Autocomplete.storyboard; sourceTree = "<group>"; };
-		DB956DD71C96833700809B4C /* FirebaseConnection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FirebaseConnection.swift; path = Model/FirebaseConnection.swift; sourceTree = "<group>"; };
 		DBA6FBC71DF5E3B200A953AB /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		DBAB567F1C968FAA0011167A /* UIViewControllerExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtensions.swift; sourceTree = "<group>"; };
 		DBAB56861C96B0F10011167A /* RegionTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegionTableViewController.swift; sourceTree = "<group>"; };
@@ -470,7 +468,7 @@
 				DB8DAE6C1CB309CD0045195D /* Fonts */,
 				DB70B8D41C9389EA0065CC4D /* Assets.xcassets */,
 				DB70B9091C938F870065CC4D /* PolyRides-Bridging-Header.h */,
-				DB70B9071C938F540065CC4D /* GoogleService-Info.plist */,
+				DB16CA361DF61EE4006A73F6 /* GoogleService-Info.plist */,
 				DB70B8D91C9389EA0065CC4D /* Info.plist */,
 			);
 			path = "Supporting Files";
@@ -529,7 +527,6 @@
 			isa = PBXGroup;
 			children = (
 				DB8DAE6A1CB3080C0045195D /* Constants.swift */,
-				DB956DD71C96833700809B4C /* FirebaseConnection.swift */,
 				DBB1558B1C9B76C500118F89 /* DateHelper.swift */,
 				DBF5E6DA1C93A66600693807 /* GoogleAnalyticsHelper.swift */,
 				DBBBD13E1C9DE8590085E3B9 /* GoogleMapsHelper.swift */,
@@ -691,6 +688,7 @@
 				DB24333D1CA397E80025680B /* PassengerRideDetails.storyboard in Resources */,
 				DB8DAE871CB6058B0045195D /* Autocomplete.storyboard in Resources */,
 				DB3141C41CD032C800F88176 /* SF-UI-Text-LightItalic.otf in Resources */,
+				DB16CA371DF61EE4006A73F6 /* GoogleService-Info.plist in Resources */,
 				DB3141BA1CD032C800F88176 /* SF-UI-Display-Medium.otf in Resources */,
 				DB3141B91CD032C800F88176 /* SF-UI-Display-Light.otf in Resources */,
 				DB3141C71CD032C800F88176 /* SF-UI-Text-Regular.otf in Resources */,
@@ -701,7 +699,6 @@
 				DB3141B71CD032C800F88176 /* SF-UI-Display-Bold.otf in Resources */,
 				DB3141C11CD032C800F88176 /* SF-UI-Text-Heavy.otf in Resources */,
 				DB747AB81C98D79500A24F58 /* Messages.storyboard in Resources */,
-				DB70B9081C938F540065CC4D /* GoogleService-Info.plist in Resources */,
 				DB8DAE671CB2EEFA0045195D /* DriverProfile.storyboard in Resources */,
 				DB3141BB1CD032C800F88176 /* SF-UI-Display-Regular.otf in Resources */,
 				DB5F03C61CAE1D0800E49A12 /* FacebookLogin.storyboard in Resources */,
@@ -914,7 +911,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				DB43A9981C9FA63700AC2AF9 /* RidesTableViewController.swift in Sources */,
-				DB956DD81C96833700809B4C /* FirebaseConnection.swift in Sources */,
 				DB1C76721CA0F08C0052D3B9 /* PassengerRideDetailsViewController.swift in Sources */,
 				DBBBD13B1C9DE4D00085E3B9 /* Ride.swift in Sources */,
 				DB5F03B41CA8550F00E49A12 /* SearchViewController.swift in Sources */,

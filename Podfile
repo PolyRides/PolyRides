@@ -17,7 +17,6 @@ target 'PolyRides' do
    pod 'Siren'
    pod 'Fabric'
    pod 'Crashlytics'
-   pod 'Firebase'
    pod 'Firebase/Core'
    pod 'Firebase/Auth'
    pod 'Firebase/Database'

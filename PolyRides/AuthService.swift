@@ -8,6 +8,7 @@
 
 import FBSDKLoginKit
 import FirebaseAuth
+import FirebaseDatabase
 
 protocol FirebaseLoginDelegate: class {
 
@@ -18,7 +19,7 @@ protocol FirebaseLoginDelegate: class {
 
 class AuthService {
 
-  let ref = FirebaseConnection.ref
+  let ref = FIRDatabase.database().reference()
 
   var loginDelegate: FirebaseLoginDelegate?
 
