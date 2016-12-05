@@ -6,8 +6,9 @@
 //  Copyright © 2016 Vanessa Forney. All rights reserved.
 //
 
-import Firebase
-import GoogleMaps
+import FirebaseAuth
+import FirebaseDatabase
+import GooglePlaces
 
 class User {
 
@@ -31,7 +32,7 @@ class User {
 
   init(facebookId: String, name: String) {
     self.facebookId = facebookId
-    let components = name.componentsSeparatedByString(" ")
+    let components = name.components(separatedBy: " ")
     firstName = components.first
     lastName = components.last
     imageURL = "https://graph.facebook.com/\(facebookId)/picture?type=large"
@@ -47,23 +48,21 @@ class User {
     self.lastName = lastName
   }
 
-  init(fromAuthData authData: FAuthData) {
-    if let facebookId = authData.providerData["id"] as? String {
-      self.facebookId = facebookId
+  init(fromUser user: FIRUser) {
+    for profile in user.providerData {
+      facebookId = profile.providerID
       imageURL = "https://graph.facebook.com/\(facebookId)/picture?type=large"
+      email = profile.email
+
+      if let components = profile.displayName?.components(separatedBy: " ") {
+        firstName = components.first
+        lastName = components.last
+      }
     }
 
-    if let email = authData.providerData["email"] as? NSString {
-      self.email = String(email)
-    }
-    if let fullName = authData.providerData["displayName"] as? NSString {
-      let components = fullName.componentsSeparatedByString(" ")
-      self.firstName = components.first
-      self.lastName = components.last
-    }
   }
 
-  init(fromSnapshot snapshot: FDataSnapshot) {
+  init(fromSnapshot snapshot: FIRDataSnapshot) {
     if let dictionary = snapshot.value as? [String : AnyObject] {
       self.id = snapshot.key
       if let email = dictionary["email"] as? String {
@@ -72,7 +71,7 @@ class User {
     }
   }
 
-  func updateFromSnapshot(snapshot: FDataSnapshot) {
+  func updateFromSnapshot(snapshot: FIRDataSnapshot) {
     if let dictionary = snapshot.value as? [String : AnyObject] {
       self.id = snapshot.key
       if let facebookId = dictionary["facebookId"] as? String {
@@ -94,7 +93,7 @@ class User {
         self.description = description
       }
       if let carDictionary = dictionary["car"] as? [String: AnyObject] {
-        extractCarFromDictionary(carDictionary)
+        extractCarFromDictionary(dictionary: carDictionary)
       }
       if let verifications = dictionary["verifications"] as? [String: Bool] {
         for rawValue in verifications.keys {
@@ -129,8 +128,8 @@ class User {
     }
   }
 
-  func toAnyObject() -> [String : AnyObject] {
-    var dictionary = [String : AnyObject]()
+  func toAnyObject() -> [String : Any] {
+    var dictionary = [String : Any]()
 
     dictionary["email"] = email
     dictionary["firstName"] = firstName

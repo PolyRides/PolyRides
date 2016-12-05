@@ -7,6 +7,7 @@
 //
 
 import GoogleMaps
+import GooglePlaces
 
 class GoogleMapsHelper {
 
@@ -16,25 +17,25 @@ class GoogleMapsHelper {
 
 
 // Extract the fields from Google Maps address components.
-extension CollectionType where Generator.Element == GMSAddressComponent {
+extension Collection where Iterator.Element == GMSAddressComponent {
   var streetAddress: String? {
-    return "\(valueForKey("street_number")) \(valueForKey(kGMSPlaceTypeRoute))"
+    return "\(valueForKey(key: "street_number")) \(valueForKey(key: kGMSPlaceTypeRoute))"
   }
 
   var city: String? {
-    return valueForKey(kGMSPlaceTypeLocality)
+    return valueForKey(key: kGMSPlaceTypeLocality)
   }
 
   var state: String? {
-    return valueForKey(kGMSPlaceTypeAdministrativeAreaLevel1)
+    return valueForKey(key: kGMSPlaceTypeAdministrativeAreaLevel1)
   }
 
   var zipCode: String? {
-    return valueForKey(kGMSPlaceTypePostalCode)
+    return valueForKey(key: kGMSPlaceTypePostalCode)
   }
 
   var country: String? {
-    return valueForKey(kGMSPlaceTypeCountry)
+    return valueForKey(key: kGMSPlaceTypeCountry)
   }
 
   func valueForKey(key: String) -> String? {

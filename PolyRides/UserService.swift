@@ -6,6 +6,8 @@
 //  Copyright © 2016 Vanessa Forney. All rights reserved.
 //
 
+import FirebaseAuth
+
 protocol FirebaseUserDelegate: class {
 
   func onUserUpdated()
@@ -21,9 +23,9 @@ class UserService {
 
   func updateValuesForUser(user: User) {
     if let userId = user.id {
-      let userRef = ref.childByAppendingPath("users/\(userId)")
-      userRef.observeSingleEventOfType(.Value, withBlock: { snapshot in
-        user.updateFromSnapshot(snapshot)
+      let userRef = ref.child("users/\(userId)")
+      userRef.observeSingleEvent(of: .value, with: { snapshot in
+        user.updateFromSnapshot(snapshot: snapshot)
         self.delegate?.onUserUpdated()
       })
     }
@@ -31,8 +33,8 @@ class UserService {
 
   // Get the user ID of the user who logged in with Facebook. Requires Facebook ID to be present in the user.
   func getUserId(user: User) {
-    let query = ref.childByAppendingPath("userMappings").childByAppendingPath(user.facebookId!)
-    query.observeSingleEventOfType(.Value, withBlock: { snapshot in
+    let query = ref.child("userMappings").child(user.facebookId!)
+    query.observeSingleEvent(of: .value, with: { snapshot in
       if let userId = snapshot.value as? String {
         user.id = userId
         self.delegate?.onUserIdReceived()
@@ -43,10 +45,14 @@ class UserService {
   }
 
   func logOut() {
-    if let appDelegate: AppDelegate = UIApplication.sharedApplication().delegate as? AppDelegate {
-      let storyboard = UIStoryboard(name: "FacebookLogin", bundle: NSBundle.mainBundle())
+    if let appDelegate: AppDelegate = UIApplication.shared.delegate as? AppDelegate {
+      let storyboard = UIStoryboard(name: "FacebookLogin", bundle: Bundle.main)
       if let navVC = storyboard.instantiateInitialViewController() as? UINavigationController {
-        FirebaseConnection.ref.unauth()
+        do {
+          try FIRAuth.auth()?.signOut()
+        } catch {
+          print("Error signing out")
+        }
         appDelegate.window?.rootViewController = navVC
       }
     }
@@ -54,9 +60,10 @@ class UserService {
 
   func updateProfile(user: User) {
     if let userId = user.id {
-      let userRef = ref.childByAppendingPath("users/\(userId)")
-      userRef.childByAppendingPath("car").setValue(user.car?.toAnyObject())
-      userRef.childByAppendingPath("description").setValue(user.description)
+      let userRef = ref.child(
+        "users/\(userId)")
+      userRef.child("car").setValue(user.car?.toAnyObject())
+      userRef.child("description").setValue(user.description)
     }
   }
 

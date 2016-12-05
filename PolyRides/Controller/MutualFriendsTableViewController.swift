@@ -1,3 +1,4 @@
+
 //
 //  MutualFriendsTableViewController.swift
 //  PolyRides
@@ -27,21 +28,21 @@ class MutualFriendsTableViewController: UITableViewController {
 // MARK: - UITableViewDataSource
 extension MutualFriendsTableViewController {
 
-  override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+  override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     if let mutualFriends = mutualFriends {
       return mutualFriends.count
     }
     return 0
   }
 
-  override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+  override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     let friend = mutualFriends![indexPath.row]
-    let cell = tableView.dequeueReusableCellWithIdentifier("friendCell", forIndexPath: indexPath)
+    let cell = tableView.dequeueReusableCell(withIdentifier: "friendCell", for: indexPath as IndexPath)
 
     if let imageURL = friend.imageURL {
       if let url = NSURL(string: imageURL) {
         if let imageView = cell.imageView {
-          imageView.setImageWithURL(url, placeholderImage: UIImage(named: "empty_profile"))
+          imageView.setImageWith(url as URL, placeholderImage: UIImage(named: "empty_profile"))
           imageView.layer.cornerRadius = 25
           imageView.clipsToBounds = true
         }
@@ -59,46 +60,46 @@ extension MutualFriendsTableViewController {
 // MARK: - DZNEmptyDataSetSource
 extension MutualFriendsTableViewController: DZNEmptyDataSetSource {
 
-  func imageForEmptyDataSet(scrollView: UIScrollView!) -> UIImage! {
+  func image(forEmptyDataSet scrollView: UIScrollView!) -> UIImage! {
     return UIImage(named: "empty")
   }
 
-  func imageAnimationForEmptyDataSet(scrollView: UIScrollView!) -> CAAnimation! {
+  func imageAnimation(forEmptyDataSet scrollView: UIScrollView!) -> CAAnimation! {
     let animation = CABasicAnimation(keyPath: "transform")
 
-    animation.fromValue = NSValue(CATransform3D: CATransform3DMakeRotation(CGFloat(M_PI_2), 0.0, 0.0, 1.0))
+    animation.fromValue = NSValue(caTransform3D: CATransform3DMakeRotation(CGFloat(M_PI_2), 0.0, 0.0, 1.0))
     animation.duration = 0.25
-    animation.cumulative = true
+    animation.isCumulative = true
     animation.repeatCount = MAXFLOAT
 
     return animation
   }
 
-  func titleForEmptyDataSet(scrollView: UIScrollView!) -> NSAttributedString! {
+  func title(forEmptyDataSet scrollView: UIScrollView!) -> NSAttributedString! {
     let attributes = [
-      NSFontAttributeName: UIFont.systemFontOfSize(18),
-      NSForegroundColorAttributeName : UIColor.blackColor()]
+      NSFontAttributeName: UIFont.systemFont(ofSize: 18),
+      NSForegroundColorAttributeName : UIColor.black]
     let message = "No mutual friends."
     return NSAttributedString(string: message, attributes: attributes)
   }
 
-  func descriptionForEmptyDataSet(scrollView: UIScrollView!) -> NSAttributedString! {
+  func description(forEmptyDataSet scrollView: UIScrollView!) -> NSAttributedString! {
     var message = ""
     if let name = otherUser?.getFullName() {
       message = "You and \(name) don't have any mutual friends that use Poly Rides."
     }
     let paragraph = NSMutableParagraphStyle()
-    paragraph.lineBreakMode = NSLineBreakMode.ByWordWrapping
-    paragraph.alignment = NSTextAlignment.Center
+    paragraph.lineBreakMode = NSLineBreakMode.byWordWrapping
+    paragraph.alignment = NSTextAlignment.center
     let attributes = [
-      NSFontAttributeName: UIFont.systemFontOfSize(14),
-      NSForegroundColorAttributeName: UIColor.grayColor(),
+      NSFontAttributeName: UIFont.systemFont(ofSize: 14),
+      NSForegroundColorAttributeName: UIColor.gray,
       NSParagraphStyleAttributeName: paragraph]
 
     return NSAttributedString(string: message, attributes: attributes)
   }
 
-  func backgroundColorForEmptyDataSet(scrollView: UIScrollView!) -> UIColor! {
-    return UIColor.whiteColor()
+  func backgroundColor(forEmptyDataSet scrollView: UIScrollView!) -> UIColor! {
+    return UIColor.white
   }
 }

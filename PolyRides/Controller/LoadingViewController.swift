@@ -12,7 +12,7 @@ class LoadingViewController: UIViewController {
   let rideService = RideService()
   let userService = UserService()
 
-  var onLoadingComplete: (Void -> Void)?
+  var onLoadingComplete: ((Void) -> Void)?
   var allRides = [Ride]()
   var toRegionToRides = [Region: [Ride]]()
   var fromRegionToRides = [Region: [Ride]]()
@@ -37,10 +37,10 @@ class LoadingViewController: UIViewController {
     userService.delegate = self
   }
 
-  func startLoadingData(onLoadingComplete: (Void -> Void)? = nil) {
+  func startLoadingData(onLoadingComplete: ((Void) -> Void)? = nil) {
     self.onLoadingComplete = onLoadingComplete
     if let user = user {
-      userService.updateValuesForUser(user)
+      userService.updateValuesForUser(user: user)
     }
   }
 
@@ -57,7 +57,7 @@ class LoadingViewController: UIViewController {
           vc.toRegionToRides = toRegionToRides
         }
       }
-      if let delegate: AppDelegate = UIApplication.sharedApplication().delegate as? AppDelegate {
+      if let delegate: AppDelegate = UIApplication.shared.delegate as? AppDelegate {
         delegate.window?.rootViewController = tabBarVC
       }
 
@@ -75,11 +75,11 @@ extension LoadingViewController: FirebaseRidesDelegate {
         if driverId != userId {
           allRides.append(ride)
           if let toLocationCity = ride.toLocation?.city {
-            let region = Region.getRegion(toLocationCity)
+            let region = Region.getRegion(city: toLocationCity)
             toRegionToRides[region]?.append(ride)
           }
           if let fromLocationCity = ride.fromLocation?.city {
-            let region = Region.getRegion(fromLocationCity)
+            let region = Region.getRegion(city: fromLocationCity)
             fromRegionToRides[region]?.append(ride)
           }
         }
@@ -97,14 +97,14 @@ extension LoadingViewController: FirebaseRidesDelegate {
   }
 
   func onRideAdded(ride: Ride) {
-    if allRides.indexOf(ride) == nil {
+    if allRides.index(of: ride) == nil {
       allRides.append(ride)
       if let toLocationCity = ride.toLocation?.city {
-        let region = Region.getRegion(toLocationCity)
+        let region = Region.getRegion(city: toLocationCity)
         toRegionToRides[region]?.append(ride)
       }
       if let fromLocationCity = ride.fromLocation?.city {
-        let region = Region.getRegion(fromLocationCity)
+        let region = Region.getRegion(city: fromLocationCity)
         fromRegionToRides[region]?.append(ride)
       }
 
@@ -112,19 +112,19 @@ extension LoadingViewController: FirebaseRidesDelegate {
   }
 
   func onRideRemoved(ride: Ride) {
-    if let index = allRides.indexOf(ride) {
-      allRides.removeAtIndex(index)
+    if let index = allRides.index(of: ride) {
+      allRides.remove(at: index)
     }
     if let toLocationCity = ride.toLocation?.city {
-      let region = Region.getRegion(toLocationCity)
-      if let index = toRegionToRides[region]?.indexOf(ride) {
-        toRegionToRides[region]?.removeAtIndex(index)
+      let region = Region.getRegion(city: toLocationCity)
+      if let index = toRegionToRides[region]?.index(of: ride) {
+        toRegionToRides[region]?.remove(at: index)
       }
     }
     if let fromLocationCity = ride.fromLocation?.city {
-      let region = Region.getRegion(fromLocationCity)
-      if let index = fromRegionToRides[region]?.indexOf(ride) {
-        fromRegionToRides[region]?.removeAtIndex(index)
+      let region = Region.getRegion(city: fromLocationCity)
+      if let index = fromRegionToRides[region]?.index(of: ride) {
+        fromRegionToRides[region]?.remove(at: index)
       }
     }
   }

@@ -27,9 +27,9 @@ class ProfileViewController: UIViewController {
     setupProfile()
   }
 
-  override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+  override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
     if segue.identifier == "toMutualFriends" {
-      if let vc = segue.destinationViewController as? MutualFriendsTableViewController {
+      if let vc = segue.destination as? MutualFriendsTableViewController {
         vc.mutualFriends = mutualFriends
         vc.otherUser = user
       }
@@ -39,7 +39,7 @@ class ProfileViewController: UIViewController {
   func setupProfile() {
     if let imageView = imageView {
       imageView.clipsToBounds = true
-      imageView.contentMode = UIViewContentMode.ScaleAspectFill
+      imageView.contentMode = UIViewContentMode.scaleAspectFill
       imageView.layer.cornerRadius = imageView.frame.size.width / 2
     }
 
@@ -55,7 +55,7 @@ class ProfileViewController: UIViewController {
     if let url = user?.imageURL {
       if let imageURL = NSURL(string: url) {
         if let placeholder = defaultImage {
-          imageView?.setImageWithURL(imageURL, placeholderImage: placeholder)
+          imageView?.setImageWith(imageURL as URL, placeholderImage: placeholder)
         }
       } else {
         imageView?.image = defaultImage
@@ -66,12 +66,12 @@ class ProfileViewController: UIViewController {
 
     if let description = user?.description {
       descriptionTextView?.text = description
-      descriptionTextView?.hidden = false
+      descriptionTextView?.isHidden = false
     } else {
-      descriptionTextView?.hidden = true
+      descriptionTextView?.isHidden = true
     }
 
-    if user?.verifications.indexOf(Verification.CalPoly) != nil {
+    if user?.verifications.index(of: Verification.CalPoly) != nil {
 
     }
 
@@ -81,8 +81,8 @@ class ProfileViewController: UIViewController {
       carDetailsLabel?.text = ""
     }
 
-    mutualFriendsButton?.setTitle("\(mutualFriends?.count ?? 0) mutual friends", forState: .Normal)
-    mutualFriendsButton?.centerTextAndImage(4)
+    mutualFriendsButton?.setTitle("\(mutualFriends?.count ?? 0) mutual friends", for: .normal)
+    mutualFriendsButton?.centerTextAndImage(spacing: 4)
   }
 
 }

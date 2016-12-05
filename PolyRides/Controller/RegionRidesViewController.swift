@@ -21,12 +21,12 @@ class RegionRidesViewController: RidesTableViewController {
       if segmentedControl.selectedSegmentIndex == 0 {
         rides = fromRides
         if let region = region {
-          emptyMessage = Empty.FromRegion(region)
+          emptyMessage = Empty.FromRegion(region: region)
         }
       } else {
         rides = toRides
         if let region = region {
-          emptyMessage = Empty.ToRegion(region)
+          emptyMessage = Empty.ToRegion(region: region)
         }
       }
     }
@@ -42,28 +42,28 @@ class RegionRidesViewController: RidesTableViewController {
     emptyImage = "empty"
     emptyTitle = Empty.RegionTitle
     if let region = region {
-      emptyMessage = Empty.FromRegion(region)
+      emptyMessage = Empty.FromRegion(region: region)
     }
     tableView?.delegate = self
     tableView?.reloadData()
-    segmentedControl?.setTitleTextAttributes(Attributes.SegmentedControl, forState: .Normal)
+    segmentedControl?.setTitleTextAttributes(Attributes.SegmentedControl, for: .normal)
   }
 
-  override func viewWillAppear(animated: Bool) {
+  override func viewWillAppear(_ animated: Bool) {
     navigationController?.setNavigationBarHidden(false, animated: true)
     super.viewWillAppear(animated)
   }
 
-  override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+  override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
     if segue.identifier == "toPassengerRideDetails" {
-      if let vc = segue.destinationViewController as? RideDetailsViewController {
+      if let vc = segue.destination as? RideDetailsViewController {
         if let cell = sender as? RideTableViewCell {
           vc.ride = cell.ride
           vc.user = user
         }
       }
     } else if segue.identifier == "toRideSearch" {
-      if let vc = segue.destinationViewController as? SearchViewController {
+      if let vc = segue.destination as? SearchViewController {
         vc.user = user
       }
     }
@@ -77,8 +77,8 @@ class RegionRidesViewController: RidesTableViewController {
 // MARK: - UITableViewDelegate
 extension RegionRidesViewController: UITableViewDelegate {
 
-  func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-    tableView.deselectRowAtIndexPath(indexPath, animated: true)
+  func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    tableView.deselectRow(at: indexPath as IndexPath, animated: true)
   }
 
 }

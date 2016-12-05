@@ -6,7 +6,7 @@
 //  Copyright © 2016 Vanessa Forney. All rights reserved.
 //
 
-import GoogleMaps
+import GooglePlaces
 
 class Location {
 

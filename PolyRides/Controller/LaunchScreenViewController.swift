@@ -18,7 +18,7 @@ class LaunchScreenViewController: LoadingViewController {
     // } else
 
     if user?.facebookId != nil {
-      userService.getUserId(user!)
+      userService.getUserId(user: user!)
     } else {
       userService.logOut()
     }

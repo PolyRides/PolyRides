@@ -7,6 +7,7 @@
 //
 
 import GoogleMaps
+import GooglePlaces
 
 class AddRideViewController: UIViewController {
 
@@ -38,7 +39,7 @@ class AddRideViewController: UIViewController {
   }
 
   @IBAction func cancelButtonAction(sender: AnyObject) {
-    navigationController?.dismissViewControllerAnimated(true, completion: nil)
+    navigationController?.dismiss(animated: true, completion: nil)
   }
 
   @IBAction func stepperValChanged(sender: UIStepper) {
@@ -47,8 +48,7 @@ class AddRideViewController: UIViewController {
 
   @IBAction func costEditingChanged(sender: AnyObject) {
     if let currentValue = costTextField?.text {
-      let strippedValue = currentValue.stringByReplacingOccurrencesOfString("[^0-9]", withString: "",
-        options: .RegularExpressionSearch)
+      let strippedValue = currentValue.replacingOccurrences(of: "[^0-9]", with: "", options: .regularExpression)
       var formattedString = ""
 
       if strippedValue.characters.count > 0 {
@@ -69,23 +69,24 @@ class AddRideViewController: UIViewController {
     setupAppearance()
   }
 
-  override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+  override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
     if segue.identifier == "addRide" {
       if var cost = costTextField?.text {
         if var description = notesTextView?.text {
           if let seats = seatsLabel?.text {
             if let date = datePicker?.date {
-              cost = cost.stringByReplacingOccurrencesOfString("$", withString: "")
+              cost = cost.replacingOccurrences(of: "$", with: "")
               if let user = user {
                 if description == "Optional notes for passengers" {
                   description = ""
                 }
 
-              let ride = Ride(driver: user, date: date, seats: Int(seats), description: description, cost: Int(cost))
-                ride.fromLocation = locationFromPlace(fromPlace)
-                ride.toLocation = locationFromPlace(toPlace)
+              let ride =
+                  Ride(driver: user, date: date as NSDate, seats: Int(seats), description: description, cost: Int(cost))
+                ride.fromLocation = locationFromPlace(place: fromPlace)
+                ride.toLocation = locationFromPlace(place: toPlace)
                 ride.timestamp = NSDate()
-                rideService.pushRideToFirebase(ride)
+                rideService.pushRideToFirebase(ride: ride)
                 self.ride = ride
               }
             }
@@ -93,7 +94,7 @@ class AddRideViewController: UIViewController {
         }
       }
     } else if segue.identifier == "toAutocomplete" {
-      if let navVC = segue.destinationViewController as? UINavigationController {
+      if let navVC = segue.destination as? UINavigationController {
         if let vc = navVC.topViewController as? AutocompleteViewController, let textField = sender as? UITextField {
           vc.delegate = self
           vc.initialText = textField.text
@@ -103,13 +104,13 @@ class AddRideViewController: UIViewController {
     }
   }
 
-  override func shouldPerformSegueWithIdentifier(identifier: String, sender: AnyObject?) -> Bool {
-    if identifier == "addRide" {
+  override func shouldPerformSegue(withIdentifier: String, sender: Any?) -> Bool {
+    if withIdentifier == "addRide" {
       if let date = datePicker?.date {
-        if date.compare(NSDate()) == NSComparisonResult.OrderedAscending {
+        if date.compare(NSDate() as Date) == ComparisonResult.orderedAscending {
           let title = "Invalid Depature Date"
           let message = "Rides in the past cannot be posted. Please adjust your departure date."
-          presentAlert(AlertOptions(message: message, title: title))
+          presentAlert(alertOptions: AlertOptions(message: message, title: title))
 
           return false
         }
@@ -120,7 +121,7 @@ class AddRideViewController: UIViewController {
 
   func setEnableAddButton() {
     if toPlace != nil && fromPlace != nil && costTextField?.text != nil {
-      addButton?.enabled = true
+      addButton?.isEnabled = true
     }
   }
 
@@ -140,7 +141,7 @@ class AddRideViewController: UIViewController {
 // MARK: - AutocompleteDelegate
 extension AddRideViewController: AutocompleteDelegate {
 
-  func onPlaceSelected(place: GMSPlace?) {
+  func onPlaceSelected(placePrediction place: GMSPlace?) {
     autocompleteTextField?.text = place?.formattedAddress
     if autocompleteTextField == toPlaceTextField {
       toPlace = place
@@ -154,9 +155,9 @@ extension AddRideViewController: AutocompleteDelegate {
 // MARK: - UITextFieldDelegate
 extension AddRideViewController: UITextFieldDelegate {
 
-  func textFieldShouldBeginEditing(textField: UITextField) -> Bool {
+  func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
     autocompleteTextField = textField
-    performSegueWithIdentifier("toAutocomplete", sender: textField)
+    performSegue(withIdentifier: "toAutocomplete", sender: textField)
     return false
   }
 

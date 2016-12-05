@@ -32,15 +32,15 @@ class RidesTableViewController: TableViewController {
 // MARK: - UITableViewDataSource
 extension RidesTableViewController: UITableViewDataSource {
 
-  func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+  func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     if let rides = rides {
       return rides.count
     }
     return 0
   }
 
-  func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-    let cell = tableView.dequeueReusableCellWithIdentifier("rideCell", forIndexPath: indexPath)
+  func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    let cell = tableView.dequeueReusableCell(withIdentifier: "rideCell", for: indexPath)
 
     if let ride = rides?[indexPath.row] {
       if let rideCell = cell as? RideTableViewCell {

@@ -8,17 +8,17 @@
 
 class DateHelper {
 
-  static func nearestHalfHour() -> NSDate {
-    let calendar = NSCalendar.currentCalendar()
-    let date = NSDate()
-    let minuteComponent = calendar.components(NSCalendarUnit.Minute, fromDate: date)
-    let components = NSDateComponents()
-    components.minute = 30 - minuteComponent.minute % 30
+  static func nearestHalfHour() -> Date {
+    let calendar = Calendar.current
+    let date = Date()
+    let minuteComponent = calendar.dateComponents([.minute], from: date)
+    var components = DateComponents()
+    components.minute = 30 - minuteComponent.minute! % 30
 
-    if let date = calendar.dateByAddingComponents(components, toDate: date, options: .MatchFirst) {
+    if let date = calendar.date(byAdding: components, to: date) {
       return date
     }
-    return NSDate()
+    return Date()
   }
 
 }

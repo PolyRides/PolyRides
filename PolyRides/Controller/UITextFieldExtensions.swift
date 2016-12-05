@@ -11,7 +11,7 @@ extension UITextField {
   func isValidEmail() -> Bool {
     if let text = self.text {
       let emailRegex = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,6}"
-      return NSPredicate(format: "SELF MATCHES %@", emailRegex).evaluateWithObject(text)
+      return NSPredicate(format: "SELF MATCHES %@", emailRegex).evaluate(with: text)
     }
     return false
   }
@@ -26,7 +26,7 @@ extension UITextField {
   }
 
   func addTargetForEditing(view: UIViewController, selector: Selector) {
-    self.addTarget(view, action: selector, forControlEvents: UIControlEvents.EditingChanged)
+    self.addTarget(view, action: selector, for: UIControlEvents.editingChanged)
   }
 
 }

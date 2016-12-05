@@ -170,10 +170,10 @@ class MessagesViewController: UIViewController {
 //    return UICollectionViewCell()
 //  }
 
-  override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+  override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
     if segue.identifier == "toPopover" {
-      let popoverViewController = segue.destinationViewController
-      popoverViewController.modalPresentationStyle = .Popover
+      let popoverViewController = segue.destination
+      popoverViewController.modalPresentationStyle = .popover
       popoverViewController.preferredContentSize = CGSize(width: 275, height: 173)
       if let popoverPresentationController = popoverViewController.popoverPresentationController {
         popoverPresentationController.delegate = self
@@ -185,7 +185,7 @@ class MessagesViewController: UIViewController {
 
   func adaptivePresentationStyleForPresentationController(controller: UIPresentationController)
     -> UIModalPresentationStyle {
-    return UIModalPresentationStyle.None
+    return UIModalPresentationStyle.none
   }
 
 }
@@ -193,7 +193,7 @@ class MessagesViewController: UIViewController {
 // MARK: UIPopoverPresentationControllerDelegate
 extension MessagesViewController: UIPopoverPresentationControllerDelegate {
 
-  func popoverPresentationControllerDidDismissPopover(popoverPresentationController: UIPopoverPresentationController) {
+  func popoverPresentationControllerDidDismissPopover(_ popoverPresentationController: UIPopoverPresentationController) {
 
   }
 

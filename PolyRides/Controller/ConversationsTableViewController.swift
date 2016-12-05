@@ -1,11 +1,3 @@
-//
-//  ConversationsTableViewController.swift
-//  PolyRides
-//
-//  Created by Max Parelius on 3/24/16.
-//  Copyright © 2016 Vanessa Forney. All rights reserved.
-//
-
 import UIKit
 
 class ConversationsTableViewController: UITableViewController {
@@ -20,13 +12,13 @@ class ConversationsTableViewController: UITableViewController {
     super.didReceiveMemoryWarning()
   }
 
-  // MARK: - Table view data source
+  // MARK: - UITableViewDataSource
 
-  override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+  override func numberOfSections(in tableView: UITableView) -> Int {
     return 1
   }
 
-  override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+  override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     return 0
   }
 

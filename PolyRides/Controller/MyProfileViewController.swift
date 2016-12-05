@@ -23,14 +23,14 @@ class MyProfileViewController: ProfileViewController {
 
     setupAppearance()
 
-    if user?.verifications.indexOf(Verification.CalPoly) != nil {
-      verifiedImage?.hidden = false
+    if user?.verifications.index(of: Verification.CalPoly) != nil {
+      verifiedImage?.isHidden = false
     }
   }
 
-  override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+  override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
     if segue.identifier == "toEditProfile" {
-      if let navVC = segue.destinationViewController as? UINavigationController {
+      if let navVC = segue.destination as? UINavigationController {
         if let vc = navVC.topViewController as? EditProfileViewController {
           vc.user = user
           vc.delegate = self

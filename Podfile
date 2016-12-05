@@ -3,11 +3,14 @@ use_frameworks!
 inhibit_all_warnings!
 
 target 'PolyRides' do
-   pod 'BubbleTransition', '~> 1.0.0'
+   pod 'BubbleTransition'
    pod 'SendGrid', :git => 'https://github.com/scottkawai/sendgrid-swift.git', :submodules => true
    pod 'DZNEmptyDataSet'
    pod 'AFNetworking'
    pod 'GoogleMaps'
+   pod 'GooglePlaces'
+   pod 'GoogleUtilities'
+   pod 'Google/Analytics'
    pod 'FBSDKShareKit'
    pod 'FBSDKCoreKit'
    pod 'FBSDKLoginKit'
@@ -15,7 +18,9 @@ target 'PolyRides' do
    pod 'Fabric'
    pod 'Crashlytics'
    pod 'Firebase'
-   pod 'Google/Analytics'
+   pod 'Firebase/Core'
+   pod 'Firebase/Auth'
+   pod 'Firebase/Database'
    pod 'JSQMessagesViewController'
 end
 

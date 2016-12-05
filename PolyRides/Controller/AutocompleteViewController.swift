@@ -8,6 +8,7 @@
 
 import UIKit
 import GoogleMaps
+import GooglePlaces
 import AddressBookUI
 
 protocol AutocompleteDelegate {
@@ -24,6 +25,7 @@ enum AutocompleteSection: Int {
 
 }
 
+
 class AutocompleteViewController: TableViewController {
 
   let defaultInsets = UIEdgeInsetsMake(0, 52, 0, 0)
@@ -39,7 +41,7 @@ class AutocompleteViewController: TableViewController {
     super.viewDidLoad()
 
     fetcher = GMSAutocompleteFetcher(bounds: Bounds.California, filter: Filter.US())
-    fetcher?.delegate = self
+    //fetcher?.delegate = self
 
     tableView?.delegate = self
     tableView?.dataSource = self
@@ -54,10 +56,10 @@ class AutocompleteViewController: TableViewController {
     searchBar.text = initialText
     navigationItem.titleView = searchBar
 
-    let textFieldInsideSearchBar = searchBar.valueForKey("searchField") as? UITextField
+    let textFieldInsideSearchBar = searchBar.value(forKey: "searchField") as? UITextField
     textFieldInsideSearchBar?.textColor = Color.Black
 
-    GoogleMapsHelper.PlacesClient.currentPlaceWithCallback({ (placeLikelihoods, error) -> Void in
+    GoogleMapsHelper.PlacesClient.currentPlace(callback: { (placeLikelihoods, error) -> Void in
       if let placeLikelihood = placeLikelihoods?.likelihoods.first {
         self.user?.currentLocation = placeLikelihood.place
         self.tableView?.reloadData()
@@ -67,27 +69,29 @@ class AutocompleteViewController: TableViewController {
 
 }
 
+// MARK: - UITableViewDataSource
+
 extension AutocompleteViewController: UITableViewDataSource {
 
-  func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+  func numberOfSections(in tableView: UITableView) -> Int {
     return AutocompleteSection.AllSections.count
   }
 
-  func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+  func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
     if indexPath.section == AutocompleteSection.CurrentLocation.rawValue {
-      let cell = tableView.dequeueReusableCellWithIdentifier("LocationCell", forIndexPath: indexPath)
+      let cell = tableView.dequeueReusableCell(withIdentifier: "LocationCell", for: indexPath as IndexPath)
       cell.detailTextLabel?.text = user?.currentLocation?.formattedAddress
       return cell
     } else if indexPath.section == AutocompleteSection.AutocompleteResult.rawValue {
-      let cell = tableView.dequeueReusableCellWithIdentifier("AutocompleteCell", forIndexPath: indexPath)
+      let cell = tableView.dequeueReusableCell(withIdentifier: "AutocompleteCell", for: indexPath as IndexPath)
       let prediction = predictions[indexPath.row]
       let regularFont = Font.TableRow
       let boldFont = Font.TableRowBold
 
       if let bolded = prediction.attributedPrimaryText.mutableCopy() as? NSMutableAttributedString {
-        bolded.enumerateAttribute(kGMSAutocompleteMatchAttribute, inRange: NSMakeRange(0, bolded.length),
-                                  options: .LongestEffectiveRangeNotRequired) {
+        bolded.enumerateAttribute(kGMSAutocompleteMatchAttribute, in: NSMakeRange(0, bolded.length),
+                                  options: .longestEffectiveRangeNotRequired) {
                                     (value, range: NSRange, stop: UnsafeMutablePointer<ObjCBool>) -> Void in
           let font = (value == nil) ? regularFont : boldFont
           bolded.addAttribute(NSFontAttributeName, value: font, range: range)
@@ -98,11 +102,11 @@ extension AutocompleteViewController: UITableViewDataSource {
 
       return cell
     } else {
-      return tableView.dequeueReusableCellWithIdentifier("GoogleCell", forIndexPath: indexPath)
+      return tableView.dequeueReusableCell(withIdentifier: "GoogleCell", for: indexPath as IndexPath)
     }
   }
 
-  func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+  func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     if section == AutocompleteSection.AutocompleteResult.rawValue {
       return predictions.count
     } else if section == AutocompleteSection.CurrentLocation.rawValue {
@@ -115,14 +119,14 @@ extension AutocompleteViewController: UITableViewDataSource {
   func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell,
                  forRowAtIndexPath indexPath: NSIndexPath) {
     if indexPath.section == AutocompleteSection.PoweredByGoogle.rawValue {
-      cell.layoutMargins = UIEdgeInsetsZero
+      cell.layoutMargins = UIEdgeInsets.zero
       cell.separatorInset = UIEdgeInsetsMake(0, 0, 0, cell.bounds.size.width)
     } else if predictions.count == 0 {
-      cell.layoutMargins = UIEdgeInsetsZero
+      cell.layoutMargins = UIEdgeInsets.zero
       cell.separatorInset = UIEdgeInsetsMake(0, 0, 0, cell.bounds.size.width)
     } else if indexPath.section == AutocompleteSection.AutocompleteResult.rawValue &&
      indexPath.row == predictions.count - 1 {
-      cell.layoutMargins = UIEdgeInsetsZero
+      cell.layoutMargins = UIEdgeInsets.zero
       cell.separatorInset = UIEdgeInsetsMake(0, 0, 0, cell.bounds.size.width)
     } else {
       cell.separatorInset = defaultInsets
@@ -131,48 +135,54 @@ extension AutocompleteViewController: UITableViewDataSource {
 
 }
 
+// MARK: - UITableViewDelegate
+
 extension AutocompleteViewController: UITableViewDelegate {
 
-  func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+  func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     if indexPath.section == AutocompleteSection.AutocompleteResult.rawValue {
       let prediction = predictions[indexPath.row]
       if let placeID = prediction.placeID {
         GoogleMapsHelper.PlacesClient.lookUpPlaceID(placeID) { [weak self] place, error in
           if error == nil {
-            self?.delegate?.onPlaceSelected(place)
-            self?.dismissViewControllerAnimated(false, completion: nil)
+            self?.delegate?.onPlaceSelected(placePrediction: place)
+            self?.dismiss(animated: false, completion: nil)
           }
         }
       }
     } else {
-      delegate?.onPlaceSelected(user?.currentLocation)
-      dismissViewControllerAnimated(false, completion: nil)
+      delegate?.onPlaceSelected(placePrediction: user?.currentLocation)
+      dismiss(animated: false, completion: nil)
     }
   }
 
 }
 
+// MARK: - UISearchBarDelegate
+
 extension AutocompleteViewController: UISearchBarDelegate {
 
-  func searchBar(searchBar: UISearchBar, textDidChange searchText: String) {
+  func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
     fetcher?.sourceTextHasChanged(searchText)
   }
 
 }
 
-extension AutocompleteViewController: GMSAutocompleteFetcherDelegate {
+// MARK: - GMSAutocompleteFetcherDelegate
 
-  func didAutocompleteWithPredictions(predictions: [GMSAutocompletePrediction]) {
-    self.predictions = predictions
-    tableView?.reloadData()
-  }
-
-  func didFailAutocompleteWithError(error: NSError) {
-    print(error.localizedDescription)
-  }
-
-  func searchBarCancelButtonClicked(searchBar: UISearchBar) {
-    dismissViewControllerAnimated(false, completion: nil)
-  }
-  
-}
+//extension AutocompleteViewController: GMSAutocompleteFetcherDelegate {
+//
+//  func didAutocomplete(with predictions: [GMSAutocompletePrediction]) {
+//    self.predictions = predictions
+//    tableView?.reloadData()
+//  }
+//
+//  @objc func didFailAutocompleteWithError(_ error: NSError) {
+//    print(error)
+//  }
+//
+//  func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+//    dismiss(animated: false, completion: nil)
+//  }
+//
+//}

@@ -20,7 +20,7 @@ class RegionTableViewCell: UITableViewCell {
   var fromRides: [Ride]?
   var region: Region?
 
-  override func setHighlighted(highlighted: Bool, animated: Bool) {
+  override func setHighlighted(_ highlighted: Bool, animated: Bool) {
     if highlighted {
       backgroundImageView?.alpha = 0.5
       locationBackgroundView?.alpha = 0.5
@@ -29,8 +29,8 @@ class RegionTableViewCell: UITableViewCell {
     } else {
       backgroundImageView?.alpha = 1.0
       locationBackgroundView?.alpha = 0.65
-      location?.textColor = UIColor.whiteColor()
-      numRides?.textColor = UIColor.whiteColor()
+      location?.textColor = UIColor.white
+      numRides?.textColor = UIColor.white
     }
   }
 
@@ -54,18 +54,18 @@ class RegionTableViewController: TableViewController {
     }
     addSearchButton()
 
-    tableView?.separatorStyle = UITableViewCellSeparatorStyle.None
+    tableView?.separatorStyle = UITableViewCellSeparatorStyle.none
     tableView?.dataSource = self
   }
 
-  override func viewWillAppear(animated: Bool) {
+  override func viewWillAppear(_ animated: Bool) {
     navigationController?.setNavigationBarHidden(true, animated: true)
     super.viewWillAppear(animated)
   }
 
-  override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+  override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
     if segue.identifier == "toRegionRides" {
-      if let vc = segue.destinationViewController as? RegionRidesViewController {
+      if let vc = segue.destination as? RegionRidesViewController {
         if let cell = sender as? RegionTableViewCell {
           vc.user = user
           vc.toRides = cell.toRides
@@ -74,11 +74,11 @@ class RegionTableViewController: TableViewController {
         }
       }
     } else if segue.identifier == "toSearch" {
-      if let vc = segue.destinationViewController as? SearchViewController {
+      if let vc = segue.destination as? SearchViewController {
         vc.allRides = allRides
         vc.user = user
         vc.transitioningDelegate = self
-        vc.modalPresentationStyle = .Custom
+        vc.modalPresentationStyle = .custom
       }
     }
 
@@ -89,23 +89,23 @@ class RegionTableViewController: TableViewController {
 
   func addSearchButton() {
     let borderWidth: CGFloat = 4
-    searchButton = UIButton(type: .Custom)
+    searchButton = UIButton(type: .custom)
     if let searchButton = searchButton {
       searchButton.frame = CGRect(x: 0, y: 0, width: 56, height: 56)
-      searchButton.frame = CGRectInset(searchButton.frame, -borderWidth, -borderWidth)
+      searchButton.frame = searchButton.frame.insetBy(dx: -borderWidth, dy: -borderWidth)
       searchButton.center = CGPoint(x: view.frame.midX, y: view.frame.maxY - 32)
       searchButton.layer.cornerRadius = searchButton.frame.width / 2
-      searchButton.layer.borderColor = UIColor.whiteColor().CGColor
+      searchButton.layer.borderColor = UIColor.white.cgColor
       searchButton.layer.borderWidth = borderWidth
-      searchButton.setImage(UIImage(named:"search_circle"), forState: .Normal)
-      searchButton.contentMode = .ScaleAspectFit
-      searchButton.addTarget(self, action: #selector(onSearchButtonPressed), forControlEvents: .TouchUpInside)
+      searchButton.setImage(UIImage(named:"search_circle"), for: .normal)
+      searchButton.contentMode = .scaleAspectFit
+      searchButton.addTarget(self, action: #selector(onSearchButtonPressed), for: .touchUpInside)
       tabBarController?.view.addSubview(searchButton)
     }
   }
 
   func onSearchButtonPressed() {
-    performSegueWithIdentifier("toSearch", sender: self)
+    performSegue(withIdentifier: "toSearch", sender: self)
   }
 
 }
@@ -113,13 +113,13 @@ class RegionTableViewController: TableViewController {
 // MARK: UITableViewDataSource
 extension RegionTableViewController: UITableViewDataSource {
 
-  func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+  func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     return Region.allRegions.count
   }
 
-  func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+  func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     let region = Region.allRegions[indexPath.row]
-    let cell = tableView.dequeueReusableCellWithIdentifier("RegionCell", forIndexPath: indexPath)
+    let cell = tableView.dequeueReusableCell(withIdentifier: "RegionCell", for: indexPath as IndexPath)
 
     if let regionCell = cell as? RegionTableViewCell {
       regionCell.region = region
@@ -140,8 +140,8 @@ extension RegionTableViewController: UITableViewDataSource {
     return cell
   }
 
-  func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-    tableView.deselectRowAtIndexPath(indexPath, animated: true)
+  private func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    tableView.deselectRow(at: indexPath as IndexPath, animated: true)
   }
 
 }
@@ -154,17 +154,17 @@ extension RegionTableViewController: UIViewControllerTransitioningDelegate {
                                                  presentingController presenting: UIViewController,
                                                  sourceController source: UIViewController)
                                                  -> UIViewControllerAnimatedTransitioning? {
-    transition.transitionMode = .Present
+    transition.transitionMode = .present
     if let searchButton = searchButton {
       transition.startingPoint = searchButton.center
     }
-    transition.bubbleColor = UIColor.whiteColor()
+    transition.bubbleColor = UIColor.white
     return transition
   }
 
   func animationControllerForDismissedController(dismissed: UIViewController)
                                                  -> UIViewControllerAnimatedTransitioning? {
-    transition.transitionMode = .Dismiss
+    transition.transitionMode = .dismiss
       if let searchButton = searchButton {
         transition.startingPoint = searchButton.center
       }

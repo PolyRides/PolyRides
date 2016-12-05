@@ -16,11 +16,11 @@ struct AlertOptions {
   let acceptText: String
   let handler: ((UIAlertAction) -> Void)?
   let showCancel: Bool
-  let configurationHandler: ((textField: UITextField!) -> Void)?
+  let configurationHandler: ((_ textField: UITextField?) -> Void)?
 
   init(message: String = DefaultMessage, title: String = DefaultTitle, acceptText: String = "OK",
        handler: ((UIAlertAction) -> Void)? = nil, showCancel: Bool = false,
-       configurationHandler: ((textField: UITextField!) -> Void)? = nil) {
+       configurationHandler: ((_ textField: UITextField?) -> Void)? = nil) {
     self.message = message
     self.title = title
     self.acceptText = acceptText
@@ -32,17 +32,17 @@ struct AlertOptions {
 
 extension UIViewController {
 
-  override public func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+  override open func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
     view.endEditing(true)
-    super.touchesBegan(touches, withEvent: event)
+    super.touchesBegan(touches, with: event)
   }
 
   func setupAppearance() {
-    navigationController?.navigationBar.translucent = false
-    navigationController?.navigationBar.barStyle = .Black
+    navigationController?.navigationBar.isTranslucent = false
+    navigationController?.navigationBar.barStyle = .black
     navigationController?.navigationBar.barTintColor = Color.Navy
 
-    tabBarController?.tabBar.translucent = false
+    tabBarController?.tabBar.isTranslucent = false
     tabBarController?.tabBar.tintColor = Color.Navy
 
     let backItem = UIBarButtonItem()
@@ -56,21 +56,21 @@ extension UIViewController {
     let acceptText = alertOptions.acceptText
     let handler = alertOptions.handler
     let configurationHandler = alertOptions.configurationHandler
-    let style = UIAlertControllerStyle.Alert
+    let style = UIAlertControllerStyle.alert
 
     let alert = UIAlertController(title: title, message: message, preferredStyle: style)
-    alert.addAction(UIAlertAction(title: acceptText, style: .Default, handler: handler))
+    alert.addAction(UIAlertAction(title: acceptText, style: .default, handler: handler))
     if configurationHandler != nil {
-      alert.addTextFieldWithConfigurationHandler(configurationHandler)
+      alert.addTextField(configurationHandler: configurationHandler)
     }
     if alertOptions.showCancel {
-      alert.addAction(UIAlertAction(title: "Cancel", style: .Cancel, handler: nil))
+      alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
     }
-    self.presentViewController(alert, animated: true, completion: nil)
+    self.present(alert, animated: true, completion: nil)
   }
 
   func trackScreen(screenName: String) {
-    GoogleAnalyticsHelper.trackScreen(screenName)
+    GoogleAnalyticsHelper.trackScreen(name: screenName)
   }
 
 }
