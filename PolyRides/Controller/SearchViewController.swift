@@ -6,6 +6,7 @@
 //  Copyright © 2016 Vanessa Forney. All rights reserved.
 //
 
+import GooglePlaces
 import GoogleMaps
 
 class SearchViewController: TableViewController {
@@ -26,18 +27,19 @@ class SearchViewController: TableViewController {
   }
 
   @IBAction func onCloseButtonAction(sender: AnyObject) {
-    dismissViewControllerAnimated(true, completion: nil)
+    dismiss(animated: true, completion: nil)
   }
 
-  let calendar = NSCalendar.currentCalendar()
+  let calendar = NSCalendar.current
+
 
   var user: User?
   var allRides: [Ride]?
   var rides: [Ride]?
   var autocompleteTextField: UITextField?
-  var date: NSDate?
+  var date: Date?
   var datePicker: UIDatePicker?
-  var dateFormatter: NSDateFormatter?
+  var dateFormatter: DateFormatter?
   var fromPlace: GMSPlace?
   var toPlace: GMSPlace?
 
@@ -60,8 +62,8 @@ class SearchViewController: TableViewController {
     setupDatePicker()
   }
 
-  override func preferredStatusBarStyle() -> UIStatusBarStyle {
-    return .LightContent
+  override var preferredStatusBarStyle: UIStatusBarStyle {
+    return .lightContent
   }
 
   func setupTextFields() {
@@ -70,47 +72,47 @@ class SearchViewController: TableViewController {
     fromLabel.textColor = Color.Navy
     fromLabel.font = Font.TextFieldPlaceholder
     fromPlaceTextField?.leftView = fromLabel
-    fromPlaceTextField?.leftViewMode = .Always
+    fromPlaceTextField?.leftViewMode = .always
 
     let toLabel = UILabel(frame: fromPlaceTextField!.frame)
     toLabel.text = "To"
     toLabel.textColor = Color.Navy
     toLabel.font = Font.TextFieldPlaceholder
     toPlaceTextField?.leftView = toLabel
-    toPlaceTextField?.leftViewMode = .Always
+    toPlaceTextField?.leftViewMode = .always
 
     let dateLabel = UILabel(frame: fromPlaceTextField!.frame)
     dateLabel.text = "Date"
     dateLabel.textColor = Color.Gray
     dateLabel.font = Font.TextFieldPlaceholder
     dateTextField?.leftView = dateLabel
-    dateTextField?.leftViewMode = .Always
+    dateTextField?.leftViewMode = .always
   }
 
   func setupDatePicker() {
-    dateFormatter = NSDateFormatter()
-    dateFormatter?.dateStyle = .MediumStyle
-    dateFormatter?.timeStyle = .ShortStyle
+    dateFormatter = DateFormatter()
+    dateFormatter?.dateStyle = .medium
+    dateFormatter?.timeStyle = .short
 
     datePicker = UIDatePicker()
     datePicker?.minuteInterval = 15
 
     let toolBar = UIToolbar()
-    toolBar.barStyle = UIBarStyle.Default
-    toolBar.translucent = true
+    toolBar.barStyle = UIBarStyle.default
+    toolBar.isTranslucent = true
     toolBar.sizeToFit()
 
-    let doneButton = UIBarButtonItem(title: "Done", style: .Plain, target: self, action: #selector(onDone))
-    let spaceButton = UIBarButtonItem(barButtonSystemItem: .FlexibleSpace, target: nil, action: nil)
-    let cancelButton = UIBarButtonItem(title: "Cancel", style: .Plain, target: self, action: #selector(onCancel))
+    let doneButton = UIBarButtonItem(title: "Done", style: .plain, target: self, action: #selector(onDone))
+    let spaceButton = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
+    let cancelButton = UIBarButtonItem(title: "Cancel", style: .plain, target: self, action: #selector(onCancel))
 
     toolBar.setItems([cancelButton, spaceButton, doneButton], animated: false)
-    toolBar.userInteractionEnabled = true
+    toolBar.isUserInteractionEnabled = true
 
     dateTextField?.inputView = datePicker
     dateTextField?.inputAccessoryView = toolBar
     date = DateHelper.nearestHalfHour()
-    dateTextField?.text = dateFormatter?.stringFromDate(date!)
+    dateTextField?.text = dateFormatter?.string(from: date! as Date)
   }
 
   func onCancel() {
@@ -119,7 +121,7 @@ class SearchViewController: TableViewController {
 
   func onDone() {
     if let datePicker = datePicker {
-      dateTextField?.text = dateFormatter?.stringFromDate(datePicker.date)
+      dateTextField?.text = dateFormatter?.string(from: datePicker.date)
       date = datePicker.date
     }
     search()
@@ -129,17 +131,18 @@ class SearchViewController: TableViewController {
   func search() {
     if toPlace != nil && fromPlace != nil && date != nil {
       if let date = date {
-        let startDate = date.dateByAddingTimeInterval(-60 * 60 * 24)
-        let endDate = date.dateByAddingTimeInterval(60 * 60 * 24)
+        let startDate = date.addingTimeInterval(-60 * 60 * 24)
+        let endDate = date.addingTimeInterval(60 * 60 * 24)
 
         rides = allRides?.filter({ (ride) -> Bool in
-          return ride.date?.compare(startDate) == .OrderedDescending && ride.date?.compare(endDate) == .OrderedAscending
+          return ride.date?.compare(startDate as Date) == .orderedDescending &&
+            ride.date?.compare(endDate as Date) == .orderedAscending
         })
 
         //Location(
         let passengerRide = Ride(fromPlace: fromPlace!, toPlace: toPlace!)
-        rides?.sortInPlace { (ride1, ride2) -> Bool in
-          return getDistance(ride1, ride2: passengerRide) < getDistance(ride2, ride2: passengerRide)
+        rides?.sort { (ride1, ride2) -> Bool in
+          return getDistance(ride1: ride1, ride2: passengerRide) < getDistance(ride1: ride2, ride2: passengerRide)
         }
       }
 
@@ -150,7 +153,7 @@ class SearchViewController: TableViewController {
     }
   }
 
-  func getDistance(ride1: Ride, ride2: Ride) -> Double? {
+  func getDistance(ride1: Ride, ride2: Ride) -> Double {
     var distance = 0.0
     if let fromCoordinate1 = ride1.fromLocation?.place?.coordinate {
       if let toCoordinate1 = ride1.toLocation?.place?.coordinate {
@@ -163,12 +166,12 @@ class SearchViewController: TableViewController {
         }
       }
     }
-    return nil
+    return Double.infinity
   }
 
-  override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+  override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
     if segue.identifier == "toAutocomplete" {
-      if let navVC = segue.destinationViewController as? UINavigationController {
+      if let navVC = segue.destination as? UINavigationController {
         if let vc = navVC.topViewController as? AutocompleteViewController, let textField = sender as? UITextField {
           autocompleteTextField = textField
           vc.delegate = self
@@ -177,7 +180,7 @@ class SearchViewController: TableViewController {
         }
       }
     } else if segue.identifier == "toPassengerRideDetails" {
-      if let vc = segue.destinationViewController as? PassengerRideDetailsViewController {
+      if let vc = segue.destination as? PassengerRideDetailsViewController {
         if let cell = sender as? RideTableViewCell {
           vc.user = user
           vc.ride = cell.ride
@@ -191,7 +194,7 @@ class SearchViewController: TableViewController {
 // MARK: - AutocompleteDelegate
 extension SearchViewController: AutocompleteDelegate {
 
-  func onPlaceSelected(place: GMSPlace?) {
+  func onPlaceSelected(placePrediction place: GMSPlace?) {
     autocompleteTextField?.text = place?.formattedAddress
 
     if autocompleteTextField == toPlaceTextField {
@@ -208,24 +211,24 @@ extension SearchViewController: AutocompleteDelegate {
 // MARK: - UITextFieldDelegate
 extension SearchViewController: UITextFieldDelegate {
 
-  func textFieldDidBeginEditing(textField: UITextField) {
+  func textFieldDidBeginEditing(_ textField: UITextField) {
     if textField == dateTextField {
       textField.textColor = Color.Navy
-      datePicker?.date = DateHelper.nearestHalfHour()
+      datePicker?.date = DateHelper.nearestHalfHour() as Date
     }
   }
 
-  func textFieldDidEndEditing(textField: UITextField) {
+  func textFieldDidEndEditing(_ textField: UITextField) {
     if textField == dateTextField {
-      textField.textColor = UIColor.blackColor()
+      textField.textColor = UIColor.black
     }
   }
 
-  func textFieldShouldBeginEditing(textField: UITextField) -> Bool {
+  func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
     if textField == dateTextField {
       return true
     }
-    performSegueWithIdentifier("toAutocomplete", sender: textField)
+    performSegue(withIdentifier: "toAutocomplete", sender: textField)
     return false
   }
 
@@ -234,15 +237,15 @@ extension SearchViewController: UITextFieldDelegate {
 // MARK: - UITableViewDataSource
 extension SearchViewController: UITableViewDataSource {
 
-  func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+  func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     if let rides = rides {
       return rides.count
     }
     return 0
   }
 
-  func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-    let cell = tableView.dequeueReusableCellWithIdentifier("rideCell", forIndexPath: indexPath)
+  func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    let cell = tableView.dequeueReusableCell(withIdentifier: "rideCell", for: indexPath as IndexPath)
 
     if let ride = rides?[indexPath.row] {
       if let rideCell = cell as? RideTableViewCell {

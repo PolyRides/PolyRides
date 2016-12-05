@@ -9,9 +9,9 @@
 import Firebase
 
 class MessageService {
-  var messageDeligate: MessageDelegate?
-  let ref = FirebaseConnection.ref
-
-  func getMessagesForConversation(convo: Conversation) {
-  }
+//  var messageDeligate: MessageDelegate?
+//  let ref = FirebaseConnection.ref
+//
+//  func getMessagesForConversation(convo: Conversation) {
+//  }
 }

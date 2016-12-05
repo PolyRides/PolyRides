@@ -6,7 +6,7 @@
 //  Copyright © 2016 Vanessa Forney. All rights reserved.
 //
 
-import Firebase
+import FirebaseDatabase
 
 class Request {
 
@@ -15,7 +15,7 @@ class Request {
   var accepted: Bool?
   var passenger: User?
 
-  init(fromSnapshot snapshot: FDataSnapshot, ride: Ride, passenger: User) {
+  init(fromSnapshot snapshot: FIRDataSnapshot, ride: Ride, passenger: User) {
     self.ride = ride
     self.passenger = passenger
     if let dictionary = snapshot.value as? [String : AnyObject] {

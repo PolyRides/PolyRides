@@ -7,6 +7,7 @@
 //
 
 import GoogleMaps
+import GooglePlaces
 
 struct Color {
   static let LightGray = UIColor(red: 240.0/255, green: 240.0/255, blue: 240.0/255, alpha: 1.0)
@@ -23,7 +24,7 @@ struct Color {
 struct Attributes {
 
   static let NavigationBar = [NSFontAttributeName: Font.NavigationBarTitle,
-                              NSForegroundColorAttributeName: UIColor.whiteColor()]
+                              NSForegroundColorAttributeName: UIColor.white]
   static let SegmentedControl = [NSFontAttributeName: Font.SegmentedControl]
   static let TabBar = [NSFontAttributeName: Font.TabBar]
 

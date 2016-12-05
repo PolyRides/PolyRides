@@ -37,19 +37,19 @@ class Car {
       descriptionComponents.append("(\(year))")
     }
     if let color = color {
-      descriptionComponents.insert(color, atIndex: 0)
+      descriptionComponents.insert(color, at: 0)
     }
 
-    return descriptionComponents.isEmpty ? nil : descriptionComponents.joinWithSeparator(" ")
+    return descriptionComponents.isEmpty ? nil : descriptionComponents.joined(separator: " ")
   }
 
   func toAnyObject() -> [String : AnyObject] {
     var dictionary = [String : AnyObject]()
 
-    dictionary["make"] = make
-    dictionary["model"] = model
-    dictionary["year"] = year
-    dictionary["color"] = color
+    dictionary["make"] = make as AnyObject?
+    dictionary["model"] = model as AnyObject?
+    dictionary["year"] = year as AnyObject?
+    dictionary["color"] = color as AnyObject?
 
     return dictionary
 

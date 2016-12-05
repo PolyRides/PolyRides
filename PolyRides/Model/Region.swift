@@ -34,9 +34,9 @@ enum Region: Int {
   }
 
   func referenceName() -> String {
-    if self == CentralCoast {
+    if self == Region.CentralCoast {
       return "the \(name())"
-    } else if self == SFBay {
+    } else if self == Region.SFBay {
       return "the \(name()) Area"
     } else {
       return name()

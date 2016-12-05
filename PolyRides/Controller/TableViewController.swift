@@ -24,13 +24,13 @@ class TableViewController: UIViewController {
     // Remove the cell separators in the empty table view.
     tableView?.tableFooterView = UIView()
     tableView?.backgroundView = nil
-    tableView?.backgroundColor = UIColor.whiteColor()
+    tableView?.backgroundColor = UIColor.white
 
     setupAppearance()
   }
 
-  override func preferredStatusBarStyle() -> UIStatusBarStyle {
-    return .LightContent
+  override var preferredStatusBarStyle: UIStatusBarStyle {
+    return .lightContent
   }
 
 }
@@ -38,36 +38,36 @@ class TableViewController: UIViewController {
 // MARK: - DZNEmptyDataSetDataSource
 extension TableViewController: DZNEmptyDataSetSource {
 
-  func imageForEmptyDataSet(scrollView: UIScrollView!) -> UIImage! {
+  func image(forEmptyDataSet scrollView: UIScrollView!) -> UIImage! {
     if emptyImage == "" {
       return nil
     }
     return UIImage(named: emptyImage)
   }
 
-  func imageAnimationForEmptyDataSet(scrollView: UIScrollView!) -> CAAnimation! {
+  func imageAnimation(forEmptyDataSet scrollView: UIScrollView!) -> CAAnimation! {
     let animation = CABasicAnimation(keyPath: "transform")
 
-    animation.fromValue = NSValue(CATransform3D: CATransform3DMakeRotation(CGFloat(M_PI_2), 0.0, 0.0, 1.0))
+    animation.fromValue = NSValue(caTransform3D: CATransform3DMakeRotation(CGFloat(M_PI_2), 0.0, 0.0, 1.0))
     animation.duration = 0.25
-    animation.cumulative = true
+    animation.isCumulative = true
     animation.repeatCount = MAXFLOAT
 
     return animation
   }
 
 
-  func titleForEmptyDataSet(scrollView: UIScrollView!) -> NSAttributedString! {
+  func title(forEmptyDataSet scrollView: UIScrollView!) -> NSAttributedString! {
     let attributes = [
       NSFontAttributeName: Font.EmptyTableHeader,
       NSForegroundColorAttributeName : Color.Navy]
     return NSAttributedString(string: emptyTitle, attributes: attributes)
   }
 
-  func descriptionForEmptyDataSet(scrollView: UIScrollView!) -> NSAttributedString! {
+  func description(forEmptyDataSet scrollView: UIScrollView!) -> NSAttributedString! {
     let paragraph = NSMutableParagraphStyle()
-    paragraph.lineBreakMode = NSLineBreakMode.ByWordWrapping
-    paragraph.alignment = NSTextAlignment.Center
+    paragraph.lineBreakMode = NSLineBreakMode.byWordWrapping
+    paragraph.alignment = NSTextAlignment.center
     let attributes = [
       NSFontAttributeName: Font.TableRowSubline,
       NSForegroundColorAttributeName: Color.Gray,
@@ -76,7 +76,7 @@ extension TableViewController: DZNEmptyDataSetSource {
     return NSAttributedString(string: emptyMessage, attributes: attributes)
   }
 
-  func backgroundColorForEmptyDataSet(scrollView: UIScrollView!) -> UIColor! {
-    return UIColor.whiteColor()
+  func backgroundColor(forEmptyDataSet scrollView: UIScrollView!) -> UIColor! {
+    return UIColor.white
   }
 }

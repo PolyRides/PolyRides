@@ -39,11 +39,11 @@ class EditProfileViewController: UIViewController {
     let message = "Enter the code sent to your Cal Poly email address."
     let options = AlertOptions(message: message, title: title, acceptText: "Submit", handler: onCodeEntered,
                                showCancel: true, configurationHandler: addVerificationHandler)
-    presentAlert(options)
+    presentAlert(alertOptions: options)
   }
 
   @IBAction func cancelButtonAction(sender: AnyObject) {
-    dismissViewControllerAnimated(true, completion: nil)
+    dismiss(animated: true, completion: nil)
   }
 
   @IBAction func saveButtonAction(sender: AnyObject) {
@@ -52,10 +52,10 @@ class EditProfileViewController: UIViewController {
       user?.description = descriptionTextView?.text
     }
     if let user = user {
-      userService.updateProfile(user)
+      userService.updateProfile(user: user)
       delegate?.onProfileSaved()
     }
-    dismissViewControllerAnimated(true, completion: nil)
+    dismiss(animated: true, completion: nil)
   }
 
   @IBAction func verifyEmailAction(sender: AnyObject) {
@@ -63,7 +63,7 @@ class EditProfileViewController: UIViewController {
     let message = "Enter your Cal Poly email address ending in @calpoly.edu."
     let options = AlertOptions(message: message, title: title, acceptText: "Send", handler: onSendVerification,
                                showCancel: true, configurationHandler: addVerificationHandler)
-    presentAlert(options)
+    presentAlert(alertOptions: options)
   }
 
   override func viewDidLoad() {
@@ -80,31 +80,31 @@ class EditProfileViewController: UIViewController {
       yearLabel?.text = "\(year)"
     }
 
-    if user?.verifications.indexOf(Verification.CalPoly) != nil {
-      verifiedImage?.setImage(Verification.CalPoly.getVerifiedImage(), forState: .Normal)
-      verifiedImage?.userInteractionEnabled = false
-      verifiedImage?.hidden = false
-      verifyButton?.hidden = true
-    } else if user?.pendingVerifications.indexOf(Verification.CalPoly) != nil {
-      verifiedImage?.setImage(Verification.CalPoly.getUnverifiedImage(), forState: .Normal)
-      verifiedImage?.hidden = false
-      verifyButton?.hidden = true
+    if user?.verifications.index(of: Verification.CalPoly) != nil {
+      verifiedImage?.setImage(Verification.CalPoly.getVerifiedImage(), for: .normal)
+      verifiedImage?.isUserInteractionEnabled = false
+      verifiedImage?.isHidden = false
+      verifyButton?.isHidden = true
+    } else if user?.pendingVerifications.index(of: Verification.CalPoly) != nil {
+      verifiedImage?.setImage(Verification.CalPoly.getUnverifiedImage(), for: .normal)
+      verifiedImage?.isHidden = false
+      verifyButton?.isHidden = true
     }
   }
 
-  func addVerificationHandler(textField: UITextField!) {
+  func addVerificationHandler(textField: UITextField?) {
     self.verificationCodeField = textField
   }
 
   func onSendVerification(alert: UIAlertAction) {
     if let user = user {
       if let email = verificationCodeField?.text {
-        if let verification = Verification.getVerification(email) {
-          sendVerificationEmail(user, verification: verification, email: email)
+        if let verification = Verification.getVerification(email: email) {
+          sendVerificationEmail(user: user, verification: verification, email: email)
         } else {
           let title = "Invalid Email"
           let message = "Please enter a valid Cal Poly email."
-          self.presentAlert(AlertOptions(message: message, title: title))
+          self.presentAlert(alertOptions: AlertOptions(message: message, title: title))
         }
       }
     }
@@ -114,7 +114,7 @@ class EditProfileViewController: UIViewController {
     if let user = user {
       if let codeString = verificationCodeField?.text {
         if let code = Int(codeString) {
-          verificationService.verify(user, verification: Verification.CalPoly, enteredCode: code)
+          verificationService.verify(user: user, verification: Verification.CalPoly, enteredCode: code)
         }
       }
     }
@@ -122,48 +122,38 @@ class EditProfileViewController: UIViewController {
 
   func sendVerificationEmail(user: User, verification: Verification, email schoolEmail: String) {
     let code = Int(arc4random_uniform(10000))
+
+    let address = Address(email: schoolEmail, name: user.getFullName())
+    let personalization = Personalization(to: [address])
     let userName = user.firstName ?? "Poly Rides User"
-    let message = "<p>Hi \(userName),</p>" +
+    let content = Content(contentType: ContentType.htmlText, value: "<p>Hi \(userName),</p>" +
       "<p>We received your request to verify your Cal Poly email address on Poly Rides. " +
       "Please enter the code \(code) in the profile tab in the app to complete your verification.</p>" +
-    "<p>Thank you,<br /> Poly Rides Team<br /> polyrides@gmail.com</p>"
-    let sendGrid = SendGrid(username: "vanessaforney", password: "polyrides1")
-
-    let email = SendGrid.Email()
-    do {
-      try email.addTo(schoolEmail, name: user.getFullName())
-    } catch {
-      let title = "Error Sending Email"
-      let message = "Please try again."
-      dispatch_async(dispatch_get_main_queue(), {
-        self.presentAlert(AlertOptions(message: message, title: title))
-      })
-      return
-    }
-    email.setFrom("polyrides@gmail.com", name: "Poly Rides App")
-    email.setSubject("Verification Code for Poly Rides App")
-    email.setHtmlBody(message)
+      "<p>Thank you,<br /> Poly Rides Team<br /> polyrides@gmail.com</p>")
+    let email = Email(
+      personalizations: [personalization],
+      from: Address(email: "polyrides@gmail.com", name: "Poly Rides App"),
+      content: [content],
+      subject: "Verification Code for Poly Rides App"
+    )
 
     do {
-      try sendGrid.send(email, completionHandler: { (response, data, error) -> Void in
-        if error == nil {
-          self.verificationService.addPendingVerification(user, verification: verification, code: code)
+      try Session.shared.send(request: email)
+      self.verificationService.addPendingVerification(user: user, verification: verification, code: code)
 
-          let message = "Please check your email for a verification code."
-          let title = "Email Sent"
-          dispatch_async(dispatch_get_main_queue(), {
-            self.presentAlert(AlertOptions(message: message, title: title))
-            self.verifyButton?.hidden = true
-            self.verifiedImage?.setImage(Verification.CalPoly.getUnverifiedImage(), forState: .Normal)
-            self.verifiedImage?.hidden = false
-          })
-        }
+      let message = "Please check your email for a verification code."
+      let title = "Email Sent"
+      DispatchQueue.main.async(execute: { [weak self] in
+        self?.presentAlert(alertOptions: AlertOptions(message: message, title: title))
+        self?.verifyButton?.isHidden = true
+        self?.verifiedImage?.setImage(Verification.CalPoly.getUnverifiedImage(), for: .normal)
+        self?.verifiedImage?.isHidden = false
       })
     } catch {
       let title = "Error Sending Email"
       let message = "Please try again."
-      dispatch_async(dispatch_get_main_queue(), {
-        self.presentAlert(AlertOptions(message: message, title: title))
+      DispatchQueue.main.async(execute: { [weak self] in
+        self?.presentAlert(alertOptions: AlertOptions(message: message, title: title))
       })
     }
   }
@@ -175,20 +165,20 @@ extension EditProfileViewController: FirebaseVerificationDelegate {
 
   func onVerificationSuccessful(verification: Verification) {
     let title = "Verification Successful"
-    dispatch_async(dispatch_get_main_queue(), {
-      self.presentAlert(AlertOptions(message: "", title: title))
+    DispatchQueue.main.async(execute: {
+      self.presentAlert(alertOptions: AlertOptions(message: "", title: title))
     })
 
-    verifyButton?.hidden = true
-    self.verifiedImage?.setImage(Verification.CalPoly.getVerifiedImage(), forState: .Normal)
-    verifiedImage?.userInteractionEnabled = false
+    verifyButton?.isHidden = true
+    self.verifiedImage?.setImage(Verification.CalPoly.getVerifiedImage(), for: .normal)
+    verifiedImage?.isUserInteractionEnabled = false
   }
 
   func onVerificationUnsuccessful() {
     let message = "The code you have entered does not match our records."
     let title = "Verification Error"
-    dispatch_async(dispatch_get_main_queue(), {
-      self.presentAlert(AlertOptions(message: message, title: title))
+    DispatchQueue.main.async(execute: {
+      self.presentAlert(alertOptions: AlertOptions(message: message, title: title))
     })
   }
 

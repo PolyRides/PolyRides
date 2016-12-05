@@ -8,13 +8,14 @@
 
 class GoogleAnalyticsHelper {
 
-    class func trackScreen(name: String) {
-        let tracker = GAI.sharedInstance().defaultTracker
-        tracker.set(kGAIScreenName, value: name)
+  class func trackScreen(name: String) {
+    let tracker = GAI.sharedInstance().defaultTracker
+    tracker?.set(kGAIScreenName, value: name)
 
-        let builder = GAIDictionaryBuilder.createScreenView()
-        tracker.send(builder.build() as [NSObject : AnyObject])
-
+    let builder: NSObject = GAIDictionaryBuilder.createScreenView().build()
+    if let builder = builder as? [NSObject : AnyObject] {
+      tracker?.send(builder)
     }
+  }
 
 }

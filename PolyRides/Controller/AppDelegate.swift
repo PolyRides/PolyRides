@@ -13,54 +13,59 @@ import Siren
 import FBSDKCoreKit
 import FBSDKLoginKit
 import GoogleMaps
+import SendGrid
+import FirebaseAuth
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
   var window: UIWindow?
 
-  func application(application: UIApplication, didFinishLaunchingWithOptions
+  private func application(application: UIApplication, didFinishLaunchingWithOptions
     launchOptions: [NSObject: AnyObject]?) -> Bool {
 
     // Tab bar appearance.
-    UITabBarItem.appearance().setTitleTextAttributes(Attributes.TabBar, forState: .Normal)
+    UITabBarItem.appearance().setTitleTextAttributes(Attributes.TabBar, for: .normal)
 
     // Navigation bar appearance.
     UINavigationBar.appearance().titleTextAttributes = Attributes.NavigationBar
-    UINavigationBar.appearance().tintColor = UIColor.whiteColor()
-    UINavigationBar.appearance().setBackgroundImage(UIImage(), forBarPosition: .Any, barMetrics: .Default)
+    UINavigationBar.appearance().tintColor = UIColor.white
+    UINavigationBar.appearance().setBackgroundImage(UIImage(), for: .any, barMetrics: .default)
     UINavigationBar.appearance().shadowImage = UIImage()
-    UIBarButtonItem.appearanceWhenContainedInInstancesOfClasses([UISearchBar.self]).tintColor = UIColor.whiteColor()
+    UIBarButtonItem.appearance(whenContainedInInstancesOf: [UISearchBar.self]).tintColor = UIColor.white
 
  //   UIScrollView.appearance().backgroundColor = Color.White
 
+    // SendGrid.
+    let session = Session()
+    session.authentication = Authentication.apiKey("pQRGWenNRPKfEwwKQ2MjkQ")
+
     // Google Analytics.
-    var configureError: NSError?
-    GGLContext.sharedInstance().configureWithError(&configureError)
-    assert(configureError == nil, "Error configuring Google services: \(configureError)")
+//    var configureError: NSError?
+//    GAI.sharedInstance().configureWithError(&configureError)
+//    assert(configureError == nil, "Error configuring Google services: \(configureError)")
 
     let gai = GAI.sharedInstance()
-    gai.trackUncaughtExceptions = true  // Report uncaught exceptions.
-    gai.trackerWithTrackingId("UA-69182247-4")
+    gai?.trackUncaughtExceptions = true  // Report uncaught exceptions.
+    _ = gai?.tracker(withTrackingId: "UA-69182247-4")
 
     // Siren
     let siren = Siren.sharedInstance
-    siren.appID = "991595932"
-    siren.alertType = SirenAlertType.Force
-    siren.checkVersion(.Immediately)
+    siren.alertType = SirenAlertType.force
+    siren.checkVersion(checkType: .immediately)
 
     // Register with Google Maps.
     GMSServices.provideAPIKey("AIzaSyBmxCispciOMZhn4FNbRPv_-Rcj8r_AtAk")
 
-    if FirebaseConnection.ref.authData != nil {
+    if let currentUser = FIRAuth.auth()?.currentUser {
       let storyboard = UIStoryboard(name: "LoadingLaunchScreen", bundle: nil)
       if let controller = storyboard.instantiateInitialViewController() as? LaunchScreenViewController {
         let user = User()
-        if FirebaseConnection.ref.authData.provider == "facebook" {
-          user.facebookId = FirebaseConnection.ref.authData.uid
-        } else {
-          user.id = FirebaseConnection.ref.authData.uid
+
+        if let profile = currentUser.providerData.first {
+          user.facebookId = profile.providerID
         }
+
         controller.user = user
         self.window?.rootViewController = controller
       }
@@ -73,7 +78,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
       .application(application, didFinishLaunchingWithOptions: launchOptions)
   }
 
-  func applicationWillResignActive(application: UIApplication) {
+  func applicationWillResignActive(_ application: UIApplication) {
     // Sent when the application is about to move from active to inactive state. This can occur for
     // certain types of temporary interruptions (such as an incoming phone call or SMS message) or
     // when the user quits the application and it begins the transition to the background state.
@@ -81,7 +86,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     // rates. Games should use this method to pause the game.
   }
 
-  func applicationDidEnterBackground(application: UIApplication) {
+  func applicationDidEnterBackground(_ application: UIApplication) {
     // Use this method to release shared resources, save user data, invalidate timers, and store
     // enough application state information to restore your application to its current state in case
     // it is terminated later.
@@ -89,27 +94,27 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     // applicationWillTerminate: when the user quits.
   }
 
-  func applicationWillEnterForeground(application: UIApplication) {
+  func applicationWillEnterForeground(_ application: UIApplication) {
     // Called as part of the transition from the background to the inactive state; here you can undo
     // many of the changes made on entering the background.
   }
 
-  func applicationDidBecomeActive(application: UIApplication) {
+  func applicationDidBecomeActive(_ application: UIApplication) {
     // Restart any tasks that were paused (or not yet started) while the application was inactive.
     // If the application was previously in the background, optionally refresh the user interface.
 
     FBSDKAppEvents.activateApp()
   }
 
-  func applicationWillTerminate(application: UIApplication) {
+  func applicationWillTerminate(_ application: UIApplication) {
     // Called when the application is about to terminate. Save data if appropriate. See also
     // applicationDidEnterBackground:.
   }
 
-  func application(application: UIApplication, openURL url: NSURL, sourceApplication: String?,
-    annotation: AnyObject) -> Bool {
+  func application(_ application: UIApplication, open url: URL, sourceApplication: String?,
+                   annotation: Any) -> Bool {
       return FBSDKApplicationDelegate.sharedInstance()
-        .application(application, openURL: url,
+        .application(application, open: url as URL!,
           sourceApplication: sourceApplication, annotation: annotation)
   }
 

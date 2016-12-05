@@ -7,18 +7,12 @@
 //
 
 import FBSDKLoginKit
+import FirebaseAuth
 
 protocol FirebaseLoginDelegate: class {
 
-  func onLoginError(error: NSError)
+  func onLoginError(errorCode: FIRAuthErrorCode)
   func onLoginSuccess(user: User)
-  func onHasTemporaryPassword(user: User)
-
-}
-
-protocol FirebaseResetPasswordDelegate: class {
-
-  func onPasswordResetSuccess(email: String)
 
 }
 
@@ -27,93 +21,41 @@ class AuthService {
   let ref = FirebaseConnection.ref
 
   var loginDelegate: FirebaseLoginDelegate?
-  var resetPasswordDelegate: FirebaseResetPasswordDelegate?
-
-  func resetPasswordForEmail(email: String) {
-    ref.resetPasswordForUser(email) { error in
-      if error == nil {
-        self.resetPasswordDelegate?.onPasswordResetSuccess(email)
-      } else {
-        self.loginDelegate?.onLoginError(error)
-      }
-    }
-  }
-
-  func changePasswordForUser(user: User, temporaryPassword: String, newPassword: String) {
-    ref.changePasswordForUser(user.email, fromOld: temporaryPassword, toNew: newPassword) { error in
-      if error == nil {
-        self.loginDelegate?.onLoginSuccess(user)
-      } else {
-        self.loginDelegate?.onLoginError(error)
-      }
-    }
-  }
-
-  func createUser(user: User, password: String) {
-    ref.createUser(user.email, password: password) { error, result in
-      if error == nil {
-        if let uid = result["uid"] as? String {
-          user.id = uid
-          user.timestamp = NSDate()
-          self.updateUserOnFirebase(user)
-          self.loginDelegate?.onLoginSuccess(user)
-        }
-      } else {
-        self.loginDelegate?.onLoginError(error)
-      }
-    }
-  }
 
   func authWithFacebook() {
-    let token = FBSDKAccessToken.currentAccessToken().tokenString
-    ref.authWithOAuthProvider("facebook", token: token) { error, authData in
-      if error == nil {
-        let query = self.ref.childByAppendingPath("userMappings").childByAppendingPath(authData.uid)
-        query.observeSingleEventOfType(.Value, withBlock: { snapshot in
-          let user = User(fromAuthData: authData)
+    let credential = FIRFacebookAuthProvider.credential(withAccessToken: FBSDKAccessToken.current().tokenString)
+
+    FIRAuth.auth()?.signIn(with: credential) { (user, error) in
+      if let error = error {
+        if let errorCode = FIRAuthErrorCode(rawValue: (error._code)) {
+          self.loginDelegate?.onLoginError(errorCode: errorCode)
+        }
+      } else {
+        let query = self.ref.child("userMappings").child(user!.uid)
+        query.observeSingleEvent(of: .value, with: { snapshot in
+          let user = User(fromUser: user!)
           if snapshot.exists() {
             if let value = snapshot.value as? String {
               user.id = value
-              self.updateUserOnFirebase(user)
+              self.updateUserOnFirebase(user: user)
             }
           } else {
             // New user
-            let userRef = self.ref.childByAppendingPath("users").childByAutoId()
+            let userRef = self.ref.child("users").childByAutoId()
             user.timestamp = NSDate()
             user.id = userRef.key
-            self.updateUserOnFirebase(user)
+            self.updateUserOnFirebase(user: user)
             query.setValue(userRef.key)
           }
-          self.loginDelegate?.onLoginSuccess(user)
+          self.loginDelegate?.onLoginSuccess(user: user)
         })
-      } else {
-        self.loginDelegate?.onLoginError(error)
-      }
-    }
-  }
-
-  func authUser(email: String, password: String) {
-    ref.authUser(email, password: password) { error, authData in
-      if error == nil {
-        let user = User(fromAuthData: authData)
-        if let temporaryPassword = authData.providerData["isTemporaryPassword"] as? Bool {
-          if temporaryPassword {
-            self.loginDelegate?.onHasTemporaryPassword(user)
-          } else {
-            self.loginDelegate?.onLoginSuccess(user)
-          }
-        } else {
-          self.loginDelegate?.onLoginSuccess(user)
-        }
-      } else {
-        self.loginDelegate?.onLoginError(error)
       }
     }
   }
 
   func updateUserOnFirebase(user: User) {
     if let id = user.id {
-      ref.childByAppendingPath("users/\(id)").updateChildValues(user.toAnyObject())
+      ref.child("users/\(id)").updateChildValues(user.toAnyObject())
     }
   }
 

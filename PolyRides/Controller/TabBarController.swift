@@ -21,26 +21,26 @@ class TabBarController: UITabBarController {
     border.layer.cornerRadius = border.frame.width / 2
     border.backgroundColor = UIColor(red: 178.0/255, green: 178.0/255, blue: 178.0/255, alpha: 1.0)
     view.addSubview(border)
-    view.bringSubviewToFront(tabBar)
+    view.bringSubview(toFront: tabBar)
 
     viewControllers?.forEach {
       if let vc = $0 as? UINavigationController {
-        vc.topViewController?.view
+        _ = vc.topViewController?.view
       }
     }
 
     locationManager.requestWhenInUseAuthorization()
-    GoogleMapsHelper.PlacesClient.currentPlaceWithCallback({ placeLikelihoods, error -> Void in
+    GoogleMapsHelper.PlacesClient.currentPlace(callback: { placeLikelihoods, error -> Void in
       if let placeLikelihood = placeLikelihoods?.likelihoods.first {
         self.user?.currentLocation = placeLikelihood.place
       }
     })
   }
 
-  override func viewDidAppear(animated: Bool) {
+  override func viewDidAppear(_ animated: Bool) {
     super.viewDidAppear(animated)
 
-    navigationController?.navigationBarHidden = false
+    navigationController?.isNavigationBarHidden = false
   }
 
 

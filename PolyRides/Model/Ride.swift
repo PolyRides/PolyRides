@@ -6,8 +6,8 @@
 //  Copyright © 2016 Vanessa Forney. All rights reserved.
 //
 
-import Firebase
-import GoogleMaps
+import FirebaseDatabase
+import GooglePlaces
 
 func == (lhs: Ride, rhs: Ride) -> Bool {
   return lhs.id == rhs.id
@@ -39,7 +39,7 @@ class Ride: Equatable {
     self.toLocation = Location(place: toPlace, city: "")
   }
 
-  init(fromSnapshot snapshot: FDataSnapshot) {
+  init(fromSnapshot snapshot: FIRDataSnapshot) {
     if let dictionary = snapshot.value as? [String : AnyObject] {
       self.id = snapshot.key
       if let driverId = dictionary["driverId"] as? String {
@@ -62,8 +62,8 @@ class Ride: Equatable {
         self.costPerSeat = costPerSeat
       }
 
-      fromLocation = getLocationFromDictionary(dictionary, place: "fromPlaceId", city: "fromPlaceCity")
-      toLocation = getLocationFromDictionary(dictionary, place: "toPlaceId", city: "toPlaceCity")
+      fromLocation = getLocationFromDictionary(dictionary: dictionary, place: "fromPlaceId", city: "fromPlaceCity")
+      toLocation = getLocationFromDictionary(dictionary: dictionary, place: "toPlaceId", city: "toPlaceCity")
     }
   }
 
@@ -78,11 +78,11 @@ class Ride: Equatable {
 
   func getFormattedDate() -> String {
     if let date = date {
-      let timeFormatter = NSDateFormatter()
+      let timeFormatter = DateFormatter()
       timeFormatter.dateFormat = "EEEE, MMM dd"
-      let day = timeFormatter.stringFromDate(date)
+      let day = timeFormatter.string(from: date as Date)
       timeFormatter.dateFormat = "h:mm a"
-      let time = timeFormatter.stringFromDate(date)
+      let time = timeFormatter.string(from: date as Date)
 
       return "\(day) at \(time)"
     }
@@ -98,8 +98,8 @@ class Ride: Equatable {
     return ""
   }
 
-  func toAnyObject() -> [String: AnyObject] {
-    var dictionary = [String : AnyObject]()
+  func toAnyObject() -> [String: Any] {
+    var dictionary = [String : Any]()
 
     if let timestamp = timestamp {
       dictionary["timestamp"] = timestamp.timeIntervalSince1970

@@ -17,11 +17,11 @@ class ConversationService {
   let ref = FirebaseConnection.ref
 
   func pushConversationToFirebase(convo: Conversation) {
-    let convoRef = ref.childByAppendingPath("conversations").childByAutoId()
+    let convoRef = ref.child("conversations").childByAutoId()
     if let driverId = convo.driver?.id {
       if let passengerId = convo.passenger?.id {
-        let driverConvoRef = ref.childByAppendingPath("users/\(driverId)/conversations/\(convoRef.key)")
-        let passengerConvoRef = ref.childByAppendingPath("users/\(passengerId)/conversations/\(convoRef.key)")
+        let driverConvoRef = ref.child("users/\(driverId)/conversations/\(convoRef.key)")
+        let passengerConvoRef = ref.child("users/\(passengerId)/conversations/\(convoRef.key)")
         driverConvoRef.setValue(true)
         passengerConvoRef.setValue(true)
         convoRef.setValue(convo.toAnyObject())

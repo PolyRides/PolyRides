@@ -6,14 +6,14 @@
 //  Copyright © 2016 Vanessa Forney. All rights reserved.
 //
 
-import Firebase
+import FirebaseDatabase
 
 class Conversation {
 
   var id: String?
-  var timestamp: NSDate?
-  var lastUpdated: NSDate?
-  var lastMessage: Message?
+  var timestamp: Date?
+  var lastMessageDate: Date?
+  var lastMessageText: String?
   var ride: Ride?
   var driver: User?
   var driverIsTyping: Bool?
@@ -21,9 +21,9 @@ class Conversation {
   var passengerIsTyping: Bool?
 
   init(ride: Ride, driver: User, passenger: User) {
-    self.timestamp = NSDate()
-    self.lastUpdated = NSDate()
-    self.lastMessage = nil
+    self.timestamp = Date()
+    self.lastMessageDate = Date()
+    self.lastMessageText = ""
     self.ride = ride
     self.driver = driver
     self.driverIsTyping = false
@@ -31,14 +31,14 @@ class Conversation {
     self.passengerIsTyping = false
   }
 
-  init(fromSnapshot snapshot: FDataSnapshot) {
+  init(fromSnapshot snapshot: FIRDataSnapshot) {
     if let dictionary = snapshot.value as? [String : AnyObject] {
       self.id = snapshot.key
       if let timestamp = dictionary["timestamp"] as? Double {
-        self.timestamp = NSDate(timeIntervalSince1970: timestamp)
+        self.timestamp = Date(timeIntervalSince1970: timestamp)
       }
-      if let lastUpdated = dictionary["lastUpdated"] as? Double {
-        self.lastUpdated = NSDate(timeIntervalSince1970: lastUpdated)
+      if let lastMessageDate = dictionary["lastMessageDate"] as? Double {
+        self.lastMessageDate = Date(timeIntervalSince1970: lastMessageDate)
       }
       if let driverId = dictionary["driverId"] as? String {
         let driver = User(id: driverId)
@@ -57,14 +57,16 @@ class Conversation {
     }
   }
 
-  func toAnyObject() -> [String: AnyObject] {
-    var dictionary = [String : AnyObject]()
+  func toAnyObject() -> [String: Any] {
+    var dictionary = [String : Any]()
 
     if let timestamp = timestamp {
       dictionary["timestamp"] = timestamp.timeIntervalSince1970
     }
-    dictionary["lastUpdated"] = lastUpdated?.timeIntervalSince1970
-    dictionary["lastMessage"] = lastMessage?.id
+    if let lastMessageText = lastMessageText {
+      dictionary["lastMessageText"] = lastMessageText
+    }
+    dictionary["lastMessageDate"] = lastMessageDate?.timeIntervalSince1970
     dictionary["rideId"] = ride?.id
     dictionary["driverId"] = driver?.id
     dictionary["driverIsTyping"] = driverIsTyping

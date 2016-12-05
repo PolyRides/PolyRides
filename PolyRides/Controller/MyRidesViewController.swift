@@ -33,18 +33,18 @@ class MyRidesViewController: RidesTableViewController {
   }
 
   @IBAction func addRide(segue: UIStoryboardSegue) {
-    if let addRideVC = segue.sourceViewController as? AddRideViewController {
+    if let addRideVC = segue.source as? AddRideViewController {
       if let ride = addRideVC.ride {
-        if ride.date?.compare(NSDate()) == .OrderedDescending {
+        if ride.date?.compare(NSDate() as Date) == .orderedDescending {
           currentRides.append(ride)
-          sortRides(&currentRides)
+          sortRides(rides: &currentRides)
         } else {
           pastRides.append(ride)
-          sortRides(&pastRides)
+          sortRides(rides: &pastRides)
         }
 
         if let segmentedControl = segmentedControl {
-          segmentedAction(segmentedControl)
+          segmentedAction(sender: segmentedControl)
         }
       }
     }
@@ -74,8 +74,8 @@ class MyRidesViewController: RidesTableViewController {
     tableView?.delegate = self
     rideService.delegate = self
     if let user = user {
-      rideService.getRidesForUser(user)
-      rideService.getSavedRidesForUser(user)
+      rideService.getRidesForUser(user: user)
+      rideService.getSavedRidesForUser(user: user)
     }
 
     emptyImage = "empty"
@@ -86,27 +86,27 @@ class MyRidesViewController: RidesTableViewController {
     setupAppearance()
   }
 
-  override func viewWillAppear(animated: Bool) {
+  override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
 
     if let segmentedControl = segmentedControl {
-      segmentedAction(segmentedControl)
+      segmentedAction(sender: segmentedControl)
     }
     navigationController?.setNavigationBarHidden(true, animated: true)
   }
 
-  override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+  override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
     if segue.identifier == "toAddRide" {
-      if let navVC = segue.destinationViewController as? UINavigationController {
+      if let navVC = segue.destination as? UINavigationController {
         if let vc = navVC.topViewController as? AddRideViewController {
           vc.user = user
 
         }
         navVC.transitioningDelegate = self
-        navVC.modalPresentationStyle = .Custom
+        navVC.modalPresentationStyle = .custom
       }
     } else if segue.identifier == "toPassengerRideDetails" || segue.identifier == "toMyRideDetails" {
-      if let vc = segue.destinationViewController as? RideDetailsViewController {
+      if let vc = segue.destination as? RideDetailsViewController {
         if let cell = sender as? RideTableViewCell {
           vc.ride = cell.ride
           vc.user = user
@@ -119,11 +119,11 @@ class MyRidesViewController: RidesTableViewController {
     }
   }
 
-  func sortRides(inout rides: [Ride]) {
-    rides.sortInPlace({ (ride1, ride2) -> Bool in
+  func sortRides(rides: inout [Ride]) {
+    rides.sort(by: { (ride1, ride2) -> Bool in
       if let date1 = ride1.date {
         if let date2 = ride2.date {
-          return date1.compare(date2) == .OrderedAscending
+          return date1.compare(date2 as Date) == .orderedAscending
         }
       }
       return true
@@ -136,7 +136,7 @@ class MyRidesViewController: RidesTableViewController {
 extension MyRidesViewController: FirebaseRidesDelegate {
 
   func onRideReceived(ride: Ride) {
-    if ride.date?.compare(NSDate()) == .OrderedDescending {
+    if ride.date?.compare(NSDate() as Date) == .orderedDescending {
       currentRides.append(ride)
     } else {
       pastRides.append(ride)
@@ -153,14 +153,14 @@ extension MyRidesViewController: FirebaseRidesDelegate {
 // MARK: - UITableViewDelegate
 extension MyRidesViewController: UITableViewDelegate {
 
-  func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-    let cell = tableView.cellForRowAtIndexPath(indexPath)
-    tableView.deselectRowAtIndexPath(indexPath, animated: true)
+  func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    let cell = tableView.cellForRow(at: indexPath)
+    tableView.deselectRow(at: indexPath, animated: true)
 
     if segmentedControl?.selectedSegmentIndex == 2 {
-      performSegueWithIdentifier("toPassengerRideDetails", sender: cell)
+      performSegue(withIdentifier: "toPassengerRideDetails", sender: cell)
     } else {
-      performSegueWithIdentifier("toMyRideDetails", sender: cell)
+      performSegue(withIdentifier: "toMyRideDetails", sender: cell)
     }
   }
 
@@ -173,7 +173,7 @@ extension MyRidesViewController: UIViewControllerTransitioningDelegate {
                                                  presentingController presenting: UIViewController,
                                                                       sourceController source: UIViewController)
     -> UIViewControllerAnimatedTransitioning? {
-      transition.transitionMode = .Present
+      transition.transitionMode = .present
       if let addButton = addButton {
         transition.startingPoint = addButton.center
       }
@@ -183,7 +183,7 @@ extension MyRidesViewController: UIViewControllerTransitioningDelegate {
 
   func animationControllerForDismissedController(dismissed: UIViewController)
     -> UIViewControllerAnimatedTransitioning? {
-      transition.transitionMode = .Dismiss
+      transition.transitionMode = .dismiss
       if let addButton = addButton {
         transition.startingPoint = addButton.center
       }

@@ -63,13 +63,11 @@
 		DB701AE51CA2607D00B40C9C /* LoadingLaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB701AE41CA2607D00B40C9C /* LoadingLaunchScreen.storyboard */; };
 		DB701AEB1CA2EBDC00B40C9C /* MyRideDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB701AEA1CA2EBDC00B40C9C /* MyRideDetailsViewController.swift */; };
 		DB70B8CE1C9389EA0065CC4D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB70B8CD1C9389EA0065CC4D /* AppDelegate.swift */; };
-		DB70B8D01C9389EA0065CC4D /* MainLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB70B8CF1C9389EA0065CC4D /* MainLoginViewController.swift */; };
 		DB70B8D51C9389EA0065CC4D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DB70B8D41C9389EA0065CC4D /* Assets.xcassets */; };
 		DB70B8E31C9389EA0065CC4D /* PolyRidesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB70B8E21C9389EA0065CC4D /* PolyRidesTests.swift */; };
 		DB70B8EE1C9389EA0065CC4D /* PolyRidesUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB70B8ED1C9389EA0065CC4D /* PolyRidesUITests.swift */; };
 		DB70B9021C938B230065CC4D /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB70B9011C938B230065CC4D /* User.swift */; };
 		DB70B9051C938CDC0065CC4D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB70B9031C938CDC0065CC4D /* LaunchScreen.storyboard */; };
-		DB70B9061C938CDC0065CC4D /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB70B9041C938CDC0065CC4D /* Login.storyboard */; };
 		DB70B9081C938F540065CC4D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = DB70B9071C938F540065CC4D /* GoogleService-Info.plist */; };
 		DB747AB31C98D28A00A24F58 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB747AB21C98D28A00A24F58 /* Home.storyboard */; };
 		DB747AB61C98D76900A24F58 /* Rides.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB747AB51C98D76900A24F58 /* Rides.storyboard */; };
@@ -89,19 +87,16 @@
 		DB8DAE851CB4C3A10045195D /* AutocompleteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB8DAE841CB4C3A10045195D /* AutocompleteViewController.swift */; };
 		DB8DAE871CB6058B0045195D /* Autocomplete.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB8DAE861CB6058B0045195D /* Autocomplete.storyboard */; };
 		DB956DD81C96833700809B4C /* FirebaseConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB956DD71C96833700809B4C /* FirebaseConnection.swift */; };
+		DBA6FBC81DF5E3B200A953AB /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBA6FBC71DF5E3B200A953AB /* LoginViewController.swift */; };
 		DBAB56801C968FAA0011167A /* UIViewControllerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBAB567F1C968FAA0011167A /* UIViewControllerExtensions.swift */; };
 		DBAB56871C96B0F10011167A /* RegionTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBAB56861C96B0F10011167A /* RegionTableViewController.swift */; };
 		DBAB56911C96C5270011167A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DBAB56901C96C5270011167A /* Main.storyboard */; };
-		DBAB56931C96C6300011167A /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBAB56921C96C6300011167A /* LoginViewController.swift */; };
 		DBAB56951C9738870011167A /* UITextFieldExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBAB56941C9738870011167A /* UITextFieldExtensions.swift */; };
 		DBB1558C1C9B76C500118F89 /* DateHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBB1558B1C9B76C500118F89 /* DateHelper.swift */; };
 		DBBBD13B1C9DE4D00085E3B9 /* Ride.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBBBD13A1C9DE4D00085E3B9 /* Ride.swift */; };
 		DBBBD13D1C9DE57B0085E3B9 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBBBD13C1C9DE57B0085E3B9 /* Location.swift */; };
 		DBBBD13F1C9DE8590085E3B9 /* GoogleMapsHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBBBD13E1C9DE8590085E3B9 /* GoogleMapsHelper.swift */; };
 		DBF5E6DB1C93A66600693807 /* GoogleAnalyticsHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBF5E6DA1C93A66600693807 /* GoogleAnalyticsHelper.swift */; };
-		DBF5E6F01C963D3A00693807 /* ResetPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBF5E6EF1C963D3A00693807 /* ResetPasswordViewController.swift */; };
-		DBF5E6F21C963D6400693807 /* CreateAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBF5E6F11C963D6400693807 /* CreateAccountViewController.swift */; };
-		DBF5E6F51C96719400693807 /* EmailAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBF5E6F41C96719400693807 /* EmailAccountViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -197,7 +192,6 @@
 		DB701AEA1CA2EBDC00B40C9C /* MyRideDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyRideDetailsViewController.swift; sourceTree = "<group>"; };
 		DB70B8CA1C9389EA0065CC4D /* Poly Rides.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Poly Rides.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DB70B8CD1C9389EA0065CC4D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		DB70B8CF1C9389EA0065CC4D /* MainLoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainLoginViewController.swift; sourceTree = "<group>"; };
 		DB70B8D41C9389EA0065CC4D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DB70B8D91C9389EA0065CC4D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DB70B8DE1C9389EA0065CC4D /* PolyRidesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PolyRidesTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -208,7 +202,6 @@
 		DB70B8EF1C9389EA0065CC4D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DB70B9011C938B230065CC4D /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		DB70B9031C938CDC0065CC4D /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
-		DB70B9041C938CDC0065CC4D /* Login.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
 		DB70B9071C938F540065CC4D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		DB70B9091C938F870065CC4D /* PolyRides-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "PolyRides-Bridging-Header.h"; path = "../Model/PolyRides-Bridging-Header.h"; sourceTree = "<group>"; };
 		DB747AB21C98D28A00A24F58 /* Home.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
@@ -229,19 +222,16 @@
 		DB8DAE841CB4C3A10045195D /* AutocompleteViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutocompleteViewController.swift; sourceTree = "<group>"; };
 		DB8DAE861CB6058B0045195D /* Autocomplete.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Autocomplete.storyboard; sourceTree = "<group>"; };
 		DB956DD71C96833700809B4C /* FirebaseConnection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FirebaseConnection.swift; path = Model/FirebaseConnection.swift; sourceTree = "<group>"; };
+		DBA6FBC71DF5E3B200A953AB /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		DBAB567F1C968FAA0011167A /* UIViewControllerExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtensions.swift; sourceTree = "<group>"; };
 		DBAB56861C96B0F10011167A /* RegionTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegionTableViewController.swift; sourceTree = "<group>"; };
 		DBAB56901C96C5270011167A /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
-		DBAB56921C96C6300011167A /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		DBAB56941C9738870011167A /* UITextFieldExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UITextFieldExtensions.swift; sourceTree = "<group>"; };
 		DBB1558B1C9B76C500118F89 /* DateHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateHelper.swift; sourceTree = "<group>"; };
 		DBBBD13A1C9DE4D00085E3B9 /* Ride.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Ride.swift; sourceTree = "<group>"; };
 		DBBBD13C1C9DE57B0085E3B9 /* Location.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		DBBBD13E1C9DE8590085E3B9 /* GoogleMapsHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoogleMapsHelper.swift; sourceTree = "<group>"; };
 		DBF5E6DA1C93A66600693807 /* GoogleAnalyticsHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GoogleAnalyticsHelper.swift; path = Model/GoogleAnalyticsHelper.swift; sourceTree = "<group>"; };
-		DBF5E6EF1C963D3A00693807 /* ResetPasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResetPasswordViewController.swift; sourceTree = "<group>"; };
-		DBF5E6F11C963D6400693807 /* CreateAccountViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateAccountViewController.swift; sourceTree = "<group>"; };
-		DBF5E6F41C96719400693807 /* EmailAccountViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmailAccountViewController.swift; sourceTree = "<group>"; };
 		EC278F6A1EA0392BFCB61FC8 /* Pods_PolyRidesTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PolyRidesTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -503,7 +493,6 @@
 				DB70B9031C938CDC0065CC4D /* LaunchScreen.storyboard */,
 				DB701AE41CA2607D00B40C9C /* LoadingLaunchScreen.storyboard */,
 				DB5F03C51CAE1D0800E49A12 /* FacebookLogin.storyboard */,
-				DB70B9041C938CDC0065CC4D /* Login.storyboard */,
 			);
 			name = Login;
 			sourceTree = "<group>";
@@ -551,11 +540,7 @@
 		DBAB56841C96B0AB0011167A /* Login */ = {
 			isa = PBXGroup;
 			children = (
-				DBAB56921C96C6300011167A /* LoginViewController.swift */,
-				DB70B8CF1C9389EA0065CC4D /* MainLoginViewController.swift */,
-				DBF5E6EF1C963D3A00693807 /* ResetPasswordViewController.swift */,
-				DBF5E6F11C963D6400693807 /* CreateAccountViewController.swift */,
-				DBF5E6F41C96719400693807 /* EmailAccountViewController.swift */,
+				DBA6FBC71DF5E3B200A953AB /* LoginViewController.swift */,
 			);
 			name = Login;
 			sourceTree = "<group>";
@@ -658,7 +643,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0720;
-				LastUpgradeCheck = 0720;
+				LastUpgradeCheck = 0810;
 				ORGANIZATIONNAME = "Vanessa Forney";
 				TargetAttributes = {
 					DB70B8C91C9389EA0065CC4D = {
@@ -710,7 +695,6 @@
 				DB3141B91CD032C800F88176 /* SF-UI-Display-Light.otf in Resources */,
 				DB3141C71CD032C800F88176 /* SF-UI-Text-Regular.otf in Resources */,
 				DB3141C81CD032C800F88176 /* SF-UI-Text-RegularItalic.otf in Resources */,
-				DB70B9061C938CDC0065CC4D /* Login.storyboard in Resources */,
 				DB8DAE691CB2EF750045195D /* MutualFriends.storyboard in Resources */,
 				DBAB56911C96C5270011167A /* Main.storyboard in Resources */,
 				DB3141CA1CD032C800F88176 /* SF-UI-Text-SemiboldItalic.otf in Resources */,
@@ -943,23 +927,20 @@
 				DB8DAE621CB1CF210045195D /* MutualFriendsTableViewController.swift in Sources */,
 				DB8DAE5C1CB02FD40045195D /* VerificationService.swift in Sources */,
 				DB2433411CA3A1AC0025680B /* MyProfileViewController.swift in Sources */,
+				DBA6FBC81DF5E3B200A953AB /* LoginViewController.swift in Sources */,
 				DB4151041C9B05340062E5A0 /* AddRideViewController.swift in Sources */,
 				DB701ADD1CA24E3100B40C9C /* LaunchScreenViewController.swift in Sources */,
 				DBBBD13D1C9DE57B0085E3B9 /* Location.swift in Sources */,
-				DBF5E6F21C963D6400693807 /* CreateAccountViewController.swift in Sources */,
 				DB8DAE5A1CB022EF0045195D /* Verification.swift in Sources */,
 				DB701ADB1CA23E0600B40C9C /* RideService.swift in Sources */,
 				DB5F03BF1CAD898100E49A12 /* Request.swift in Sources */,
 				DBAB56951C9738870011167A /* UITextFieldExtensions.swift in Sources */,
 				6E628FA01CA100E400AAC2DB /* ConversationService.swift in Sources */,
 				DB8DAE821CB4318E0045195D /* TableViewController.swift in Sources */,
-				DBF5E6F51C96719400693807 /* EmailAccountViewController.swift in Sources */,
 				DB701ADF1CA2537E00B40C9C /* UserService.swift in Sources */,
-				DB70B8D01C9389EA0065CC4D /* MainLoginViewController.swift in Sources */,
 				DB701AE11CA2568900B40C9C /* LoadingViewController.swift in Sources */,
 				6E628F9C1CA0FF6900AAC2DB /* MessageService.swift in Sources */,
 				DB8DAE5E1CB1B3820045195D /* PassengerProfileViewController.swift in Sources */,
-				DBF5E6F01C963D3A00693807 /* ResetPasswordViewController.swift in Sources */,
 				DB5F03CF1CAF312100E49A12 /* Car.swift in Sources */,
 				DB5F03D11CAF323400E49A12 /* EditProfileViewController.swift in Sources */,
 				DBAB56871C96B0F10011167A /* RegionTableViewController.swift in Sources */,
@@ -975,7 +956,6 @@
 				DB43A98F1C9F071800AC2AF9 /* RideDetailsViewController.swift in Sources */,
 				DB8DAE851CB4C3A10045195D /* AutocompleteViewController.swift in Sources */,
 				DB8DAE601CB1B3910045195D /* DriverProfileViewController.swift in Sources */,
-				DBAB56931C96C6300011167A /* LoginViewController.swift in Sources */,
 				6E53E3CB1C9E428400370108 /* Message.swift in Sources */,
 				DB5F03C81CAE1F6600E49A12 /* UIButtonExtensions.swift in Sources */,
 				DB8DAE6B1CB3080C0045195D /* Constants.swift in Sources */,
@@ -1029,8 +1009,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -1038,6 +1020,10 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(PROJECT_DIR)",
+					"$(inherited)",
+				);
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -1052,7 +1038,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -1074,8 +1060,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -1083,6 +1071,10 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(PROJECT_DIR)",
+					"$(inherited)",
+				);
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -1091,9 +1083,10 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 			};
@@ -1103,122 +1096,26 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 9D9E525E9ED946969488040F /* Pods-PolyRides.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
+				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				EMBEDDED_CONTENT_CONTAINS_SWIFT = "$(inherited)";
 				ENABLE_BITCODE = NO;
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "PolyRides/Supporting Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				OTHER_LDFLAGS = (
-					"$(inherited)",
-					"-ObjC",
-					"-l\"GGLAnalytics\"",
-					"-l\"GGLCore\"",
-					"-l\"GSDK_Overload\"",
-					"-l\"GTMSessionFetcher_core\"",
-					"-l\"GTMSessionFetcher_full\"",
-					"-l\"GTMStackTrace\"",
-					"-l\"GTM_AddressBook\"",
-					"-l\"GTM_DebugUtils\"",
-					"-l\"GTM_GTMURLBuilder\"",
-					"-l\"GTM_KVO\"",
-					"-l\"GTM_NSData+zlib\"",
-					"-l\"GTM_NSDictionary+URLArguments\"",
-					"-l\"GTM_NSScannerJSON\"",
-					"-l\"GTM_NSStringHTML\"",
-					"-l\"GTM_NSStringXML\"",
-					"-l\"GTM_Regex\"",
-					"-l\"GTM_RoundedRectPath\"",
-					"-l\"GTM_StringEncoding\"",
-					"-l\"GTM_SystemVersion\"",
-					"-l\"GTM_UIFont+LineHeight\"",
-					"-l\"GTM_core\"",
-					"-l\"GTM_iPhone\"",
-					"-l\"GoogleAnalytics\"",
-					"-l\"ProtocolBuffers\"",
-					"-l\"c++\"",
-					"-l\"icucore\"",
-					"-l\"sqlite3\"",
-					"-l\"stdc++\"",
-					"-l\"z\"",
-					"-framework",
-					"\"AFNetworking\"",
-					"-framework",
-					"\"AVFoundation\"",
-					"-framework",
-					"\"Accelerate\"",
-					"-framework",
-					"\"AddressBook\"",
-					"-framework",
-					"\"AssetsLibrary\"",
-					"-framework",
-					"\"Bolts\"",
-					"-framework",
-					"\"CoreBluetooth\"",
-					"-framework",
-					"\"CoreData\"",
-					"-framework",
-					"\"CoreFoundation\"",
-					"-framework",
-					"\"CoreGraphics\"",
-					"-framework",
-					"\"CoreLocation\"",
-					"-framework",
-					"\"CoreMotion\"",
-					"-framework",
-					"\"CoreText\"",
-					"-framework",
-					"\"Crashlytics\"",
-					"-framework",
-					"\"DZNEmptyDataSet\"",
-					"-framework",
-					"\"FBSDKCoreKit\"",
-					"-framework",
-					"\"FBSDKLoginKit\"",
-					"-framework",
-					"\"FBSDKShareKit\"",
-					"-framework",
-					"\"Fabric\"",
-					"-framework",
-					"\"Firebase\"",
-					"-framework",
-					"\"GLKit\"",
-					"-framework",
-					"\"GoogleMaps\"",
-					"-framework",
-					"\"ImageIO\"",
-					"-framework",
-					"\"JSQMessagesViewController\"",
-					"-framework",
-					"\"JSQSystemSoundPlayer\"",
-					"-framework",
-					"\"MessageUI\"",
-					"-framework",
-					"\"OpenGLES\"",
-					"-framework",
-					"\"QuartzCore\"",
-					"-framework",
-					"\"Security\"",
-					"-framework",
-					"\"Siren\"",
-					"-framework",
-					"\"SystemConfiguration\"",
-					"-framework",
-					"\"UIKit\"",
-					"-force_load",
-					"$(PODS_ROOT)/GoogleUtilities/Libraries/libGTM_NSData+zlib.a",
-					"-framework",
-					"\"GoogleMaps\"",
-				);
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
+				OTHER_LDFLAGS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Vanessa.PolyRides2;
 				PRODUCT_NAME = "Poly Rides";
 				SWIFT_OBJC_BRIDGING_HEADER = "PolyRides/Model/PolyRides-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				USER_HEADER_SEARCH_PATHS = "";
 			};
 			name = Debug;
 		};
@@ -1226,120 +1123,24 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 88D7E45D7D50601055142313 /* Pods-PolyRides.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
+				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				EMBEDDED_CONTENT_CONTAINS_SWIFT = "$(inherited)";
 				ENABLE_BITCODE = NO;
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "PolyRides/Supporting Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				OTHER_LDFLAGS = (
-					"$(inherited)",
-					"-ObjC",
-					"-l\"GGLAnalytics\"",
-					"-l\"GGLCore\"",
-					"-l\"GSDK_Overload\"",
-					"-l\"GTMSessionFetcher_core\"",
-					"-l\"GTMSessionFetcher_full\"",
-					"-l\"GTMStackTrace\"",
-					"-l\"GTM_AddressBook\"",
-					"-l\"GTM_DebugUtils\"",
-					"-l\"GTM_GTMURLBuilder\"",
-					"-l\"GTM_KVO\"",
-					"-l\"GTM_NSData+zlib\"",
-					"-l\"GTM_NSDictionary+URLArguments\"",
-					"-l\"GTM_NSScannerJSON\"",
-					"-l\"GTM_NSStringHTML\"",
-					"-l\"GTM_NSStringXML\"",
-					"-l\"GTM_Regex\"",
-					"-l\"GTM_RoundedRectPath\"",
-					"-l\"GTM_StringEncoding\"",
-					"-l\"GTM_SystemVersion\"",
-					"-l\"GTM_UIFont+LineHeight\"",
-					"-l\"GTM_core\"",
-					"-l\"GTM_iPhone\"",
-					"-l\"GoogleAnalytics\"",
-					"-l\"ProtocolBuffers\"",
-					"-l\"c++\"",
-					"-l\"icucore\"",
-					"-l\"sqlite3\"",
-					"-l\"stdc++\"",
-					"-l\"z\"",
-					"-framework",
-					"\"AFNetworking\"",
-					"-framework",
-					"\"AVFoundation\"",
-					"-framework",
-					"\"Accelerate\"",
-					"-framework",
-					"\"AddressBook\"",
-					"-framework",
-					"\"AssetsLibrary\"",
-					"-framework",
-					"\"Bolts\"",
-					"-framework",
-					"\"CoreBluetooth\"",
-					"-framework",
-					"\"CoreData\"",
-					"-framework",
-					"\"CoreFoundation\"",
-					"-framework",
-					"\"CoreGraphics\"",
-					"-framework",
-					"\"CoreLocation\"",
-					"-framework",
-					"\"CoreMotion\"",
-					"-framework",
-					"\"CoreText\"",
-					"-framework",
-					"\"Crashlytics\"",
-					"-framework",
-					"\"DZNEmptyDataSet\"",
-					"-framework",
-					"\"FBSDKCoreKit\"",
-					"-framework",
-					"\"FBSDKLoginKit\"",
-					"-framework",
-					"\"FBSDKShareKit\"",
-					"-framework",
-					"\"Fabric\"",
-					"-framework",
-					"\"Firebase\"",
-					"-framework",
-					"\"GLKit\"",
-					"-framework",
-					"\"GoogleMaps\"",
-					"-framework",
-					"\"ImageIO\"",
-					"-framework",
-					"\"JSQMessagesViewController\"",
-					"-framework",
-					"\"JSQSystemSoundPlayer\"",
-					"-framework",
-					"\"MessageUI\"",
-					"-framework",
-					"\"OpenGLES\"",
-					"-framework",
-					"\"QuartzCore\"",
-					"-framework",
-					"\"Security\"",
-					"-framework",
-					"\"Siren\"",
-					"-framework",
-					"\"SystemConfiguration\"",
-					"-framework",
-					"\"UIKit\"",
-					"-force_load",
-					"$(PODS_ROOT)/GoogleUtilities/Libraries/libGTM_NSData+zlib.a",
-					"-framework",
-					"\"GoogleMaps\"",
-				);
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
+				OTHER_LDFLAGS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Vanessa.PolyRides2;
 				PRODUCT_NAME = "Poly Rides";
 				SWIFT_OBJC_BRIDGING_HEADER = "PolyRides/Model/PolyRides-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				USER_HEADER_SEARCH_PATHS = "";
 			};
 			name = Release;
 		};
@@ -1348,6 +1149,7 @@
 			baseConfigurationReference = 134E6090D8164DDCE96194DA /* Pods-PolyRidesTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = PolyRidesTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Vanessa.PolyRidesTests;
@@ -1362,6 +1164,7 @@
 			baseConfigurationReference = 61872E5AC265900EE5CECC7E /* Pods-PolyRidesTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = PolyRidesTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Vanessa.PolyRidesTests;
@@ -1375,6 +1178,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 82011CF1277CF5359603B02F /* Pods-PolyRidesUITests.debug.xcconfig */;
 			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = PolyRidesUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Vanessa.PolyRidesUITests;
@@ -1389,6 +1193,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 81CC02B17857E2806BB42C22 /* Pods-PolyRidesUITests.release.xcconfig */;
 			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = PolyRidesUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Vanessa.PolyRidesUITests;
