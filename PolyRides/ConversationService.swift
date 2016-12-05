@@ -6,7 +6,7 @@
 //  Copyright © 2016 Vanessa Forney. All rights reserved.
 //
 
-import Firebase
+import FirebaseDatabase
 
 protocol ConversationDelegate: class {
 }
@@ -14,7 +14,7 @@ protocol ConversationDelegate: class {
 class ConversationService {
 
   var conversationDeligate: ConversationDelegate?
-  let ref = FirebaseConnection.ref
+  let ref = FIRDatabase.database().reference()
 
   func pushConversationToFirebase(convo: Conversation) {
     let convoRef = ref.child("conversations").childByAutoId()

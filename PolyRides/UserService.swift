@@ -7,6 +7,7 @@
 //
 
 import FirebaseAuth
+import FirebaseDatabase
 
 protocol FirebaseUserDelegate: class {
 
@@ -17,7 +18,7 @@ protocol FirebaseUserDelegate: class {
 
 class UserService {
 
-  let ref = FirebaseConnection.ref
+  let ref = FIRDatabase.database().reference()
 
   var delegate: FirebaseUserDelegate?
 
