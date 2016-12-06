@@ -15,8 +15,8 @@
 		6E628F9E1CA100CF00AAC2DB /* Conversation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E628F9D1CA100CF00AAC2DB /* Conversation.swift */; };
 		6E628FA01CA100E400AAC2DB /* ConversationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E628F9F1CA100E400AAC2DB /* ConversationService.swift */; };
 		6F0CD61C0CA1BF5E3F2C4637 /* Pods_PolyRides.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B57C9947CBFC1D929A1370A /* Pods_PolyRides.framework */; };
+		C6C391A71DF691F8001E2C6C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C6C391A61DF691F8001E2C6C /* GoogleService-Info.plist */; };
 		D4A36E8F67BFA93F4683C450 /* Pods_PolyRidesUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 33776C172972E3E4DF0CA06A /* Pods_PolyRidesUITests.framework */; };
-		DB16CA371DF61EE4006A73F6 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = DB16CA361DF61EE4006A73F6 /* GoogleService-Info.plist */; };
 		DB1C76721CA0F08C0052D3B9 /* PassengerRideDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB1C76711CA0F08C0052D3B9 /* PassengerRideDetailsViewController.swift */; };
 		DB24333B1CA397940025680B /* MyRideDetails.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB24333A1CA397940025680B /* MyRideDetails.storyboard */; };
 		DB24333D1CA397E80025680B /* PassengerRideDetails.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB24333C1CA397E80025680B /* PassengerRideDetails.storyboard */; };
@@ -143,7 +143,7 @@
 		88D7E45D7D50601055142313 /* Pods-PolyRides.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PolyRides.release.xcconfig"; path = "Pods/Target Support Files/Pods-PolyRides/Pods-PolyRides.release.xcconfig"; sourceTree = "<group>"; };
 		8B57C9947CBFC1D929A1370A /* Pods_PolyRides.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PolyRides.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9D9E525E9ED946969488040F /* Pods-PolyRides.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PolyRides.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PolyRides/Pods-PolyRides.debug.xcconfig"; sourceTree = "<group>"; };
-		DB16CA361DF61EE4006A73F6 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		C6C391A61DF691F8001E2C6C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		DB1C76711CA0F08C0052D3B9 /* PassengerRideDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PassengerRideDetailsViewController.swift; sourceTree = "<group>"; };
 		DB24333A1CA397940025680B /* MyRideDetails.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MyRideDetails.storyboard; sourceTree = "<group>"; };
 		DB24333C1CA397E80025680B /* PassengerRideDetails.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = PassengerRideDetails.storyboard; sourceTree = "<group>"; };
@@ -468,7 +468,7 @@
 				DB8DAE6C1CB309CD0045195D /* Fonts */,
 				DB70B8D41C9389EA0065CC4D /* Assets.xcassets */,
 				DB70B9091C938F870065CC4D /* PolyRides-Bridging-Header.h */,
-				DB16CA361DF61EE4006A73F6 /* GoogleService-Info.plist */,
+				C6C391A61DF691F8001E2C6C /* GoogleService-Info.plist */,
 				DB70B8D91C9389EA0065CC4D /* Info.plist */,
 			);
 			path = "Supporting Files";
@@ -688,10 +688,10 @@
 				DB24333D1CA397E80025680B /* PassengerRideDetails.storyboard in Resources */,
 				DB8DAE871CB6058B0045195D /* Autocomplete.storyboard in Resources */,
 				DB3141C41CD032C800F88176 /* SF-UI-Text-LightItalic.otf in Resources */,
-				DB16CA371DF61EE4006A73F6 /* GoogleService-Info.plist in Resources */,
 				DB3141BA1CD032C800F88176 /* SF-UI-Display-Medium.otf in Resources */,
 				DB3141B91CD032C800F88176 /* SF-UI-Display-Light.otf in Resources */,
 				DB3141C71CD032C800F88176 /* SF-UI-Text-Regular.otf in Resources */,
+				C6C391A71DF691F8001E2C6C /* GoogleService-Info.plist in Resources */,
 				DB3141C81CD032C800F88176 /* SF-UI-Text-RegularItalic.otf in Resources */,
 				DB8DAE691CB2EF750045195D /* MutualFriends.storyboard in Resources */,
 				DBAB56911C96C5270011167A /* Main.storyboard in Resources */,

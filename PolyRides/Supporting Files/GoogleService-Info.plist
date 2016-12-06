@@ -2,28 +2,26 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>TRACKING_ID</key>
-	<string>UA-69182247-4</string>
 	<key>AD_UNIT_ID_FOR_BANNER_TEST</key>
 	<string>ca-app-pub-3940256099942544/2934735716</string>
 	<key>AD_UNIT_ID_FOR_INTERSTITIAL_TEST</key>
 	<string>ca-app-pub-3940256099942544/4411468910</string>
 	<key>CLIENT_ID</key>
-	<string>187359171681-1kdllltfa21osgud5289poup3iduniop.apps.googleusercontent.com</string>
+	<string>429026541463-l999o9qbriu6eueqivc9193srksbokgm.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.187359171681-1kdllltfa21osgud5289poup3iduniop</string>
+	<string>com.googleusercontent.apps.429026541463-l999o9qbriu6eueqivc9193srksbokgm</string>
 	<key>API_KEY</key>
-	<string>AIzaSyCfWXYgh567OxpNn9a7Z0wHg8J5Qr-knQI</string>
+	<string>AIzaSyDA1iStJee_PIZveOC-0z3yR2CCMF-b6Is</string>
 	<key>GCM_SENDER_ID</key>
-	<string>187359171681</string>
+	<string>429026541463</string>
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
 	<string>com.Vanessa.PolyRides2</string>
 	<key>PROJECT_ID</key>
-	<string>firebase-poly-rides</string>
+	<string>polyridesweb</string>
 	<key>STORAGE_BUCKET</key>
-	<string>firebase-poly-rides.appspot.com</string>
+	<string>polyridesweb.appspot.com</string>
 	<key>IS_ADS_ENABLED</key>
 	<true/>
 	<key>IS_ANALYTICS_ENABLED</key>
@@ -35,8 +33,8 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true/>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:187359171681:ios:ee5f75179ca2a38b</string>
+	<string>1:429026541463:ios:ee5f75179ca2a38b</string>
 	<key>DATABASE_URL</key>
-	<string>https://poly-rides.firebaseio.com</string>
+	<string>https://polyridesweb.firebaseio.com</string>
 </dict>
 </plist>
