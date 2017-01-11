@@ -13,6 +13,7 @@ import Siren
 import FBSDKCoreKit
 import FBSDKLoginKit
 import GoogleMaps
+import GooglePlaces
 import SendGrid
 import FirebaseDatabase
 import FirebaseAuth
@@ -28,6 +29,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     // Firebase
     FIRApp.configure()
+    
+    // Register with Google Maps.
+    GMSPlacesClient.provideAPIKey("AIzaSyAIlHfqVp18wk-J-lvbnpMyxyI5z1bO4pk")
+    GMSServices.provideAPIKey("AIzaSyAIlHfqVp18wk-J-lvbnpMyxyI5z1bO4pk")
+    print("GOOGOLE STUFF INITIALIZE!!!\n\n\n")
   }
 
   private func application(application: UIApplication, didFinishLaunchingWithOptions
@@ -62,10 +68,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     let siren = Siren.sharedInstance
     siren.alertType = SirenAlertType.force
     siren.checkVersion(checkType: .immediately)
-
-    // Register with Google Maps.
-    GMSServices.provideAPIKey("AIzaSyBmxCispciOMZhn4FNbRPv_-Rcj8r_AtAk")
-
+    
     if let currentUser = FIRAuth.auth()?.currentUser {
       let storyboard = UIStoryboard(name: "LoadingLaunchScreen", bundle: nil)
       if let controller = storyboard.instantiateInitialViewController() as? LaunchScreenViewController {
