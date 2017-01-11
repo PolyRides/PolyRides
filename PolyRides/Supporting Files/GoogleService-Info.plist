@@ -19,7 +19,7 @@
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
-	<string>com.Vanessa.PolyRides2</string>
+	<string>com.Vanessa.PolyRides3</string>
 	<key>PROJECT_ID</key>
 	<string>firebase-poly-rides</string>
 	<key>STORAGE_BUCKET</key>

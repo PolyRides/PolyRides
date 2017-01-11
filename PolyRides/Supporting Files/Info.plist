@@ -23,7 +23,7 @@
 		<dict>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>fb1574441262797479</string>
+				<string>fb1241244529255065</string>
 			</array>
 		</dict>
 	</array>
@@ -44,7 +44,7 @@
 		</array>
 	</dict>
 	<key>FacebookAppID</key>
-	<string>1574441262797479</string>
+	<string>1241244529255065</string>
 	<key>FacebookDisplayName</key>
 	<string>Poly Rides</string>
 	<key>LSApplicationQueriesSchemes</key>
