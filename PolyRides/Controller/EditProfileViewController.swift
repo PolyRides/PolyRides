@@ -32,7 +32,7 @@ class EditProfileViewController: UIViewController {
   @IBOutlet weak var verificationCodeField: UITextField?
   @IBOutlet weak var verifyButton: UIButton?
   @IBOutlet weak var verifiedImage: UIButton?
-
+  
   @IBAction func verifyButtonAction(sender: AnyObject) {
     // action sheet: Enter Code, Resend Email, Remove
     let title = "Enter Code"
@@ -75,6 +75,17 @@ class EditProfileViewController: UIViewController {
     makeLabel?.text = user?.car?.make
     modelLabel?.text = user?.car?.model
     colorLabel?.text = user?.car?.color
+    descriptionTextView?.delegate = self
+
+
+    if descriptionTextView?.text == emptyDescription {
+      descriptionTextView?.textColor = UIColor.lightGray
+    } else if descriptionTextView?.text == "" {
+      descriptionTextView?.text = emptyDescription
+      descriptionTextView?.textColor = UIColor.lightGray
+    } else {
+      descriptionTextView?.textColor = UIColor.black
+    }
 
     if let year = user?.car?.year {
       yearLabel?.text = "\(year)"
@@ -181,5 +192,21 @@ extension EditProfileViewController: FirebaseVerificationDelegate {
       self.presentAlert(alertOptions: AlertOptions(message: message, title: title))
     })
   }
+}
 
+extension EditProfileViewController: UITextViewDelegate {
+  func textViewDidBeginEditing(_ textView: UITextView) {
+    print (textView.textColor!)
+    if textView.textColor == UIColor.lightGray {
+      textView.text = nil
+      textView.textColor = UIColor.black
+    }
+  }
+  
+  func textViewDidEndEditing(_ textView: UITextView) {
+    if textView.text.isEmpty {
+      textView.text = emptyDescription
+      textView.textColor = UIColor.lightGray
+    }
+  }
 }

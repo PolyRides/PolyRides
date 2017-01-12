@@ -18,7 +18,7 @@
         <scene sceneID="dZZ-XN-P3U">
             <objects>
                 <navigationController id="F06-1m-krZ" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="fE4-qe-hof">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="fE4-qe-hof">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -55,7 +55,7 @@
                                 </segments>
                                 <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <connections>
-                                    <action selector="segmentedAction:" destination="fnc-Oe-nPW" eventType="valueChanged" id="ToX-42-tl6"/>
+                                    <action selector="segmentedActionWithSender:" destination="fnc-Oe-nPW" eventType="valueChanged" id="kO2-Ir-XMh"/>
                                 </connections>
                             </segmentedControl>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="60" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Byt-o3-3gz">
@@ -142,7 +142,7 @@
                                 </connections>
                             </stepper>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hQj-3p-YOW">
-                                <rect key="frame" x="249" y="377" width="8" height="20.5"/>
+                                <rect key="frame" x="249" y="377" width="8" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.92549019610000005" green="0.94117647059999998" blue="0.94509803920000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
@@ -260,7 +260,7 @@
             <objects>
                 <navigationController storyboardIdentifier="NewRideViewController" automaticallyAdjustsScrollViewInsets="NO" id="Wrf-eZ-0Tt" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="s47-iJ-ihO">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="s47-iJ-ihO">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>

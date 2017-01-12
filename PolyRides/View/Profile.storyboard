@@ -173,13 +173,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" text="Enter a short description about yourself." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="69A-dF-mxD">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" text="Enter a short description about yourself." translatesAutoresizingMaskIntoConstraints="NO" id="69A-dF-mxD">
                                 <rect key="frame" x="20" y="101" width="560" height="115"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="115" id="XTv-Yc-9a6"/>
                                 </constraints>
-                                <color key="textColor" red="0.81176470590000005" green="0.81176470590000005" blue="0.81176470590000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
@@ -225,7 +225,7 @@
                                 <rect key="frame" x="20" y="405" width="140" height="30"/>
                                 <state key="normal" title="Verify Cal Poly Email"/>
                                 <connections>
-                                    <action selector="verifyEmailAction:" destination="fm9-L0-hKD" eventType="touchUpInside" id="wTn-re-1yJ"/>
+                                    <action selector="verifyEmailActionWithSender:" destination="fm9-L0-hKD" eventType="touchUpInside" id="I5w-n4-glY"/>
                                 </connections>
                             </button>
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Efu-V5-cX1">
@@ -236,7 +236,7 @@
                                 </constraints>
                                 <state key="normal" image="cal_poly_verified"/>
                                 <connections>
-                                    <action selector="verifyButtonAction:" destination="fm9-L0-hKD" eventType="touchUpInside" id="LtA-qQ-4nS"/>
+                                    <action selector="verifyButtonActionWithSender:" destination="fm9-L0-hKD" eventType="touchUpInside" id="7U1-Ii-TAe"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -270,12 +270,12 @@
                     <navigationItem key="navigationItem" title="Edit Profile" id="N3z-0W-5ik">
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="ZWS-Wm-PJV">
                             <connections>
-                                <action selector="cancelButtonAction:" destination="fm9-L0-hKD" id="USL-Kc-1JA"/>
+                                <action selector="cancelButtonActionWithSender:" destination="fm9-L0-hKD" id="dv1-xC-u0N"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="mpe-3a-jkD">
                             <connections>
-                                <action selector="saveButtonAction:" destination="fm9-L0-hKD" id="MBb-p7-LWB"/>
+                                <action selector="saveButtonActionWithSender:" destination="fm9-L0-hKD" id="ddC-8t-Peo"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
