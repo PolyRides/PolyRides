@@ -50,8 +50,8 @@ class User {
 
   init(fromUser user: FIRUser) {
     for profile in user.providerData {
-      facebookId = profile.providerID
-      imageURL = "https://graph.facebook.com/\(facebookId)/picture?type=large"
+      facebookId = profile.uid
+      imageURL = "https://graph.facebook.com/\(facebookId!)/picture?type=large"
       email = profile.email
 
       if let components = profile.displayName?.components(separatedBy: " ") {

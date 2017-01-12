@@ -33,7 +33,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     // Register with Google Maps.
     GMSPlacesClient.provideAPIKey("AIzaSyAIlHfqVp18wk-J-lvbnpMyxyI5z1bO4pk")
     GMSServices.provideAPIKey("AIzaSyAIlHfqVp18wk-J-lvbnpMyxyI5z1bO4pk")
-    print("GOOGOLE STUFF INITIALIZE!!!\n\n\n")
   }
 
   private func application(application: UIApplication, didFinishLaunchingWithOptions
@@ -53,6 +52,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     // SendGrid.
     let session = Session()
+    // TODO: need to update this with my new bundle ID
     session.authentication = Authentication.apiKey("pQRGWenNRPKfEwwKQ2MjkQ")
 
     // Google Analytics.
@@ -75,7 +75,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let user = User()
 
         if let profile = currentUser.providerData.first {
-          user.facebookId = profile.providerID
+          user.facebookId = profile.uid
         }
 
         controller.user = user

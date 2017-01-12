@@ -14,7 +14,7 @@
             <objects>
                 <navigationController useStoryboardIdentifierAsRestorationIdentifier="YES" id="twN-Cg-lOh" sceneMemberID="viewController">
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="zrh-Sv-chm">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="zrh-Sv-chm">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -94,10 +94,11 @@
                                         </constraints>
                                         <state key="normal" title="Log Out"/>
                                         <connections>
-                                            <action selector="logOutAction:" destination="oWY-WK-zfY" eventType="touchUpInside" id="L8o-ja-whk"/>
+                                            <action selector="logOutActionWithSender:" destination="oWY-WK-zfY" eventType="touchUpInside" id="JT4-JR-FmR"/>
                                         </connections>
                                     </button>
                                 </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="bottom" secondItem="H7l-qX-w84" secondAttribute="bottom" constant="8" id="0Rm-uN-B5K"/>
                                     <constraint firstItem="Hmk-rL-E0k" firstAttribute="top" secondItem="Ch4-Hy-o4y" secondAttribute="top" constant="8" id="13l-XQ-2sn"/>
@@ -120,7 +121,7 @@
                                 </constraints>
                             </scrollView>
                         </subviews>
-                        <color key="backgroundColor" red="0.81176470590000005" green="0.81176470590000005" blue="0.81176470590000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="Ch4-Hy-o4y" firstAttribute="leading" secondItem="EGj-kx-eLm" secondAttribute="leadingMargin" constant="-20" id="9lL-Rv-b2n"/>
                             <constraint firstItem="Ch4-Hy-o4y" firstAttribute="centerX" secondItem="EGj-kx-eLm" secondAttribute="centerX" id="Bp6-03-Jwa"/>
@@ -298,7 +299,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="8RG-ub-u8u" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="RGX-9v-rhz">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="RGX-9v-rhz">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
