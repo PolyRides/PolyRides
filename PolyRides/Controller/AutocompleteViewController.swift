@@ -159,7 +159,6 @@ extension AutocompleteViewController: UITableViewDelegate {
 }
 
 // MARK: - UISearchBarDelegate
-
 extension AutocompleteViewController: UISearchBarDelegate {
 
   func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
@@ -169,20 +168,18 @@ extension AutocompleteViewController: UISearchBarDelegate {
 }
 
 // MARK: - GMSAutocompleteFetcherDelegate
+extension AutocompleteViewController: GMSAutocompleteFetcherDelegate {
+    public func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        dismiss(animated: false, completion: nil)
+    }
 
-//extension AutocompleteViewController: GMSAutocompleteFetcherDelegate {
-//
-//  func didAutocomplete(with predictions: [GMSAutocompletePrediction]) {
-//    self.predictions = predictions
-//    tableView?.reloadData()
-//  }
-//
-//  @objc func didFailAutocompleteWithError(_ error: NSError) {
-//    print(error)
-//  }
-//
-//  func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
-//    dismiss(animated: false, completion: nil)
-//  }
-//
-//}
+    public func didAutocomplete(with predictions: [GMSAutocompletePrediction]) {
+        self.predictions = predictions
+        tableView?.reloadData()
+        print()
+    }
+
+    public func didFailAutocompleteWithError(_ error: Swift.Error) {
+        print(error)
+    }
+}
