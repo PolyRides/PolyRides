@@ -41,7 +41,7 @@ class AutocompleteViewController: TableViewController {
     super.viewDidLoad()
 
     fetcher = GMSAutocompleteFetcher(bounds: Bounds.California, filter: Filter.US())
-    //fetcher?.delegate = self
+    fetcher?.delegate = self
 
     tableView?.delegate = self
     tableView?.dataSource = self

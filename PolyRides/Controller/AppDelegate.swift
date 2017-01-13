@@ -51,9 +51,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
  //   UIScrollView.appearance().backgroundColor = Color.White
 
     // SendGrid.
-    let session = Session()
-    // TODO: need to update this with my new bundle ID
-    session.authentication = Authentication.apiKey("pQRGWenNRPKfEwwKQ2MjkQ")
+    _ = Session(auth: Authentication.apiKey("pQRGWenNRPKfEwwKQ2MjkQ"))
 
     // Google Analytics.
 //    var configureError: NSError?
