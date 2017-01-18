@@ -84,8 +84,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     // Fabric (must be the last call in didFinishLaunchingWithOptions).
     Fabric.with([Crashlytics.self])
 
-    return FBSDKApplicationDelegate.sharedInstance()
+    FBSDKApplicationDelegate.sharedInstance()
       .application(application, didFinishLaunchingWithOptions: launchOptions)
+
+    return true
   }
 
   func applicationWillResignActive(_ application: UIApplication) {
@@ -94,6 +96,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     // when the user quits the application and it begins the transition to the background state.
     // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame
     // rates. Games should use this method to pause the game.
+
+    FBSDKAppEvents.activateApp()
   }
 
   func applicationDidEnterBackground(_ application: UIApplication) {

@@ -25,13 +25,18 @@ class LoginViewController: LoadingViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
 
-    authService.loginDelegate = self
+    // user is logged in
+    if FBSDKAccessToken.current() != nil {
+      self.authService.authWithFacebook()
+    } else {
+      authService.loginDelegate = self
 
-    buttonView?.layer.cornerRadius = 5
-    button?.layer.cornerRadius = 5
+      buttonView?.layer.cornerRadius = 5
+      button?.layer.cornerRadius = 5
 
-    trackScreen(screenName: String(describing: LoginViewController.self))
-    button?.centerTextAndImage(spacing: 8.0)
+      trackScreen(screenName: String(describing: LoginViewController.self))
+      button?.centerTextAndImage(spacing: 8.0)
+    }
   }
 
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -43,6 +48,7 @@ class LoginViewController: LoadingViewController {
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
     navigationController?.isNavigationBarHidden = true
+    stopLoading()
   }
 
   override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -53,12 +59,14 @@ class LoginViewController: LoadingViewController {
   func startLoading() {
     UIApplication.shared.beginIgnoringInteractionEvents()
     button?.isHidden = true
+    indicator?.isHidden = false
     indicator?.startAnimating()
   }
 
   func stopLoading() {
     UIApplication.shared.endIgnoringInteractionEvents()
     indicator?.stopAnimating()
+    indicator?.isHidden = true
     button?.isHidden = false
   }
 

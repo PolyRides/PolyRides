@@ -72,15 +72,22 @@
                                     <action selector="logInWithFacebookActionWithSender:" destination="qWD-Tg-O8E" eventType="touchUpInside" id="oho-Ob-ZLW"/>
                                 </connections>
                             </button>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" misplaced="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="c61-su-yHJ">
+                                <rect key="frame" x="150" y="493" width="20" height="20"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" red="0.9959825873374939" green="0.99621325731277466" blue="0.99187678098678589" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="c61-su-yHJ" firstAttribute="leading" secondItem="yJ8-zU-jwu" secondAttribute="leadingMargin" constant="130" id="0J9-e3-Ztn"/>
+                            <constraint firstItem="6RB-gZ-ui4" firstAttribute="top" secondItem="c61-su-yHJ" secondAttribute="bottom" constant="55" id="3Ca-6v-34X"/>
+                            <constraint firstItem="c61-su-yHJ" firstAttribute="top" secondItem="9fC-IC-MPv" secondAttribute="bottom" constant="71" id="APD-a6-fZQ"/>
                             <constraint firstItem="2oc-O8-bhq" firstAttribute="top" secondItem="Usf-vF-hYM" secondAttribute="bottom" constant="143" id="BOW-bj-cCh"/>
                             <constraint firstItem="9fC-IC-MPv" firstAttribute="leading" secondItem="yJ8-zU-jwu" secondAttribute="leadingMargin" constant="73" id="EAa-sX-2D5"/>
                             <constraint firstItem="9fC-IC-MPv" firstAttribute="top" secondItem="Usf-vF-hYM" secondAttribute="bottom" constant="298" id="dLM-p2-sIj"/>
                             <constraint firstItem="Oj2-HZ-DRu" firstAttribute="centerX" secondItem="yJ8-zU-jwu" secondAttribute="centerX" id="fNQ-Hz-Cj6"/>
                             <constraint firstAttribute="trailingMargin" secondItem="2oc-O8-bhq" secondAttribute="trailing" constant="16" id="gju-E8-riz"/>
                             <constraint firstItem="2oc-O8-bhq" firstAttribute="leading" secondItem="yJ8-zU-jwu" secondAttribute="leadingMargin" constant="16" id="iPD-S7-TFs"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="c61-su-yHJ" secondAttribute="trailing" constant="130" id="pYZ-41-4D0"/>
                             <constraint firstItem="Oj2-HZ-DRu" firstAttribute="top" secondItem="9fC-IC-MPv" secondAttribute="bottom" constant="61" id="qQh-BO-g4e"/>
                             <constraint firstAttribute="trailingMargin" secondItem="9fC-IC-MPv" secondAttribute="trailing" constant="74" id="vbA-8d-A6A"/>
                         </constraints>
@@ -88,6 +95,8 @@
                     <navigationItem key="navigationItem" id="6Ag-Er-bL8"/>
                     <connections>
                         <outlet property="button" destination="Oj2-HZ-DRu" id="VPv-tY-UOp"/>
+                        <outlet property="buttonView" destination="Oj2-HZ-DRu" id="RZu-gv-fU0"/>
+                        <outlet property="indicator" destination="c61-su-yHJ" id="qda-Pp-T3G"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YnP-G9-H1C" sceneMemberID="firstResponder"/>

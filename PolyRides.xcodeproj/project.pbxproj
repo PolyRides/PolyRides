@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1918465B9E0F71CB1F35939C /* Pods_PolyRidesTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC278F6A1EA0392BFCB61FC8 /* Pods_PolyRidesTests.framework */; };
+		3EF422601E2F16C000895BA1 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EF4225F1E2F16C000895BA1 /* MapKit.framework */; };
 		6E4373601CA4E3EB00630D07 /* ConversationsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E43735F1CA4E3EB00630D07 /* ConversationsTableViewController.swift */; };
 		6E53E3CB1C9E428400370108 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E53E3CA1C9E428400370108 /* Message.swift */; };
 		6E53E3CE1C9E5A6100370108 /* MessagesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E53E3CD1C9E5A6100370108 /* MessagesViewController.swift */; };
@@ -130,6 +131,8 @@
 /* Begin PBXFileReference section */
 		134E6090D8164DDCE96194DA /* Pods-PolyRidesTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PolyRidesTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PolyRidesTests/Pods-PolyRidesTests.debug.xcconfig"; sourceTree = "<group>"; };
 		33776C172972E3E4DF0CA06A /* Pods_PolyRidesUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PolyRidesUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3EF4225E1E2F16A300895BA1 /* Poly Rides.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Poly Rides.entitlements"; sourceTree = "<group>"; };
+		3EF4225F1E2F16C000895BA1 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		61872E5AC265900EE5CECC7E /* Pods-PolyRidesTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PolyRidesTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-PolyRidesTests/Pods-PolyRidesTests.release.xcconfig"; sourceTree = "<group>"; };
 		6E43735F1CA4E3EB00630D07 /* ConversationsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConversationsTableViewController.swift; sourceTree = "<group>"; };
 		6E53E3CA1C9E428400370108 /* Message.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
@@ -236,6 +239,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3EF422601E2F16C000895BA1 /* MapKit.framework in Frameworks */,
 				6F0CD61C0CA1BF5E3F2C4637 /* Pods_PolyRides.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -298,6 +302,7 @@
 		D6FEBAF92E09C94B5A3B56F8 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				3EF4225F1E2F16C000895BA1 /* MapKit.framework */,
 				8B57C9947CBFC1D929A1370A /* Pods_PolyRides.framework */,
 				EC278F6A1EA0392BFCB61FC8 /* Pods_PolyRidesTests.framework */,
 				33776C172972E3E4DF0CA06A /* Pods_PolyRidesUITests.framework */,
@@ -389,6 +394,7 @@
 		DB70B8CC1C9389EA0065CC4D /* PolyRides */ = {
 			isa = PBXGroup;
 			children = (
+				3EF4225E1E2F16A300895BA1 /* Poly Rides.entitlements */,
 				DBAB56891C96BC1C0011167A /* Extensions */,
 				6E628F9A1CA0FD3C00AAC2DB /* Services */,
 				DBAB56811C9693930011167A /* Utils */,
@@ -644,6 +650,14 @@
 						CreatedOnToolsVersion = 7.2.1;
 						DevelopmentTeam = BX45H3NW68;
 						LastSwiftMigration = 0810;
+						SystemCapabilities = {
+							com.apple.Keychain = {
+								enabled = 1;
+							};
+							com.apple.Maps.iOS = {
+								enabled = 1;
+							};
+						};
 					};
 					DB70B8DD1C9389EA0065CC4D = {
 						CreatedOnToolsVersion = 7.2.1;
@@ -1093,6 +1107,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "LaunchImage-2";
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = "PolyRides/Poly Rides.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = BX45H3NW68;
@@ -1122,6 +1137,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "LaunchImage-2";
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = "PolyRides/Poly Rides.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				DEVELOPMENT_TEAM = BX45H3NW68;
 				ENABLE_BITCODE = NO;
