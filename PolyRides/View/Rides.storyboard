@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="15G1212" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="F06-1m-krZ">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16C68" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="F06-1m-krZ">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -18,7 +18,7 @@
         <scene sceneID="dZZ-XN-P3U">
             <objects>
                 <navigationController id="F06-1m-krZ" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="fE4-qe-hof">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="fE4-qe-hof">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -47,7 +47,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="YQo-Ub-837">
-                                <rect key="frame" x="16" y="28" width="343" height="29"/>
+                                <rect key="frame" x="16" y="28" width="300" height="29"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="300" id="z2C-RM-SQK"/>
+                                </constraints>
                                 <segments>
                                     <segment title="Current"/>
                                     <segment title="Past"/>
@@ -88,17 +91,29 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="contactAdd" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a1a-Ag-w3X">
+                                <rect key="frame" x="336" y="30" width="22" height="22"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <segue destination="Wrf-eZ-0Tt" kind="show" identifier="toAddRide" id="R30-Ol-d9o"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.20784313730000001" green="0.28627450980000002" blue="0.36470588240000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="YQo-Ub-837" firstAttribute="top" secondItem="ifF-Ho-9MW" secondAttribute="bottom" constant="8" id="2rg-Yj-DuG"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="YQo-Ub-837" secondAttribute="trailing" constant="43" id="8Dv-DH-ORw"/>
+                            <constraint firstItem="YQo-Ub-837" firstAttribute="leading" secondItem="ioP-ZV-Euv" secondAttribute="leadingMargin" id="AAC-Dl-UaO"/>
                             <constraint firstItem="YQo-Ub-837" firstAttribute="leading" secondItem="ioP-ZV-Euv" secondAttribute="leadingMargin" id="CS1-SJ-oED"/>
                             <constraint firstItem="wRW-a5-fDd" firstAttribute="top" secondItem="Byt-o3-3gz" secondAttribute="bottom" id="IDO-kM-Oab"/>
+                            <constraint firstItem="Byt-o3-3gz" firstAttribute="top" secondItem="YQo-Ub-837" secondAttribute="bottom" constant="8" id="M3j-TT-KxP"/>
                             <constraint firstItem="Byt-o3-3gz" firstAttribute="leading" secondItem="ioP-ZV-Euv" secondAttribute="leadingMargin" constant="-20" id="OMI-Hk-BDO"/>
+                            <constraint firstItem="Byt-o3-3gz" firstAttribute="top" secondItem="YQo-Ub-837" secondAttribute="bottom" constant="8" id="R0f-TL-iOB"/>
                             <constraint firstItem="YQo-Ub-837" firstAttribute="top" secondItem="ifF-Ho-9MW" secondAttribute="bottom" constant="8" id="UFa-BD-whH"/>
                             <constraint firstItem="Byt-o3-3gz" firstAttribute="top" secondItem="YQo-Ub-837" secondAttribute="bottom" constant="8" id="WEX-F6-Db4"/>
-                            <constraint firstItem="YQo-Ub-837" firstAttribute="trailing" secondItem="ioP-ZV-Euv" secondAttribute="trailingMargin" id="h4L-Y2-a5X"/>
+                            <constraint firstItem="YQo-Ub-837" firstAttribute="top" secondItem="ifF-Ho-9MW" secondAttribute="bottom" constant="8" id="dPv-qT-JMM"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Byt-o3-3gz" secondAttribute="trailing" constant="-20" id="hTZ-r2-gtt"/>
-                            <constraint firstItem="YQo-Ub-837" firstAttribute="centerX" secondItem="ioP-ZV-Euv" secondAttribute="centerX" id="xQW-eN-Ceq"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="YQo-Ub-837" secondAttribute="trailing" constant="43" id="zxc-34-ke1"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Rides" image="car" selectedImage="car_filled" id="ZFq-mP-AZB"/>
@@ -106,6 +121,7 @@
                     <nil key="simulatedTopBarMetrics"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="addButton" destination="a1a-Ag-w3X" id="PVg-lV-ud8"/>
                         <outlet property="segmentedControl" destination="YQo-Ub-837" id="yE0-xn-qvm"/>
                         <outlet property="tableView" destination="Byt-o3-3gz" id="2v9-0M-6Kh"/>
                         <segue destination="UKr-D7-a7T" kind="show" identifier="toMyRideDetails" id="yyg-lA-89K"/>
@@ -114,7 +130,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Fe7-7M-ucB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1199" y="-1021"/>
+            <point key="canvasLocation" x="-1199.2" y="-1021.4392803598201"/>
         </scene>
         <!--New Ride-->
         <scene sceneID="VpG-yz-B5j">
@@ -138,11 +154,11 @@
                                 <rect key="frame" x="265" y="372" width="94" height="29"/>
                                 <color key="tintColor" red="0.92549019610000005" green="0.94117647059999998" blue="0.94509803920000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <connections>
-                                    <action selector="stepperValChanged:" destination="sad-jW-Up4" eventType="valueChanged" id="eVm-DC-iB7"/>
+                                    <action selector="stepperValChangedWithSender:" destination="sad-jW-Up4" eventType="valueChanged" id="RV4-Kg-zER"/>
                                 </connections>
                             </stepper>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hQj-3p-YOW">
-                                <rect key="frame" x="249" y="377" width="8" height="21"/>
+                                <rect key="frame" x="249" y="376.5" width="8" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.92549019610000005" green="0.94117647059999998" blue="0.94509803920000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
@@ -155,11 +171,11 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                 <connections>
-                                    <action selector="costEditingChanged:" destination="sad-jW-Up4" eventType="editingChanged" id="Mmr-QX-iR0"/>
+                                    <action selector="costEditingChangedWithSender:" destination="sad-jW-Up4" eventType="valueChanged" id="Ygt-nh-F4b"/>
                                 </connections>
                             </textField>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Optional notes for passengers" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="0tL-xY-nMx">
-                                <rect key="frame" x="16" y="447" width="343" height="200"/>
+                                <rect key="frame" x="16" y="447" width="343" height="151"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="textColor" red="0.66666666666666663" green="0.66666666666666663" blue="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -176,7 +192,7 @@
                                         <color key="tintColor" red="0.92549019610000005" green="0.94117647059999998" blue="0.94509803920000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <state key="normal" image="flip"/>
                                         <connections>
-                                            <action selector="switchToFromAction:" destination="sad-jW-Up4" eventType="touchUpInside" id="ZH8-jV-Hqp"/>
+                                            <action selector="switchToFromActionWithSender:" destination="sad-jW-Up4" eventType="touchUpInside" id="dZf-kV-Dsj"/>
                                         </connections>
                                     </button>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="WVE-X6-k27">
@@ -222,7 +238,7 @@
                     <navigationItem key="navigationItem" title="New Ride" id="zFj-Hn-bhY">
                         <barButtonItem key="leftBarButtonItem" title="Cancel" id="zdh-1I-mOG">
                             <connections>
-                                <action selector="cancelButtonAction:" destination="sad-jW-Up4" id="ve2-dX-BaM"/>
+                                <action selector="cancelButtonActionWithSender:" destination="sad-jW-Up4" id="TpA-NX-U4P"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" enabled="NO" title="Add" id="AAY-fi-0Ho">
@@ -258,9 +274,10 @@
         <!--Navigation Controller-->
         <scene sceneID="Gxd-g4-fbF">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dBa-os-92u" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController storyboardIdentifier="NewRideViewController" automaticallyAdjustsScrollViewInsets="NO" id="Wrf-eZ-0Tt" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="s47-iJ-ihO">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="s47-iJ-ihO">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -269,7 +286,6 @@
                         <segue destination="sad-jW-Up4" kind="relationship" relationship="rootViewController" id="oZm-10-dsR"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dBa-os-92u" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-479" y="-1021"/>
         </scene>
@@ -295,4 +311,5 @@
         <image name="car_filled" width="33" height="33"/>
         <image name="flip" width="22" height="18"/>
     </resources>
+    <color key="tintColor" red="0.9959825873374939" green="0.99621325731277466" blue="0.99187678098678589" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
 </document>
