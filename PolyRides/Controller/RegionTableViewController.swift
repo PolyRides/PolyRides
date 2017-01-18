@@ -22,12 +22,12 @@ class RegionTableViewCell: UITableViewCell {
 
   override func setHighlighted(_ highlighted: Bool, animated: Bool) {
     if highlighted {
-      backgroundImageView?.alpha = 0.5
+      backgroundImageView?.alpha = 0.4
       locationBackgroundView?.alpha = 0.5
-      location?.textColor = Color.Gray
-      numRides?.textColor = Color.Gray
+      location?.textColor = UIColor.white
+      numRides?.textColor = UIColor.white
     } else {
-      backgroundImageView?.alpha = 1.0
+      backgroundImageView?.alpha = 0.6
       locationBackgroundView?.alpha = 0.65
       location?.textColor = UIColor.white
       numRides?.textColor = UIColor.white

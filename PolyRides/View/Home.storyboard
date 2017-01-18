@@ -43,7 +43,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="159"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="san_francisco" translatesAutoresizingMaskIntoConstraints="NO" id="tOo-ad-mie">
+                                                <imageView userInteractionEnabled="NO" alpha="0.59999999999999998" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="san_francisco" translatesAutoresizingMaskIntoConstraints="NO" id="tOo-ad-mie">
                                                     <rect key="frame" x="0.0" y="0.0" width="600" height="199.5"/>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="36 rides" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1kG-Kz-8pQ">
@@ -77,6 +77,7 @@
                                         <connections>
                                             <outlet property="backgroundImageView" destination="tOo-ad-mie" id="AXR-UX-tMo"/>
                                             <outlet property="location" destination="DTH-uO-3Mf" id="4yt-BE-KHu"/>
+                                            <outlet property="locationBackgroundView" destination="tOo-ad-mie" id="JLf-Fz-gnd"/>
                                             <outlet property="numRides" destination="1kG-Kz-8pQ" id="PaR-Eb-b6D"/>
                                             <segue destination="OMY-dk-k3w" kind="show" identifier="toRegionRides" id="k8o-h7-lh2"/>
                                         </connections>
