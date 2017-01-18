@@ -61,7 +61,6 @@
 		DB701ADF1CA2537E00B40C9C /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB701ADE1CA2537E00B40C9C /* UserService.swift */; };
 		DB701AE11CA2568900B40C9C /* LoadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB701AE01CA2568900B40C9C /* LoadingViewController.swift */; };
 		DB701AE31CA2582100B40C9C /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB701AE21CA2582100B40C9C /* AuthService.swift */; };
-		DB701AE51CA2607D00B40C9C /* LoadingLaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB701AE41CA2607D00B40C9C /* LoadingLaunchScreen.storyboard */; };
 		DB701AEB1CA2EBDC00B40C9C /* MyRideDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB701AEA1CA2EBDC00B40C9C /* MyRideDetailsViewController.swift */; };
 		DB70B8CE1C9389EA0065CC4D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB70B8CD1C9389EA0065CC4D /* AppDelegate.swift */; };
 		DB70B8D51C9389EA0065CC4D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DB70B8D41C9389EA0065CC4D /* Assets.xcassets */; };
@@ -188,7 +187,6 @@
 		DB701ADE1CA2537E00B40C9C /* UserService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
 		DB701AE01CA2568900B40C9C /* LoadingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingViewController.swift; sourceTree = "<group>"; };
 		DB701AE21CA2582100B40C9C /* AuthService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
-		DB701AE41CA2607D00B40C9C /* LoadingLaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LoadingLaunchScreen.storyboard; sourceTree = "<group>"; };
 		DB701AEA1CA2EBDC00B40C9C /* MyRideDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyRideDetailsViewController.swift; sourceTree = "<group>"; };
 		DB70B8CA1C9389EA0065CC4D /* Poly Rides.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Poly Rides.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DB70B8CD1C9389EA0065CC4D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -489,7 +487,6 @@
 			isa = PBXGroup;
 			children = (
 				DB70B9031C938CDC0065CC4D /* LaunchScreen.storyboard */,
-				DB701AE41CA2607D00B40C9C /* LoadingLaunchScreen.storyboard */,
 				DB5F03C51CAE1D0800E49A12 /* FacebookLogin.storyboard */,
 			);
 			name = Login;
@@ -719,7 +716,6 @@
 				DB3141BC1CD032C800F88176 /* SF-UI-Display-Semibold.otf in Resources */,
 				DB3141C61CD032C800F88176 /* SF-UI-Text-MediumItalic.otf in Resources */,
 				DB70B9051C938CDC0065CC4D /* LaunchScreen.storyboard in Resources */,
-				DB701AE51CA2607D00B40C9C /* LoadingLaunchScreen.storyboard in Resources */,
 				DB3141C91CD032C800F88176 /* SF-UI-Text-Semibold.otf in Resources */,
 				DB8DAE651CB2EEED0045195D /* PassengerProfile.storyboard in Resources */,
 			);
@@ -1095,6 +1091,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "LaunchImage-2";
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
@@ -1123,6 +1120,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "LaunchImage-2";
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				DEVELOPMENT_TEAM = BX45H3NW68;
