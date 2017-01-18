@@ -30,12 +30,6 @@ class LoginViewController: LoadingViewController {
       self.authService.authWithFacebook()
     } else {
       authService.loginDelegate = self
-
-      buttonView?.layer.cornerRadius = 5
-      button?.layer.cornerRadius = 5
-
-      trackScreen(screenName: String(describing: LoginViewController.self))
-      button?.centerTextAndImage(spacing: 8.0)
     }
   }
 
@@ -48,6 +42,13 @@ class LoginViewController: LoadingViewController {
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
     navigationController?.isNavigationBarHidden = true
+
+    buttonView?.layer.cornerRadius = 5
+    button?.layer.cornerRadius = 5
+
+    trackScreen(screenName: String(describing: LoginViewController.self))
+    button?.centerTextAndImage(spacing: 8.0)
+
     stopLoading()
   }
 

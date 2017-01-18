@@ -14,7 +14,7 @@
             <objects>
                 <navigationController useStoryboardIdentifierAsRestorationIdentifier="YES" id="twN-Cg-lOh" sceneMemberID="viewController">
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="zrh-Sv-chm">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="zrh-Sv-chm">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -61,7 +61,7 @@
                                             <constraint firstAttribute="height" constant="100" id="t7G-xZ-sLW"/>
                                         </constraints>
                                     </imageView>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" showsHorizontalScrollIndicator="NO" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="P8v-NG-60g">
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" showsHorizontalScrollIndicator="NO" editable="NO" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="P8v-NG-60g">
                                         <rect key="frame" x="8" y="145" width="584" height="75"/>
                                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
@@ -92,7 +92,7 @@
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="zmc-MI-tnn"/>
                                         </constraints>
-                                        <state key="normal" title="Log Out"/>
+                                        <state key="normal" title="Logout"/>
                                         <connections>
                                             <action selector="logOutActionWithSender:" destination="oWY-WK-zfY" eventType="touchUpInside" id="JT4-JR-FmR"/>
                                         </connections>
@@ -220,7 +220,7 @@
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Color" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gSE-K2-JCu">
                                 <rect key="frame" x="20" y="367" width="560" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Te4-Mm-b6w">
                                 <rect key="frame" x="20" y="405" width="140" height="30"/>
@@ -299,7 +299,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="8RG-ub-u8u" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="RGX-9v-rhz">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="RGX-9v-rhz">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>

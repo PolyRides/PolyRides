@@ -12,6 +12,7 @@ class MyProfileViewController: ProfileViewController {
 
   @IBAction func logOutAction(sender: AnyObject) {
     UserService().logOut()
+    FBSDKAccessToken.setCurrent(nil)
   }
 
   override func viewDidLoad() {

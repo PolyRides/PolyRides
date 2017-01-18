@@ -68,7 +68,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     siren.checkVersion(checkType: .immediately)
     
     if let currentUser = FIRAuth.auth()?.currentUser {
-      let storyboard = UIStoryboard(name: "LoadingLaunchScreen", bundle: nil)
+      let storyboard = UIStoryboard(name: "LaunchScreen", bundle: nil)
       if let controller = storyboard.instantiateInitialViewController() as? LaunchScreenViewController {
         let user = User()
 
