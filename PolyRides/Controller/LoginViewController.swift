@@ -22,6 +22,16 @@ class LoginViewController: LoadingViewController {
     loginWithFacebook()
   }
 
+  @IBAction func checkAgain(_ sender: Any) {
+    if FBSDKAccessToken.current() != nil {
+
+      print("logged in! :)")
+    } else {
+      authService.loginDelegate = self
+      print("not logged in. :(")
+    }
+  }
+
   override func viewDidLoad() {
     super.viewDidLoad()
 

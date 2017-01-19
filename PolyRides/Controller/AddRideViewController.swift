@@ -62,6 +62,10 @@ class AddRideViewController: ScrollingFormViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
 
+    print("NOTES TEXT VIEW:")
+    print(notesTextView)
+    print(notesTextView?.frame)
+
     toPlaceTextField?.delegate = self
     fromPlaceTextField?.delegate = self
     datePicker?.setValue(UIColor.white, forKey: "textColor")

@@ -228,14 +228,11 @@
                         </subviews>
                         <color key="backgroundColor" red="0.20784313730000001" green="0.28627450980000002" blue="0.36470588240000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="0tL-xY-nMx" firstAttribute="trailing" secondItem="ZwG-jc-XDH" secondAttribute="trailingMargin" id="4rD-8a-ACr"/>
                             <constraint firstItem="f3D-LS-bbZ" firstAttribute="top" secondItem="ZYs-S9-nE0" secondAttribute="bottom" constant="8" id="7F6-ms-H6R"/>
                             <constraint firstItem="hQj-3p-YOW" firstAttribute="centerY" secondItem="8ul-zB-9Pu" secondAttribute="centerY" id="7dg-27-CCz"/>
                             <constraint firstItem="xIz-bR-u4X" firstAttribute="trailing" secondItem="ZwG-jc-XDH" secondAttribute="trailingMargin" id="96K-D2-SSM"/>
                             <constraint firstItem="8ul-zB-9Pu" firstAttribute="top" secondItem="f3D-LS-bbZ" secondAttribute="bottom" constant="8" id="9As-lY-zpq"/>
                             <constraint firstItem="f3D-LS-bbZ" firstAttribute="leading" secondItem="ZwG-jc-XDH" secondAttribute="leadingMargin" id="B6P-kl-54e"/>
-                            <constraint firstItem="0tL-xY-nMx" firstAttribute="leading" secondItem="ZwG-jc-XDH" secondAttribute="leading" constant="16" id="FbB-EH-fbh"/>
-                            <constraint firstItem="0tL-xY-nMx" firstAttribute="top" secondItem="xIz-bR-u4X" secondAttribute="bottom" constant="8" id="K0Y-bg-7zs"/>
                             <constraint firstItem="4T7-xg-Ljk" firstAttribute="top" secondItem="0tL-xY-nMx" secondAttribute="bottom" constant="20" id="K72-6U-J70"/>
                             <constraint firstAttribute="trailing" secondItem="0tL-xY-nMx" secondAttribute="trailing" constant="16" id="LDN-IA-8cU"/>
                             <constraint firstItem="4T7-xg-Ljk" firstAttribute="top" secondItem="0tL-xY-nMx" secondAttribute="bottom" constant="20" id="LHw-QB-4rW"/>
@@ -244,10 +241,10 @@
                             <constraint firstItem="ZYs-S9-nE0" firstAttribute="leading" secondItem="ZwG-jc-XDH" secondAttribute="leadingMargin" id="V47-jx-32V"/>
                             <constraint firstItem="xIz-bR-u4X" firstAttribute="top" secondItem="8ul-zB-9Pu" secondAttribute="bottom" constant="8" id="aBG-Tr-dfo"/>
                             <constraint firstItem="ZYs-S9-nE0" firstAttribute="top" secondItem="Mr1-c8-niI" secondAttribute="bottom" constant="8" id="hg4-eI-rd8"/>
-                            <constraint firstItem="0tL-xY-nMx" firstAttribute="leading" secondItem="ZwG-jc-XDH" secondAttribute="leadingMargin" id="lvw-Sa-dya"/>
                             <constraint firstItem="8ul-zB-9Pu" firstAttribute="leading" secondItem="hQj-3p-YOW" secondAttribute="trailing" constant="8" id="oPQ-GJ-ZDx"/>
-                            <constraint firstItem="0tL-xY-nMx" firstAttribute="top" secondItem="xIz-bR-u4X" secondAttribute="bottom" constant="8" id="qJp-Y7-yES"/>
                             <constraint firstAttribute="trailingMargin" secondItem="f3D-LS-bbZ" secondAttribute="trailing" id="tEB-Qw-C7h"/>
+                            <constraint firstItem="0tL-xY-nMx" firstAttribute="leading" secondItem="f3D-LS-bbZ" secondAttribute="leading" id="wTl-8p-luo"/>
+                            <constraint firstItem="0tL-xY-nMx" firstAttribute="top" secondItem="xIz-bR-u4X" secondAttribute="bottom" constant="8" symbolic="YES" id="zzg-Tc-Rkb"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="New Ride" id="zFj-Hn-bhY">

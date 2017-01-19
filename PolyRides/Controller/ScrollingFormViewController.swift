@@ -38,7 +38,7 @@ class ScrollingFormViewController: UIViewController, UITextViewDelegate, UITextF
     scrollView.showsVerticalScrollIndicator = false
     scrollView.showsHorizontalScrollIndicator = false
     scrollView.addSubview(self.view)
-    self.view = scrollView
+    //self.view = scrollView
   }
 
   override func viewDidLayoutSubviews() {

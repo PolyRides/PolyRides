@@ -61,11 +61,14 @@
 	<key>FacebookAppID</key>
 	<string>1241244529255065</string>
 	<key>FacebookDisplayName</key>
-	<string>Poly Rides</string>
-	<key>LSApplicationQueriesSchemes</key>
-	<array>
-		<string>fbauth2</string>
-	</array>
+	<string>Poly Rides 2.0</string>
+  <key>LSApplicationQueriesSchemes</key>
+  <array>
+    <string>fbapi</string>
+    <string>fb-messenger-api</string>
+    <string>fbauth2</string>
+    <string>fbshareextension</string>
+  </array>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>MKDirectionsApplicationSupportedModes</key>

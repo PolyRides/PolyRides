@@ -38,6 +38,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
   private func application(application: UIApplication, didFinishLaunchingWithOptions
     launchOptions: [NSObject: AnyObject]?) -> Bool {
 
+    FBSDKApplicationDelegate.sharedInstance()
+      .application(application, didFinishLaunchingWithOptions: launchOptions)
+
     // Tab bar appearance.
     UITabBarItem.appearance().setTitleTextAttributes(Attributes.TabBar, for: .normal)
 
@@ -83,9 +86,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     // Fabric (must be the last call in didFinishLaunchingWithOptions).
     Fabric.with([Crashlytics.self])
-
-    FBSDKApplicationDelegate.sharedInstance()
-      .application(application, didFinishLaunchingWithOptions: launchOptions)
 
     return true
   }
