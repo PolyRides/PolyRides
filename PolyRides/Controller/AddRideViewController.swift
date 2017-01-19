@@ -8,6 +8,7 @@
 
 import GoogleMaps
 import GooglePlaces
+import IQKeyboardManagerSwift
 
 class AddRideViewController: UIViewController {
 
@@ -64,6 +65,7 @@ class AddRideViewController: UIViewController {
 
     toPlaceTextField?.delegate = self
     fromPlaceTextField?.delegate = self
+    datePicker?.setValue(UIColor.white, forKey: "textColor")
 
     placesClient = GMSPlacesClient()
     setupAppearance()

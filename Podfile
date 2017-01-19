@@ -21,6 +21,7 @@ target 'PolyRides' do
    pod 'Firebase/Auth'
    pod 'Firebase/Database'
    pod 'JSQMessagesViewController'
+   pod 'IQKeyboardManagerSwift'
 end
 
 target 'PolyRidesTests' do
