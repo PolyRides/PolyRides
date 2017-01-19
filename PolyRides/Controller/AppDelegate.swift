@@ -18,7 +18,6 @@ import SendGrid
 import FirebaseDatabase
 import FirebaseAuth
 import FirebaseAnalytics
-import IQKeyboardManagerSwift
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -84,9 +83,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     // Fabric (must be the last call in didFinishLaunchingWithOptions).
     Fabric.with([Crashlytics.self])
-
-    // Keyboard manager
-    IQKeyboardManager.sharedManager().enable = true
 
     FBSDKApplicationDelegate.sharedInstance()
       .application(application, didFinishLaunchingWithOptions: launchOptions)

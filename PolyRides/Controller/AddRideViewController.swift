@@ -8,9 +8,8 @@
 
 import GoogleMaps
 import GooglePlaces
-import IQKeyboardManagerSwift
 
-class AddRideViewController: UIViewController {
+class AddRideViewController: ScrollingFormViewController {
 
   let gpaKey = "AIzaSyBV7uveXT1JXkp149zLJgmCb2U-caWuH84"
   let rideService = RideService()
@@ -138,6 +137,15 @@ class AddRideViewController: UIViewController {
     return nil
   }
 
+  override func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
+    if textField == toPlaceTextField || textField == fromPlaceTextField {
+      autocompleteTextField = textField
+      performSegue(withIdentifier: "toAutocomplete", sender: textField)
+      return false
+    }
+    return true
+  }
+
 }
 
 // MARK: - AutocompleteDelegate
@@ -150,17 +158,6 @@ extension AddRideViewController: AutocompleteDelegate {
     } else {
       fromPlace = place
     }
-  }
-
-}
-
-// MARK: - UITextFieldDelegate
-extension AddRideViewController: UITextFieldDelegate {
-
-  func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
-    autocompleteTextField = textField
-    performSegue(withIdentifier: "toAutocomplete", sender: textField)
-    return false
   }
 
 }
