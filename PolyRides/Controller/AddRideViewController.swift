@@ -212,8 +212,7 @@ class AddRideViewController: UIViewController, UITextViewDelegate, UITextFieldDe
       let aRect: CGRect = scrollView!.convert(activeFieldRect!, to: nil)
       if (keyboardRect!.contains(CGPoint(x: aRect.origin.x, y: aRect.maxY))) {
         scrollView?.isScrollEnabled = true
-        // TODO: make this prettier, shouldn't need this magic # 70
-        let contentInsets: UIEdgeInsets = UIEdgeInsetsMake(0.0, 0.0, keyboardRect!.size.height + 70, 0.0)
+        let contentInsets: UIEdgeInsets = UIEdgeInsetsMake(0.0, 0.0, keyboardRect!.size.height, 0.0)
         scrollView?.contentInset = contentInsets
         scrollView?.scrollIndicatorInsets = contentInsets
         scrollView?.scrollRectToVisible(activeFieldRect!, animated: true)
