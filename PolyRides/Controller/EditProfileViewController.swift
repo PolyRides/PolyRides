@@ -196,7 +196,6 @@ extension EditProfileViewController: FirebaseVerificationDelegate {
 
 extension EditProfileViewController: UITextViewDelegate {
   func textViewDidBeginEditing(_ textView: UITextView) {
-    print (textView.textColor!)
     if textView.textColor == UIColor.lightGray {
       textView.text = nil
       textView.textColor = UIColor.black

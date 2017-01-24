@@ -13,6 +13,7 @@ class AddRideViewController: UIViewController, UITextViewDelegate, UITextFieldDe
 
   let gpaKey = "AIzaSyBV7uveXT1JXkp149zLJgmCb2U-caWuH84"
   let rideService = RideService()
+  let emptyDescription = "Optional notes for passengers."
 
   var user: User?
   var ride: Ride?
@@ -76,6 +77,8 @@ class AddRideViewController: UIViewController, UITextViewDelegate, UITextFieldDe
     scrollView?.isScrollEnabled = false
     scrollView?.showsVerticalScrollIndicator = false
     scrollView?.showsHorizontalScrollIndicator = false
+    notesTextView?.text = emptyDescription
+    notesTextView?.textColor = UIColor.lightGray
 
     toPlaceTextField?.delegate = self
     fromPlaceTextField?.delegate = self
@@ -94,7 +97,7 @@ class AddRideViewController: UIViewController, UITextViewDelegate, UITextFieldDe
             if let date = datePicker?.date {
               cost = cost.replacingOccurrences(of: "$", with: "")
               if let user = user {
-                if description == "Optional notes for passengers" {
+                if description == "Optional notes for passengers." {
                   description = ""
                 }
 
@@ -228,11 +231,22 @@ class AddRideViewController: UIViewController, UITextViewDelegate, UITextFieldDe
   func textViewShouldBeginEditing(_ textView: UITextView) -> Bool {
     activeFieldRect = textView.frame
     adjustForKeyboard()
+
+    if textView.textColor == UIColor.lightGray {
+      textView.text = nil
+      textView.textColor = UIColor.black
+    }
     return true
   }
 
   func textViewDidEndEditing(_ textView: UITextView) {
     activeFieldRect = nil
+
+    if textView.text.isEmpty {
+      textView.text = emptyDescription
+      textView.textColor = UIColor.lightGray
+    }
+
     adjustForKeyboard()
   }
 

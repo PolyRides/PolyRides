@@ -18,7 +18,7 @@
         <scene sceneID="dZZ-XN-P3U">
             <objects>
                 <navigationController id="F06-1m-krZ" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="fE4-qe-hof">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="fE4-qe-hof">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -69,18 +69,18 @@
                                         <rect key="frame" x="0.0" y="28" width="383" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="QpA-pm-jdK" id="M9i-mz-9aA">
-                                            <rect key="frame" x="0.0" y="0.0" width="350" height="59"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="350" height="59.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="82s-h3-hxQ">
-                                                    <rect key="frame" x="15" y="13" width="34" height="20"/>
+                                                    <rect key="frame" x="15" y="14" width="33.5" height="19.5"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" name="SFUIText-Regular" family="SF UI Text" pointSize="16"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Subtitle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="yZN-2X-zZV">
-                                                    <rect key="frame" x="15" y="33" width="40" height="14"/>
+                                                    <rect key="frame" x="15" y="33.5" width="40" height="13.5"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" name="SFUIText-Regular" family="SF UI Text" pointSize="11"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -168,7 +168,7 @@
                                     <action selector="costEditingChangedWithSender:" destination="sad-jW-Up4" eventType="valueChanged" id="Ygt-nh-F4b"/>
                                 </connections>
                             </textField>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Optional notes for passengers" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="0tL-xY-nMx">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Optional notes for passengers." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="0tL-xY-nMx">
                                 <rect key="frame" x="16" y="447" width="343" height="151"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="textColor" red="0.66666666666666663" green="0.66666666666666663" blue="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -233,6 +233,8 @@
                             <constraint firstItem="hQj-3p-YOW" firstAttribute="centerY" secondItem="8ul-zB-9Pu" secondAttribute="centerY" id="7dg-27-CCz"/>
                             <constraint firstItem="xIz-bR-u4X" firstAttribute="trailing" secondItem="ZwG-jc-XDH" secondAttribute="trailingMargin" id="96K-D2-SSM"/>
                             <constraint firstItem="8ul-zB-9Pu" firstAttribute="top" secondItem="f3D-LS-bbZ" secondAttribute="bottom" constant="8" id="9As-lY-zpq"/>
+                            <constraint firstItem="8ul-zB-9Pu" firstAttribute="leading" secondItem="hQj-3p-YOW" secondAttribute="trailing" constant="8" id="9PE-qm-jAD"/>
+                            <constraint firstItem="xIz-bR-u4X" firstAttribute="trailing" secondItem="ZwG-jc-XDH" secondAttribute="trailingMargin" id="Avc-Fe-iQ8"/>
                             <constraint firstItem="f3D-LS-bbZ" firstAttribute="leading" secondItem="ZwG-jc-XDH" secondAttribute="leadingMargin" id="B6P-kl-54e"/>
                             <constraint firstItem="0tL-xY-nMx" firstAttribute="top" secondItem="xIz-bR-u4X" secondAttribute="bottom" constant="8" id="K0Y-bg-7zs"/>
                             <constraint firstItem="4T7-xg-Ljk" firstAttribute="top" secondItem="0tL-xY-nMx" secondAttribute="bottom" constant="20" id="LHw-QB-4rW"/>
@@ -240,10 +242,14 @@
                             <constraint firstAttribute="trailingMargin" secondItem="ZYs-S9-nE0" secondAttribute="trailing" id="SVU-SM-Wl6"/>
                             <constraint firstItem="ZYs-S9-nE0" firstAttribute="leading" secondItem="ZwG-jc-XDH" secondAttribute="leadingMargin" id="V47-jx-32V"/>
                             <constraint firstItem="xIz-bR-u4X" firstAttribute="top" secondItem="8ul-zB-9Pu" secondAttribute="bottom" constant="8" id="aBG-Tr-dfo"/>
+                            <constraint firstItem="xIz-bR-u4X" firstAttribute="leading" secondItem="ZwG-jc-XDH" secondAttribute="leadingMargin" constant="263" id="e5i-pw-mEq"/>
+                            <constraint firstAttribute="trailing" secondItem="8ul-zB-9Pu" secondAttribute="trailing" constant="16" id="goZ-DN-sAm"/>
                             <constraint firstItem="ZYs-S9-nE0" firstAttribute="top" secondItem="Mr1-c8-niI" secondAttribute="bottom" constant="8" id="hg4-eI-rd8"/>
                             <constraint firstItem="0tL-xY-nMx" firstAttribute="leading" secondItem="ZwG-jc-XDH" secondAttribute="leadingMargin" id="lvw-Sa-dya"/>
                             <constraint firstItem="8ul-zB-9Pu" firstAttribute="leading" secondItem="hQj-3p-YOW" secondAttribute="trailing" constant="8" id="oPQ-GJ-ZDx"/>
+                            <constraint firstItem="0tL-xY-nMx" firstAttribute="trailing" secondItem="ZwG-jc-XDH" secondAttribute="trailingMargin" id="rg2-da-ReM"/>
                             <constraint firstAttribute="trailingMargin" secondItem="f3D-LS-bbZ" secondAttribute="trailing" id="tEB-Qw-C7h"/>
+                            <constraint firstItem="0tL-xY-nMx" firstAttribute="leading" secondItem="ZwG-jc-XDH" secondAttribute="leadingMargin" id="wAK-jj-ozd"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="New Ride" id="zFj-Hn-bhY">
@@ -288,7 +294,7 @@
             <objects>
                 <navigationController storyboardIdentifier="NewRideViewController" automaticallyAdjustsScrollViewInsets="NO" id="Wrf-eZ-0Tt" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="s47-iJ-ihO">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="s47-iJ-ihO">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
