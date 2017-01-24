@@ -74,7 +74,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="H6b-CO-3Ix">
-                                                    <rect key="frame" x="16" y="-2" width="90" height="91"/>
+                                                    <rect key="frame" x="16" y="-1.5" width="90" height="90"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="90" id="1pA-By-buo"/>
                                                         <constraint firstAttribute="width" constant="90" id="T54-gn-Wp3"/>
@@ -127,7 +127,7 @@
                     <navigationItem key="navigationItem" title="Ride Details" id="1dR-hJ-kTJ">
                         <barButtonItem key="rightBarButtonItem" image="star" id="VmP-Un-Wi4">
                             <connections>
-                                <action selector="saveRideAction:" destination="kuy-fA-YL2" id="ZPf-fq-Pen"/>
+                                <action selector="saveRideActionWithSender:" destination="kuy-fA-YL2" id="LVe-2f-WFv"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>

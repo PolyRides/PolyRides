@@ -75,6 +75,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
       if let controller = storyboard.instantiateInitialViewController() as? LaunchScreenViewController {
         let user = User()
 
+        print("IN HERE")
+
         if let profile = currentUser.providerData.first {
           user.facebookId = profile.uid
         }

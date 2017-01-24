@@ -15,15 +15,15 @@ class LaunchScreenViewController: LoadingViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
 
-    // if user?.id != nil {
-    //   self.startLoadingData()
-    // } else
-
-    if user?.facebookId != nil {
-      userService.getUserId(user: user!)
-    } else {
-      userService.logOut()
-    }
+//    if user?.id != nil {
+//      self.startLoadingData()
+//    } else
+//
+//    if user?.facebookId != nil {
+//      userService.getUserId(user: user!)
+//    } else {
+//      userService.logOut()
+//    }
   }
 
 }
