@@ -258,9 +258,9 @@
                                 <action selector="cancelButtonActionWithSender:" destination="sad-jW-Up4" id="TpA-NX-U4P"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" enabled="NO" title="Add" id="AAY-fi-0Ho">
+                        <barButtonItem key="rightBarButtonItem" title="Add" id="AAY-fi-0Ho">
                             <connections>
-                                <segue destination="sks-kU-S7B" kind="unwind" identifier="addRide" unwindAction="addRide:" id="a0x-Rf-6AV"/>
+                                <segue destination="sks-kU-S7B" kind="unwind" identifier="addRide" unwindAction="addRideWithSegue:" id="xOT-wT-VaT"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
