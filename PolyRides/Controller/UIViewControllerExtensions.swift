@@ -69,8 +69,5 @@ extension UIViewController {
     self.present(alert, animated: true, completion: nil)
   }
 
-  func trackScreen(screenName: String) {
-    GoogleAnalyticsHelper.trackScreen(name: screenName)
-  }
-
+  
 }

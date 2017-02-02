@@ -56,7 +56,6 @@ class LoginViewController: LoadingViewController {
     buttonView?.layer.cornerRadius = 5
     button?.layer.cornerRadius = 5
 
-    trackScreen(screenName: String(describing: LoginViewController.self))
     button?.centerTextAndImage(spacing: 8.0)
 
     stopLoading()
@@ -75,7 +74,6 @@ class LoginViewController: LoadingViewController {
   }
 
   func stopLoading() {
-    UIApplication.shared.endIgnoringInteractionEvents()
     indicator?.stopAnimating()
     indicator?.isHidden = true
     button?.isHidden = false

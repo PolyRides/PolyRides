@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1918465B9E0F71CB1F35939C /* Pods_PolyRidesTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC278F6A1EA0392BFCB61FC8 /* Pods_PolyRidesTests.framework */; };
+		3E82D06A1E42EA54002A3845 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3E82D0691E42EA54002A3845 /* GoogleService-Info.plist */; };
 		3E90DA671E31406B006D7FFB /* ScrollingFormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E90DA661E31406B006D7FFB /* ScrollingFormViewController.swift */; };
 		3EF422601E2F16C000895BA1 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EF4225F1E2F16C000895BA1 /* MapKit.framework */; };
 		6E4373601CA4E3EB00630D07 /* ConversationsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E43735F1CA4E3EB00630D07 /* ConversationsTableViewController.swift */; };
@@ -18,7 +19,6 @@
 		6E628FA01CA100E400AAC2DB /* ConversationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E628F9F1CA100E400AAC2DB /* ConversationService.swift */; };
 		6F0CD61C0CA1BF5E3F2C4637 /* Pods_PolyRides.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B57C9947CBFC1D929A1370A /* Pods_PolyRides.framework */; };
 		D4A36E8F67BFA93F4683C450 /* Pods_PolyRidesUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 33776C172972E3E4DF0CA06A /* Pods_PolyRidesUITests.framework */; };
-		DB16CA371DF61EE4006A73F6 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = DB16CA361DF61EE4006A73F6 /* GoogleService-Info.plist */; };
 		DB1C76721CA0F08C0052D3B9 /* PassengerRideDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB1C76711CA0F08C0052D3B9 /* PassengerRideDetailsViewController.swift */; };
 		DB24333B1CA397940025680B /* MyRideDetails.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB24333A1CA397940025680B /* MyRideDetails.storyboard */; };
 		DB24333D1CA397E80025680B /* PassengerRideDetails.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB24333C1CA397E80025680B /* PassengerRideDetails.storyboard */; };
@@ -96,7 +96,6 @@
 		DBBBD13B1C9DE4D00085E3B9 /* Ride.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBBBD13A1C9DE4D00085E3B9 /* Ride.swift */; };
 		DBBBD13D1C9DE57B0085E3B9 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBBBD13C1C9DE57B0085E3B9 /* Location.swift */; };
 		DBBBD13F1C9DE8590085E3B9 /* GoogleMapsHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBBBD13E1C9DE8590085E3B9 /* GoogleMapsHelper.swift */; };
-		DBF5E6DB1C93A66600693807 /* GoogleAnalyticsHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBF5E6DA1C93A66600693807 /* GoogleAnalyticsHelper.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -132,6 +131,7 @@
 /* Begin PBXFileReference section */
 		134E6090D8164DDCE96194DA /* Pods-PolyRidesTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PolyRidesTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PolyRidesTests/Pods-PolyRidesTests.debug.xcconfig"; sourceTree = "<group>"; };
 		33776C172972E3E4DF0CA06A /* Pods_PolyRidesUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PolyRidesUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3E82D0691E42EA54002A3845 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		3E90DA661E31406B006D7FFB /* ScrollingFormViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScrollingFormViewController.swift; sourceTree = "<group>"; };
 		3EF4225E1E2F16A300895BA1 /* Poly Rides.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Poly Rides.entitlements"; sourceTree = "<group>"; };
 		3EF4225F1E2F16C000895BA1 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
@@ -147,7 +147,6 @@
 		88D7E45D7D50601055142313 /* Pods-PolyRides.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PolyRides.release.xcconfig"; path = "Pods/Target Support Files/Pods-PolyRides/Pods-PolyRides.release.xcconfig"; sourceTree = "<group>"; };
 		8B57C9947CBFC1D929A1370A /* Pods_PolyRides.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PolyRides.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9D9E525E9ED946969488040F /* Pods-PolyRides.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PolyRides.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PolyRides/Pods-PolyRides.debug.xcconfig"; sourceTree = "<group>"; };
-		DB16CA361DF61EE4006A73F6 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		DB1C76711CA0F08C0052D3B9 /* PassengerRideDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PassengerRideDetailsViewController.swift; sourceTree = "<group>"; };
 		DB24333A1CA397940025680B /* MyRideDetails.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MyRideDetails.storyboard; sourceTree = "<group>"; };
 		DB24333C1CA397E80025680B /* PassengerRideDetails.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = PassengerRideDetails.storyboard; sourceTree = "<group>"; };
@@ -232,7 +231,6 @@
 		DBBBD13A1C9DE4D00085E3B9 /* Ride.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Ride.swift; sourceTree = "<group>"; };
 		DBBBD13C1C9DE57B0085E3B9 /* Location.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		DBBBD13E1C9DE8590085E3B9 /* GoogleMapsHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoogleMapsHelper.swift; sourceTree = "<group>"; };
-		DBF5E6DA1C93A66600693807 /* GoogleAnalyticsHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GoogleAnalyticsHelper.swift; path = Model/GoogleAnalyticsHelper.swift; sourceTree = "<group>"; };
 		EC278F6A1EA0392BFCB61FC8 /* Pods_PolyRidesTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PolyRidesTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -472,10 +470,10 @@
 		DB70B8FE1C938A1B0065CC4D /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				3E82D0691E42EA54002A3845 /* GoogleService-Info.plist */,
 				DB8DAE6C1CB309CD0045195D /* Fonts */,
 				DB70B8D41C9389EA0065CC4D /* Assets.xcassets */,
 				DB70B9091C938F870065CC4D /* PolyRides-Bridging-Header.h */,
-				DB16CA361DF61EE4006A73F6 /* GoogleService-Info.plist */,
 				DB70B8D91C9389EA0065CC4D /* Info.plist */,
 			);
 			path = "Supporting Files";
@@ -534,7 +532,6 @@
 			children = (
 				DB8DAE6A1CB3080C0045195D /* Constants.swift */,
 				DBB1558B1C9B76C500118F89 /* DateHelper.swift */,
-				DBF5E6DA1C93A66600693807 /* GoogleAnalyticsHelper.swift */,
 				DBBBD13E1C9DE8590085E3B9 /* GoogleMapsHelper.swift */,
 			);
 			name = Utils;
@@ -651,13 +648,19 @@
 				TargetAttributes = {
 					DB70B8C91C9389EA0065CC4D = {
 						CreatedOnToolsVersion = 7.2.1;
-						DevelopmentTeam = BX45H3NW68;
+						DevelopmentTeam = 89WBEWPWMU;
 						LastSwiftMigration = 0810;
 						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
 							com.apple.Keychain = {
 								enabled = 1;
 							};
 							com.apple.Maps.iOS = {
+								enabled = 1;
+							};
+							com.apple.Push = {
 								enabled = 1;
 							};
 						};
@@ -702,7 +705,6 @@
 				DB24333D1CA397E80025680B /* PassengerRideDetails.storyboard in Resources */,
 				DB8DAE871CB6058B0045195D /* Autocomplete.storyboard in Resources */,
 				DB3141C41CD032C800F88176 /* SF-UI-Text-LightItalic.otf in Resources */,
-				DB16CA371DF61EE4006A73F6 /* GoogleService-Info.plist in Resources */,
 				DB3141BA1CD032C800F88176 /* SF-UI-Display-Medium.otf in Resources */,
 				DB3141B91CD032C800F88176 /* SF-UI-Display-Light.otf in Resources */,
 				DB3141C71CD032C800F88176 /* SF-UI-Text-Regular.otf in Resources */,
@@ -729,6 +731,7 @@
 				DB24333B1CA397940025680B /* MyRideDetails.storyboard in Resources */,
 				DB3141BD1CD032C800F88176 /* SF-UI-Display-Thin.otf in Resources */,
 				DB3141C01CD032C800F88176 /* SF-UI-Text-BoldItalic.otf in Resources */,
+				3E82D06A1E42EA54002A3845 /* GoogleService-Info.plist in Resources */,
 				DB747AB31C98D28A00A24F58 /* Home.storyboard in Resources */,
 				DB3141BC1CD032C800F88176 /* SF-UI-Display-Semibold.otf in Resources */,
 				DB3141C61CD032C800F88176 /* SF-UI-Text-MediumItalic.otf in Resources */,
@@ -970,7 +973,6 @@
 				DB5F03C81CAE1F6600E49A12 /* UIButtonExtensions.swift in Sources */,
 				DB8DAE6B1CB3080C0045195D /* Constants.swift in Sources */,
 				DB4151001C9A74500062E5A0 /* MyRidesViewController.swift in Sources */,
-				DBF5E6DB1C93A66600693807 /* GoogleAnalyticsHelper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1114,7 +1116,7 @@
 				CODE_SIGN_ENTITLEMENTS = "PolyRides/Poly Rides.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DEVELOPMENT_TEAM = BX45H3NW68;
+				DEVELOPMENT_TEAM = 89WBEWPWMU;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "PolyRides/Supporting Files/Info.plist";
@@ -1122,7 +1124,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				OTHER_LDFLAGS = "$(inherited)";
-				PRODUCT_BUNDLE_IDENTIFIER = com.Vanessa.PolyRides3;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Vanessa.PolyRides2;
 				PRODUCT_NAME = "Poly Rides";
 				SWIFT_OBJC_BRIDGING_HEADER = "PolyRides/Model/PolyRides-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -1143,7 +1145,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = "PolyRides/Poly Rides.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				DEVELOPMENT_TEAM = BX45H3NW68;
+				DEVELOPMENT_TEAM = 89WBEWPWMU;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "PolyRides/Supporting Files/Info.plist";
@@ -1151,7 +1153,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				OTHER_LDFLAGS = "$(inherited)";
-				PRODUCT_BUNDLE_IDENTIFIER = com.Vanessa.PolyRides3;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Vanessa.PolyRides2;
 				PRODUCT_NAME = "Poly Rides";
 				SWIFT_OBJC_BRIDGING_HEADER = "PolyRides/Model/PolyRides-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;

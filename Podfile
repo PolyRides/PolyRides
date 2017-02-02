@@ -10,7 +10,6 @@ target 'PolyRides' do
    pod 'GoogleMaps'
    pod 'GooglePlaces'
    pod 'GoogleUtilities'
-   pod 'Google/Analytics'
    pod 'FBSDKShareKit'
    pod 'FBSDKCoreKit'
    pod 'FBSDKLoginKit'
@@ -20,6 +19,7 @@ target 'PolyRides' do
    pod 'Firebase/Core'
    pod 'Firebase/Auth'
    pod 'Firebase/Database'
+   pod 'Firebase/Messaging'
    pod 'JSQMessagesViewController'
    pod 'IQKeyboardManagerSwift'
 end

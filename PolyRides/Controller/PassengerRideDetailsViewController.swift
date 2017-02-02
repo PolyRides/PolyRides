@@ -24,6 +24,10 @@ class PassengerRideDetailsViewController: RideDetailsViewController {
   @IBOutlet weak var tableView: UITableView?
   @IBOutlet weak var saveButton: UIBarButtonItem?
 
+  @IBAction func requestRide(_ sender: Any) {
+    
+  }
+
   @IBAction func saveRideAction(sender: AnyObject) {
     if let ride = ride {
       let index = user?.savedRides.index(where: { $0.id == ride.id })
