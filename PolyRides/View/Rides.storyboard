@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16C68" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="F06-1m-krZ">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12100" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="F06-1m-krZ">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12072"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -18,7 +18,7 @@
         <scene sceneID="dZZ-XN-P3U">
             <objects>
                 <navigationController id="F06-1m-krZ" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="fE4-qe-hof">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="fE4-qe-hof">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -69,18 +69,18 @@
                                         <rect key="frame" x="0.0" y="28" width="383" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="QpA-pm-jdK" id="M9i-mz-9aA">
-                                            <rect key="frame" x="0.0" y="0.0" width="350" height="59"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="350" height="59.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="82s-h3-hxQ">
-                                                    <rect key="frame" x="15" y="13" width="34" height="20"/>
+                                                    <rect key="frame" x="15" y="14" width="33.5" height="19.5"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" name="SFUIText-Regular" family="SF UI Text" pointSize="16"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Subtitle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="yZN-2X-zZV">
-                                                    <rect key="frame" x="15" y="33" width="40" height="14"/>
+                                                    <rect key="frame" x="15" y="33.5" width="40" height="13.5"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" name="SFUIText-Regular" family="SF UI Text" pointSize="11"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -91,9 +91,8 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="contactAdd" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a1a-Ag-w3X">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="contactAdd" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a1a-Ag-w3X">
                                 <rect key="frame" x="336" y="30" width="22" height="22"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <connections>
                                     <segue destination="Wrf-eZ-0Tt" kind="show" identifier="toAddRide" id="R30-Ol-d9o"/>
                                 </connections>
@@ -105,13 +104,17 @@
                             <constraint firstAttribute="trailingMargin" secondItem="YQo-Ub-837" secondAttribute="trailing" constant="43" id="8Dv-DH-ORw"/>
                             <constraint firstItem="YQo-Ub-837" firstAttribute="leading" secondItem="ioP-ZV-Euv" secondAttribute="leadingMargin" id="AAC-Dl-UaO"/>
                             <constraint firstItem="YQo-Ub-837" firstAttribute="leading" secondItem="ioP-ZV-Euv" secondAttribute="leadingMargin" id="CS1-SJ-oED"/>
+                            <constraint firstItem="a1a-Ag-w3X" firstAttribute="leading" secondItem="YQo-Ub-837" secondAttribute="trailing" constant="20" id="FDB-WM-hJM"/>
                             <constraint firstItem="wRW-a5-fDd" firstAttribute="top" secondItem="Byt-o3-3gz" secondAttribute="bottom" id="IDO-kM-Oab"/>
                             <constraint firstItem="Byt-o3-3gz" firstAttribute="top" secondItem="YQo-Ub-837" secondAttribute="bottom" constant="8" id="M3j-TT-KxP"/>
                             <constraint firstItem="Byt-o3-3gz" firstAttribute="leading" secondItem="ioP-ZV-Euv" secondAttribute="leadingMargin" constant="-20" id="OMI-Hk-BDO"/>
+                            <constraint firstItem="Byt-o3-3gz" firstAttribute="top" secondItem="a1a-Ag-w3X" secondAttribute="bottom" constant="12" id="Pqa-Le-aIH"/>
                             <constraint firstItem="Byt-o3-3gz" firstAttribute="top" secondItem="YQo-Ub-837" secondAttribute="bottom" constant="8" id="R0f-TL-iOB"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="a1a-Ag-w3X" secondAttribute="trailing" constant="1" id="RLN-he-6Sh"/>
                             <constraint firstItem="YQo-Ub-837" firstAttribute="top" secondItem="ifF-Ho-9MW" secondAttribute="bottom" constant="8" id="UFa-BD-whH"/>
                             <constraint firstItem="Byt-o3-3gz" firstAttribute="top" secondItem="YQo-Ub-837" secondAttribute="bottom" constant="8" id="WEX-F6-Db4"/>
                             <constraint firstItem="YQo-Ub-837" firstAttribute="top" secondItem="ifF-Ho-9MW" secondAttribute="bottom" constant="8" id="dPv-qT-JMM"/>
+                            <constraint firstItem="a1a-Ag-w3X" firstAttribute="top" secondItem="ifF-Ho-9MW" secondAttribute="bottom" constant="10" id="gJT-ZK-Pvr"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Byt-o3-3gz" secondAttribute="trailing" constant="-20" id="hTZ-r2-gtt"/>
                             <constraint firstAttribute="trailingMargin" secondItem="YQo-Ub-837" secondAttribute="trailing" constant="43" id="zxc-34-ke1"/>
                         </constraints>
@@ -308,7 +311,7 @@
             <objects>
                 <navigationController storyboardIdentifier="NewRideViewController" automaticallyAdjustsScrollViewInsets="NO" id="Wrf-eZ-0Tt" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="s47-iJ-ihO">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="s47-iJ-ihO">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>

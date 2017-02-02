@@ -8,6 +8,9 @@
 
 import CoreLocation
 import BubbleTransition
+import Firebase
+import FirebaseInstanceID
+import FirebaseMessaging
 
 class RegionTableViewCell: UITableViewCell {
 
@@ -56,6 +59,9 @@ class RegionTableViewController: TableViewController {
 
     tableView?.separatorStyle = UITableViewCellSeparatorStyle.none
     tableView?.dataSource = self
+
+    let token = FIRInstanceID.instanceID().token()!
+    print("InstanceID token: \(token)")
   }
 
   override func viewWillAppear(_ animated: Bool) {

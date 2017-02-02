@@ -19,6 +19,7 @@ target 'PolyRides' do
    pod 'Crashlytics'
    pod 'Firebase/Core'
    pod 'Firebase/Auth'
+   pod 'Firebase/Messaging'
    pod 'Firebase/Database'
    pod 'JSQMessagesViewController'
    pod 'IQKeyboardManagerSwift'
