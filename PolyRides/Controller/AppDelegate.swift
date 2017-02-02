@@ -170,6 +170,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     // If you are receiving a notification message while your app is in the background,
     // this callback will not be fired till the user taps on the notification launching the application.
     // TODO: Handle data of notification
+    print("Received msg while app in background!")
 
     // Print message ID.
     if let messageID = userInfo[gcmMessageIDKey] {
@@ -185,6 +186,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     // If you are receiving a notification message while your app is in the background,
     // this callback will not be fired till the user taps on the notification launching the application.
     // TODO: Handle data of notification
+    print("Received msg while app in background")
 
     // Print message ID.
     if let messageID = userInfo[gcmMessageIDKey] {
@@ -272,6 +274,6 @@ extension AppDelegate : UNUserNotificationCenterDelegate {
 extension AppDelegate : FIRMessagingDelegate {
   // Receive data message on iOS 10 devices while app is in the foreground.
   func applicationReceivedRemoteMessage(_ remoteMessage: FIRMessagingRemoteMessage) {
-    print(remoteMessage.appData)
+    print("GOT MESSAGE: \(remoteMessage.appData)")
   }
 }

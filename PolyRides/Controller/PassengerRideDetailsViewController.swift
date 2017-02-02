@@ -25,7 +25,7 @@ class PassengerRideDetailsViewController: RideDetailsViewController {
   @IBOutlet weak var saveButton: UIBarButtonItem?
 
   @IBAction func requestRide(_ sender: Any) {
-    
+    rideService.requestRide(user: self.user, ride: ride!)
   }
 
   @IBAction func saveRideAction(sender: AnyObject) {

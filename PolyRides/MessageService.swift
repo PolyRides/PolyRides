@@ -8,10 +8,13 @@
 
 import Firebase
 
+protocol FirebaseMessageDelegate {
+  
+}
+
 class MessageService {
-//  var messageDeligate: MessageDelegate?
-//  let ref = FirebaseConnection.ref
-//
-//  func getMessagesForConversation(convo: Conversation) {
-//  }
+  let ref = FIRDatabase.database().reference()
+
+  func getMessagesForConversation(convo: Conversation) {
+  }
 }

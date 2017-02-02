@@ -151,4 +151,13 @@ class RideService {
     }
   }
 
+  func requestRide(user: User?, ride: Ride) {
+    if let id = user?.id {
+      if let rideId = ride.id {
+        let rideRequests = ref.child("rides/\(rideId)/requests")
+        rideRequests.setValue(id)
+      }
+    }
+  }
+
 }

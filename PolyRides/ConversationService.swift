@@ -8,12 +8,12 @@
 
 import FirebaseDatabase
 
-protocol ConversationDelegate: class {
+protocol FirebaseConversationDelegate {
 }
 
 class ConversationService {
 
-  var conversationDeligate: ConversationDelegate?
+  var conversationDelegate: FirebaseConversationDelegate?
   let ref = FIRDatabase.database().reference()
 
   func pushConversationToFirebase(convo: Conversation) {
