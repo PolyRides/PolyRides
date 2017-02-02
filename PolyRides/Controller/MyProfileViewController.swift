@@ -11,8 +11,8 @@ import FBSDKLoginKit
 class MyProfileViewController: ProfileViewController {
 
   @IBAction func logOutAction(sender: AnyObject) {
-    UserService().logOut()
     FBSDKAccessToken.setCurrent(nil)
+    UserService().logOut()
   }
 
   override func viewDidLoad() {
