@@ -32,17 +32,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
   override init() {
     super.init()
-
-    // Firebase
     FIRApp.configure()
-    
     // Register with Google Maps.
     GMSPlacesClient.provideAPIKey("AIzaSyAIlHfqVp18wk-J-lvbnpMyxyI5z1bO4pk")
     GMSServices.provideAPIKey("AIzaSyAIlHfqVp18wk-J-lvbnpMyxyI5z1bO4pk")
   }
 
-  private func application(application: UIApplication, didFinishLaunchingWithOptions
-    launchOptions: [NSObject: AnyObject]?) -> Bool {
+  func application(_ application: UIApplication,
+                   didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
 
     FBSDKApplicationDelegate.sharedInstance()
       .application(application, didFinishLaunchingWithOptions: launchOptions)
@@ -56,6 +53,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     UINavigationBar.appearance().setBackgroundImage(UIImage(), for: .any, barMetrics: .default)
     UINavigationBar.appearance().shadowImage = UIImage()
     UIBarButtonItem.appearance(whenContainedInInstancesOf: [UISearchBar.self]).tintColor = UIColor.white
+
 
  //   UIScrollView.appearance().backgroundColor = Color.White
 
@@ -106,6 +104,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
       // For iOS 10 data message (sent via FCM)
       FIRMessaging.messaging().remoteMessageDelegate = self
 
+
     } else {
       let settings: UIUserNotificationSettings =
         UIUserNotificationSettings(types: [.alert, .badge, .sound], categories: nil)
@@ -115,8 +114,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     application.registerForRemoteNotifications()
 
     // [END register_for_notifications]
-
-    FIRApp.configure()
 
     // [START add_token_refresh_observer]
     // Add observer for InstanceID token refresh callback.

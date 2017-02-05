@@ -22,24 +22,21 @@ class LoginViewController: LoadingViewController {
     loginWithFacebook()
   }
 
-  @IBAction func checkAgain(_ sender: Any) {
-    if FBSDKAccessToken.current() != nil {
-
-      print("logged in! :)")
-    } else {
-      authService.loginDelegate = self
-      print("not logged in. :(")
-    }
-  }
+//  @IBAction func checkAgain(_ sender: Any) {
+//    if FBSDKAccessToken.current() != nil {
+//      print("logged in! :)")
+//    } else {
+//      print("not logged in. :(")
+//    }
+//  }
 
   override func viewDidLoad() {
     super.viewDidLoad()
+    authService.loginDelegate = self
 
     // user is logged in
     if FBSDKAccessToken.current() != nil {
       self.authService.authWithFacebook()
-    } else {
-      authService.loginDelegate = self
     }
   }
 
@@ -58,6 +55,15 @@ class LoginViewController: LoadingViewController {
 
     trackScreen(screenName: String(describing: LoginViewController.self))
     button?.centerTextAndImage(spacing: 8.0)
+
+    // user is logged in
+    if FBSDKAccessToken.current() != nil {
+      button?.isHidden = true
+      buttonView?.isHidden = true
+    } else {
+      button?.isHidden = false
+      buttonView?.isHidden = false
+    }
 
     stopLoading()
   }
@@ -78,7 +84,6 @@ class LoginViewController: LoadingViewController {
     UIApplication.shared.endIgnoringInteractionEvents()
     indicator?.stopAnimating()
     indicator?.isHidden = true
-    button?.isHidden = false
   }
 
   func presentAlertForFirebaseError(errorCode: FIRAuthErrorCode) {
