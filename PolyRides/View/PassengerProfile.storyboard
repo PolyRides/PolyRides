@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16C68" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Gq3-Tq-7j9">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12100" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Gq3-Tq-7j9">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12072"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -54,13 +54,15 @@
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WVY-qF-uOl">
                                 <rect key="frame" x="233" y="387" width="134" height="22"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <state key="normal" title="13 mutual friends" image="facebook_white"/>
+                                <state key="normal" title="13 mutual friends" image="facebook_blue">
+                                    <color key="titleColor" red="0.16078431369999999" green="0.33333333329999998" blue="0.49803921569999998" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
                                 <connections>
                                     <segue destination="J72-Dm-vAl" kind="show" identifier="toMutualFriends" id="rfB-fO-GZ0"/>
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" red="0.81176470590000005" green="0.81176470590000005" blue="0.81176470590000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="tableCellGroupedBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="ukJ-RB-76s" firstAttribute="top" secondItem="t8K-TB-qew" secondAttribute="bottom" constant="8" id="2j8-ee-jee"/>
                             <constraint firstItem="t8K-TB-qew" firstAttribute="top" secondItem="tmt-N3-smT" secondAttribute="bottom" constant="8" id="58K-7H-3ZK"/>
@@ -100,6 +102,6 @@
     </scenes>
     <resources>
         <image name="cal_poly_verified" width="134" height="134"/>
-        <image name="facebook_white" width="22" height="22"/>
+        <image name="facebook_blue" width="22" height="22"/>
     </resources>
 </document>

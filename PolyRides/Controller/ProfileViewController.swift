@@ -72,7 +72,9 @@ class ProfileViewController: UIViewController {
     }
 
     if user?.verifications.index(of: Verification.CalPoly) != nil {
-
+      verifiedImage?.isHidden = false
+    } else {
+      verifiedImage?.isHidden = true
     }
 
     if let carDetails = user?.car?.getDescription() {

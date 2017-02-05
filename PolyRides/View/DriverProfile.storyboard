@@ -63,13 +63,15 @@
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3PA-FA-jO4">
                                 <rect key="frame" x="233" y="387" width="134" height="22"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <state key="normal" title="13 mutual friends" image="facebook_white"/>
+                                <state key="normal" title="13 mutual friends" image="facebook_blue">
+                                    <color key="titleColor" red="0.16078431369999999" green="0.33333333329999998" blue="0.49803921569999998" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
                                 <connections>
                                     <segue destination="Jfa-AO-w9z" kind="show" identifier="toMutualFriends" id="b5f-jM-fRA"/>
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" red="0.81176470590000005" green="0.81176470590000005" blue="0.81176470590000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="tableCellGroupedBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="nHT-24-gpy" firstAttribute="trailing" secondItem="W72-Tw-PQW" secondAttribute="trailingMargin" id="1Ah-pl-1Jp"/>
                             <constraint firstItem="3PA-FA-jO4" firstAttribute="top" secondItem="2Xf-i4-952" secondAttribute="bottom" constant="8" id="457-ya-LeE"/>
@@ -112,6 +114,6 @@
     </scenes>
     <resources>
         <image name="cal_poly_verified" width="134" height="134"/>
-        <image name="facebook_white" width="22" height="22"/>
+        <image name="facebook_blue" width="22" height="22"/>
     </resources>
 </document>

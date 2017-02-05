@@ -14,7 +14,7 @@
             <objects>
                 <navigationController useStoryboardIdentifierAsRestorationIdentifier="YES" id="twN-Cg-lOh" sceneMemberID="viewController">
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="zrh-Sv-chm">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="zrh-Sv-chm">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -299,7 +299,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="8RG-ub-u8u" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="RGX-9v-rhz">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="RGX-9v-rhz">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
