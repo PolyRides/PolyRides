@@ -58,7 +58,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
  //   UIScrollView.appearance().backgroundColor = Color.White
 
     // SendGrid.
-    _ = Session(auth: Authentication.apiKey("pQRGWenNRPKfEwwKQ2MjkQ"))
+    _ = Session(auth: Authentication.apiKey("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"))
 
     // Google Analytics.
 //    var configureError: NSError?
@@ -78,8 +78,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
       let storyboard = UIStoryboard(name: "LaunchScreen", bundle: nil)
       if let controller = storyboard.instantiateInitialViewController() as? LaunchScreenViewController {
         let user = User()
-
-        print("IN HERE")
 
         if let profile = currentUser.providerData.first {
           user.facebookId = profile.uid

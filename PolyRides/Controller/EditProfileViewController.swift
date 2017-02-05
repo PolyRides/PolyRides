@@ -139,7 +139,7 @@ class EditProfileViewController: UIViewController {
     let userName = user.firstName ?? "Poly Rides User"
     let content = Content(contentType: ContentType.htmlText, value: "<p>Hi \(userName),</p>" +
       "<p>We received your request to verify your Cal Poly email address on Poly Rides. " +
-      "Please enter the code \(code) in the profile tab in the app to complete your verification.</p>" +
+      "Please enter the code \(code) by tapping on the Cal Poly logo in the Profile tab in the app to complete your verification.</p>" +
       "<p>Thank you,<br /> Poly Rides Team<br /> polyrides@gmail.com</p>")
     let email = Email(
       personalizations: [personalization],
