@@ -23,7 +23,9 @@ class MyProfileViewController: ProfileViewController {
     super.viewDidLoad()
 
     setupAppearance()
+  }
 
+  override func viewWillAppear(_ animated: Bool) {
     if user?.verifications.index(of: Verification.CalPoly) != nil {
       verifiedImage?.isHidden = false
     }

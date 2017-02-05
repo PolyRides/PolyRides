@@ -90,7 +90,9 @@ class EditProfileViewController: UIViewController {
     if let year = user?.car?.year {
       yearLabel?.text = "\(year)"
     }
+  }
 
+  override func viewWillAppear(_ animated: Bool) {
     if user?.verifications.index(of: Verification.CalPoly) != nil {
       verifiedImage?.setImage(Verification.CalPoly.getVerifiedImage(), for: .normal)
       verifiedImage?.isUserInteractionEnabled = false
@@ -139,7 +141,7 @@ class EditProfileViewController: UIViewController {
     let userName = user.firstName ?? "Poly Rides User"
     let content = Content(contentType: ContentType.htmlText, value: "<p>Hi \(userName),</p>" +
       "<p>We received your request to verify your Cal Poly email address on Poly Rides. " +
-      "Please enter the code \(code) by tapping on the Cal Poly logo in the Profile tab in the app to complete your verification.</p>" +
+      "Please tap on the Cal Poly logo in the Profile tab and enter the code \(code) to complete your verification.</p>" +
       "<p>Thank you,<br /> Poly Rides Team<br /> polyrides@gmail.com</p>")
     let email = Email(
       personalizations: [personalization],
@@ -179,6 +181,8 @@ extension EditProfileViewController: FirebaseVerificationDelegate {
     DispatchQueue.main.async(execute: {
       self.presentAlert(alertOptions: AlertOptions(message: "", title: title))
     })
+
+    userService.updateValuesForUser(user: user!)
 
     verifyButton?.isHidden = true
     self.verifiedImage?.setImage(Verification.CalPoly.getVerifiedImage(), for: .normal)
