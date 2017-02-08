@@ -18,11 +18,62 @@ class DriverTableViewCell: UITableViewCell {
 class PassengerRideDetailsViewController: RideDetailsViewController {
 
   let rideService = RideService()
+  let FBserverKey = "AAAAK596FGE:APA91bEjb9nD6-vPlfaGJ0uvumpajGEKnwOJHAIny5J3TGCYN8hNj62Co0b_4M0QTTvXxpp1TWgv0kgY02Nk2i5gNxQ0YdtAo7PiLxCQ0wH1BJLmEc61Z_elzR-iiaw8jOkE4SDLaLqK2SeopnegihLOEzHfKAj_Ig"
+  let userInstanceID = "e5kRgW9kicE:APA91bFCb56SJBTgCFW2zr3FOJJ6ya6sfVKWjlxJs2c5vuuV43FGZmL3LrUIWTWw3_kjrlsI-hkf-kP1KEmkjS_JqK8VKejGoRHprFoWAQBMPNxZ2taHGFpLChUYjGh-0OQyceQDF5Pc"
 
   var mutualFriends = [User]()
 
   @IBOutlet weak var tableView: UITableView?
   @IBOutlet weak var saveButton: UIBarButtonItem?
+
+  @IBAction func requestRideAction(sender: AnyObject) {
+    print("request this ride!")
+
+    if let ride = ride {
+        user?.requestedRides.append(ride)
+        rideService.addUserToRideRequests(user: self.user, ride: ride)
+    } else {
+      let title = "Requesting Error"
+      let message = "There was an error requesting this ride. Please try again."
+      presentAlert(alertOptions: AlertOptions(message: message, title: title))
+    }
+
+    sendHTTPPost()
+
+  }
+
+  func sendHTTPPost() {
+    let url = URL(string: "https://fcm.googleapis.com/fcm/send")
+    let jsonDict = ["data": ["test": "wooo"], "to": "\(userInstanceID)"] as [String : Any]
+
+    do {
+      let jsonData = try JSONSerialization.data(withJSONObject: jsonDict, options: [])
+      var request = URLRequest(url: url!)
+      request.httpMethod = "post"
+      request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+      request.addValue("key=\(FBserverKey)", forHTTPHeaderField: "Authorization")
+      request.httpBody = jsonData
+
+      let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
+        if let error = error {
+          print("error:", error)
+          return
+        }
+
+        do {
+          guard let data = data else { return }
+          guard let json = try JSONSerialization.jsonObject(with: data, options: []) as? [String: AnyObject] else { return }
+          print("json:", json)
+        } catch {
+          print("error:", error)
+        }
+      }
+      
+      task.resume()
+    } catch {
+      print("errorssss")
+    }
+  }
 
   @IBAction func saveRideAction(sender: AnyObject) {
     if let ride = ride {

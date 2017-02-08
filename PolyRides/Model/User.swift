@@ -23,6 +23,7 @@ class User {
   var car: Car?
   var currentLocation: GMSPlace?
 
+  var requestedRides = [Ride]()
   var savedRides = [Ride]()
   var verifications = [Verification]()
   var pendingVerifications = [Verification]()

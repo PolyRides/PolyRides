@@ -101,6 +101,20 @@ class RideService {
     })
   }
 
+  func addUserToRideRequests(user: User?, ride: Ride) {
+    if let id = user?.id {
+      if let rideId = ride.id {
+        // add to ride's current requests
+        var requestedRef = ref.child("rides/\(rideId)/requests/\(id)")
+        requestedRef.setValue(true)
+
+        // add to user's requested rides
+        requestedRef = ref.child("users/\(id)/requested/\(rideId)")
+        requestedRef.setValue(true)
+      }
+    }
+  }
+
   func monitorRides() {
     let currentDateMillis = NSDate().timeIntervalSince1970
     let ridesRef = ref.child("rides")
@@ -134,6 +148,7 @@ class RideService {
     }
   }
 
+
   func addToSaved(user: User?, ride: Ride) {
     if let id = user?.id {
       if let rideId = ride.id {
@@ -150,4 +165,6 @@ class RideService {
       }
     }
   }
+
+
 }
