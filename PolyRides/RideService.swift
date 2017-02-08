@@ -135,6 +135,39 @@ class RideService {
     }
   }
 
+  func acceptPassengerIntoRide(passengerId: String, rideId: String) {
+    // remove user from pendingRequests
+    ref.child("rides/\(rideId)/pendingRequests/\(passengerId)").removeValue()
+
+    // put user in the passengers of the ride
+    var rideRef = ref.child("rides/\(rideId)/passengers/\(passengerId)")
+    rideRef.setValue(true)
+
+    // decrement the seatsAvailable
+    rideRef = ref.child("rides/\(rideId)/seatsAvailable")
+    rideRef.observeSingleEvent(of: .value, with: { (snapshot) in
+      let seats = (snapshot.value as? NSNumber)!.intValue - 1
+      rideRef.setValue(seats)
+    }) { (error) in
+      print(error.localizedDescription)
+    }
+
+    // remove from passenger's pending requests
+    ref.child("users/\(passengerId)/pendingRequests/\(rideId)").removeValue()
+
+    // add the ride to the passenger's rides
+    let passRef = ref.child("users/\(passengerId)/rides/\(rideId)")
+    passRef.setValue(true)
+  }
+
+  func doNotAcceptPassengerIntoRide(passengerId: String, rideId: String) {
+    // remove user from pendingRequests
+    ref.child("rides/\(rideId)/pendingRequests/\(passengerId)").removeValue()
+
+    // remove from passenger's pending requests
+    ref.child("users/\(passengerId)/pendingRequests/\(rideId)").removeValue()
+  }
+
   func monitorRides() {
     let currentDateMillis = NSDate().timeIntervalSince1970
     let ridesRef = ref.child("rides")

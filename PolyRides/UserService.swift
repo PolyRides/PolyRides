@@ -8,6 +8,7 @@
 
 import FirebaseAuth
 import FirebaseDatabase
+import FirebaseInstanceID
 
 protocol FirebaseUserDelegate: class {
 
@@ -29,6 +30,17 @@ class UserService {
         user.updateFromSnapshot(snapshot: snapshot)
         self.delegate?.onUserUpdated()
       })
+    }
+  }
+
+  // This is used for push notifications to identify the device
+  // It maps from a user to their deviceID
+  func setUserInstanceIDToken(user: User) {
+    if let userId = user.id {
+      if let refreshedToken = FIRInstanceID.instanceID().token() {
+        let tokenMapper = ref.child("userInstanceIDMappings/\(userId)")
+        tokenMapper.setValue(refreshedToken)
+      }
     }
   }
 

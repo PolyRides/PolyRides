@@ -22,6 +22,7 @@ class User {
   var description: String?
   var car: Car?
   var currentLocation: GMSPlace?
+  var instanceID: String?
 
   var requestedRides = [Ride]()
   var savedRides = [Ride]()

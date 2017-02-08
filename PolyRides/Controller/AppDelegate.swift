@@ -294,16 +294,68 @@ extension AppDelegate : UNUserNotificationCenterDelegate {
 extension AppDelegate : FIRMessagingDelegate {
   // Receive data message on iOS 10 devices while app is in the foreground.
   func applicationReceivedRemoteMessage(_ remoteMessage: FIRMessagingRemoteMessage) {
-    print(remoteMessage.appData)
+    // if you are receiving a ride request
+    if remoteMessage.appData["userInstanceId"] != nil {
+      handleRideRequest(remoteMessage: remoteMessage)
+    }
+    // if you are being accepted into a ride
+    else {
+      handleAcceptedIntoRide(remoteMessage: remoteMessage)
+    }
+  }
 
-    var refreshAlert = UIAlertController(title: "Passenger Request", message: "Do you want to accept USER into your ride from START to END?", preferredStyle: UIAlertControllerStyle.alert)
+  func handleRideRequest(remoteMessage: FIRMessagingRemoteMessage) {
+    print(remoteMessage.appData)
+    let user = remoteMessage.appData["user"]
+    let fromPlaceCity = remoteMessage.appData["fromPlaceCity"]
+    let toPlaceCity = remoteMessage.appData["toPlaceCity"]
+    let passengerId = remoteMessage.appData["userId"]
+    let rideId = remoteMessage.appData["rideId"]
+    let passengerInstanceId = remoteMessage.appData["userInstanceId"]
+
+    var refreshAlert = UIAlertController(title: "Passenger Request", message: "Do you want to accept \(user!) into your ride from \(fromPlaceCity!) to \(toPlaceCity!)?", preferredStyle: UIAlertControllerStyle.alert)
 
     refreshAlert.addAction(UIAlertAction(title: "Yes", style: .default, handler: { (action: UIAlertAction!) in
       print("accept passengerrrrr :) ")
+
+      if let passenger = passengerId as? String {
+        if let ride = rideId as? String {
+          RideService().acceptPassengerIntoRide(passengerId: passenger, rideId: ride)
+
+          if let fromPlace = fromPlaceCity as? String {
+            if let toPlace  = toPlaceCity as? String {
+              if let passengerId = passengerInstanceId as? String {
+                // notify the passenger they were accepted into the ride
+                let jsonDict = ["data": ["fromPlaceCity": "\(fromPlaceCity!)", "toPlaceCity": "\(toPlaceCity!)"], "to": "\(passengerId)"] as [String : Any]
+
+                HTTPHelper.sendHTTPPost(jsonDict: jsonDict)
+              }
+            }
+          }
+        }
+      }
     }))
 
     refreshAlert.addAction(UIAlertAction(title: "No", style: .cancel, handler: { (action: UIAlertAction!) in
       print("do not accept passenger!!!!! :(")
+      if let passenger = passengerId as? String {
+        if let ride = rideId as? String {
+            RideService().doNotAcceptPassengerIntoRide(passengerId: passenger, rideId: ride)
+        }
+      }
+    }))
+
+    self.window?.rootViewController?.present(refreshAlert, animated: true, completion: nil)
+  }
+
+  func handleAcceptedIntoRide(remoteMessage: FIRMessagingRemoteMessage) {
+    print(remoteMessage.appData)
+    let fromPlaceCity = remoteMessage.appData["fromPlaceCity"]
+    let toPlaceCity = remoteMessage.appData["toPlaceCity"]
+    var refreshAlert = UIAlertController(title: "Ride Request Accepted", message: "You were accepted into the ride from \(fromPlaceCity!) to \(toPlaceCity!)!", preferredStyle: UIAlertControllerStyle.alert)
+
+    refreshAlert.addAction(UIAlertAction(title: "Okay", style: .cancel, handler: { (action: UIAlertAction!) in
+      print("woo")
     }))
 
     self.window?.rootViewController?.present(refreshAlert, animated: true, completion: nil)

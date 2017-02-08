@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		1918465B9E0F71CB1F35939C /* Pods_PolyRidesTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC278F6A1EA0392BFCB61FC8 /* Pods_PolyRidesTests.framework */; };
 		3E90DA671E31406B006D7FFB /* ScrollingFormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E90DA661E31406B006D7FFB /* ScrollingFormViewController.swift */; };
+		3EE692521E4AFDAA004D50CF /* HTTPHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EE692511E4AFDAA004D50CF /* HTTPHelper.swift */; };
 		3EF422601E2F16C000895BA1 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EF4225F1E2F16C000895BA1 /* MapKit.framework */; };
 		6E4373601CA4E3EB00630D07 /* ConversationsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E43735F1CA4E3EB00630D07 /* ConversationsTableViewController.swift */; };
 		6E53E3CB1C9E428400370108 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E53E3CA1C9E428400370108 /* Message.swift */; };
@@ -133,6 +134,7 @@
 		134E6090D8164DDCE96194DA /* Pods-PolyRidesTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PolyRidesTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PolyRidesTests/Pods-PolyRidesTests.debug.xcconfig"; sourceTree = "<group>"; };
 		33776C172972E3E4DF0CA06A /* Pods_PolyRidesUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PolyRidesUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3E90DA661E31406B006D7FFB /* ScrollingFormViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScrollingFormViewController.swift; sourceTree = "<group>"; };
+		3EE692511E4AFDAA004D50CF /* HTTPHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTTPHelper.swift; sourceTree = "<group>"; };
 		3EF4225E1E2F16A300895BA1 /* Poly Rides.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Poly Rides.entitlements"; sourceTree = "<group>"; };
 		3EF4225F1E2F16C000895BA1 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		61872E5AC265900EE5CECC7E /* Pods-PolyRidesTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PolyRidesTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-PolyRidesTests/Pods-PolyRidesTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -536,6 +538,7 @@
 				DBB1558B1C9B76C500118F89 /* DateHelper.swift */,
 				DBF5E6DA1C93A66600693807 /* GoogleAnalyticsHelper.swift */,
 				DBBBD13E1C9DE8590085E3B9 /* GoogleMapsHelper.swift */,
+				3EE692511E4AFDAA004D50CF /* HTTPHelper.swift */,
 			);
 			name = Utils;
 			sourceTree = "<group>";
@@ -937,6 +940,7 @@
 				6E628F9E1CA100CF00AAC2DB /* Conversation.swift in Sources */,
 				DB701AEB1CA2EBDC00B40C9C /* MyRideDetailsViewController.swift in Sources */,
 				DB43A9941C9F7A2500AC2AF9 /* Region.swift in Sources */,
+				3EE692521E4AFDAA004D50CF /* HTTPHelper.swift in Sources */,
 				DBAB56801C968FAA0011167A /* UIViewControllerExtensions.swift in Sources */,
 				DB43A9961C9F95E400AC2AF9 /* RegionRidesViewController.swift in Sources */,
 				DB8DAE621CB1CF210045195D /* MutualFriendsTableViewController.swift in Sources */,

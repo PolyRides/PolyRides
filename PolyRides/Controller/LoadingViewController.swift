@@ -6,6 +6,7 @@
 //  Copyright © 2016 Vanessa Forney. All rights reserved.
 //
 
+import FirebaseInstanceID
 
 class LoadingViewController: UIViewController {
 
@@ -41,6 +42,9 @@ class LoadingViewController: UIViewController {
     self.onLoadingComplete = onLoadingComplete
     if let user = user {
       userService.updateValuesForUser(user: user)
+      // update database with user's token
+      userService.setUserInstanceIDToken(user: user)
+      user.instanceID = FIRInstanceID.instanceID().token()
     }
   }
 

@@ -22,14 +22,6 @@ class LoginViewController: LoadingViewController {
     loginWithFacebook()
   }
 
-//  @IBAction func checkAgain(_ sender: Any) {
-//    if FBSDKAccessToken.current() != nil {
-//      print("logged in! :)")
-//    } else {
-//      print("not logged in. :(")
-//    }
-//  }
-
   override func viewDidLoad() {
     super.viewDidLoad()
     authService.loginDelegate = self
@@ -149,6 +141,7 @@ extension LoginViewController: FirebaseLoginDelegate {
 
   func onLoginSuccess(user: User) {
     self.user = user
+
     startLoadingData() {
       self.stopLoading()
     }
