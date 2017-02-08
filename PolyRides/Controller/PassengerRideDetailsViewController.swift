@@ -30,8 +30,7 @@ class PassengerRideDetailsViewController: RideDetailsViewController {
     print("request this ride!")
 
     if let ride = ride {
-        user?.requestedRides.append(ride)
-        rideService.addUserToRideRequests(user: self.user, ride: ride)
+        rideService.addPassengerToRideRequests(user: self.user, ride: ride)
     } else {
       let title = "Requesting Error"
       let message = "There was an error requesting this ride. Please try again."

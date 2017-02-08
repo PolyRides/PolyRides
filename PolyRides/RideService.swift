@@ -101,15 +101,35 @@ class RideService {
     })
   }
 
-  func addUserToRideRequests(user: User?, ride: Ride) {
+  func addPassengerToRide(user: User?, ride: Ride) {
     if let id = user?.id {
       if let rideId = ride.id {
-        // add to ride's current requests
-        var requestedRef = ref.child("rides/\(rideId)/requests/\(id)")
+        // add to ride's current passengers
+        var requestedRef = ref.child("rides/\(rideId)/passengers/\(id)")
         requestedRef.setValue(true)
 
-        // add to user's requested rides
-        requestedRef = ref.child("users/\(id)/requested/\(rideId)")
+        // also remove user from ride's current pending requests
+        ref.child("rides/\(rideId)/pendingRequests/\(id)").removeValue()
+
+        // also remove from passenger's pending requested rides
+        ref.child("users/\(id)/pendingRequests/\(rideId)").removeValue()
+
+        // also add ride to passenger's rides
+        requestedRef = ref.child("users/\(id)/rides/\(rideId)")
+        requestedRef.setValue(true)
+      }
+    }
+  }
+
+  func addPassengerToRideRequests(user: User?, ride: Ride) {
+    if let id = user?.id {
+      if let rideId = ride.id {
+        // add to ride's current pending requests
+        var requestedRef = ref.child("rides/\(rideId)/pendingRequests/\(id)")
+        requestedRef.setValue(true)
+
+        // add to passenger's requested rides
+        requestedRef = ref.child("users/\(id)/pendingRequests/\(rideId)")
         requestedRef.setValue(true)
       }
     }

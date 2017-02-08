@@ -295,6 +295,18 @@ extension AppDelegate : FIRMessagingDelegate {
   // Receive data message on iOS 10 devices while app is in the foreground.
   func applicationReceivedRemoteMessage(_ remoteMessage: FIRMessagingRemoteMessage) {
     print(remoteMessage.appData)
+
+    var refreshAlert = UIAlertController(title: "Passenger Request", message: "Do you want to accept USER into your ride from START to END?", preferredStyle: UIAlertControllerStyle.alert)
+
+    refreshAlert.addAction(UIAlertAction(title: "Yes", style: .default, handler: { (action: UIAlertAction!) in
+      print("accept passengerrrrr :) ")
+    }))
+
+    refreshAlert.addAction(UIAlertAction(title: "No", style: .cancel, handler: { (action: UIAlertAction!) in
+      print("do not accept passenger!!!!! :(")
+    }))
+
+    self.window?.rootViewController?.present(refreshAlert, animated: true, completion: nil)
   }
 }
 // [END ios_10_data_message_handling]
