@@ -38,8 +38,11 @@ class UserService {
   func setUserInstanceIDToken(user: User) {
     if let userId = user.id {
       if let refreshedToken = FIRInstanceID.instanceID().token() {
-        let tokenMapper = ref.child("userInstanceIDMappings/\(userId)")
+        var tokenMapper = ref.child("userInstanceIDMappings/\(userId)")
         tokenMapper.setValue(refreshedToken)
+
+        tokenMapper = ref.child("users/\(userId)")
+        tokenMapper.child("instanceID").setValue(refreshedToken)
       }
     }
   }
@@ -53,6 +56,15 @@ class UserService {
         self.delegate?.onUserIdReceived()
       } else {
         self.logOut()
+      }
+    })
+  }
+
+  func getUserInstanceID(user: User) {
+    let query = ref.child("userInstanceIDMappings").child(user.id!)
+    query.observeSingleEvent(of: .value, with: { snapshot in
+      if let userId = snapshot.value as? String {
+        user.instanceID = userId
       }
     })
   }

@@ -316,8 +316,6 @@ extension AppDelegate : FIRMessagingDelegate {
     var refreshAlert = UIAlertController(title: "Passenger Request", message: "Do you want to accept \(user!) into your ride from \(fromPlaceCity!) to \(toPlaceCity!)?", preferredStyle: UIAlertControllerStyle.alert)
 
     refreshAlert.addAction(UIAlertAction(title: "Yes", style: .default, handler: { (action: UIAlertAction!) in
-      print("accept passengerrrrr :) ")
-
       if let passenger = passengerId as? String {
         if let ride = rideId as? String {
           RideService().acceptPassengerIntoRide(passengerId: passenger, rideId: ride)

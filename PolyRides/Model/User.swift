@@ -97,6 +97,9 @@ class User {
       if let carDictionary = dictionary["car"] as? [String: AnyObject] {
         extractCarFromDictionary(dictionary: carDictionary)
       }
+      if let instanceID = dictionary["instanceId"] as? String {
+        self.instanceID = instanceID
+      }
       if let verifications = dictionary["verifications"] as? [String: Bool] {
         for rawValue in verifications.keys {
           if let verification = Verification(rawValue: rawValue) {
@@ -143,6 +146,9 @@ class User {
     }
     if let timestamp = timestamp {
       dictionary["timestamp"] = timestamp.timeIntervalSince1970
+    }
+    if let instanceId = instanceID {
+      dictionary["instanceID"] = instanceID
     }
 
     return dictionary

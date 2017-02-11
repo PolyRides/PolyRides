@@ -29,12 +29,14 @@ class PassengerRideDetailsViewController: RideDetailsViewController {
   @IBOutlet weak var saveButton: UIBarButtonItem?
 
   @IBAction func requestRideAction(sender: AnyObject) {
-    print("request this ride!")
-
     if let ride = ride {
       if let user = user {
         rideService.addPassengerToRideRequests(user: self.user, ride: ride)
-        let jsonDict = ["data": ["user":"\(user.getFullName())", "toPlaceCity": "\(ride.toLocation!.city!))", "fromPlaceCity": "\(ride.fromLocation!.city!)", "userId": "\(user.id!)", "rideId": "\(ride.id!)", "userInstanceId": "\(user.instanceID!)"], "to": "\(userInstanceID)"] as [String : Any]
+
+        let jsonDict = ["data": ["user":"\(user.getFullName())", "toPlaceCity": "\(ride.toLocation!.city!))", "fromPlaceCity": "\(ride.fromLocation!.city!)", "userId": "\(user.id!)", "rideId": "\(ride.id!)", "userInstanceId": "\(user.instanceID!)"], "to": "\(ride.getDriverInstanceID())"] as [String : Any]
+
+// FOR TESTING PURPOSES
+//        let jsonDict = ["data": ["user":"\(user.getFullName())", "toPlaceCity": "\(ride.toLocation!.city!))", "fromPlaceCity": "\(ride.fromLocation!.city!)", "userId": "\(user.id!)", "rideId": "\(ride.id!)", "userInstanceId": "\(user.instanceID!)"], "to": "\(userInstanceID)"] as [String : Any]
         HTTPHelper.sendHTTPPost(jsonDict: jsonDict)
       }
     } else {

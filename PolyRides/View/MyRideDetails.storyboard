@@ -59,7 +59,7 @@
                                 <rect key="frame" x="255" y="562" width="90" height="30"/>
                                 <state key="normal" title="Remove Ride"/>
                                 <connections>
-                                    <action selector="removeRideAction:" destination="uOg-wu-1cg" eventType="touchUpInside" id="XVh-ed-TO0"/>
+                                    <action selector="removeRideActionWithSender:" destination="uOg-wu-1cg" eventType="touchUpInside" id="pF1-93-Ych"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Accepted Passengers" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HMP-s1-qcB">
