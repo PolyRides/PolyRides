@@ -32,6 +32,37 @@ class MyRidesViewController: RidesTableViewController {
     tableView?.reloadData()
   }
 
+  @IBAction func unwindToMyRidesViewController(segue: UIStoryboardSegue) {
+    let myRide = segue.source as? MyRideDetailsViewController
+    let rideToRemove = myRide!.ride!
+    RideService().removeRide(ride: rideToRemove)
+
+    findAndRemoveRide(rideToRemove: rideToRemove)
+  }
+
+  func findAndRemoveRide(rideToRemove: Ride) {
+    //find the ride, remove it from the array
+    while (rides?.contains(rideToRemove))! {
+      if let itemToRemoveIndex = rides?.index(of: rideToRemove) {
+        rides!.remove(at: itemToRemoveIndex)
+      }
+    }
+
+    //find the ride, remove it from the array
+    while (currentRides.contains(rideToRemove)) {
+      if let itemToRemoveIndex = currentRides.index(of: rideToRemove) {
+        currentRides.remove(at: itemToRemoveIndex)
+      }
+    }
+
+    //find the ride, remove it from the array
+    while (pastRides.contains(rideToRemove)) {
+      if let itemToRemoveIndex = pastRides.index(of: rideToRemove) {
+        pastRides.remove(at: itemToRemoveIndex)
+      }
+    }
+  }
+
   @IBAction func addRide(segue: UIStoryboardSegue) {
     if let addRideVC = segue.source as? AddRideViewController {
       if let ride = addRideVC.ride {

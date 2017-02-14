@@ -21,32 +21,32 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Start --&gt; Destination" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SKn-Bs-XrB">
-                                <rect key="frame" x="20" y="72" width="159" height="20.5"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Start --&gt; Destination" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SKn-Bs-XrB">
+                                <rect key="frame" x="16" y="72" width="159" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="j34-Lj-gEX">
-                                <rect key="frame" x="20" y="100" width="36" height="20.5"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="j34-Lj-gEX">
+                                <rect key="frame" x="16" y="100" width="36" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Available seats" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TwU-cW-vPr">
-                                <rect key="frame" x="20" y="129" width="113" height="20.5"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Available seats" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TwU-cW-vPr">
+                                <rect key="frame" x="16" y="129" width="113" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Cost per seat" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YHi-JH-nbn">
-                                <rect key="frame" x="20" y="157" width="102.5" height="20.5"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cost per seat" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YHi-JH-nbn">
+                                <rect key="frame" x="16" y="157" width="102.5" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="YTs-Dp-35h">
-                                <rect key="frame" x="20" y="185.5" width="560" height="128"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="YTs-Dp-35h">
+                                <rect key="frame" x="16" y="185.5" width="343" height="128"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="128" id="14o-c6-98l"/>
@@ -55,35 +55,38 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gzW-Mv-Fx5">
-                                <rect key="frame" x="255" y="562" width="90" height="30"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Accepted Passengers" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HMP-s1-qcB">
+                                <rect key="frame" x="16" y="321" width="167" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pending Passengers" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fgT-6Z-2tA">
+                                <rect key="frame" x="16" y="405" width="156" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gzW-Mv-Fx5">
+                                <rect key="frame" x="142" y="579" width="90" height="30"/>
                                 <state key="normal" title="Remove Ride"/>
                                 <connections>
-                                    <action selector="removeRideActionWithSender:" destination="uOg-wu-1cg" eventType="touchUpInside" id="pF1-93-Ych"/>
+                                    <segue destination="TCC-67-3C2" kind="unwind" unwindAction="unwindToMyRidesViewControllerWithSegue:" id="87G-Vz-JN4"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Accepted Passengers" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HMP-s1-qcB">
-                                <rect key="frame" x="20" y="321" width="167" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Pending Passengers" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fgT-6Z-2tA">
-                                <rect key="frame" x="20" y="405" width="156" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="fgT-6Z-2tA" firstAttribute="leading" secondItem="bLN-lE-mip" secondAttribute="leadingMargin" id="14Q-Xb-Rww"/>
-                            <constraint firstItem="3Wo-mt-G9r" firstAttribute="top" secondItem="gzW-Mv-Fx5" secondAttribute="bottom" constant="8" id="7F7-Ci-R2e"/>
                             <constraint firstItem="gzW-Mv-Fx5" firstAttribute="centerX" secondItem="bLN-lE-mip" secondAttribute="centerX" id="BDd-wt-Ygl"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="gzW-Mv-Fx5" secondAttribute="trailing" constant="127" id="Csz-ek-B6f"/>
                             <constraint firstAttribute="leadingMargin" secondItem="j34-Lj-gEX" secondAttribute="leading" id="GTE-vP-bV0"/>
+                            <constraint firstItem="3Wo-mt-G9r" firstAttribute="top" secondItem="gzW-Mv-Fx5" secondAttribute="bottom" constant="58" id="HhV-aT-WGM"/>
                             <constraint firstAttribute="leadingMargin" secondItem="YHi-JH-nbn" secondAttribute="leading" id="ICR-tk-H7U"/>
                             <constraint firstItem="fgT-6Z-2tA" firstAttribute="top" secondItem="HMP-s1-qcB" secondAttribute="bottom" constant="63" id="LJM-U8-9lM"/>
                             <constraint firstItem="YTs-Dp-35h" firstAttribute="leading" secondItem="bLN-lE-mip" secondAttribute="leadingMargin" id="LW5-HW-Zjq"/>
+                            <constraint firstItem="gzW-Mv-Fx5" firstAttribute="leading" secondItem="bLN-lE-mip" secondAttribute="leadingMargin" constant="126" id="MCO-PQ-jOn"/>
+                            <constraint firstItem="gzW-Mv-Fx5" firstAttribute="top" secondItem="fgT-6Z-2tA" secondAttribute="bottom" constant="153" id="Ri6-uN-mjy"/>
                             <constraint firstItem="YTs-Dp-35h" firstAttribute="top" secondItem="YHi-JH-nbn" secondAttribute="bottom" constant="8" id="WhN-cr-T68"/>
                             <constraint firstItem="YHi-JH-nbn" firstAttribute="top" secondItem="TwU-cW-vPr" secondAttribute="bottom" constant="8" id="bPZ-7d-WpY"/>
                             <constraint firstItem="HMP-s1-qcB" firstAttribute="top" secondItem="YTs-Dp-35h" secondAttribute="bottom" constant="8" id="hVv-zL-m5Y"/>
@@ -107,6 +110,7 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hco-om-MEJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="TCC-67-3C2" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1025" y="-204"/>
         </scene>

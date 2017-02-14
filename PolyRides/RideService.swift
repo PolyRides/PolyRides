@@ -211,6 +211,7 @@ class RideService {
 
   func pushRideToFirebase(ride: Ride) {
     let rideRef = ref.child("rides").childByAutoId()
+    ride.id = rideRef.key
     if let id = ride.driver?.id {
       let userRideRef = ref.child("users/\(id)/rides/\(rideRef.key)")
       userRideRef.setValue(true)
