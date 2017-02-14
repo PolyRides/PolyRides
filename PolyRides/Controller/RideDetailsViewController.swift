@@ -18,6 +18,7 @@ class RideDetailsViewController: UIViewController {
   @IBOutlet weak var seatsAvailableLabel: UILabel?
   @IBOutlet weak var costPerSeatLabel: UILabel?
   @IBOutlet weak var descriptionTextView: UITextView?
+  @IBOutlet weak var acceptedPassengers: UITextView?
 
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -32,6 +33,14 @@ class RideDetailsViewController: UIViewController {
         costPerSeatLabel?.text = "Cost per seat: \(costPerSeat)"
       }
       descriptionTextView?.text = ride.description
+      if ride.passengers.count != 0 {
+        for pass in ride.passengers {
+          acceptedPassengers?.text = "\(acceptedPassengers!.text)\(pass)\n"
+        }
+      } else {
+        acceptedPassengers?.text = ""
+      }
+
     }
   }
 

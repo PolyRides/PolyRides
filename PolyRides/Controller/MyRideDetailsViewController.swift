@@ -8,17 +8,6 @@
 
 class MyRideDetailsViewController: RideDetailsViewController {
 
-  // this will have the list of accepted and pending passengers
-
-
-//  @IBAction func removeRideAction(sender: AnyObject) {
-//    // Handle deleting a ride
-//    RideService().removeRide(ride: ride!)
-//
-//    // go back to rides table view
-//
-//  }
-
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
     navigationController?.setNavigationBarHidden(false, animated: true)
