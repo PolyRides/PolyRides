@@ -101,25 +101,34 @@ class RideService {
     })
   }
 
-  func addPassengerToRide(user: User?, ride: Ride) {
-    if let id = user?.id {
-      if let rideId = ride.id {
-        // add to ride's current passengers
-        var requestedRef = ref.child("rides/\(rideId)/passengers/\(id)")
-        requestedRef.setValue(true)
-
-        // also remove user from ride's current pending requests
-        ref.child("rides/\(rideId)/pendingRequests/\(id)").removeValue()
-
-        // also remove from passenger's pending requested rides
-        ref.child("users/\(id)/pendingRequests/\(rideId)").removeValue()
-
-        // also add ride to passenger's rides
-        requestedRef = ref.child("users/\(id)/rides/\(rideId)")
-        requestedRef.setValue(true)
-      }
-    }
-  }
+//  func addPassengerToRide(user: User?, ride: Ride) {
+//    if let id = user?.id {
+//      if let rideId = ride.id {
+//        // add to ride's current passengers
+//        var requestedRef = ref.child("rides/\(rideId)/passengers/\(id)")
+//        requestedRef.setValue(true)
+//
+//        // also remove user from ride's current pending requests
+//        ref.child("rides/\(rideId)/pendingRequests/\(id)").removeValue()
+//
+//        // also remove from passenger's pending requested rides
+//        ref.child("users/\(id)/pendingRequests/\(rideId)").removeValue()
+//
+//        // also add ride to passenger's rides
+//        requestedRef = ref.child("users/\(id)/rides/\(rideId)")
+//        requestedRef.setValue(true)
+//
+//        // decrement the seatsAvailable
+//        requestedRef = ref.child("rides/\(rideId)/seatsAvailable")
+//        requestedRef.observeSingleEvent(of: .value, with: { (snapshot) in
+//          let seats = (snapshot.value as? NSNumber)!.intValue - 1
+//          rideRef.setValue(seats)
+//        }) { (error) in
+//          print(error.localizedDescription)
+//        }
+//      }
+//    }
+//  }
 
   func addPassengerToRideRequests(user: User?, ride: Ride) {
     if let id = user?.id {
@@ -142,6 +151,14 @@ class RideService {
     // put user in the passengers of the ride
     var rideRef = ref.child("rides/\(rideId)/passengers/\(passengerId)")
     rideRef.setValue(true)
+
+    let ridesRef = ref.child("rides/\(rideId)")
+    let query = ridesRef.queryOrderedByKey()
+
+    query.observe(.childAdded, with: { snapshot in
+      let ride = Ride(fromSnapshot: snapshot)
+      ride.passengers.append(passengerId)
+    })
 
     // decrement the seatsAvailable
     rideRef = ref.child("rides/\(rideId)/seatsAvailable")
@@ -201,6 +218,19 @@ class RideService {
     }
   }
 
+  func removeRide(ride: Ride) {
+    // remove from passengers rides
+    for pass in ride.passengers {
+        ref.child("users/\(pass)/rides/\(ride.id!)").removeValue()
+    }
+
+    // remove ride
+    ref.child("rides/\(ride.id!)").removeValue()
+    
+    // remove from driver's rides
+    ref.child("users/\(ride.driver!.id!)/rides/\(ride.id!)").removeValue()
+  }
+
 
   func addToSaved(user: User?, ride: Ride) {
     if let id = user?.id {
@@ -218,6 +248,4 @@ class RideService {
       }
     }
   }
-
-
 }

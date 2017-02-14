@@ -12,6 +12,7 @@ class MyRideDetailsViewController: RideDetailsViewController {
 
   @IBAction func removeRideAction(sender: AnyObject) {
     // Handle deleting a ride
+    RideService().removeRide(ride: ride!)
   }
 
   override func viewWillAppear(_ animated: Bool) {
