@@ -34,11 +34,11 @@ class RideDetailsViewController: UIViewController {
       }
       descriptionTextView?.text = ride.description
       if ride.passengers.count != 0 {
-        for pass in ride.passengers {
-          acceptedPassengers?.text = "\(acceptedPassengers!.text)\(pass)\n"
+        for pass in ride.passengers.values {
+          acceptedPassengers!.text = "\(acceptedPassengers!.text!)\(pass)\n"
         }
       } else {
-        acceptedPassengers?.text = ""
+        acceptedPassengers!.attributedText = NSAttributedString(string: "You have no passengers in this ride.", attributes: [NSFontAttributeName: UIFont.italicSystemFont(ofSize: (CGFloat(UIFont.systemFontSize)))])
       }
 
     }

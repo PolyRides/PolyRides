@@ -135,7 +135,7 @@ class RideService {
       if let rideId = ride.id {
         // add to ride's current pending requests
         var requestedRef = ref.child("rides/\(rideId)/pendingRequests/\(id)")
-        requestedRef.setValue(true)
+        requestedRef.setValue(user?.getFullName())
 
         // add to passenger's requested rides
         requestedRef = ref.child("users/\(id)/pendingRequests/\(rideId)")
@@ -144,20 +144,20 @@ class RideService {
     }
   }
 
-  func acceptPassengerIntoRide(passengerId: String, rideId: String) {
+  func acceptPassengerIntoRide(passengerId: String, passengerName: String, rideId: String) {
     // remove user from pendingRequests
     ref.child("rides/\(rideId)/pendingRequests/\(passengerId)").removeValue()
 
     // put user in the passengers of the ride
     var rideRef = ref.child("rides/\(rideId)/passengers/\(passengerId)")
-    rideRef.setValue(true)
+    rideRef.setValue(passengerName)
 
     let ridesRef = ref.child("rides/\(rideId)")
     let query = ridesRef.queryOrderedByKey()
 
     query.observe(.childAdded, with: { snapshot in
       let ride = Ride(fromSnapshot: snapshot)
-      ride.passengers.append(passengerId)
+      ride.passengers.updateValue(passengerName, forKey: passengerId)
     })
 
     // decrement the seatsAvailable

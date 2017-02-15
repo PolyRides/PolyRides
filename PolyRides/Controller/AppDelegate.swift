@@ -318,15 +318,17 @@ extension AppDelegate : FIRMessagingDelegate {
     refreshAlert.addAction(UIAlertAction(title: "Yes", style: .default, handler: { (action: UIAlertAction!) in
       if let passenger = passengerId as? String {
         if let ride = rideId as? String {
-          RideService().acceptPassengerIntoRide(passengerId: passenger, rideId: ride)
+          if let user = user as? String {
+            RideService().acceptPassengerIntoRide(passengerId: passenger, passengerName: user, rideId: ride)
 
-          if let fromPlace = fromPlaceCity as? String {
-            if let toPlace  = toPlaceCity as? String {
-              if let passengerId = passengerInstanceId as? String {
-                // notify the passenger they were accepted into the ride
-                let jsonDict = ["data": ["fromPlaceCity": "\(fromPlaceCity!)", "toPlaceCity": "\(toPlaceCity!)"], "to": "\(passengerId)"] as [String : Any]
+            if let fromPlace = fromPlaceCity as? String {
+              if let toPlace  = toPlaceCity as? String {
+                if let passengerId = passengerInstanceId as? String {
+                  // notify the passenger they were accepted into the ride
+                  let jsonDict = ["data": ["fromPlaceCity": "\(fromPlaceCity!)", "toPlaceCity": "\(toPlaceCity!)"], "to": "\(passengerId)"] as [String : Any]
 
-                HTTPHelper.sendHTTPPost(jsonDict: jsonDict)
+                  HTTPHelper.sendHTTPPost(jsonDict: jsonDict)
+                }
               }
             }
           }
