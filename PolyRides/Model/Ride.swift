@@ -26,6 +26,7 @@ class Ride: Equatable {
   var costPerSeat: Int?
   var timestamp: NSDate?
   var driverIId: String?
+  var driverId: String?
   var passengers = [String: String]()
 
   init(driver: User, date: NSDate, seats: Int?, description: String, cost: Int?) {
@@ -35,6 +36,7 @@ class Ride: Equatable {
     self.description = description
     self.costPerSeat = cost
     self.driverIId = driver.instanceID
+    self.driverId = driver.id
   }
 
   init(fromPlace: GMSPlace, toPlace: GMSPlace) {
@@ -66,6 +68,9 @@ class Ride: Equatable {
       }
       if let driverIId = dictionary["driverInstanceId"] as? String {
         self.driverIId = driverIId
+      }
+      if let driverId = dictionary["driverId"] as? String {
+        self.driverId = driverId
       }
       if let passengers = dictionary["passengers"] as? [String: String] {
         self.passengers = passengers
@@ -128,6 +133,7 @@ class Ride: Equatable {
     dictionary["description"] = description
     dictionary["costPerSeat"] = costPerSeat
     dictionary["driverInstanceId"] = driverIId
+    dictionary["driverId"] = driverId
     dictionary["passengers"] = passengers
 
     return dictionary

@@ -34,10 +34,22 @@ class MyRidesViewController: RidesTableViewController {
 
   @IBAction func unwindToMyRidesViewController(segue: UIStoryboardSegue) {
     let myRide = segue.source as? MyRideDetailsViewController
-    let rideToRemove = myRide!.ride!
-    RideService().removeRide(ride: rideToRemove)
 
-    findAndRemoveRide(rideToRemove: rideToRemove)
+    if let ride = myRide?.ride {
+      if let user = myRide?.user {
+        if ride.id == user.id {
+          // if it is the driver removing the ride
+          RideService().removeRide(ride: ride)
+        } else {
+          // if it is a passenger leaving the ride
+          // inform the driver that the passenger has left the ride
+
+          // remove the passenger from the ride
+          RideService().removePassengerFromRide(ride: ride, passenger: user)
+        }
+      }
+      findAndRemoveRide(rideToRemove: ride)
+    }
   }
 
   func findAndRemoveRide(rideToRemove: Ride) {
@@ -49,14 +61,14 @@ class MyRidesViewController: RidesTableViewController {
     }
 
     //find the ride, remove it from the array
-    while (currentRides.contains(rideToRemove)) {
+    while currentRides.contains(rideToRemove) {
       if let itemToRemoveIndex = currentRides.index(of: rideToRemove) {
         currentRides.remove(at: itemToRemoveIndex)
       }
     }
 
     //find the ride, remove it from the array
-    while (pastRides.contains(rideToRemove)) {
+    while pastRides.contains(rideToRemove) {
       if let itemToRemoveIndex = pastRides.index(of: rideToRemove) {
         pastRides.remove(at: itemToRemoveIndex)
       }
@@ -141,6 +153,7 @@ class MyRidesViewController: RidesTableViewController {
         if let cell = sender as? RideTableViewCell {
           vc.ride = cell.ride
           vc.user = user
+          vc.segmentedControl = segmentedControl
         }
       }
 
@@ -188,11 +201,15 @@ extension MyRidesViewController: UITableViewDelegate {
     let cell = tableView.cellForRow(at: indexPath)
     tableView.deselectRow(at: indexPath, animated: true)
 
-    if segmentedControl?.selectedSegmentIndex == 2 {
-      performSegue(withIdentifier: "toPassengerRideDetails", sender: cell)
-    } else {
-      performSegue(withIdentifier: "toMyRideDetails", sender: cell)
+    if let cell = cell as? RideTableViewCell {
+      // if it is a favorited ride, or the user is a passenger in the ride
+      if segmentedControl?.selectedSegmentIndex == 2 || cell.ride?.driverId != user?.id {
+        performSegue(withIdentifier: "toPassengerRideDetails", sender: cell)
+      } else {
+        performSegue(withIdentifier: "toMyRideDetails", sender: cell)
+      }
     }
+
   }
 
 }

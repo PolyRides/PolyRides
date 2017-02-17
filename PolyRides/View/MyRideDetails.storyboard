@@ -109,6 +109,7 @@
                         <outlet property="dateLabel" destination="j34-Lj-gEX" id="VI4-3e-dmj"/>
                         <outlet property="descriptionTextView" destination="YTs-Dp-35h" id="oGh-7S-nXw"/>
                         <outlet property="locationLabel" destination="SKn-Bs-XrB" id="JVF-hN-eec"/>
+                        <outlet property="removeRideButton" destination="gzW-Mv-Fx5" id="d8D-Qr-jmj"/>
                         <outlet property="seatsAvailableLabel" destination="TwU-cW-vPr" id="G6L-i2-a5s"/>
                     </connections>
                 </viewController>

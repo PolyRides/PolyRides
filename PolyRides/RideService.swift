@@ -232,6 +232,22 @@ class RideService {
     ref.child("users/\(ride.driver!.id!)/rides/\(ride.id!)").removeValue()
   }
 
+  func removePassengerFromRide(ride: Ride, passenger: User) {
+    // remove from passenger's rides
+    ref.child("users/\(passenger.id!)/rides/\(ride.id!)").removeValue()
+
+    // remove passenger from ride
+    ref.child("rides/\(ride.id!)/passengers/\(passenger.id!)").removeValue()
+
+    // increment seats available
+    let rideRef = ref.child("rides/\(ride.id!)/seatsAvailable")
+    rideRef.observeSingleEvent(of: .value, with: { (snapshot) in
+      let seats = (snapshot.value as? NSNumber)!.intValue + 1
+      rideRef.setValue(seats)
+    }) { (error) in
+      print(error.localizedDescription)
+    }
+  }
 
   func addToSaved(user: User?, ride: Ride) {
     if let id = user?.id {
