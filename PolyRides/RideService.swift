@@ -219,6 +219,17 @@ class RideService {
     }
   }
 
+  func getUpdatedUserDataForRide(ride: Ride) {
+    let userRef = ref.child("users/\(ride.driverId!)")
+    let query = userRef.queryOrderedByKey()
+
+    query.observeSingleEvent(of: .value, with: { snapshot in
+      let user = User()
+      user.updateFromSnapshot(snapshot: snapshot)
+      ride.driver = user
+    })
+  }
+
   func removeRide(ride: Ride) {
     // remove from passengers rides
     for pass in ride.passengers {

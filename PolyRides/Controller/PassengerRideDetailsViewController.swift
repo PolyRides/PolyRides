@@ -24,9 +24,11 @@ class PassengerRideDetailsViewController: RideDetailsViewController {
   let userInstanceID = "e5kRgW9kicE:APA91bFCb56SJBTgCFW2zr3FOJJ6ya6sfVKWjlxJs2c5vuuV43FGZmL3LrUIWTWw3_kjrlsI-hkf-kP1KEmkjS_JqK8VKejGoRHprFoWAQBMPNxZ2taHGFpLChUYjGh-0OQyceQDF5Pc"
 
   var mutualFriends = [User]()
+  var isAlreadyInRides: Bool?
 
   @IBOutlet weak var tableView: UITableView?
   @IBOutlet weak var saveButton: UIBarButtonItem?
+  @IBOutlet weak var requestOrLeaveButton: UIButton?
 
   @IBAction func requestRideAction(sender: AnyObject) {
     if let ride = ride {
@@ -72,6 +74,10 @@ class PassengerRideDetailsViewController: RideDetailsViewController {
     super.viewDidLoad()
 
     tableView?.dataSource = self
+
+    if let inRides = isAlreadyInRides {
+      requestOrLeaveButton?.setTitle("Leave Ride", for: .normal)
+    }
     makeMutualFriendsRequest()
   }
 
@@ -87,6 +93,7 @@ class PassengerRideDetailsViewController: RideDetailsViewController {
     if let ride = ride {
       if user?.savedRides.index(where: { $0.id == ride.id }) != nil {
         image = UIImage(named: "star_filled")
+
       }
     }
     saveButton?.image = image
@@ -114,14 +121,18 @@ extension PassengerRideDetailsViewController: UITableViewDataSource {
     let cell = tableView!.dequeueReusableCell(withIdentifier: "driverCell", for: indexPath as IndexPath)
 
     if let driverCell = cell as? DriverTableViewCell {
-      if let driver = ride?.driver {
-        if let imageURL = driver.imageURL {
-          if let url = NSURL(string: imageURL) {
-            driverCell.imageView?.setImageWith(url as URL, placeholderImage: UIImage(named: "empty_profile"))
+      if let ride = ride {
+        // query db for driver info
+        RideService().getUpdatedUserDataForRide(ride: ride)
+        if let driver = ride.driver {
+          if let imageURL = driver.imageURL {
+            if let url = NSURL(string: imageURL) {
+              driverCell.imageView?.setImageWith(url as URL, placeholderImage: UIImage(named: "empty_profile"))
+            }
           }
-        }
 
-        driverCell.name?.text = driver.getFullName()
+          driverCell.name?.text = driver.getFullName()
+        }
       }
     }
 

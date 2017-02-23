@@ -149,6 +149,19 @@ class MyRidesViewController: RidesTableViewController {
         navVC.modalPresentationStyle = .custom
       }
     } else if segue.identifier == "toPassengerRideDetails" || segue.identifier == "toMyRideDetails" {
+      if let vc = segue.destination as? PassengerRideDetailsViewController {
+        if let cell = sender as? RideTableViewCell {
+          let isPassenger = cell.ride?.passengers.contains { (key, value) -> Bool in
+            key == user?.id
+          }
+          if let isPassenger = isPassenger {
+            if isPassenger == true {
+              vc.isAlreadyInRides = true
+            }
+          }
+        }
+      }
+
       if let vc = segue.destination as? RideDetailsViewController {
         if let cell = sender as? RideTableViewCell {
           vc.ride = cell.ride
@@ -209,9 +222,7 @@ extension MyRidesViewController: UITableViewDelegate {
         performSegue(withIdentifier: "toMyRideDetails", sender: cell)
       }
     }
-
   }
-
 }
 
 // MARK: - UIViewControllerTransitioningDelegate

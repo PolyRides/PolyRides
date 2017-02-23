@@ -139,6 +139,7 @@
                         <outlet property="dateLabel" destination="th0-IW-Dvz" id="SJ1-b4-Hmx"/>
                         <outlet property="descriptionTextView" destination="JUa-la-r2c" id="aV5-c3-jV1"/>
                         <outlet property="locationLabel" destination="6zP-qk-drD" id="L7y-TD-slq"/>
+                        <outlet property="requestOrLeaveButton" destination="H9e-5c-6vb" id="fF6-Mr-z65"/>
                         <outlet property="saveButton" destination="VmP-Un-Wi4" id="GhN-8c-zzj"/>
                         <outlet property="seatsAvailableLabel" destination="lCN-z4-dFV" id="Sdx-0t-1TA"/>
                         <outlet property="tableView" destination="cka-1f-hgU" id="EHz-bK-IKg"/>
