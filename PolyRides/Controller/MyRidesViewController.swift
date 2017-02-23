@@ -204,7 +204,6 @@ extension MyRidesViewController: FirebaseRidesDelegate {
   func onNumRidesReceived(numRides: Int) {
     expectedRides = numRides
   }
-
 }
 
 // MARK: - UITableViewDelegate

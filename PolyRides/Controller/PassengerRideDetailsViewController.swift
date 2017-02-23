@@ -122,8 +122,6 @@ extension PassengerRideDetailsViewController: UITableViewDataSource {
 
     if let driverCell = cell as? DriverTableViewCell {
       if let ride = ride {
-        // query db for driver info
-        RideService().getUpdatedUserDataForRide(ride: ride)
         if let driver = ride.driver {
           if let imageURL = driver.imageURL {
             if let url = NSURL(string: imageURL) {

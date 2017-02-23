@@ -79,6 +79,8 @@ class Ride: Equatable {
       fromLocation = getLocationFromDictionary(dictionary: dictionary, place: "fromPlaceId", city: "fromPlaceCity")
       toLocation = getLocationFromDictionary(dictionary: dictionary, place: "toPlaceId", city: "toPlaceCity")
     }
+
+    RideService().getUpdatedUserDataForRide(ride: self)
   }
 
   func getDriverInstanceID() -> String {
