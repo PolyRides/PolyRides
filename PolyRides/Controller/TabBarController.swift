@@ -19,7 +19,7 @@ class TabBarController: UITabBarController {
     border.frame = CGRect(x: 0, y: 0, width: 65, height: 65)
     border.center = CGPoint(x: view.frame.midX, y: view.frame.maxY - 32)
     border.layer.cornerRadius = border.frame.width / 2
-    border.backgroundColor = UIColor(red: 178.0/255, green: 178.0/255, blue: 178.0/255, alpha: 1.0)
+    border.backgroundColor = UIColor(red: 41.0/255, green: 85.0/255, blue: 26.0/255, alpha: 1.0)
     view.addSubview(border)
     view.bringSubview(toFront: tabBar)
 

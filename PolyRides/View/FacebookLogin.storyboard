@@ -56,7 +56,7 @@
                                 <rect key="frame" x="-4" y="0.0" width="328" height="568"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="ygk-eq-iNQ">
-                                        <rect key="frame" x="35" y="239" width="259.5" height="91"/>
+                                        <rect key="frame" x="34.5" y="239" width="259.5" height="91"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="Ssh-Tb-Hop">
                                                 <rect key="frame" x="0.0" y="0.0" width="259.5" height="69"/>
@@ -97,7 +97,7 @@
                                         </subviews>
                                     </stackView>
                                 </subviews>
-                                <color key="backgroundColor" red="0.20784313730000001" green="0.28627450980000002" blue="0.36470588240000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.16078431369999999" green="0.33333333329999998" blue="0.1019607843" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstItem="ygk-eq-iNQ" firstAttribute="centerY" secondItem="fhI-7t-IKv" secondAttribute="centerY" id="XJ1-g8-Dio"/>
                                     <constraint firstItem="ygk-eq-iNQ" firstAttribute="centerX" secondItem="fhI-7t-IKv" secondAttribute="centerX" id="qtG-NV-Bdk"/>
