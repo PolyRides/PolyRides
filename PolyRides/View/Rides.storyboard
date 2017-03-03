@@ -18,7 +18,7 @@
         <scene sceneID="dZZ-XN-P3U">
             <objects>
                 <navigationController id="F06-1m-krZ" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="fE4-qe-hof">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="fE4-qe-hof">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -98,7 +98,7 @@
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" red="0.20784313730000001" green="0.28627450980000002" blue="0.36470588240000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.16078431369999999" green="0.33333333329999998" blue="0.1019607843" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="YQo-Ub-837" firstAttribute="top" secondItem="ifF-Ho-9MW" secondAttribute="bottom" constant="8" id="2rg-Yj-DuG"/>
                             <constraint firstAttribute="trailingMargin" secondItem="YQo-Ub-837" secondAttribute="trailing" constant="43" id="8Dv-DH-ORw"/>
@@ -235,7 +235,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" red="0.20784313730000001" green="0.28627450980000002" blue="0.36470588240000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.16078431369999999" green="0.33333333329999998" blue="0.1019607843" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="hQj-3p-YOW" firstAttribute="leading" secondItem="VtL-Qg-grt" secondAttribute="trailing" constant="-3" id="13f-G7-JlS"/>
                             <constraint firstItem="0tL-xY-nMx" firstAttribute="trailing" secondItem="ZwG-jc-XDH" secondAttribute="trailingMargin" id="4rD-8a-ACr"/>
@@ -311,7 +311,7 @@
             <objects>
                 <navigationController storyboardIdentifier="NewRideViewController" automaticallyAdjustsScrollViewInsets="NO" id="Wrf-eZ-0Tt" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="s47-iJ-ihO">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="s47-iJ-ihO">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>

@@ -85,7 +85,7 @@
                                 </prototypes>
                             </tableView>
                         </subviews>
-                        <color key="backgroundColor" red="0.20784313730000001" green="0.28627450980000002" blue="0.36470588240000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.16078431369999999" green="0.33333333329999998" blue="0.1019607843" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="LO3-mx-0By" firstAttribute="leading" secondItem="8kX-Kc-357" secondAttribute="leadingMargin" constant="-20" id="Ifc-ma-4Kd"/>
                             <constraint firstItem="Pvg-rb-I06" firstAttribute="top" secondItem="LO3-mx-0By" secondAttribute="bottom" id="bMq-3b-CTP"/>
@@ -166,7 +166,7 @@
                                         </subviews>
                                     </stackView>
                                 </subviews>
-                                <color key="backgroundColor" red="0.20784313730000001" green="0.28627450980000002" blue="0.36470588240000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.16078431369999999" green="0.33333333329999998" blue="0.1019607843" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstItem="uIf-KF-uaC" firstAttribute="top" secondItem="5dw-oW-Ccq" secondAttribute="bottom" constant="8" id="1c0-Eo-aVy"/>
                                     <constraint firstAttribute="trailing" secondItem="5dw-oW-Ccq" secondAttribute="trailing" constant="12" id="2Ot-7T-3j8"/>
@@ -234,7 +234,7 @@
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" red="0.20784313730000001" green="0.28627450980000002" blue="0.36470588240000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.16078431369999999" green="0.33333333329999998" blue="0.1019607843" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="trailingMargin" secondItem="Hnc-NN-onX" secondAttribute="trailing" constant="-20" id="CN6-Me-gyT"/>
                             <constraint firstItem="V6o-Lc-JGL" firstAttribute="bottom" secondItem="sw9-fb-7Nf" secondAttribute="bottomMargin" constant="-6" id="OJj-b0-Bh0"/>
@@ -293,7 +293,7 @@
                                         </connections>
                                     </segmentedControl>
                                 </subviews>
-                                <color key="backgroundColor" red="0.20784313725490194" green="0.28627450980392155" blue="0.36470588235294116" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.16078431369999999" green="0.33333333329999998" blue="0.1019607843" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="TVZ-gk-JSW" secondAttribute="trailing" constant="12" id="3cY-oa-OE8"/>
                                     <constraint firstAttribute="height" secondItem="TVZ-gk-JSW" secondAttribute="height" constant="16" id="7i8-Ls-Lxu"/>

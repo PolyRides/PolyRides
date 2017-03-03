@@ -60,7 +60,7 @@ extension TableViewController: DZNEmptyDataSetSource {
   func title(forEmptyDataSet scrollView: UIScrollView!) -> NSAttributedString! {
     let attributes = [
       NSFontAttributeName: Font.EmptyTableHeader,
-      NSForegroundColorAttributeName : Color.Navy]
+      NSForegroundColorAttributeName : Color.Green]
     return NSAttributedString(string: emptyTitle, attributes: attributes)
   }
 

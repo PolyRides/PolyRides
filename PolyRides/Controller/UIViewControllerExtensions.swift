@@ -40,10 +40,10 @@ extension UIViewController {
   func setupAppearance() {
     navigationController?.navigationBar.isTranslucent = false
     navigationController?.navigationBar.barStyle = .black
-    navigationController?.navigationBar.barTintColor = Color.Navy
+    navigationController?.navigationBar.barTintColor = Color.Green
 
     tabBarController?.tabBar.isTranslucent = false
-    tabBarController?.tabBar.tintColor = Color.Navy
+    tabBarController?.tabBar.tintColor = Color.Green
 
     let backItem = UIBarButtonItem()
     backItem.title = ""

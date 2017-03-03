@@ -69,14 +69,14 @@ class SearchViewController: TableViewController {
   func setupTextFields() {
     let fromLabel = UILabel(frame: CGRect(x: 50, y: 0, width: 50, height: fromPlaceTextField!.frame.size.height))
     fromLabel.text = "From"
-    fromLabel.textColor = Color.Navy
+    fromLabel.textColor = Color.Gray
     fromLabel.font = Font.TextFieldPlaceholder
     fromPlaceTextField?.leftView = fromLabel
     fromPlaceTextField?.leftViewMode = .always
 
     let toLabel = UILabel(frame: fromPlaceTextField!.frame)
     toLabel.text = "To"
-    toLabel.textColor = Color.Navy
+    toLabel.textColor = Color.Gray
     toLabel.font = Font.TextFieldPlaceholder
     toPlaceTextField?.leftView = toLabel
     toPlaceTextField?.leftViewMode = .always
@@ -213,7 +213,7 @@ extension SearchViewController: UITextFieldDelegate {
 
   func textFieldDidBeginEditing(_ textField: UITextField) {
     if textField == dateTextField {
-      textField.textColor = Color.Navy
+      textField.textColor = UIColor.black
       datePicker?.date = DateHelper.nearestHalfHour() as Date
     }
   }

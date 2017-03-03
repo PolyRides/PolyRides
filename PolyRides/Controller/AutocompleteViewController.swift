@@ -47,8 +47,7 @@ class AutocompleteViewController: TableViewController {
     tableView?.dataSource = self
 
     let searchBar = UISearchBar()
-    searchBar.tintColor = Color.Navy
-    searchBar.sizeToFit()
+    searchBar.tintColor = Color.Green
     searchBar.showsCancelButton = true
     searchBar.becomeFirstResponder()
     searchBar.placeholder = "Search for place or address"

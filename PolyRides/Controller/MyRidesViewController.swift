@@ -235,7 +235,7 @@ extension MyRidesViewController: UIViewControllerTransitioningDelegate {
       if let addButton = addButton {
         transition.startingPoint = addButton.center
       }
-      transition.bubbleColor = Color.Navy
+      transition.bubbleColor = Color.Green
       return transition
   }
 
@@ -245,7 +245,7 @@ extension MyRidesViewController: UIViewControllerTransitioningDelegate {
       if let addButton = addButton {
         transition.startingPoint = addButton.center
       }
-      transition.bubbleColor = Color.Navy
+      transition.bubbleColor = Color.Green
       return transition
   }
 

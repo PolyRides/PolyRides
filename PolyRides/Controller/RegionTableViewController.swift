@@ -174,7 +174,7 @@ extension RegionTableViewController: UIViewControllerTransitioningDelegate {
       if let searchButton = searchButton {
         transition.startingPoint = searchButton.center
       }
-    transition.bubbleColor = Color.Navy
+    transition.bubbleColor = Color.Green
     return transition
   }
 

@@ -49,6 +49,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     // Navigation bar appearance.
     UINavigationBar.appearance().titleTextAttributes = Attributes.NavigationBar
     UINavigationBar.appearance().tintColor = UIColor.white
+    UINavigationBar.appearance().backgroundColor = Color.Green
     UINavigationBar.appearance().setBackgroundImage(UIImage(), for: .any, barMetrics: .default)
     UINavigationBar.appearance().shadowImage = UIImage()
     UIBarButtonItem.appearance(whenContainedInInstancesOf: [UISearchBar.self]).tintColor = UIColor.white
