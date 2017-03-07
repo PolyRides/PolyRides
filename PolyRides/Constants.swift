@@ -54,7 +54,7 @@ struct Empty {
   static let RegionTitle = "No rides were found."
 
   static let CurrentRidesTitle = "You haven't posted any rides, yet."
-  static let CurrentRidesMessage = "Offer a ride by tapping the plus symbol\nin the top right."
+  static let CurrentRidesMessage = "Offer a ride by going to the New tab at the bottom."
   static let PastRidesTitle = "You haven't completed any rides, yet."
   static let PastRidesMessage = "When you offer and complete a ride,\nthat ride will appear here."
   static let SavedRidesTitle = "You haven't saved any rides, yet."

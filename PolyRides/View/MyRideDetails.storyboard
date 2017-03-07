@@ -71,7 +71,9 @@
                             </textView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gzW-Mv-Fx5">
                                 <rect key="frame" x="142" y="579" width="90" height="30"/>
-                                <state key="normal" title="Remove Ride"/>
+                                <state key="normal" title="Remove Ride">
+                                    <color key="titleColor" red="0.16078431369999999" green="0.33333333329999998" blue="0.1019607843" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
                                 <connections>
                                     <segue destination="TCC-67-3C2" kind="unwind" unwindAction="unwindToMyRidesViewControllerWithSegue:" id="87G-Vz-JN4"/>
                                 </connections>

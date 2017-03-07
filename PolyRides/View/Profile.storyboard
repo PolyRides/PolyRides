@@ -14,7 +14,7 @@
             <objects>
                 <navigationController useStoryboardIdentifierAsRestorationIdentifier="YES" id="twN-Cg-lOh" sceneMemberID="viewController">
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="zrh-Sv-chm">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="zrh-Sv-chm">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -42,7 +42,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ch4-Hy-o4y">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ch4-Hy-o4y">
                                 <rect key="frame" x="0.0" y="64" width="375" height="554"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hmk-rL-E0k">
@@ -87,31 +87,17 @@
                                             <constraint firstAttribute="width" constant="75" id="aRs-wC-z0z"/>
                                         </constraints>
                                     </imageView>
-                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="H7l-qX-w84">
-                                        <rect key="frame" x="273" y="369" width="55" height="30"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="30" id="zmc-MI-tnn"/>
-                                        </constraints>
-                                        <state key="normal" title="Logout"/>
-                                        <connections>
-                                            <action selector="logOutActionWithSender:" destination="oWY-WK-zfY" eventType="touchUpInside" id="JT4-JR-FmR"/>
-                                        </connections>
-                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="bottom" secondItem="H7l-qX-w84" secondAttribute="bottom" constant="8" id="0Rm-uN-B5K"/>
                                     <constraint firstItem="Hmk-rL-E0k" firstAttribute="top" secondItem="Ch4-Hy-o4y" secondAttribute="top" constant="8" id="13l-XQ-2sn"/>
                                     <constraint firstAttribute="trailing" secondItem="n8r-cR-CYq" secondAttribute="trailing" constant="8" id="6vS-XV-QOs"/>
                                     <constraint firstItem="P8v-NG-60g" firstAttribute="leading" secondItem="Ch4-Hy-o4y" secondAttribute="leading" constant="8" id="AvV-iv-Xgc"/>
                                     <constraint firstAttribute="trailing" secondItem="Hmk-rL-E0k" secondAttribute="trailing" constant="8" id="CZI-64-M5u"/>
                                     <constraint firstItem="Hmk-rL-E0k" firstAttribute="leading" secondItem="Ch4-Hy-o4y" secondAttribute="leading" constant="8" id="E2x-U6-zN0"/>
-                                    <constraint firstItem="H7l-qX-w84" firstAttribute="centerX" secondItem="Ch4-Hy-o4y" secondAttribute="centerX" id="EFe-8x-lbi"/>
-                                    <constraint firstItem="H7l-qX-w84" firstAttribute="top" secondItem="OOg-ya-9WQ" secondAttribute="bottom" constant="37" id="FBP-gh-ERy"/>
                                     <constraint firstItem="OOg-ya-9WQ" firstAttribute="top" secondItem="n8r-cR-CYq" secondAttribute="bottom" constant="8" id="HkP-aA-VVf"/>
                                     <constraint firstItem="D6y-LJ-X3Z" firstAttribute="top" secondItem="Hmk-rL-E0k" secondAttribute="bottom" constant="8" id="ZU1-FW-QxT"/>
                                     <constraint firstItem="D6y-LJ-X3Z" firstAttribute="centerX" secondItem="Ch4-Hy-o4y" secondAttribute="centerX" id="ihV-QX-7dU"/>
-                                    <constraint firstItem="H7l-qX-w84" firstAttribute="centerX" secondItem="Ch4-Hy-o4y" secondAttribute="centerX" id="jtG-5Z-s0c"/>
                                     <constraint firstItem="OOg-ya-9WQ" firstAttribute="centerX" secondItem="Ch4-Hy-o4y" secondAttribute="centerX" id="n2S-Uq-JAT"/>
                                     <constraint firstItem="n8r-cR-CYq" firstAttribute="top" secondItem="P8v-NG-60g" secondAttribute="bottom" constant="8" id="psN-t0-6SB"/>
                                     <constraint firstItem="n8r-cR-CYq" firstAttribute="leading" secondItem="Ch4-Hy-o4y" secondAttribute="leading" constant="8" id="uLQ-sq-OdK"/>
@@ -120,17 +106,35 @@
                                     <constraint firstItem="P8v-NG-60g" firstAttribute="top" secondItem="D6y-LJ-X3Z" secondAttribute="bottom" constant="8" id="xsy-rF-3Hc"/>
                                 </constraints>
                             </scrollView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="H7l-qX-w84">
+                                <rect key="frame" x="160" y="545" width="55" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="zmc-MI-tnn"/>
+                                </constraints>
+                                <state key="normal" title="Logout">
+                                    <color key="titleColor" red="0.16078431369999999" green="0.33333333329999998" blue="0.1019607843" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="logOutActionWithSender:" destination="oWY-WK-zfY" eventType="touchUpInside" id="JT4-JR-FmR"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="Ch4-Hy-o4y" firstAttribute="leading" secondItem="EGj-kx-eLm" secondAttribute="leadingMargin" constant="-20" id="9lL-Rv-b2n"/>
                             <constraint firstItem="Ch4-Hy-o4y" firstAttribute="centerX" secondItem="EGj-kx-eLm" secondAttribute="centerX" id="Bp6-03-Jwa"/>
+                            <constraint firstAttribute="trailing" secondItem="H7l-qX-w84" secondAttribute="trailing" constant="160" id="D9I-z7-L40"/>
+                            <constraint firstItem="rah-gI-kkF" firstAttribute="top" secondItem="H7l-qX-w84" secondAttribute="bottom" constant="43" id="DwN-kU-EyD"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Ch4-Hy-o4y" secondAttribute="trailing" constant="-20" id="K9K-cl-IHR"/>
                             <constraint firstAttribute="leadingMargin" secondItem="Hmk-rL-E0k" secondAttribute="leading" id="M1m-PW-aEv"/>
                             <constraint firstItem="rah-gI-kkF" firstAttribute="top" secondItem="Ch4-Hy-o4y" secondAttribute="bottom" id="Oc7-bD-dxm"/>
                             <constraint firstItem="Ch4-Hy-o4y" firstAttribute="top" secondItem="cEF-84-hKk" secondAttribute="bottom" id="UGu-0H-JCS"/>
+                            <constraint firstItem="H7l-qX-w84" firstAttribute="centerX" secondItem="EGj-kx-eLm" secondAttribute="centerX" id="UVb-CB-pKZ"/>
                             <constraint firstItem="Ch4-Hy-o4y" firstAttribute="width" secondItem="EGj-kx-eLm" secondAttribute="width" id="YHK-kS-sAR"/>
+                            <constraint firstItem="H7l-qX-w84" firstAttribute="leading" secondItem="EGj-kx-eLm" secondAttribute="leading" constant="160" id="ZWm-iS-kdc"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Hmk-rL-E0k" secondAttribute="trailing" id="ghe-KD-7T5"/>
+                            <constraint firstItem="H7l-qX-w84" firstAttribute="centerX" secondItem="EGj-kx-eLm" secondAttribute="centerX" id="ju0-C0-fLZ"/>
+                            <constraint firstItem="H7l-qX-w84" firstAttribute="top" secondItem="cEF-84-hKk" secondAttribute="bottom" constant="481" id="mLy-8a-oWq"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
@@ -299,7 +303,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="8RG-ub-u8u" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="RGX-9v-rhz">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="RGX-9v-rhz">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
