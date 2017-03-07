@@ -12,13 +12,19 @@ protocol FirebaseRidesDelegate {
 
   func onRideReceived(ride: Ride)
   func onNumRidesReceived(numRides: Int)
-
+  func onRideRemoved(ride: Ride)
 }
 
 extension FirebaseRidesDelegate {
 
-  func onRideAdded(ride: Ride) {}
-  func onRideRemoved(ride: Ride) {}
+  func onRideAdded(ride: Ride) {
+    print("ride added:")
+    print(ride.printString())
+  }
+  func onRideRemoved(ride: Ride) {
+    print("ride removed:")
+    print(ride.printString())
+  }
 
 }
 
@@ -44,6 +50,34 @@ class RideService {
           }
         }
       })
+    }
+  }
+
+  func monitorRidesForUser(user: User) {
+    //monitor if they are accepted into a ride -- would need to be added to their myrides
+    if let userId = user.id {
+      let ridesRef = ref.child("users/\(userId)/rides")
+      ridesRef.observe(.childAdded, with: { snapshot in
+        self.delegate?.onNumRidesReceived(numRides: 1)
+
+        let rideRef = self.ref.child("rides/\(snapshot.key)")
+        rideRef.observeSingleEvent(of: .value, with: { snapshot in
+          let ride = Ride(fromSnapshot: snapshot)
+          self.delegate?.onRideReceived(ride: ride)
+        })
+      })
+
+      ridesRef.observe(.childRemoved, with: { snapshot in
+        self.delegate?.onNumRidesReceived(numRides: 1)
+
+        let rideRef = self.ref.child("rides/\(snapshot.key)")
+        rideRef.observeSingleEvent(of: .value, with: { snapshot in
+          let ride = Ride(fromSnapshot: snapshot)
+          self.delegate?.onRideRemoved(ride: ride)
+        })
+      })
+
+
     }
   }
 
@@ -101,35 +135,6 @@ class RideService {
     })
   }
 
-//  func addPassengerToRide(user: User?, ride: Ride) {
-//    if let id = user?.id {
-//      if let rideId = ride.id {
-//        // add to ride's current passengers
-//        var requestedRef = ref.child("rides/\(rideId)/passengers/\(id)")
-//        requestedRef.setValue(true)
-//
-//        // also remove user from ride's current pending requests
-//        ref.child("rides/\(rideId)/pendingRequests/\(id)").removeValue()
-//
-//        // also remove from passenger's pending requested rides
-//        ref.child("users/\(id)/pendingRequests/\(rideId)").removeValue()
-//
-//        // also add ride to passenger's rides
-//        requestedRef = ref.child("users/\(id)/rides/\(rideId)")
-//        requestedRef.setValue(true)
-//
-//        // decrement the seatsAvailable
-//        requestedRef = ref.child("rides/\(rideId)/seatsAvailable")
-//        requestedRef.observeSingleEvent(of: .value, with: { (snapshot) in
-//          let seats = (snapshot.value as? NSNumber)!.intValue - 1
-//          rideRef.setValue(seats)
-//        }) { (error) in
-//          print(error.localizedDescription)
-//        }
-//      }
-//    }
-//  }
-
   func addPassengerToRideRequests(user: User?, ride: Ride) {
     if let id = user?.id {
       if let rideId = ride.id {
@@ -185,29 +190,29 @@ class RideService {
     ref.child("users/\(passengerId)/pendingRequests/\(rideId)").removeValue()
   }
 
-  func monitorRides() {
-    let currentDateMillis = NSDate().timeIntervalSince1970
-    let ridesRef = ref.child("rides")
-    let query = ridesRef.queryOrdered(byChild: "date").queryStarting(atValue: currentDateMillis)
-
-    query.observe(.childAdded, with: { snapshot in
-      let ride = Ride(fromSnapshot: snapshot)
-
-      if let driverId = ride.driver?.id {
-        let driverRef = self.ref.child("users/\(driverId)")
-        driverRef.observeSingleEvent(of: .value, with: { snapshot in
-          if let driver = ride.driver {
-            driver.updateFromSnapshot(snapshot: snapshot)
-            self.delegate?.onRideAdded(ride: ride)
-          }
-        })
-      }
-    })
-
-    query.observe(.childRemoved, with: { snapshot in
-      self.delegate?.onRideRemoved(ride: Ride(fromSnapshot: snapshot))
-    })
-  }
+//  func monitorRides() {
+//    let currentDateMillis = NSDate().timeIntervalSince1970
+//    let ridesRef = ref.child("rides")
+//    let query = ridesRef.queryOrdered(byChild: "date").queryStarting(atValue: currentDateMillis)
+//
+//    query.observe(.childAdded, with: { snapshot in
+//      let ride = Ride(fromSnapshot: snapshot)
+//
+//      if let driverId = ride.driver?.id {
+//        let driverRef = self.ref.child("users/\(driverId)")
+//        driverRef.observeSingleEvent(of: .value, with: { snapshot in
+//          if let driver = ride.driver {
+//            driver.updateFromSnapshot(snapshot: snapshot)
+//            self.delegate?.onRideAdded(ride: ride)
+//          }
+//        })
+//      }
+//    })
+//
+//    query.observe(.childRemoved, with: { snapshot in
+//      self.delegate?.onRideRemoved(ride: Ride(fromSnapshot: snapshot))
+//    })
+//  }
 
   func pushRideToFirebase(ride: Ride) {
     let rideRef = ref.child("rides").childByAutoId()

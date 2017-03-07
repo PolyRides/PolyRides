@@ -141,4 +141,8 @@ class Ride: Equatable {
     return dictionary
   }
 
+  func printString() -> String {
+    return "Driver: \(driverId), Date: \(date), From: \(fromLocation?.city), To: \(toLocation?.city)"
+  }
+
 }

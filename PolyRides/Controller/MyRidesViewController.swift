@@ -118,6 +118,7 @@ class MyRidesViewController: RidesTableViewController {
     rideService.delegate = self
     if let user = user {
       rideService.getRidesForUser(user: user)
+      rideService.monitorRidesForUser(user: user)
       rideService.getSavedRidesForUser(user: user)
     }
 
@@ -136,6 +137,8 @@ class MyRidesViewController: RidesTableViewController {
       segmentedAction(sender: segmentedControl)
     }
     navigationController?.setNavigationBarHidden(true, animated: true)
+
+    tableView?.reloadData()
   }
 
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -193,10 +196,28 @@ extension MyRidesViewController: FirebaseRidesDelegate {
 
   func onRideReceived(ride: Ride) {
     if ride.date?.compare(NSDate() as Date) == .orderedDescending {
-      currentRides.append(ride)
+      if !currentRides.contains(ride) {
+        currentRides.append(ride)
+      }
     } else {
-      pastRides.append(ride)
+      if !pastRides.contains(ride) {
+        pastRides.append(ride)
+      }
     }
+    expectedRides -= 1
+  }
+
+  func onRideRemoved(ride: Ride) {
+    if ride.date?.compare(NSDate() as Date) == .orderedDescending {
+      if currentRides.contains(ride) {
+        currentRides.remove(at: (currentRides.index(of: ride))!)
+      }
+    } else {
+      if pastRides.contains(ride) {
+        pastRides.remove(at: (currentRides.index(of: ride))!)
+      }
+    }
+
     expectedRides -= 1
   }
 
