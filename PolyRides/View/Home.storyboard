@@ -98,7 +98,7 @@
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="tableView" destination="LO3-mx-0By" id="Pev-Ma-Dbq"/>
-                        <segue destination="rDq-gs-kpx" kind="presentation" identifier="toSearch" id="wjK-Dm-kY2"/>
+                        <segue destination="Jpq-k4-7SS" kind="presentation" identifier="toSearch" id="HxJ-9c-alh"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="D9z-hg-RCe" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -264,7 +264,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ubL-9T-T9u" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="292" y="-1343"/>
+            <point key="canvasLocation" x="564" y="-1303"/>
         </scene>
         <!--Region Rides View Controller-->
         <scene sceneID="BIx-h5-5ei">
@@ -363,7 +363,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ouE-IM-g6E" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="300" y="-645"/>
+            <point key="canvasLocation" x="138" y="-385"/>
         </scene>
         <!--PassengerRideDetails-->
         <scene sceneID="iTV-Cg-at6">
@@ -371,7 +371,23 @@
                 <viewControllerPlaceholder storyboardName="PassengerRideDetails" id="hEd-W4-DIT" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bYV-Ng-eb4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="789.5" y="-1317"/>
+            <point key="canvasLocation" x="1380" y="-1393"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="I09-Vq-FQG">
+            <objects>
+                <navigationController id="Jpq-k4-7SS" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="U9j-nd-3Wg">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="rDq-gs-kpx" kind="relationship" relationship="rootViewController" id="Sfa-4E-lZ6"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dmN-xR-o9R" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="970" y="-636"/>
         </scene>
         <!--PassengerRideDetails-->
         <scene sceneID="Ii4-13-XGX">
@@ -379,7 +395,7 @@
                 <viewControllerPlaceholder storyboardName="PassengerRideDetails" id="BoV-HM-yGv" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aVG-n2-0bZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="757.5" y="-637"/>
+            <point key="canvasLocation" x="629" y="-385"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="39e-J4-z8Q">
@@ -409,7 +425,7 @@
                 <viewControllerPlaceholder storyboardName="Autocomplete" id="d4N-n2-AZ8" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mhV-8K-Hfv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="765.5" y="-1367"/>
+            <point key="canvasLocation" x="1380" y="-1464"/>
         </scene>
     </scenes>
     <resources>

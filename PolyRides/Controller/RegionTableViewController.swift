@@ -84,11 +84,13 @@ class RegionTableViewController: TableViewController {
         }
       }
     } else if segue.identifier == "toSearch" {
-      if let vc = segue.destination as? SearchViewController {
-        vc.allRides = allRides
-        vc.user = user
-        vc.transitioningDelegate = self
-        vc.modalPresentationStyle = .custom
+      if let vc = segue.destination as? UINavigationController {
+        if let svc = vc.viewControllers.first as? SearchViewController {
+          svc.allRides = allRides
+          svc.user = user
+//        svc.transitioningDelegate = self
+//        svc.modalPresentationStyle = .custom
+        }
       }
     }
 

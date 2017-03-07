@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1918465B9E0F71CB1F35939C /* Pods_PolyRidesTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC278F6A1EA0392BFCB61FC8 /* Pods_PolyRidesTests.framework */; };
+		3E359DEE1E6F5BC7001FB860 /* SearchNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E359DED1E6F5BC7001FB860 /* SearchNavigationController.swift */; };
 		3E90DA671E31406B006D7FFB /* ScrollingFormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E90DA661E31406B006D7FFB /* ScrollingFormViewController.swift */; };
 		3EE692521E4AFDAA004D50CF /* HTTPHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EE692511E4AFDAA004D50CF /* HTTPHelper.swift */; };
 		3EF0B2B21E68F650003098C4 /* RideSubmittedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EF0B2B11E68F650003098C4 /* RideSubmittedViewController.swift */; };
@@ -131,6 +132,7 @@
 /* Begin PBXFileReference section */
 		134E6090D8164DDCE96194DA /* Pods-PolyRidesTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PolyRidesTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PolyRidesTests/Pods-PolyRidesTests.debug.xcconfig"; sourceTree = "<group>"; };
 		33776C172972E3E4DF0CA06A /* Pods_PolyRidesUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PolyRidesUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3E359DED1E6F5BC7001FB860 /* SearchNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchNavigationController.swift; sourceTree = "<group>"; };
 		3E90DA661E31406B006D7FFB /* ScrollingFormViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScrollingFormViewController.swift; sourceTree = "<group>"; };
 		3EE692511E4AFDAA004D50CF /* HTTPHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTTPHelper.swift; sourceTree = "<group>"; };
 		3EF0B2B11E68F650003098C4 /* RideSubmittedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RideSubmittedViewController.swift; sourceTree = "<group>"; };
@@ -333,6 +335,7 @@
 				DBAB56861C96B0F10011167A /* RegionTableViewController.swift */,
 				DB43A9951C9F95E400AC2AF9 /* RegionRidesViewController.swift */,
 				DB5F03B31CA8550F00E49A12 /* SearchViewController.swift */,
+				3E359DED1E6F5BC7001FB860 /* SearchNavigationController.swift */,
 			);
 			name = Home;
 			sourceTree = "<group>";
@@ -944,6 +947,7 @@
 				DBAB56951C9738870011167A /* UITextFieldExtensions.swift in Sources */,
 				6E628FA01CA100E400AAC2DB /* ConversationService.swift in Sources */,
 				DB8DAE821CB4318E0045195D /* TableViewController.swift in Sources */,
+				3E359DEE1E6F5BC7001FB860 /* SearchNavigationController.swift in Sources */,
 				DB701ADF1CA2537E00B40C9C /* UserService.swift in Sources */,
 				DB701AE11CA2568900B40C9C /* LoadingViewController.swift in Sources */,
 				6E628F9C1CA0FF6900AAC2DB /* MessageService.swift in Sources */,
