@@ -62,7 +62,30 @@ class RegionTableViewController: TableViewController {
 
     let token = FIRInstanceID.instanceID().token()!
     print("InstanceID token: \(token)")
+
+    // pull to refresh
+    if #available(iOS 10.0, *) {
+      self.tableView?.refreshControl = UIRefreshControl()
+      self.tableView?.refreshControl?.backgroundColor = Color.Green
+      self.tableView?.refreshControl?.addTarget(self, action: #selector(reloadData), for: UIControlEvents.valueChanged)
+    } else {
+      // Fallback on earlier versions
+    }
   }
+
+  func reloadData() {
+    // Reload table data
+    self.tableView?.reloadData()
+    // End the refreshing
+    if #available(iOS 10.0, *) {
+      if (self.tableView?.refreshControl != nil) {
+        self.tableView?.refreshControl?.endRefreshing()
+      }
+    } else {
+      // Fallback on earlier versions
+    }
+  }
+
 
   override func viewWillAppear(_ animated: Bool) {
     navigationController?.setNavigationBarHidden(true, animated: true)
@@ -88,8 +111,6 @@ class RegionTableViewController: TableViewController {
         if let svc = vc.viewControllers.first as? SearchViewController {
           svc.allRides = allRides
           svc.user = user
-//        svc.transitioningDelegate = self
-//        svc.modalPresentationStyle = .custom
         }
       }
     }

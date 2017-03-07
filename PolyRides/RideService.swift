@@ -192,10 +192,13 @@ class RideService {
 
 //  func monitorRides() {
 //    let currentDateMillis = NSDate().timeIntervalSince1970
-//    let ridesRef = ref.child("rides")
+//    let ridesRef = ref.child(
+//      "rides")
 //    let query = ridesRef.queryOrdered(byChild: "date").queryStarting(atValue: currentDateMillis)
 //
 //    query.observe(.childAdded, with: { snapshot in
+//      self.delegate?.onNumRidesReceived(numRides: 1)
+//
 //      let ride = Ride(fromSnapshot: snapshot)
 //
 //      if let driverId = ride.driver?.id {
@@ -209,8 +212,20 @@ class RideService {
 //      }
 //    })
 //
-//    query.observe(.childRemoved, with: { snapshot in
-//      self.delegate?.onRideRemoved(ride: Ride(fromSnapshot: snapshot))
+//    query.observe(.childAdded, with: { snapshot in
+//      self.delegate?.onNumRidesReceived(numRides: 1)
+//
+//      let ride = Ride(fromSnapshot: snapshot)
+//
+//      if let driverId = ride.driver?.id {
+//        let driverRef = self.ref.child("users/\(driverId)")
+//        driverRef.observeSingleEvent(of: .value, with: { snapshot in
+//          if let driver = ride.driver {
+//            driver.updateFromSnapshot(snapshot: snapshot)
+//            self.delegate?.onRideRemoved(ride: ride)
+//          }
+//        })
+//      }
 //    })
 //  }
 
