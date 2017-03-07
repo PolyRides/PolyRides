@@ -47,10 +47,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="YQo-Ub-837">
-                                <rect key="frame" x="16" y="28" width="300" height="29"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="300" id="z2C-RM-SQK"/>
-                                </constraints>
+                                <rect key="frame" x="16" y="28" width="343" height="29"/>
                                 <segments>
                                     <segment title="Current"/>
                                     <segment title="Past"/>
@@ -91,32 +88,22 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="contactAdd" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a1a-Ag-w3X">
-                                <rect key="frame" x="336" y="30" width="22" height="22"/>
-                                <connections>
-                                    <segue destination="Wrf-eZ-0Tt" kind="show" identifier="toAddRide" id="R30-Ol-d9o"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.16078431369999999" green="0.33333333329999998" blue="0.1019607843" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="YQo-Ub-837" firstAttribute="top" secondItem="ifF-Ho-9MW" secondAttribute="bottom" constant="8" id="2rg-Yj-DuG"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="YQo-Ub-837" secondAttribute="trailing" constant="43" id="8Dv-DH-ORw"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="YQo-Ub-837" secondAttribute="trailing" id="8Dv-DH-ORw"/>
                             <constraint firstItem="YQo-Ub-837" firstAttribute="leading" secondItem="ioP-ZV-Euv" secondAttribute="leadingMargin" id="AAC-Dl-UaO"/>
                             <constraint firstItem="YQo-Ub-837" firstAttribute="leading" secondItem="ioP-ZV-Euv" secondAttribute="leadingMargin" id="CS1-SJ-oED"/>
-                            <constraint firstItem="a1a-Ag-w3X" firstAttribute="leading" secondItem="YQo-Ub-837" secondAttribute="trailing" constant="20" id="FDB-WM-hJM"/>
                             <constraint firstItem="wRW-a5-fDd" firstAttribute="top" secondItem="Byt-o3-3gz" secondAttribute="bottom" id="IDO-kM-Oab"/>
                             <constraint firstItem="Byt-o3-3gz" firstAttribute="top" secondItem="YQo-Ub-837" secondAttribute="bottom" constant="8" id="M3j-TT-KxP"/>
                             <constraint firstItem="Byt-o3-3gz" firstAttribute="leading" secondItem="ioP-ZV-Euv" secondAttribute="leadingMargin" constant="-20" id="OMI-Hk-BDO"/>
-                            <constraint firstItem="Byt-o3-3gz" firstAttribute="top" secondItem="a1a-Ag-w3X" secondAttribute="bottom" constant="12" id="Pqa-Le-aIH"/>
                             <constraint firstItem="Byt-o3-3gz" firstAttribute="top" secondItem="YQo-Ub-837" secondAttribute="bottom" constant="8" id="R0f-TL-iOB"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="a1a-Ag-w3X" secondAttribute="trailing" constant="1" id="RLN-he-6Sh"/>
                             <constraint firstItem="YQo-Ub-837" firstAttribute="top" secondItem="ifF-Ho-9MW" secondAttribute="bottom" constant="8" id="UFa-BD-whH"/>
                             <constraint firstItem="Byt-o3-3gz" firstAttribute="top" secondItem="YQo-Ub-837" secondAttribute="bottom" constant="8" id="WEX-F6-Db4"/>
                             <constraint firstItem="YQo-Ub-837" firstAttribute="top" secondItem="ifF-Ho-9MW" secondAttribute="bottom" constant="8" id="dPv-qT-JMM"/>
-                            <constraint firstItem="a1a-Ag-w3X" firstAttribute="top" secondItem="ifF-Ho-9MW" secondAttribute="bottom" constant="10" id="gJT-ZK-Pvr"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Byt-o3-3gz" secondAttribute="trailing" constant="-20" id="hTZ-r2-gtt"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="YQo-Ub-837" secondAttribute="trailing" constant="43" id="zxc-34-ke1"/>
+                            <constraint firstItem="YQo-Ub-837" firstAttribute="trailing" secondItem="ioP-ZV-Euv" secondAttribute="trailingMargin" id="wG6-Ee-b53"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Rides" image="car" selectedImage="car_filled" id="ZFq-mP-AZB"/>
@@ -124,7 +111,6 @@
                     <nil key="simulatedTopBarMetrics"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
-                        <outlet property="addButton" destination="a1a-Ag-w3X" id="PVg-lV-ud8"/>
                         <outlet property="segmentedControl" destination="YQo-Ub-837" id="yE0-xn-qvm"/>
                         <outlet property="tableView" destination="Byt-o3-3gz" id="2v9-0M-6Kh"/>
                         <segue destination="UKr-D7-a7T" kind="show" identifier="toMyRideDetails" id="yyg-lA-89K"/>
@@ -304,7 +290,7 @@
                 <viewControllerPlaceholder storyboardName="Autocomplete" id="0HH-00-F9e" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QUa-iI-eTA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="658.5" y="-1021"/>
+            <point key="canvasLocation" x="863" y="-1088"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Gxd-g4-fbF">

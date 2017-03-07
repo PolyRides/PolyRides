@@ -10,10 +10,9 @@
 		1918465B9E0F71CB1F35939C /* Pods_PolyRidesTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC278F6A1EA0392BFCB61FC8 /* Pods_PolyRidesTests.framework */; };
 		3E90DA671E31406B006D7FFB /* ScrollingFormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E90DA661E31406B006D7FFB /* ScrollingFormViewController.swift */; };
 		3EE692521E4AFDAA004D50CF /* HTTPHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EE692511E4AFDAA004D50CF /* HTTPHelper.swift */; };
+		3EF0B2B21E68F650003098C4 /* RideSubmittedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EF0B2B11E68F650003098C4 /* RideSubmittedViewController.swift */; };
 		3EF422601E2F16C000895BA1 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EF4225F1E2F16C000895BA1 /* MapKit.framework */; };
-		6E4373601CA4E3EB00630D07 /* ConversationsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E43735F1CA4E3EB00630D07 /* ConversationsTableViewController.swift */; };
 		6E53E3CB1C9E428400370108 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E53E3CA1C9E428400370108 /* Message.swift */; };
-		6E53E3CE1C9E5A6100370108 /* MessagesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E53E3CD1C9E5A6100370108 /* MessagesViewController.swift */; };
 		6E628F9C1CA0FF6900AAC2DB /* MessageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E628F9B1CA0FF6900AAC2DB /* MessageService.swift */; };
 		6E628F9E1CA100CF00AAC2DB /* Conversation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E628F9D1CA100CF00AAC2DB /* Conversation.swift */; };
 		6E628FA01CA100E400AAC2DB /* ConversationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E628F9F1CA100E400AAC2DB /* ConversationService.swift */; };
@@ -53,7 +52,6 @@
 		DB43A9961C9F95E400AC2AF9 /* RegionRidesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB43A9951C9F95E400AC2AF9 /* RegionRidesViewController.swift */; };
 		DB43A9981C9FA63700AC2AF9 /* RidesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB43A9971C9FA63700AC2AF9 /* RidesTableViewController.swift */; };
 		DB5F03B41CA8550F00E49A12 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5F03B31CA8550F00E49A12 /* SearchViewController.swift */; };
-		DB5F03BC1CAC980500E49A12 /* MessageTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5F03BB1CAC980500E49A12 /* MessageTableViewController.swift */; };
 		DB5F03BF1CAD898100E49A12 /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5F03BE1CAD898100E49A12 /* Request.swift */; };
 		DB5F03C61CAE1D0800E49A12 /* FacebookLogin.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB5F03C51CAE1D0800E49A12 /* FacebookLogin.storyboard */; };
 		DB5F03C81CAE1F6600E49A12 /* UIButtonExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5F03C71CAE1F6600E49A12 /* UIButtonExtensions.swift */; };
@@ -135,12 +133,11 @@
 		33776C172972E3E4DF0CA06A /* Pods_PolyRidesUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PolyRidesUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3E90DA661E31406B006D7FFB /* ScrollingFormViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScrollingFormViewController.swift; sourceTree = "<group>"; };
 		3EE692511E4AFDAA004D50CF /* HTTPHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTTPHelper.swift; sourceTree = "<group>"; };
+		3EF0B2B11E68F650003098C4 /* RideSubmittedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RideSubmittedViewController.swift; sourceTree = "<group>"; };
 		3EF4225E1E2F16A300895BA1 /* Poly Rides.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Poly Rides.entitlements"; sourceTree = "<group>"; };
 		3EF4225F1E2F16C000895BA1 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		61872E5AC265900EE5CECC7E /* Pods-PolyRidesTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PolyRidesTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-PolyRidesTests/Pods-PolyRidesTests.release.xcconfig"; sourceTree = "<group>"; };
-		6E43735F1CA4E3EB00630D07 /* ConversationsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConversationsTableViewController.swift; sourceTree = "<group>"; };
 		6E53E3CA1C9E428400370108 /* Message.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
-		6E53E3CD1C9E5A6100370108 /* MessagesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessagesViewController.swift; sourceTree = "<group>"; };
 		6E628F9B1CA0FF6900AAC2DB /* MessageService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageService.swift; sourceTree = "<group>"; };
 		6E628F9D1CA100CF00AAC2DB /* Conversation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Conversation.swift; sourceTree = "<group>"; };
 		6E628F9F1CA100E400AAC2DB /* ConversationService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConversationService.swift; sourceTree = "<group>"; };
@@ -183,7 +180,6 @@
 		DB43A9951C9F95E400AC2AF9 /* RegionRidesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegionRidesViewController.swift; sourceTree = "<group>"; };
 		DB43A9971C9FA63700AC2AF9 /* RidesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RidesTableViewController.swift; sourceTree = "<group>"; };
 		DB5F03B31CA8550F00E49A12 /* SearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
-		DB5F03BB1CAC980500E49A12 /* MessageTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageTableViewController.swift; sourceTree = "<group>"; };
 		DB5F03BE1CAD898100E49A12 /* Request.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
 		DB5F03C51CAE1D0800E49A12 /* FacebookLogin.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = FacebookLogin.storyboard; sourceTree = "<group>"; };
 		DB5F03C71CAE1F6600E49A12 /* UIButtonExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIButtonExtensions.swift; sourceTree = "<group>"; };
@@ -280,16 +276,6 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
-		6E53E3CC1C9E59E800370108 /* Messages */ = {
-			isa = PBXGroup;
-			children = (
-				DB5F03BB1CAC980500E49A12 /* MessageTableViewController.swift */,
-				6E53E3CD1C9E5A6100370108 /* MessagesViewController.swift */,
-				6E43735F1CA4E3EB00630D07 /* ConversationsTableViewController.swift */,
-			);
-			name = Messages;
-			sourceTree = "<group>";
-		};
 		6E628F9A1CA0FD3C00AAC2DB /* Services */ = {
 			isa = PBXGroup;
 			children = (
@@ -331,6 +317,7 @@
 		DB4151021C9B05240062E5A0 /* Rides */ = {
 			isa = PBXGroup;
 			children = (
+				3EF0B2B11E68F650003098C4 /* RideSubmittedViewController.swift */,
 				DB4150FF1C9A74500062E5A0 /* MyRidesViewController.swift */,
 				DB701AEA1CA2EBDC00B40C9C /* MyRideDetailsViewController.swift */,
 				DB1C76711CA0F08C0052D3B9 /* PassengerRideDetailsViewController.swift */,
@@ -557,7 +544,6 @@
 				DB747ABB1C98DB2D00A24F58 /* TabBarController.swift */,
 				DB43A98B1C9E582800AC2AF9 /* Home */,
 				DB4151021C9B05240062E5A0 /* Rides */,
-				6E53E3CC1C9E59E800370108 /* Messages */,
 				DB43A9901C9F0F4100AC2AF9 /* Profile */,
 			);
 			name = Main;
@@ -948,6 +934,7 @@
 				DB2433411CA3A1AC0025680B /* MyProfileViewController.swift in Sources */,
 				DBA6FBC81DF5E3B200A953AB /* LoginViewController.swift in Sources */,
 				DB4151041C9B05340062E5A0 /* AddRideViewController.swift in Sources */,
+				3EF0B2B21E68F650003098C4 /* RideSubmittedViewController.swift in Sources */,
 				DB701ADD1CA24E3100B40C9C /* LaunchScreenViewController.swift in Sources */,
 				DBBBD13D1C9DE57B0085E3B9 /* Location.swift in Sources */,
 				DB8DAE5A1CB022EF0045195D /* Verification.swift in Sources */,
@@ -967,11 +954,8 @@
 				DBB1558C1C9B76C500118F89 /* DateHelper.swift in Sources */,
 				DB70B8CE1C9389EA0065CC4D /* AppDelegate.swift in Sources */,
 				DB70B9021C938B230065CC4D /* User.swift in Sources */,
-				6E4373601CA4E3EB00630D07 /* ConversationsTableViewController.swift in Sources */,
 				DB43A9921C9F0F5400AC2AF9 /* ProfileViewController.swift in Sources */,
 				DB701AE31CA2582100B40C9C /* AuthService.swift in Sources */,
-				DB5F03BC1CAC980500E49A12 /* MessageTableViewController.swift in Sources */,
-				6E53E3CE1C9E5A6100370108 /* MessagesViewController.swift in Sources */,
 				DB747ABC1C98DB2D00A24F58 /* TabBarController.swift in Sources */,
 				DB43A98F1C9F071800AC2AF9 /* RideDetailsViewController.swift in Sources */,
 				DB8DAE851CB4C3A10045195D /* AutocompleteViewController.swift in Sources */,

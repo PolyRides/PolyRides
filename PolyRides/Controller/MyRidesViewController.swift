@@ -143,7 +143,6 @@ class MyRidesViewController: RidesTableViewController {
       if let navVC = segue.destination as? UINavigationController {
         if let vc = navVC.topViewController as? AddRideViewController {
           vc.user = user
-
         }
         navVC.transitioningDelegate = self
         navVC.modalPresentationStyle = .custom

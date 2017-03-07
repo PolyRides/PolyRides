@@ -15,8 +15,8 @@ class AddRideViewController: UIViewController, UITextViewDelegate, UITextFieldDe
   let rideService = RideService()
   let emptyDescription = "Optional notes for passengers."
 
-  var user: User?
   var ride: Ride?
+  var user: User?
   var toPlace: GMSPlace?
   var fromPlace: GMSPlace?
   var autocompleteTextField: UITextField?
@@ -34,6 +34,7 @@ class AddRideViewController: UIViewController, UITextViewDelegate, UITextFieldDe
   @IBOutlet weak var notesTextView: UITextView?
   @IBOutlet weak var addButton: UIBarButtonItem?
   @IBOutlet weak var scrollView: UIScrollView?
+  @IBOutlet weak var stepper : UIStepper?
 
 
   @IBAction func switchToFromAction(sender: AnyObject) {
@@ -64,6 +65,20 @@ class AddRideViewController: UIViewController, UITextViewDelegate, UITextFieldDe
       costTextField?.text = formattedString
       setEnableAddButton()
     }
+  }
+
+  @IBAction func unwindToAddRideViewController(segue: UIStoryboardSegue) {
+    toPlaceTextField?.text = ""
+    fromPlaceTextField?.text = ""
+    toPlace = nil
+    fromPlace = nil
+    seatsLabel?.text = "1"
+    stepper?.value = 1.0
+
+    costTextField?.text = ""
+    notesTextView?.text = emptyDescription
+    notesTextView?.textColor = UIColor.lightGray
+    dismissKeyboard()
   }
 
   override func viewDidLoad() {
@@ -108,13 +123,14 @@ class AddRideViewController: UIViewController, UITextViewDelegate, UITextFieldDe
           if let seats = seatsLabel?.text {
             if let date = datePicker?.date {
               cost = cost.replacingOccurrences(of: "$", with: "")
-              if let user = user {
+
+              if let tabBarVC = self.tabBarController as? TabBarController {
                 if description == "Optional notes for passengers." {
                   description = ""
                 }
 
-              let ride =
-                  Ride(driver: user, date: date as NSDate, seats: Int(seats), description: description, cost: Int(cost))
+                let ride =
+                  Ride(driver: (tabBarVC.user!), date: date as NSDate, seats: Int(seats), description: description, cost: Int(cost))
                 ride.fromLocation = locationFromPlace(place: fromPlace)
                 ride.toLocation = locationFromPlace(place: toPlace)
                 ride.timestamp = NSDate()
@@ -130,7 +146,9 @@ class AddRideViewController: UIViewController, UITextViewDelegate, UITextFieldDe
         if let vc = navVC.topViewController as? AutocompleteViewController, let textField = sender as? UITextField {
           vc.delegate = self
           vc.initialText = textField.text
-          vc.user = user
+          if let tabBarVC = self.tabBarController as? TabBarController {
+            vc.user = tabBarVC.user
+          }
         }
       }
     }

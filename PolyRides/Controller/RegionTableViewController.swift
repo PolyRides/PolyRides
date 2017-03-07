@@ -69,6 +69,10 @@ class RegionTableViewController: TableViewController {
     super.viewWillAppear(animated)
   }
 
+  func actionHandler(_: UIAlertAction!) -> Void {
+    self.performSegue(withIdentifier: "unwindToMainSegue", sender: self)
+  }
+
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
     if segue.identifier == "toRegionRides" {
       if let vc = segue.destination as? RegionRidesViewController {
