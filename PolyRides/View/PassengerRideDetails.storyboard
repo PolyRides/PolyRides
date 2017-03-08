@@ -105,7 +105,7 @@
                                     <color key="titleColor" red="0.16078431369999999" green="0.33333333329999998" blue="0.1019607843" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
-                                    <action selector="requestRideActionWithSender:" destination="kuy-fA-YL2" eventType="touchUpInside" id="NT5-fy-J9S"/>
+                                    <action selector="requestOrLeaveRideActionWithSender:" destination="kuy-fA-YL2" eventType="touchUpInside" id="35w-el-8cG"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -148,9 +148,11 @@
                         <outlet property="saveButton" destination="VmP-Un-Wi4" id="GhN-8c-zzj"/>
                         <outlet property="seatsAvailableLabel" destination="lCN-z4-dFV" id="Sdx-0t-1TA"/>
                         <outlet property="tableView" destination="cka-1f-hgU" id="EHz-bK-IKg"/>
+                        <segue destination="Xnz-1v-kOQ" kind="unwind" identifier="unwindToMyRidesViewControllerWithSegue" unwindAction="unwindToMyRidesViewControllerWithSegue:" id="NYh-J5-BL9"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ybr-wN-CVK" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="Xnz-1v-kOQ" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="2487" y="-999"/>
         </scene>

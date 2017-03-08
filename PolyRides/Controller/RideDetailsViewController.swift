@@ -29,10 +29,10 @@ class RideDetailsViewController: UIViewController {
       locationLabel?.text = ride.getFormattedLocation()
       dateLabel?.text = ride.getFormattedDate()
       if let seatsAvailable = ride.seatsAvailable {
-        seatsAvailableLabel?.text = "Seats: \(seatsAvailable)"
+        seatsAvailableLabel?.text = "Seats available: \(seatsAvailable)"
       }
       if let costPerSeat = ride.costPerSeat {
-        costPerSeatLabel?.text = "Cost per seat: \(costPerSeat)"
+        costPerSeatLabel?.text = "Cost per seat: $\(costPerSeat)"
       }
       descriptionTextView?.text = ride.description
 
