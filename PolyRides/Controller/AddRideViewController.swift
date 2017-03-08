@@ -156,10 +156,38 @@ class AddRideViewController: UIViewController, UITextViewDelegate, UITextFieldDe
 
   override func shouldPerformSegue(withIdentifier: String, sender: Any?) -> Bool {
     if withIdentifier == "addRide" {
+      if toPlace == nil || fromPlace == nil {
+        let title = "Invalid Location"
+        let message = "Must specify a valid location for your ride."
+        presentAlert(alertOptions: AlertOptions(message: message, title: title))
+
+        return false
+      }
+
       if let date = datePicker?.date {
         if date.compare(NSDate() as Date) == ComparisonResult.orderedAscending {
           let title = "Invalid Depature Date"
           let message = "Rides in the past cannot be posted. Please adjust your departure date."
+          presentAlert(alertOptions: AlertOptions(message: message, title: title))
+
+          return false
+        }
+      }
+
+      if let seats = seatsLabel?.text {
+        if seats == "" || (Int(seats)! < 1) {
+          let title = "Invalid Number of Seats"
+          let message = "Must specify the number of seats available."
+          presentAlert(alertOptions: AlertOptions(message: message, title: title))
+
+          return false
+        }
+      }
+
+      if let cost = costTextField?.text {
+        if cost == "" || ((Int(cost))! < 0) {
+          let title = "Invalid Cost"
+          let message = "Must specify the cost per passenger."
           presentAlert(alertOptions: AlertOptions(message: message, title: title))
 
           return false

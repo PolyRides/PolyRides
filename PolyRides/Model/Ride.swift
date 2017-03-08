@@ -21,7 +21,7 @@ class Ride: Equatable {
   var fromLocation: Location?
   var toLocation: Location?
   var seatsAvailable: Int?
-  var totalSeats: Int?
+//  var totalSeats: Int?
   var description: String?
   var costPerSeat: Int?
   var timestamp: NSDate?
@@ -57,9 +57,9 @@ class Ride: Equatable {
       if let seatsAvailable = dictionary["seatsAvailable"] as? Int {
         self.seatsAvailable = seatsAvailable
       }
-      if let totalSeats = dictionary["totalSeats"] as? Int {
-        self.totalSeats = totalSeats
-      }
+//      if let totalSeats = dictionary["totalSeats"] as? Int {
+//        self.totalSeats = totalSeats
+//      }
       if let description = dictionary["description"] as? String {
         self.description = description
       }
@@ -131,7 +131,7 @@ class Ride: Equatable {
     dictionary["toPlaceId"] = toLocation?.place?.placeID
     dictionary["toPlaceCity"] = toLocation?.city
     dictionary["seatsAvailable"] = seatsAvailable
-    dictionary["totalSeats"] = totalSeats
+//    dictionary["totalSeats"] = totalSeats
     dictionary["description"] = description
     dictionary["costPerSeat"] = costPerSeat
     dictionary["driverInstanceId"] = driverIId
