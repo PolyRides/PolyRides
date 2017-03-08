@@ -37,26 +37,38 @@ class MyRidesViewController: RidesTableViewController {
       if let ride = myRide.ride {
         if let user = myRide.user {
           leaveOrRemove(ride: ride, user: user)
+          // for each passenger, send them a notification
+          for passenger in ride.passengers {
+            // get the instanceID from the key
+            rideService.getInstanceIdFromId(ride: ride, user: user, id: passenger.key)
+          }
         }
+      } else {
+        let title = "Error Removing Ride"
+        let message = "There was an error removing this ride. Please try again."
+        presentAlert(alertOptions: AlertOptions(message: message, title: title))
       }
-    } 
+    }
     if let passRide = segue.source as? PassengerRideDetailsViewController {
       if let ride = passRide.ride {
         if let user = passRide.user {
           leaveOrRemove(ride: ride, user: user)
+          let jsonDict = ["data": ["leavingRide": "true", "user":"\(user.getFullName())", "toPlaceCity": "\(ride.toLocation!.city!))", "fromPlaceCity": "\(ride.fromLocation!.city!)", "userId": "\(user.id!)", "rideId": "\(ride.id!)", "userInstanceId": "\(user.instanceID!)"], "to": "\(ride.getDriverInstanceID())"] as [String : Any]
+          HTTPHelper.sendHTTPPost(jsonDict: jsonDict)
         }
+      } else {
+        let title = "Error Leaving Ride"
+        let message = "There was an error leaving this ride. Please try again."
+        presentAlert(alertOptions: AlertOptions(message: message, title: title))
       }
     }
   }
 
   func leaveOrRemove(ride: Ride, user: User) {
-    if ride.id == user.id {
+    if ride.driverId == user.id {
       // if it is the driver removing the ride
       RideService().removeRide(ride: ride)
     } else {
-      // if it is a passenger leaving the ride
-      // inform the driver that the passenger has left the ride
-
       // remove the passenger from the ride
       RideService().removePassengerFromRide(ride: ride, passenger: user)
     }

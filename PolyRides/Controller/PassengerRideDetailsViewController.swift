@@ -32,19 +32,6 @@ class PassengerRideDetailsViewController: RideDetailsViewController {
 
   @IBAction func requestOrLeaveRideAction(sender: AnyObject) {
     if requestOrLeaveButton?.titleLabel?.text == "Leave Ride" {
-      if let ride = ride {
-        if let user = user {
-          rideService.addPassengerToRideRequests(user: self.user, ride: ride)
-
-          let jsonDict = ["data": ["leavingRide": "true", "user":"\(user.getFullName())", "toPlaceCity": "\(ride.toLocation!.city!))", "fromPlaceCity": "\(ride.fromLocation!.city!)", "userId": "\(user.id!)", "rideId": "\(ride.id!)", "userInstanceId": "\(user.instanceID!)"], "to": "\(ride.getDriverInstanceID())"] as [String : Any]
-          HTTPHelper.sendHTTPPost(jsonDict: jsonDict)
-        }
-      } else {
-        let title = "Requesting Error"
-        let message = "There was an error requesting this ride. Please try again."
-        presentAlert(alertOptions: AlertOptions(message: message, title: title))
-      }
-
       self.performSegue(withIdentifier: "unwindToMyRidesViewControllerWithSegue", sender: self)
     } else {
       if let ride = ride {

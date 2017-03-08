@@ -252,10 +252,20 @@ class RideService {
     }
   }
 
+  func getInstanceIdFromId(ride: Ride, user: User, id: String) {
+    let ridesRef = ref.child("userInstanceIDMappings/\(id)")
+    let query = ridesRef.queryOrderedByKey()
+
+    query.observeSingleEvent(of: .value, with: { snapshot in
+      let iid = snapshot.value as? String
+      HTTPHelper.notifyPassengerOfRemovedRide(ride: ride, user: user, iid: iid!)
+    })
+  }
+
   func removeRide(ride: Ride) {
     // remove from passengers rides
     for pass in ride.passengers {
-        ref.child("users/\(pass)/rides/\(ride.id!)").removeValue()
+        ref.child("users/\(pass.key)/rides/\(ride.id!)").removeValue()
     }
 
     // remove ride

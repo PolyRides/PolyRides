@@ -42,4 +42,9 @@ class HTTPHelper {
     }
   }
 
+  static func notifyPassengerOfRemovedRide(ride: Ride, user: User, iid: String) {
+    let jsonDict = ["data": ["deletingRide": "true", "user":"\(user.getFullName())", "toPlaceCity": "\(ride.toLocation!.city!))", "fromPlaceCity": "\(ride.fromLocation!.city!)", "userId": "\(user.id!)", "rideId": "\(ride.id!)", "userInstanceId": "\(user.instanceID!)"], "to": "\(iid)"] as [String : Any]
+    HTTPHelper.sendHTTPPost(jsonDict: jsonDict)
+  }
+
 }

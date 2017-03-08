@@ -314,8 +314,14 @@ extension AppDelegate : FIRMessagingDelegate {
     let rideId = remoteMessage.appData["rideId"]
     let passengerInstanceId = remoteMessage.appData["userInstanceId"]
     let leavingRide = remoteMessage.appData["leavingRide"] as? String
+    let deletingRide = remoteMessage.appData["deletingRide"] as? String
 
-    if leavingRide == "true" {
+    if deletingRide == "true" {
+      var leftAlert = UIAlertController(title: "Driver Removed Ride", message: "\(user!) removed their ride from \(fromPlaceCity!) to \(toPlaceCity!).", preferredStyle: UIAlertControllerStyle.alert)
+      leftAlert.addAction(UIAlertAction(title: "Okay", style: .default, handler: { (action: UIAlertAction!) in
+      }))
+      self.window?.rootViewController?.present(leftAlert, animated: true, completion: nil)
+    } else if leavingRide == "true" {
       var leftAlert = UIAlertController(title: "Passenger Left Ride", message: "\(user!) left your ride from \(fromPlaceCity!) to \(toPlaceCity!).", preferredStyle: UIAlertControllerStyle.alert)
       leftAlert.addAction(UIAlertAction(title: "Okay", style: .default, handler: { (action: UIAlertAction!) in
       }))
