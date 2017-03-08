@@ -42,12 +42,20 @@ class RegionTableViewCell: UITableViewCell {
 class RegionTableViewController: TableViewController {
 
   let transition = BubbleTransition()
+  let rideService = RideService()
 
   var user: User?
   var allRides: [Ride]?
   var toRegionToRides: [Region: [Ride]]?
   var fromRegionToRides: [Region: [Ride]]?
   var searchButton: UIButton?
+  var expectedRides = -1 {
+    didSet {
+      if expectedRides == 0 {
+        self.tableView?.reloadData()
+      }
+    }
+  }
 
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -64,6 +72,7 @@ class RegionTableViewController: TableViewController {
     print("InstanceID token: \(token)")
 
     // pull to refresh
+    rideService.delegate = self
     if #available(iOS 10.0, *) {
       self.tableView?.refreshControl = UIRefreshControl()
       self.tableView?.refreshControl?.backgroundColor = Color.Green
@@ -74,10 +83,19 @@ class RegionTableViewController: TableViewController {
   }
 
   func reloadData() {
-    // Reload table data
-    self.tableView?.reloadData()
     // End the refreshing
     if #available(iOS 10.0, *) {
+      // Reload table data from scratch
+      allRides = []
+      toRegionToRides = [Region: [Ride]]()
+      fromRegionToRides = [Region: [Ride]]()
+      for region in Region.allRegions {
+        toRegionToRides?[region] = [Ride]()
+        fromRegionToRides?[region] = [Ride]()
+      }
+
+      rideService.getAllRides()
+
       if (self.tableView?.refreshControl != nil) {
         self.tableView?.refreshControl?.endRefreshing()
       }
@@ -179,6 +197,69 @@ extension RegionTableViewController: UITableViewDataSource {
 
 }
 
+extension RegionTableViewController: FirebaseRidesDelegate {
+  func onRideReceived(ride: Ride) {
+    if let driverId = ride.driver?.id {
+      if let userId = user?.id {
+        if driverId != userId {
+          allRides?.append(ride)
+          if let toLocationCity = ride.toLocation?.city {
+            let region = Region.getRegion(city: toLocationCity)
+            toRegionToRides?[region]?.append(ride)
+          }
+          if let fromLocationCity = ride.fromLocation?.city {
+            let region = Region.getRegion(city: fromLocationCity)
+            fromRegionToRides?[region]?.append(ride)
+          }
+        }
+      }
+    }
+
+    expectedRides -= 1
+  }
+
+  func onNumRidesReceived(numRides: Int) {
+    expectedRides = numRides
+  }
+
+  func onSavedRidesReceived(rides: [Ride]) {
+    // Do nothing since we are loading all rides.
+  }
+
+  func onRideAdded(ride: Ride) {
+//    if allRides?.index(of: ride) == nil {
+//      allRides?.append(ride)
+//      if let toLocationCity = ride.toLocation?.city {
+//        let region = Region.getRegion(city: toLocationCity)
+//        toRegionToRides?[region]?.append(ride)
+//      }
+//      if let fromLocationCity = ride.fromLocation?.city {
+//        let region = Region.getRegion(city: fromLocationCity)
+//        fromRegionToRides?[region]?.append(ride)
+//      }
+//
+//    }
+  }
+
+  func onRideRemoved(ride: Ride) {
+//    if let index = allRides?.index(of: ride) {
+//      allRides?.remove(at: index)
+//    }
+//    if let toLocationCity = ride.toLocation?.city {
+//      let region = Region.getRegion(city: toLocationCity)
+//      if let index = toRegionToRides?[region]?.index(of: ride) {
+//        toRegionToRides?[region]?.remove(at: index)
+//      }
+//    }
+//    if let fromLocationCity = ride.fromLocation?.city {
+//      let region = Region.getRegion(city: fromLocationCity)
+//      if let index = fromRegionToRides?[region]?.index(of: ride) {
+//        fromRegionToRides?[region]?.remove(at: index)
+//      }
+//    }
+  }
+
+}
 
 // MARK: UIViewControllerTransitioningDelegate
 extension RegionTableViewController: UIViewControllerTransitioningDelegate {
