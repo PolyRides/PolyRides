@@ -345,7 +345,7 @@
                                 <color key="textColor" red="0.92549019610000005" green="0.94117647059999998" blue="0.94509803920000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="cost/seat" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ry8-ht-nu2">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Cost/Seat" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ry8-ht-nu2">
                                 <rect key="frame" x="265" y="409" width="94" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="94" id="Vh2-ln-WNa"/>
@@ -402,7 +402,7 @@
                                     </stackView>
                                 </subviews>
                             </stackView>
-                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="15" translatesAutoresizingMaskIntoConstraints="NO" id="99K-n6-PAG">
+                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="5" translatesAutoresizingMaskIntoConstraints="NO" id="99K-n6-PAG">
                                 <rect key="frame" x="16" y="148" width="343" height="216"/>
                                 <date key="date" timeIntervalSinceReferenceDate="480063375.26541698">
                                     <!--2016-03-19 06:56:15 +0000-->
@@ -413,15 +413,22 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </datePicker>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Seats" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HQF-IP-4Jw">
-                                <rect key="frame" x="193" y="375" width="43" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Seats Available" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HQF-IP-4Jw">
+                                <rect key="frame" x="117" y="375" width="119" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6b5-c4-EgY">
+                                <rect key="frame" x="249" y="414" width="11" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" red="0.16078431369999999" green="0.33333333329999998" blue="0.1019607843" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="ry8-ht-nu2" firstAttribute="leading" secondItem="6b5-c4-EgY" secondAttribute="trailing" constant="5" id="1b8-zV-3LI"/>
                             <constraint firstItem="hao-ou-3Q2" firstAttribute="leading" secondItem="HQF-IP-4Jw" secondAttribute="trailing" constant="-3" id="4FM-qr-phe"/>
                             <constraint firstItem="ry8-ht-nu2" firstAttribute="top" secondItem="sm2-CO-Jag" secondAttribute="bottom" constant="8" id="5mM-J3-xk6"/>
                             <constraint firstItem="wjF-KG-rKS" firstAttribute="top" secondItem="Rph-0L-6xi" secondAttribute="bottom" constant="8" id="9wc-dD-2pq"/>
@@ -438,7 +445,8 @@
                             <constraint firstItem="wjF-KG-rKS" firstAttribute="leading" secondItem="ZrS-nF-sKZ" secondAttribute="leadingMargin" id="PaH-rV-pNM"/>
                             <constraint firstAttribute="trailingMargin" secondItem="wjF-KG-rKS" secondAttribute="trailing" id="Rcm-mV-JcX"/>
                             <constraint firstItem="Hbm-qa-56M" firstAttribute="top" secondItem="HQF-IP-4Jw" secondAttribute="bottom" constant="51" id="Rqu-s0-lGF"/>
-                            <constraint firstItem="HQF-IP-4Jw" firstAttribute="leading" secondItem="ZrS-nF-sKZ" secondAttribute="leadingMargin" constant="177" id="Sh4-AG-DWn"/>
+                            <constraint firstItem="HQF-IP-4Jw" firstAttribute="leading" secondItem="ZrS-nF-sKZ" secondAttribute="leadingMargin" constant="101" id="Sh4-AG-DWn"/>
+                            <constraint firstItem="Hbm-qa-56M" firstAttribute="top" secondItem="6b5-c4-EgY" secondAttribute="bottom" constant="12" id="Skv-7J-3jk"/>
                             <constraint firstItem="Hbm-qa-56M" firstAttribute="top" secondItem="hao-ou-3Q2" secondAttribute="bottom" constant="50" id="Tqj-nE-3tM"/>
                             <constraint firstItem="Hbm-qa-56M" firstAttribute="trailing" secondItem="ZrS-nF-sKZ" secondAttribute="trailingMargin" id="UVF-EO-X8x"/>
                             <constraint firstAttribute="trailing" secondItem="sm2-CO-Jag" secondAttribute="trailing" constant="16" id="ZTd-sJ-1UH"/>
@@ -449,8 +457,10 @@
                             <constraint firstItem="hao-ou-3Q2" firstAttribute="top" secondItem="99K-n6-PAG" secondAttribute="bottom" constant="12" id="dpK-hb-BuO"/>
                             <constraint firstItem="ry8-ht-nu2" firstAttribute="trailing" secondItem="ZrS-nF-sKZ" secondAttribute="trailingMargin" id="gGr-Eg-ewS"/>
                             <constraint firstItem="99K-n6-PAG" firstAttribute="top" secondItem="wjF-KG-rKS" secondAttribute="bottom" constant="8" id="hI0-hg-7QV"/>
+                            <constraint firstItem="6b5-c4-EgY" firstAttribute="top" secondItem="hao-ou-3Q2" secondAttribute="bottom" constant="17" id="hg1-sa-jH8"/>
                             <constraint firstItem="Hbm-qa-56M" firstAttribute="leading" secondItem="ZrS-nF-sKZ" secondAttribute="leadingMargin" id="itH-T1-uti"/>
                             <constraint firstItem="sm2-CO-Jag" firstAttribute="leading" secondItem="hao-ou-3Q2" secondAttribute="trailing" constant="8" id="n8v-4s-gd5"/>
+                            <constraint firstItem="6b5-c4-EgY" firstAttribute="leading" secondItem="ZrS-nF-sKZ" secondAttribute="leadingMargin" constant="233" id="pl1-vA-aYc"/>
                             <constraint firstItem="ry8-ht-nu2" firstAttribute="trailing" secondItem="ZrS-nF-sKZ" secondAttribute="trailingMargin" id="yQ2-1U-3uJ"/>
                         </constraints>
                     </view>
@@ -478,7 +488,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ozE-lS-yQ6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-359" y="-229"/>
+            <point key="canvasLocation" x="-359.19999999999999" y="-229.83508245877064"/>
         </scene>
         <!--Autocomplete-->
         <scene sceneID="Mz3-6n-A2h">

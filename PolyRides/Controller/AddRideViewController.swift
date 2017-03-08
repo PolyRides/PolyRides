@@ -100,18 +100,6 @@ class AddRideViewController: UIViewController, UITextViewDelegate, UITextFieldDe
     notesTextView?.delegate = self
     datePicker?.setValue(UIColor.white, forKey: "textColor")
 
-    var label = UILabel(frame: CGRect.zero)
-    label.backgroundColor = UIColor.clear
-    label.font = UIFont(name: costTextField!.font!.fontName, size: CGFloat((costTextField?.font?.pointSize)!))
-    label.textColor = costTextField?.textColor
-    label.alpha = 0.5
-    label.text = "$"
-    var prefixSize: CGSize = "$".size(attributes: [NSFontAttributeName : label.font])
-    label.frame = CGRect(x: CGFloat(0), y: CGFloat(0), width: CGFloat(prefixSize.width),
-                         height: CGFloat((costTextField?.frame.size.height)!))
-    costTextField?.leftView = label
-    costTextField?.leftViewMode = .always
-
     placesClient = GMSPlacesClient()
     setupAppearance()
   }
