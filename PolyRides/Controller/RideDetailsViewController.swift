@@ -13,6 +13,7 @@ class RideDetailsViewController: UIViewController {
   var ride: Ride?
   var user: User?
   var segmentedControl: UISegmentedControl?
+  var isAlreadyInRides: Bool?
 
   @IBOutlet weak var locationLabel: UILabel?
   @IBOutlet weak var dateLabel: UILabel?

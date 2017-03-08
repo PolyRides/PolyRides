@@ -24,7 +24,6 @@ class PassengerRideDetailsViewController: RideDetailsViewController {
   let userInstanceID = "e5kRgW9kicE:APA91bFCb56SJBTgCFW2zr3FOJJ6ya6sfVKWjlxJs2c5vuuV43FGZmL3LrUIWTWw3_kjrlsI-hkf-kP1KEmkjS_JqK8VKejGoRHprFoWAQBMPNxZ2taHGFpLChUYjGh-0OQyceQDF5Pc"
 
   var mutualFriends = [User]()
-  var isAlreadyInRides: Bool?
 
   @IBOutlet weak var tableView: UITableView?
   @IBOutlet weak var saveButton: UIBarButtonItem?

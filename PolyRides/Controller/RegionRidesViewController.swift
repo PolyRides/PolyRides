@@ -60,6 +60,15 @@ class RegionRidesViewController: RidesTableViewController {
         if let cell = sender as? RideTableViewCell {
           vc.ride = cell.ride
           vc.user = user
+
+          let isPassenger = cell.ride?.passengers.contains { (key, value) -> Bool in
+            key == user?.id
+          }
+          if let isPassenger = isPassenger {
+            if isPassenger == true {
+              vc.isAlreadyInRides = true
+            }
+          }
         }
       }
     } else if segue.identifier == "toRideSearch" {
