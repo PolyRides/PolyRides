@@ -95,7 +95,7 @@ class SearchViewController: TableViewController {
     dateFormatter?.timeStyle = .short
 
     datePicker = UIDatePicker()
-    datePicker?.minuteInterval = 15
+    datePicker?.minuteInterval = 5
 
     let toolBar = UIToolbar()
     toolBar.barStyle = UIBarStyle.default
