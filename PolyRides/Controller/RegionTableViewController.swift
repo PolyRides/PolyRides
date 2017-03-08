@@ -76,6 +76,12 @@ class RegionTableViewController: TableViewController {
     if #available(iOS 10.0, *) {
       self.tableView?.refreshControl = UIRefreshControl()
       self.tableView?.refreshControl?.backgroundColor = Color.Green
+      self.tableView?.refreshControl?.tintColor = UIColor.white
+      var formatter = DateFormatter()
+      formatter.dateFormat = "MMM d, h:mm a"
+      var title: String = "Last update: \(formatter.string(from: Date()))"
+      var attrsDictionary: [AnyHashable: Any] = [ NSForegroundColorAttributeName : UIColor.white ]
+      var attributedTitle = NSAttributedString(string: title, attributes: attrsDictionary as? [String : Any])
       self.tableView?.refreshControl?.addTarget(self, action: #selector(reloadData), for: UIControlEvents.valueChanged)
     } else {
       // Fallback on earlier versions

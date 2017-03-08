@@ -9,6 +9,7 @@
 class RideTableViewCell: UITableViewCell {
 
   var ride: Ride?
+  @IBOutlet weak var driverView: UIImageView?
 
 }
 
@@ -46,6 +47,11 @@ extension RidesTableViewController: UITableViewDataSource {
       if let rideCell = cell as? RideTableViewCell {
         rideCell.textLabel?.text = ride.getFormattedLocation()
         rideCell.detailTextLabel?.text = ride.getFormattedDate()
+
+        if ride.driverId != user?.id {
+          rideCell.driverView?.image = nil
+          rideCell.driverView?.highlightedImage = nil
+        }
 
         rideCell.ride = ride
       }

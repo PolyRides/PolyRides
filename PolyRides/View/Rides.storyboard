@@ -83,8 +83,15 @@
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="driver" highlightedImage="driver" translatesAutoresizingMaskIntoConstraints="NO" id="uQp-MD-44O">
+                                                    <rect key="frame" x="299" y="15" width="55" height="29"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
                                             </subviews>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="driverView" destination="uQp-MD-44O" id="Yrp-zs-2Hm"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -158,7 +165,7 @@
                                 </connections>
                             </textField>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Optional notes for passengers." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="0tL-xY-nMx">
-                                <rect key="frame" x="16" y="447" width="343" height="151"/>
+                                <rect key="frame" x="16" y="447" width="343" height="200"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="textColor" red="0.66666666666666663" green="0.66666666666666663" blue="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -330,6 +337,7 @@
     <resources>
         <image name="car" width="33" height="33"/>
         <image name="car_filled" width="33" height="33"/>
+        <image name="driver" width="256" height="256"/>
         <image name="flip" width="22" height="18"/>
     </resources>
     <color key="tintColor" red="0.9959825873374939" green="0.99621325731277466" blue="0.99187678098678589" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
