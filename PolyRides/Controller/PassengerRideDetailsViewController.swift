@@ -31,7 +31,21 @@ class PassengerRideDetailsViewController: RideDetailsViewController {
 
   @IBAction func requestOrLeaveRideAction(sender: AnyObject) {
     if requestOrLeaveButton?.titleLabel?.text == "Leave Ride" {
-      self.performSegue(withIdentifier: "unwindToMyRidesViewControllerWithSegue", sender: self)
+      var confAlert = UIAlertController(title: "Confirmation", message: "Are you sure you would like to leave this ride? This action cannot be undone.", preferredStyle: UIAlertControllerStyle.alert)
+
+      confAlert.addAction(UIAlertAction(title: "Okay", style: .default, handler: { (action: UIAlertAction!) in
+        self.performSegue(withIdentifier: "unwindToMyRidesViewControllerWithSegue", sender: self)
+
+        var leftAlert = UIAlertController(title: "Success", message: "You successfully left this ride.", preferredStyle: UIAlertControllerStyle.alert)
+        leftAlert.addAction(UIAlertAction(title: "Okay", style: .default, handler: { (action: UIAlertAction!) in
+        }))
+        self.present(leftAlert, animated: true, completion: nil)
+      }))
+
+      confAlert.addAction(UIAlertAction(title: "No", style: .cancel, handler: { (action: UIAlertAction!) in
+      }))
+
+      self.present(confAlert, animated: true, completion: nil)
     } else {
       if let ride = ride {
         if let user = user {
@@ -42,6 +56,11 @@ class PassengerRideDetailsViewController: RideDetailsViewController {
   // FOR TESTING PURPOSES
   //        let jsonDict = ["data": ["user":"\(user.getFullName())", "toPlaceCity": "\(ride.toLocation!.city!))", "fromPlaceCity": "\(ride.fromLocation!.city!)", "userId": "\(user.id!)", "rideId": "\(ride.id!)", "userInstanceId": "\(user.instanceID!)"], "to": "\(userInstanceID)"] as [String : Any]
           HTTPHelper.sendHTTPPost(jsonDict: jsonDict)
+
+          var leftAlert = UIAlertController(title: "Success", message: "This ride was successfully requested. You will be notified when the driver accepts your request.", preferredStyle: UIAlertControllerStyle.alert)
+          leftAlert.addAction(UIAlertAction(title: "Okay", style: .default, handler: { (action: UIAlertAction!) in
+          }))
+          self.present(leftAlert, animated: true, completion: nil)
         }
       } else {
         let title = "Requesting Error"

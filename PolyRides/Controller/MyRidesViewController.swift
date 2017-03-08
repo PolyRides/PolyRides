@@ -36,12 +36,28 @@ class MyRidesViewController: RidesTableViewController {
     if let myRide = segue.source as? MyRideDetailsViewController {
       if let ride = myRide.ride {
         if let user = myRide.user {
-          leaveOrRemove(ride: ride, user: user)
-          // for each passenger, send them a notification
-          for passenger in ride.passengers {
-            // get the instanceID from the key
-            rideService.getInstanceIdFromId(ride: ride, user: user, id: passenger.key)
-          }
+
+          // driver deleting a ride
+          var confAlert = UIAlertController(title: "Confirmation", message: "Are you sure you would like to remove this ride? This action cannot be undone.", preferredStyle: UIAlertControllerStyle.alert)
+
+          confAlert.addAction(UIAlertAction(title: "Okay", style: .default, handler: { (action: UIAlertAction!) in
+            self.leaveOrRemove(ride: ride, user: user)
+            // for each passenger, send them a notification
+            for passenger in ride.passengers {
+              // get the instanceID from the key
+              self.rideService.getInstanceIdFromId(ride: ride, user: user, id: passenger.key)
+            }
+
+            var leftAlert = UIAlertController(title: "Success", message: "You successfully removed this ride.", preferredStyle: UIAlertControllerStyle.alert)
+            leftAlert.addAction(UIAlertAction(title: "Okay", style: .default, handler: { (action: UIAlertAction!) in
+            }))
+            self.present(leftAlert, animated: true, completion: nil)
+          }))
+
+          confAlert.addAction(UIAlertAction(title: "No", style: .cancel, handler: { (action: UIAlertAction!) in
+          }))
+          
+          self.present(confAlert, animated: true, completion: nil)
         }
       } else {
         let title = "Error Removing Ride"
