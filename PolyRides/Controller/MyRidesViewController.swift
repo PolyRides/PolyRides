@@ -40,7 +40,7 @@ class MyRidesViewController: RidesTableViewController {
           // driver deleting a ride
           var confAlert = UIAlertController(title: "Confirmation", message: "Are you sure you would like to remove this ride? This action cannot be undone.", preferredStyle: UIAlertControllerStyle.alert)
 
-          confAlert.addAction(UIAlertAction(title: "Okay", style: .default, handler: { (action: UIAlertAction!) in
+          confAlert.addAction(UIAlertAction(title: "Yes", style: .default, handler: { (action: UIAlertAction!) in
             self.leaveOrRemove(ride: ride, user: user)
             // for each passenger, send them a notification
             for passenger in ride.passengers {

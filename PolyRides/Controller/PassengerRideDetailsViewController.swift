@@ -33,7 +33,7 @@ class PassengerRideDetailsViewController: RideDetailsViewController {
     if requestOrLeaveButton?.titleLabel?.text == "Leave Ride" {
       var confAlert = UIAlertController(title: "Confirmation", message: "Are you sure you would like to leave this ride? This action cannot be undone.", preferredStyle: UIAlertControllerStyle.alert)
 
-      confAlert.addAction(UIAlertAction(title: "Okay", style: .default, handler: { (action: UIAlertAction!) in
+      confAlert.addAction(UIAlertAction(title: "Yes", style: .default, handler: { (action: UIAlertAction!) in
         self.performSegue(withIdentifier: "unwindToMyRidesViewControllerWithSegue", sender: self)
 
         var leftAlert = UIAlertController(title: "Success", message: "You successfully left this ride.", preferredStyle: UIAlertControllerStyle.alert)
