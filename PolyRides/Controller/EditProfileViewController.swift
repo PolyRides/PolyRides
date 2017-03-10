@@ -30,6 +30,7 @@ class EditProfileViewController: UIViewController {
   @IBOutlet weak var colorLabel: UITextField?
   @IBOutlet weak var descriptionTextView: UITextView?
   @IBOutlet weak var verificationCodeField: UITextField?
+  @IBOutlet weak var phoneNumber: UITextField?
   @IBOutlet weak var verifyButton: UIButton?
   @IBOutlet weak var verifiedImage: UIButton?
   
@@ -51,6 +52,7 @@ class EditProfileViewController: UIViewController {
     if descriptionTextView?.text != emptyDescription {
       user?.description = descriptionTextView?.text
     }
+    user?.phoneNumber = phoneNumber?.text
     if let user = user {
       userService.updateProfile(user: user)
       delegate?.onProfileSaved()
@@ -75,6 +77,7 @@ class EditProfileViewController: UIViewController {
     makeLabel?.text = user?.car?.make
     modelLabel?.text = user?.car?.model
     colorLabel?.text = user?.car?.color
+    phoneNumber?.text = user?.phoneNumber
     descriptionTextView?.delegate = self
 
 

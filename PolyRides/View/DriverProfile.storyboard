@@ -21,21 +21,21 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="arb-vP-JC2">
-                                <rect key="frame" x="255" y="28" width="90" height="90"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="arb-vP-JC2">
+                                <rect key="frame" x="143" y="28" width="90" height="90"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="90" id="eGT-Dm-qD8"/>
                                     <constraint firstAttribute="height" constant="90" id="fd7-S1-3ca"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nHT-24-gpy">
-                                <rect key="frame" x="20" y="126" width="560" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nHT-24-gpy">
+                                <rect key="frame" x="16" y="126" width="343" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B3M-7j-71Z">
-                                <rect key="frame" x="20" y="155" width="560" height="112"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B3M-7j-71Z">
+                                <rect key="frame" x="16" y="155" width="343" height="112"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="112" id="eOX-7Y-dWD"/>
@@ -44,8 +44,8 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Gray Volkswagon Beetle Convertible (2006)" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ieg-xS-fC1">
-                                <rect key="frame" x="133.5" y="275" width="333.5" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Gray Volkswagon Beetle Convertible (2006)" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ieg-xS-fC1">
+                                <rect key="frame" x="21" y="275" width="334" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="Tvb-E3-fEz"/>
                                 </constraints>
@@ -53,15 +53,15 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="cal_poly_verified" translatesAutoresizingMaskIntoConstraints="NO" id="2Xf-i4-952">
-                                <rect key="frame" x="263" y="304" width="75" height="75"/>
+                            <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cal_poly_verified" translatesAutoresizingMaskIntoConstraints="NO" id="2Xf-i4-952">
+                                <rect key="frame" x="150" y="328" width="75" height="75"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="75" id="PST-HX-nW9"/>
                                     <constraint firstAttribute="width" constant="75" id="k1b-GI-uLY"/>
                                 </constraints>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3PA-FA-jO4">
-                                <rect key="frame" x="233" y="387" width="134" height="22"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3PA-FA-jO4">
+                                <rect key="frame" x="121" y="411" width="134" height="22"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <state key="normal" title="13 mutual friends" image="facebook_blue">
                                     <color key="titleColor" red="0.16078431369999999" green="0.33333333329999998" blue="0.49803921569999998" alpha="1" colorSpace="calibratedRGB"/>
@@ -70,6 +70,15 @@
                                     <segue destination="Jfa-AO-w9z" kind="show" identifier="toMutualFriends" id="b5f-jM-fRA"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(123)456-7890" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZIY-Og-Kcp">
+                                <rect key="frame" x="8" y="299" width="359" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="UEt-Rc-Rom"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" cocoaTouchSystemColor="tableCellGroupedBackgroundColor"/>
                         <constraints>
@@ -78,14 +87,17 @@
                             <constraint firstItem="B3M-7j-71Z" firstAttribute="leading" secondItem="W72-Tw-PQW" secondAttribute="leadingMargin" id="6gY-VK-Ryt"/>
                             <constraint firstItem="B3M-7j-71Z" firstAttribute="trailing" secondItem="W72-Tw-PQW" secondAttribute="trailingMargin" id="A5c-kT-Eer"/>
                             <constraint firstItem="nHT-24-gpy" firstAttribute="top" secondItem="arb-vP-JC2" secondAttribute="bottom" constant="8" id="GG1-4Q-nNj"/>
-                            <constraint firstItem="2Xf-i4-952" firstAttribute="top" secondItem="ieg-xS-fC1" secondAttribute="bottom" constant="8" id="Ss7-Ap-UBS"/>
+                            <constraint firstItem="ZIY-Og-Kcp" firstAttribute="centerX" secondItem="ieg-xS-fC1" secondAttribute="centerX" id="Icv-7o-jv9"/>
+                            <constraint firstItem="2Xf-i4-952" firstAttribute="top" secondItem="ieg-xS-fC1" secondAttribute="bottom" constant="32" id="Ss7-Ap-UBS"/>
                             <constraint firstItem="arb-vP-JC2" firstAttribute="top" secondItem="28O-hQ-eGF" secondAttribute="bottom" constant="8" id="TZg-BG-C7O"/>
                             <constraint firstItem="B3M-7j-71Z" firstAttribute="top" secondItem="nHT-24-gpy" secondAttribute="bottom" constant="8" id="ZSo-gG-vmk"/>
                             <constraint firstItem="ieg-xS-fC1" firstAttribute="top" secondItem="B3M-7j-71Z" secondAttribute="bottom" constant="8" id="fJX-Qq-vVn"/>
                             <constraint firstItem="nHT-24-gpy" firstAttribute="leading" secondItem="W72-Tw-PQW" secondAttribute="leadingMargin" id="gFq-SB-wSw"/>
+                            <constraint firstItem="2Xf-i4-952" firstAttribute="top" secondItem="ZIY-Og-Kcp" secondAttribute="bottom" constant="8" symbolic="YES" id="hVy-8D-YXY"/>
                             <constraint firstItem="ieg-xS-fC1" firstAttribute="centerX" secondItem="W72-Tw-PQW" secondAttribute="centerX" id="kJC-F0-pM1"/>
                             <constraint firstItem="3PA-FA-jO4" firstAttribute="centerX" secondItem="W72-Tw-PQW" secondAttribute="centerX" id="p88-fA-EPk"/>
                             <constraint firstItem="arb-vP-JC2" firstAttribute="centerX" secondItem="W72-Tw-PQW" secondAttribute="centerX" id="tAg-A9-G89"/>
+                            <constraint firstItem="ZIY-Og-Kcp" firstAttribute="leading" secondItem="W72-Tw-PQW" secondAttribute="leadingMargin" constant="-8" id="wd3-sJ-kck"/>
                             <constraint firstItem="2Xf-i4-952" firstAttribute="centerX" secondItem="W72-Tw-PQW" secondAttribute="centerX" id="xem-TX-8uu"/>
                         </constraints>
                     </view>

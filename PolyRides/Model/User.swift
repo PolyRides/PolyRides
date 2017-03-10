@@ -23,6 +23,7 @@ class User {
   var car: Car?
   var currentLocation: GMSPlace?
   var instanceID: String?
+  var phoneNumber: String?
 
   var requestedRides = [Ride]()
   var savedRides = [Ride]()
@@ -88,6 +89,9 @@ class User {
       if let lastName = dictionary["lastName"] as? String {
         self.lastName = lastName
       }
+      if let phone = dictionary["phoneNumber"] as? String {
+        self.phoneNumber = phone
+      }
       if let imageURL = dictionary["imageURL"] as? String {
         self.imageURL = imageURL
       }
@@ -150,6 +154,7 @@ class User {
     if let instanceId = instanceID {
       dictionary["instanceID"] = instanceID
     }
+    dictionary["phoneNumber"] = phoneNumber
 
     return dictionary
   }

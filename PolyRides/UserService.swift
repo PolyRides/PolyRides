@@ -89,6 +89,7 @@ class UserService {
         "users/\(userId)")
       userRef.child("car").setValue(user.car?.toAnyObject())
       userRef.child("description").setValue(user.description)
+      userRef.child("phoneNumber").setValue(user.phoneNumber)
     }
   }
 

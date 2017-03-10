@@ -18,6 +18,7 @@ class ProfileViewController: UIViewController {
   @IBOutlet weak var imageView: UIImageView?
   @IBOutlet weak var descriptionTextView: UITextView?
   @IBOutlet weak var carDetailsLabel: UILabel?
+  @IBOutlet weak var phoneLabel: UILabel?
   @IBOutlet weak var verifiedImage: UIImageView?
   @IBOutlet weak var mutualFriendsButton: UIButton?
 
@@ -81,6 +82,12 @@ class ProfileViewController: UIViewController {
       carDetailsLabel?.text = carDetails
     } else {
       carDetailsLabel?.text = ""
+    }
+
+    if let phone = user?.phoneNumber {
+      phoneLabel?.text = phone
+    } else {
+      phoneLabel?.text = ""
     }
 
     mutualFriendsButton?.setTitle("\(mutualFriends?.count ?? 0) mutual friends", for: .normal)
