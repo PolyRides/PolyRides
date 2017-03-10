@@ -12,7 +12,7 @@
         <!--Driver Profile-->
         <scene sceneID="NBV-IW-J0u">
             <objects>
-                <viewController storyboardIdentifier="DriverDetails" id="Jtj-lh-Op4" customClass="ProfileViewController" customModule="Poly_Rides" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="DriverDetails" id="Jtj-lh-Op4" customClass="DriverProfileViewController" customModule="Poly_Rides" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="28O-hQ-eGF"/>
                         <viewControllerLayoutGuide type="bottom" id="RhH-XL-VqF"/>
@@ -45,11 +45,11 @@
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Gray Volkswagon Beetle Convertible (2006)" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ieg-xS-fC1">
-                                <rect key="frame" x="21" y="275" width="334" height="21"/>
+                                <rect key="frame" x="47" y="275" width="281.5" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="Tvb-E3-fEz"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -70,7 +70,7 @@
                                     <segue destination="Jfa-AO-w9z" kind="show" identifier="toMutualFriends" id="b5f-jM-fRA"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(123)456-7890" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZIY-Og-Kcp">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZIY-Og-Kcp">
                                 <rect key="frame" x="8" y="299" width="359" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="UEt-Rc-Rom"/>
@@ -79,15 +79,28 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9N2-jf-6ZJ">
+                                <rect key="frame" x="143" y="295" width="89" height="30"/>
+                                <state key="normal" title="1234567890">
+                                    <color key="titleColor" red="0.16078431369999999" green="0.33333333329999998" blue="0.1019607843" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="onPhoneButtonTapped:" destination="Jtj-lh-Op4" eventType="touchUpInside" id="7bM-yQ-WCa"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" cocoaTouchSystemColor="tableCellGroupedBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="nHT-24-gpy" firstAttribute="trailing" secondItem="W72-Tw-PQW" secondAttribute="trailingMargin" id="1Ah-pl-1Jp"/>
                             <constraint firstItem="3PA-FA-jO4" firstAttribute="top" secondItem="2Xf-i4-952" secondAttribute="bottom" constant="8" id="457-ya-LeE"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="9N2-jf-6ZJ" secondAttribute="trailing" constant="127" id="4Ka-a6-Rdy"/>
                             <constraint firstItem="B3M-7j-71Z" firstAttribute="leading" secondItem="W72-Tw-PQW" secondAttribute="leadingMargin" id="6gY-VK-Ryt"/>
+                            <constraint firstItem="2Xf-i4-952" firstAttribute="top" secondItem="9N2-jf-6ZJ" secondAttribute="bottom" constant="3" id="7iX-Wv-G9S"/>
                             <constraint firstItem="B3M-7j-71Z" firstAttribute="trailing" secondItem="W72-Tw-PQW" secondAttribute="trailingMargin" id="A5c-kT-Eer"/>
+                            <constraint firstItem="9N2-jf-6ZJ" firstAttribute="top" secondItem="B3M-7j-71Z" secondAttribute="bottom" constant="28" id="B0k-XM-iL0"/>
                             <constraint firstItem="nHT-24-gpy" firstAttribute="top" secondItem="arb-vP-JC2" secondAttribute="bottom" constant="8" id="GG1-4Q-nNj"/>
                             <constraint firstItem="ZIY-Og-Kcp" firstAttribute="centerX" secondItem="ieg-xS-fC1" secondAttribute="centerX" id="Icv-7o-jv9"/>
+                            <constraint firstItem="9N2-jf-6ZJ" firstAttribute="leading" secondItem="W72-Tw-PQW" secondAttribute="leadingMargin" constant="127" id="LVu-hU-XK9"/>
                             <constraint firstItem="2Xf-i4-952" firstAttribute="top" secondItem="ieg-xS-fC1" secondAttribute="bottom" constant="32" id="Ss7-Ap-UBS"/>
                             <constraint firstItem="arb-vP-JC2" firstAttribute="top" secondItem="28O-hQ-eGF" secondAttribute="bottom" constant="8" id="TZg-BG-C7O"/>
                             <constraint firstItem="B3M-7j-71Z" firstAttribute="top" secondItem="nHT-24-gpy" secondAttribute="bottom" constant="8" id="ZSo-gG-vmk"/>
@@ -108,6 +121,7 @@
                         <outlet property="imageView" destination="arb-vP-JC2" id="4rN-17-bHj"/>
                         <outlet property="mutualFriendsButton" destination="3PA-FA-jO4" id="Ogm-6e-BBA"/>
                         <outlet property="nameLabel" destination="nHT-24-gpy" id="zHR-Tp-uru"/>
+                        <outlet property="phoneButton" destination="9N2-jf-6ZJ" id="oU1-Tf-DVe"/>
                         <outlet property="verifiedImage" destination="2Xf-i4-952" id="ohV-F1-j2V"/>
                     </connections>
                 </viewController>

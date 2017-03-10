@@ -13,12 +13,13 @@ class ProfileViewController: UIViewController {
 
   var user: User?
   var mutualFriends: [User]?
+  var ride: Ride?
 
   @IBOutlet weak var nameLabel: UILabel?
   @IBOutlet weak var imageView: UIImageView?
   @IBOutlet weak var descriptionTextView: UITextView?
   @IBOutlet weak var carDetailsLabel: UILabel?
-  @IBOutlet weak var phoneLabel: UILabel?
+  @IBOutlet weak var phoneButton: UIButton?
   @IBOutlet weak var verifiedImage: UIImageView?
   @IBOutlet weak var mutualFriendsButton: UIButton?
 
@@ -85,9 +86,9 @@ class ProfileViewController: UIViewController {
     }
 
     if let phone = user?.phoneNumber {
-      phoneLabel?.text = phone
+      phoneButton?.setTitle(phone, for: .normal)
     } else {
-      phoneLabel?.text = ""
+      phoneButton?.isHidden = true
     }
 
     mutualFriendsButton?.setTitle("\(mutualFriends?.count ?? 0) mutual friends", for: .normal)

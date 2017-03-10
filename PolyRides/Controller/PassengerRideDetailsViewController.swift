@@ -126,6 +126,7 @@ class PassengerRideDetailsViewController: RideDetailsViewController {
       if let vc = segue.destination as? ProfileViewController {
         vc.user = ride?.driver
         vc.mutualFriends = mutualFriends
+        vc.ride = ride
       }
     }
   }
