@@ -42,11 +42,6 @@ class MyRidesViewController: RidesTableViewController {
 
           confAlert.addAction(UIAlertAction(title: "Yes", style: .default, handler: { (action: UIAlertAction!) in
             self.leaveOrRemove(ride: ride, user: user)
-            // for each passenger, send them a notification
-            for passenger in ride.passengers {
-              // get the instanceID from the key
-              self.rideService.getInstanceIdFromId(ride: ride, user: user, id: passenger.key)
-            }
 
             var leftAlert = UIAlertController(title: "Success", message: "You successfully removed this ride.", preferredStyle: UIAlertControllerStyle.alert)
             leftAlert.addAction(UIAlertAction(title: "Okay", style: .default, handler: { (action: UIAlertAction!) in
@@ -69,8 +64,6 @@ class MyRidesViewController: RidesTableViewController {
       if let ride = passRide.ride {
         if let user = passRide.user {
           leaveOrRemove(ride: ride, user: user)
-          let jsonDict = ["data": ["leavingRide": "true", "user":"\(user.getFullName())", "toPlaceCity": "\(ride.toLocation!.city!))", "fromPlaceCity": "\(ride.fromLocation!.city!)", "userId": "\(user.id!)", "rideId": "\(ride.id!)", "userInstanceId": "\(user.instanceID!)"], "to": "\(ride.getDriverInstanceID())"] as [String : Any]
-          HTTPHelper.sendHTTPPost(jsonDict: jsonDict)
         }
       } else {
         let title = "Error Leaving Ride"
@@ -193,13 +186,9 @@ class MyRidesViewController: RidesTableViewController {
     } else if segue.identifier == "toPassengerRideDetails" || segue.identifier == "toMyRideDetails" {
       if let vc = segue.destination as? PassengerRideDetailsViewController {
         if let cell = sender as? RideTableViewCell {
-          let isPassenger = cell.ride?.passengers.contains { (key, value) -> Bool in
-            key == user?.id
-          }
-          if let isPassenger = isPassenger {
-            if isPassenger == true {
-              vc.isAlreadyInRides = true
-            }
+          if cell.ride!.driver!.id != user!.id {
+            vc.isAlreadyInRides = true
+
           }
         }
       }

@@ -149,6 +149,13 @@ class RideService {
     }
   }
 
+  func addRideToPassengersRides(ride: Ride, passenger: User) {
+    // add the ride to the passenger's rides
+    let passRef = ref.child("users/\(passenger.id!)/rides/\(ride.id!)")
+    passRef.setValue(true)
+  }
+
+
   func acceptPassengerIntoRide(passengerId: String, passengerName: String, rideId: String) {
     // remove user from pendingRequests
     ref.child("rides/\(rideId)/pendingRequests/\(passengerId)").removeValue()
@@ -190,44 +197,6 @@ class RideService {
     ref.child("users/\(passengerId)/pendingRequests/\(rideId)").removeValue()
   }
 
-//  func monitorRides() {
-//    let currentDateMillis = NSDate().timeIntervalSince1970
-//    let ridesRef = ref.child(
-//      "rides")
-//    let query = ridesRef.queryOrdered(byChild: "date").queryStarting(atValue: currentDateMillis)
-//
-//    query.observe(.childAdded, with: { snapshot in
-//      self.delegate?.onNumRidesReceived(numRides: 1)
-//
-//      let ride = Ride(fromSnapshot: snapshot)
-//
-//      if let driverId = ride.driver?.id {
-//        let driverRef = self.ref.child("users/\(driverId)")
-//        driverRef.observeSingleEvent(of: .value, with: { snapshot in
-//          if let driver = ride.driver {
-//            driver.updateFromSnapshot(snapshot: snapshot)
-//            self.delegate?.onRideAdded(ride: ride)
-//          }
-//        })
-//      }
-//    })
-//
-//    query.observe(.childAdded, with: { snapshot in
-//      self.delegate?.onNumRidesReceived(numRides: 1)
-//
-//      let ride = Ride(fromSnapshot: snapshot)
-//
-//      if let driverId = ride.driver?.id {
-//        let driverRef = self.ref.child("users/\(driverId)")
-//        driverRef.observeSingleEvent(of: .value, with: { snapshot in
-//          if let driver = ride.driver {
-//            driver.updateFromSnapshot(snapshot: snapshot)
-//            self.delegate?.onRideRemoved(ride: ride)
-//          }
-//        })
-//      }
-//    })
-//  }
 
   func pushRideToFirebase(ride: Ride) {
     let rideRef = ref.child("rides").childByAutoId()
@@ -263,11 +232,6 @@ class RideService {
   }
 
   func removeRide(ride: Ride) {
-    // remove from passengers rides
-    for pass in ride.passengers {
-        ref.child("users/\(pass.key)/rides/\(ride.id!)").removeValue()
-    }
-
     // remove ride
     ref.child("rides/\(ride.id!)").removeValue()
     
@@ -278,18 +242,6 @@ class RideService {
   func removePassengerFromRide(ride: Ride, passenger: User) {
     // remove from passenger's rides
     ref.child("users/\(passenger.id!)/rides/\(ride.id!)").removeValue()
-
-    // remove passenger from ride
-    ref.child("rides/\(ride.id!)/passengers/\(passenger.id!)").removeValue()
-
-    // increment seats available
-    let rideRef = ref.child("rides/\(ride.id!)/seatsAvailable")
-    rideRef.observeSingleEvent(of: .value, with: { (snapshot) in
-      let seats = (snapshot.value as? NSNumber)!.intValue + 1
-      rideRef.setValue(seats)
-    }) { (error) in
-      print(error.localizedDescription)
-    }
   }
 
   func addToSaved(user: User?, ride: Ride) {

@@ -29,47 +29,6 @@ class PassengerRideDetailsViewController: RideDetailsViewController {
   @IBOutlet weak var saveButton: UIBarButtonItem?
   @IBOutlet weak var requestOrLeaveButton: UIButton?
 
-  @IBAction func requestOrLeaveRideAction(sender: AnyObject) {
-    if requestOrLeaveButton?.titleLabel?.text == "Leave Ride" {
-      var confAlert = UIAlertController(title: "Confirmation", message: "Are you sure you would like to leave this ride? This action cannot be undone.", preferredStyle: UIAlertControllerStyle.alert)
-
-      confAlert.addAction(UIAlertAction(title: "Yes", style: .default, handler: { (action: UIAlertAction!) in
-        self.performSegue(withIdentifier: "unwindToMyRidesViewControllerWithSegue", sender: self)
-
-        var leftAlert = UIAlertController(title: "Success", message: "You successfully left this ride.", preferredStyle: UIAlertControllerStyle.alert)
-        leftAlert.addAction(UIAlertAction(title: "Okay", style: .default, handler: { (action: UIAlertAction!) in
-        }))
-        self.present(leftAlert, animated: true, completion: nil)
-      }))
-
-      confAlert.addAction(UIAlertAction(title: "No", style: .cancel, handler: { (action: UIAlertAction!) in
-      }))
-
-      self.present(confAlert, animated: true, completion: nil)
-    } else {
-      if let ride = ride {
-        if let user = user {
-          rideService.addPassengerToRideRequests(user: self.user, ride: ride)
-
-          let jsonDict = ["data": ["user":"\(user.getFullName())", "toPlaceCity": "\(ride.toLocation!.city!))", "fromPlaceCity": "\(ride.fromLocation!.city!)", "userId": "\(user.id!)", "rideId": "\(ride.id!)", "userInstanceId": "\(user.instanceID!)"], "to": "\(ride.getDriverInstanceID())"] as [String : Any]
-
-  // FOR TESTING PURPOSES
-  //        let jsonDict = ["data": ["user":"\(user.getFullName())", "toPlaceCity": "\(ride.toLocation!.city!))", "fromPlaceCity": "\(ride.fromLocation!.city!)", "userId": "\(user.id!)", "rideId": "\(ride.id!)", "userInstanceId": "\(user.instanceID!)"], "to": "\(userInstanceID)"] as [String : Any]
-          HTTPHelper.sendHTTPPost(jsonDict: jsonDict)
-
-          var leftAlert = UIAlertController(title: "Success", message: "This ride was successfully requested. You will be notified when the driver accepts your request.", preferredStyle: UIAlertControllerStyle.alert)
-          leftAlert.addAction(UIAlertAction(title: "Okay", style: .default, handler: { (action: UIAlertAction!) in
-          }))
-          self.present(leftAlert, animated: true, completion: nil)
-        }
-      } else {
-        let title = "Requesting Error"
-        let message = "There was an error requesting this ride. Please try again."
-        presentAlert(alertOptions: AlertOptions(message: message, title: title))
-      }
-    }
-  }
-
   @IBAction func saveRideAction(sender: AnyObject) {
     if let ride = ride {
       let index = user?.savedRides.index(where: { $0.id == ride.id })
@@ -97,9 +56,7 @@ class PassengerRideDetailsViewController: RideDetailsViewController {
 
     tableView?.dataSource = self
 
-    if let inRides = isAlreadyInRides {
-      requestOrLeaveButton?.setTitle("Leave Ride", for: .normal)
-    }
+    requestOrLeaveButton?.isHidden = true
     makeMutualFriendsRequest()
   }
 

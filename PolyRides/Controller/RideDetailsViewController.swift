@@ -20,7 +20,6 @@ class RideDetailsViewController: UIViewController {
   @IBOutlet weak var seatsAvailableLabel: UILabel?
   @IBOutlet weak var costPerSeatLabel: UILabel?
   @IBOutlet weak var descriptionTextView: UITextView?
-  @IBOutlet weak var acceptedPassengers: UITextView?
 
   @IBOutlet weak var removeRideButton: UIButton?
 
@@ -44,17 +43,6 @@ class RideDetailsViewController: UIViewController {
           removeRideButton?.setTitle("Leave Ride", for: .normal)
         } else {
           removeRideButton?.setTitle("Remove Ride", for: .normal)
-
-          if acceptedPassengers != nil {
-            if ride.passengers.count != 0 {
-              for pass in ride.passengers.values {
-                acceptedPassengers!.text = "\(acceptedPassengers!.text!)\(pass)\n"
-              }
-            } else {
-              acceptedPassengers!.attributedText = NSAttributedString(string: "You have no passengers in this ride.",
-                                                                      attributes: [NSFontAttributeName: UIFont.italicSystemFont(ofSize: (CGFloat(UIFont.systemFontSize)))])
-            }
-          }
         }
       } else {
         removeRideButton?.isHidden = true
