@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12100" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="kuy-fA-YL2">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="kuy-fA-YL2">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12072"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -66,7 +66,7 @@
                                         <rect key="frame" x="0.0" y="28" width="383" height="87"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ILr-kI-Y7j" id="BHE-nZ-f86">
-                                            <rect key="frame" x="0.0" y="0.0" width="383" height="86.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="383" height="86"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="H6b-CO-3Ix">
@@ -100,7 +100,7 @@
                                 </prototypes>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="H9e-5c-6vb">
-                                <rect key="frame" x="129" y="486" width="116" height="30"/>
+                                <rect key="frame" x="131" y="365" width="112" height="30"/>
                                 <state key="normal" title="Add to My Rides">
                                     <color key="titleColor" red="0.16078431369999999" green="0.33333333329999998" blue="0.1019607843" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
@@ -113,20 +113,18 @@
                         <constraints>
                             <constraint firstItem="JUa-la-r2c" firstAttribute="leading" secondItem="6zP-qk-drD" secondAttribute="leading" id="1yh-2N-Zji"/>
                             <constraint firstItem="6zP-qk-drD" firstAttribute="leading" secondItem="OXn-RE-v3k" secondAttribute="leadingMargin" id="6U8-pB-NHj"/>
+                            <constraint firstItem="H9e-5c-6vb" firstAttribute="top" secondItem="JUa-la-r2c" secondAttribute="bottom" constant="8" id="8gu-QE-miO"/>
                             <constraint firstItem="th0-IW-Dvz" firstAttribute="leading" secondItem="6zP-qk-drD" secondAttribute="leading" id="9Lj-tw-6Tr"/>
                             <constraint firstItem="JUa-la-r2c" firstAttribute="trailing" secondItem="OXn-RE-v3k" secondAttribute="trailingMargin" id="9Xg-Uu-bcO"/>
                             <constraint firstItem="lCN-z4-dFV" firstAttribute="leading" secondItem="6zP-qk-drD" secondAttribute="leading" id="Ddw-Qa-de0"/>
-                            <constraint firstItem="H9e-5c-6vb" firstAttribute="top" secondItem="JUa-la-r2c" secondAttribute="bottom" constant="129" id="EH1-PO-i8C"/>
-                            <constraint firstItem="H9e-5c-6vb" firstAttribute="leading" secondItem="OXn-RE-v3k" secondAttribute="leadingMargin" constant="113" id="Lrx-1W-rOT"/>
                             <constraint firstItem="6zP-qk-drD" firstAttribute="top" secondItem="cka-1f-hgU" secondAttribute="bottom" constant="8" id="P6k-KF-W61"/>
                             <constraint firstAttribute="trailingMargin" secondItem="cka-1f-hgU" secondAttribute="trailing" constant="-20" id="PEe-rH-zeg"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="H9e-5c-6vb" secondAttribute="trailing" constant="114" id="TL3-Hq-lNW"/>
                             <constraint firstItem="Bq0-kD-efv" firstAttribute="leading" secondItem="6zP-qk-drD" secondAttribute="leading" id="VoR-jO-qK8"/>
                             <constraint firstItem="JUa-la-r2c" firstAttribute="top" secondItem="Bq0-kD-efv" secondAttribute="bottom" constant="8" id="boL-8o-vVO"/>
-                            <constraint firstItem="yP2-34-10o" firstAttribute="top" secondItem="H9e-5c-6vb" secondAttribute="bottom" constant="87" id="gbk-o6-eRh"/>
                             <constraint firstItem="lCN-z4-dFV" firstAttribute="top" secondItem="th0-IW-Dvz" secondAttribute="bottom" constant="8" id="hXq-2u-425"/>
                             <constraint firstItem="cka-1f-hgU" firstAttribute="leading" secondItem="OXn-RE-v3k" secondAttribute="leadingMargin" constant="-20" id="hbM-sK-qHa"/>
                             <constraint firstItem="cka-1f-hgU" firstAttribute="top" secondItem="dzX-8Q-TAb" secondAttribute="bottom" id="iHJ-tI-Rjf"/>
+                            <constraint firstItem="H9e-5c-6vb" firstAttribute="centerX" secondItem="OXn-RE-v3k" secondAttribute="centerX" id="s54-PK-TU2"/>
                             <constraint firstItem="Bq0-kD-efv" firstAttribute="top" secondItem="lCN-z4-dFV" secondAttribute="bottom" constant="8" id="sUN-L7-D2t"/>
                             <constraint firstItem="th0-IW-Dvz" firstAttribute="top" secondItem="6zP-qk-drD" secondAttribute="bottom" constant="8" id="tvU-cc-jhe"/>
                         </constraints>
@@ -145,6 +143,7 @@
                         <outlet property="descriptionTextView" destination="JUa-la-r2c" id="aV5-c3-jV1"/>
                         <outlet property="locationLabel" destination="6zP-qk-drD" id="L7y-TD-slq"/>
                         <outlet property="requestOrLeaveButton" destination="H9e-5c-6vb" id="fF6-Mr-z65"/>
+                        <outlet property="requestOrLeaveButton2" destination="H9e-5c-6vb" id="15i-Cl-Sxx"/>
                         <outlet property="saveButton" destination="VmP-Un-Wi4" id="GhN-8c-zzj"/>
                         <outlet property="seatsAvailableLabel" destination="lCN-z4-dFV" id="Sdx-0t-1TA"/>
                         <outlet property="tableView" destination="cka-1f-hgU" id="EHz-bK-IKg"/>
