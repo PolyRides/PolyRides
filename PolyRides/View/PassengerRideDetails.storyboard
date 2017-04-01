@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="kuy-fA-YL2">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12100" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="kuy-fA-YL2">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12072"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -66,7 +66,7 @@
                                         <rect key="frame" x="0.0" y="28" width="383" height="87"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ILr-kI-Y7j" id="BHE-nZ-f86">
-                                            <rect key="frame" x="0.0" y="0.0" width="383" height="86"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="383" height="86.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="H6b-CO-3Ix">
@@ -104,9 +104,6 @@
                                 <state key="normal" title="Add to My Rides">
                                     <color key="titleColor" red="0.16078431369999999" green="0.33333333329999998" blue="0.1019607843" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
-                                <connections>
-                                    <action selector="requestOrLeaveRideActionWithSender:" destination="kuy-fA-YL2" eventType="touchUpInside" id="35w-el-8cG"/>
-                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -143,7 +140,6 @@
                         <outlet property="descriptionTextView" destination="JUa-la-r2c" id="aV5-c3-jV1"/>
                         <outlet property="locationLabel" destination="6zP-qk-drD" id="L7y-TD-slq"/>
                         <outlet property="requestOrLeaveButton" destination="H9e-5c-6vb" id="fF6-Mr-z65"/>
-                        <outlet property="requestOrLeaveButton2" destination="H9e-5c-6vb" id="15i-Cl-Sxx"/>
                         <outlet property="saveButton" destination="VmP-Un-Wi4" id="GhN-8c-zzj"/>
                         <outlet property="seatsAvailableLabel" destination="lCN-z4-dFV" id="Sdx-0t-1TA"/>
                         <outlet property="tableView" destination="cka-1f-hgU" id="EHz-bK-IKg"/>
