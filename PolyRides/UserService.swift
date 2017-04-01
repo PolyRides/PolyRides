@@ -85,8 +85,7 @@ class UserService {
 
   func updateProfile(user: User) {
     if let userId = user.id {
-      let userRef = ref.child(
-        "users/\(userId)")
+      let userRef = ref.child("users/\(userId)")
       userRef.child("car").setValue(user.car?.toAnyObject())
       userRef.child("description").setValue(user.description)
       userRef.child("phoneNumber").setValue(user.phoneNumber)

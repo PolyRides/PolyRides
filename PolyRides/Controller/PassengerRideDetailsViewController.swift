@@ -58,6 +58,9 @@ class PassengerRideDetailsViewController: RideDetailsViewController {
 
     requestOrLeaveButton?.isHidden = true
     makeMutualFriendsRequest()
+
+    tableView?.layoutMargins = UIEdgeInsets.zero
+    tableView?.separatorInset = UIEdgeInsets.zero
   }
 
   override func viewWillAppear(_ animated: Bool) {
@@ -84,6 +87,10 @@ class PassengerRideDetailsViewController: RideDetailsViewController {
         vc.user = ride?.driver
         vc.mutualFriends = mutualFriends
         vc.ride = ride
+
+        if let indexPath = tableView?.indexPathForSelectedRow {
+          tableView?.deselectRow(at: indexPath, animated: true)
+        }
       }
     }
   }
@@ -99,13 +106,15 @@ extension PassengerRideDetailsViewController: UITableViewDataSource {
 
   func tableView(_ cellForRowAttableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     let cell = tableView!.dequeueReusableCell(withIdentifier: "driverCell", for: indexPath as IndexPath)
+    cell.layoutMargins = UIEdgeInsets.zero
 
     if let driverCell = cell as? DriverTableViewCell {
       if let ride = ride {
         if let driver = ride.driver {
           if let imageURL = driver.imageURL {
             if let url = NSURL(string: imageURL) {
-              driverCell.imageView?.setImageWith(url as URL, placeholderImage: UIImage(named: "empty_profile"))
+              driverCell.driverImageView?.setImageWith(url as URL)
+              driverCell.driverImageView?.layer.cornerRadius = 45
             }
           }
 

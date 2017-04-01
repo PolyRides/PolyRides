@@ -11,6 +11,7 @@ import GooglePlaces
 
 struct Color {
   static let LightGray = UIColor(red: 240.0/255, green: 240.0/255, blue: 240.0/255, alpha: 1.0)
+  static let BorderGray = UIColor(red: 178.0/255, green: 178.0/255, blue: 178.0/255, alpha: 1.0)
 
   static let Green = UIColor(red: 41.0/255, green: 85.0/255, blue: 26.0/255, alpha: 1.0)
   //static let White = UIColor(red: 236.0/255, green: 240.0/255, blue: 241.0/255, alpha: 1.0)
