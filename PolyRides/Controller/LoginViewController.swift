@@ -26,9 +26,9 @@ class LoginViewController: LoadingViewController {
     super.viewDidLoad()
     authService.loginDelegate = self
 
-    // user is logged in
+    // User is logged in.
     if FBSDKAccessToken.current() != nil {
-      self.authService.authWithFacebook()
+      authService.authWithFacebook()
     }
   }
 
@@ -109,6 +109,8 @@ class LoginViewController: LoadingViewController {
   }
 
   func loginWithFacebook() {
+    // startLoading()
+
     let facebookLogin = FBSDKLoginManager()
     facebookLogin.logIn(withReadPermissions: ["email", "public_profile", "user_friends"], from: self) {
       facebookResult, facebookError -> Void in

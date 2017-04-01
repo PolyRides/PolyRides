@@ -1,22 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12100" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12072"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
-        <array key="OpenSans-Light.ttf">
-            <string>OpenSans-Light</string>
+        <array key="SF-UI-Text-Light.otf">
+            <string>SFUIText-Light</string>
         </array>
-        <array key="OpenSans-Regular.ttf">
-            <string>OpenSans</string>
+        <array key="SF-UI-Text-Regular.otf">
+            <string>SFUIText-Regular</string>
         </array>
-        <array key="OpenSans-Semibold.ttf">
-            <string>OpenSans-Semibold</string>
+        <array key="SF-UI-Text-Semibold.otf">
+            <string>SFUIText-Semibold</string>
         </array>
     </customFonts>
     <scenes>
@@ -25,71 +24,67 @@
             <objects>
                 <viewController id="01J-lp-oVM" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="Llm-lL-Icb"/>
-                        <viewControllerLayoutGuide type="bottom" id="xb3-aO-Qok"/>
+                        <viewControllerLayoutGuide type="top" id="Aet-Lx-00m"/>
+                        <viewControllerLayoutGuide type="bottom" id="ZXz-Qb-bdk"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="1hC-kt-M9f">
+                    <view key="view" contentMode="scaleToFill" id="fL0-V6-NWD">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HPJ-OQ-oml">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="TUY-H7-3dt">
+                                <rect key="frame" x="49.5" y="288" width="278" height="91"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" axis="vertical" alignment="center" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="8uG-A0-ZbP">
-                                        <rect key="frame" x="50" y="288" width="274" height="91"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="GCJ-kq-FRW">
+                                        <rect key="frame" x="0.0" y="0.0" width="278" height="91"/>
                                         <subviews>
-                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="JjE-Xh-bie">
-                                                <rect key="frame" x="0.0" y="0.0" width="274" height="69"/>
+                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="NUd-hm-cEN">
+                                                <rect key="frame" x="0.0" y="0.0" width="278" height="69"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="POLY" textAlignment="center" lineBreakMode="clip" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hQp-A8-QhH">
-                                                        <rect key="frame" x="0.0" y="0.0" width="125.5" height="69"/>
-                                                        <fontDescription key="fontDescription" name="OpenSans-Light" family="Open Sans" pointSize="50"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="POLY" textAlignment="center" lineBreakMode="clip" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mbx-0D-5yi">
+                                                        <rect key="frame" x="0.0" y="0.0" width="125" height="69"/>
+                                                        <fontDescription key="fontDescription" name="SFUIText-Light" family="SF UI Text" pointSize="50"/>
                                                         <color key="textColor" red="0.92549019610000005" green="0.94117647059999998" blue="0.94509803920000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="RIDES" lineBreakMode="clip" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xGV-kp-zeL">
-                                                        <rect key="frame" x="128.5" y="0.0" width="145.5" height="69"/>
-                                                        <fontDescription key="fontDescription" name="OpenSans-Semibold" family="Open Sans" pointSize="50"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="RIDES" lineBreakMode="clip" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RDb-5C-06G">
+                                                        <rect key="frame" x="128" y="0.0" width="150" height="69"/>
+                                                        <fontDescription key="fontDescription" name="SFUIText-Semibold" family="SF UI Text" pointSize="50"/>
                                                         <color key="textColor" red="0.92549019610000005" green="0.94117647059999998" blue="0.94509803920000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                 </subviews>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="69" id="2a0-3e-dFS"/>
-                                                    <constraint firstAttribute="width" constant="261" id="QCI-iX-NAo"/>
+                                                    <constraint firstAttribute="width" constant="261" id="I9F-v2-qP2"/>
+                                                    <constraint firstAttribute="height" constant="69" id="si4-GI-zA5"/>
                                                 </constraints>
                                                 <variation key="default">
                                                     <mask key="constraints">
-                                                        <exclude reference="QCI-iX-NAo"/>
+                                                        <exclude reference="I9F-v2-qP2"/>
                                                     </mask>
                                                 </variation>
                                             </stackView>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ridesharing designed for students" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="67A-GQ-DJK">
-                                                <rect key="frame" x="25" y="71" width="224" height="20"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ridesharing designed for students" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="94t-UN-CK6">
+                                                <rect key="frame" x="0.0" y="71" width="278" height="20"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" constant="224" id="ETc-Q9-riH"/>
-                                                    <constraint firstAttribute="height" constant="20" id="y0U-yD-8vV"/>
+                                                    <constraint firstAttribute="height" constant="20" id="jOr-XV-76O"/>
                                                 </constraints>
-                                                <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="14"/>
+                                                <fontDescription key="fontDescription" name="SFUIText-Regular" family="SF UI Text" pointSize="14"/>
                                                 <color key="textColor" red="0.92549019610000005" green="0.94117647059999998" blue="0.94509803920000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
+                                        <constraints>
+                                            <constraint firstItem="94t-UN-CK6" firstAttribute="leading" secondItem="GCJ-kq-FRW" secondAttribute="leading" id="QjO-Df-pB5"/>
+                                            <constraint firstAttribute="trailing" secondItem="94t-UN-CK6" secondAttribute="trailing" id="her-J9-iVp"/>
+                                        </constraints>
                                     </stackView>
                                 </subviews>
-                                <color key="backgroundColor" red="0.16078431369999999" green="0.33333333329999998" blue="0.1019607843" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstItem="8uG-A0-ZbP" firstAttribute="centerX" secondItem="HPJ-OQ-oml" secondAttribute="centerX" id="AGs-bJ-Rn9"/>
-                                    <constraint firstItem="8uG-A0-ZbP" firstAttribute="centerY" secondItem="HPJ-OQ-oml" secondAttribute="centerY" id="Wgb-P2-fhf"/>
-                                </constraints>
-                            </view>
+                            </stackView>
                         </subviews>
-                        <color key="backgroundColor" red="0.16078431372549018" green="0.33333333333333331" blue="0.10196078431372549" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.16078431369999999" green="0.33333333329999998" blue="0.1019607843" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstAttribute="trailingMargin" secondItem="HPJ-OQ-oml" secondAttribute="trailing" constant="-20" id="IFc-8W-SB2"/>
-                            <constraint firstItem="xb3-aO-Qok" firstAttribute="top" secondItem="HPJ-OQ-oml" secondAttribute="bottom" id="Idc-cd-jq9"/>
-                            <constraint firstItem="HPJ-OQ-oml" firstAttribute="top" secondItem="1hC-kt-M9f" secondAttribute="topMargin" id="gN6-Qi-59Q"/>
-                            <constraint firstItem="HPJ-OQ-oml" firstAttribute="leading" secondItem="1hC-kt-M9f" secondAttribute="leadingMargin" constant="-20" id="ibC-QC-eH7"/>
+                            <constraint firstItem="TUY-H7-3dt" firstAttribute="centerY" secondItem="fL0-V6-NWD" secondAttribute="centerY" id="6Ad-Qn-kRt"/>
+                            <constraint firstItem="TUY-H7-3dt" firstAttribute="centerX" secondItem="fL0-V6-NWD" secondAttribute="centerX" id="E1o-gW-KGM"/>
                         </constraints>
                     </view>
                 </viewController>
