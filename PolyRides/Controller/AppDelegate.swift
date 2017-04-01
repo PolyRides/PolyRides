@@ -74,20 +74,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     siren.alertType = SirenAlertType.force
     siren.checkVersion(checkType: .immediately)
 
+    // TODO: Handle if user is logged in here.
 
-    if let currentUser = FIRAuth.auth()?.currentUser {
-      let storyboard = UIStoryboard(name: "LaunchScreen", bundle: nil)
-      if let controller = storyboard.instantiateInitialViewController() as? LaunchScreenViewController {
-        let user = User()
-
-        if let profile = currentUser.providerData.first {
-          user.facebookId = profile.uid
-        }
-
-        controller.user = user
-        self.window?.rootViewController = controller
-      }
-    }
+//    if let currentUser = FIRAuth.auth()?.currentUser {
+//      let storyboard = UIStoryboard(name: "LaunchScreen", bundle: nil)
+//      if let controller = storyboard.instantiateInitialViewController() as? LaunchScreenViewController {
+//        let user = User()
+//
+//        if let profile = currentUser.providerData.first {
+//          user.facebookId = profile.uid
+//        }
+//
+//        controller.user = user
+//        self.window?.rootViewController = controller
+//      }
+//    }
 
     // Register for remote notifications. This shows a permission dialog on first run, to
     // show the dialog at a more appropriate time move this registration accordingly.

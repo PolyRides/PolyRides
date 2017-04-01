@@ -33,6 +33,11 @@ class LoginViewController: LoadingViewController {
     // User is logged in.
     if FBSDKAccessToken.current() != nil {
       authService.authWithFacebook()
+      button?.isHidden = true
+      buttonView?.isHidden = true
+    } else {
+      button?.isHidden = false
+      buttonView?.isHidden = false
     }
   }
 
@@ -47,17 +52,6 @@ class LoginViewController: LoadingViewController {
     navigationController?.isNavigationBarHidden = true
 
     trackScreen(screenName: String(describing: LoginViewController.self))
-
-    // user is logged in
-    if FBSDKAccessToken.current() != nil {
-      button?.isHidden = true
-      buttonView?.isHidden = true
-    } else {
-      button?.isHidden = false
-      buttonView?.isHidden = false
-    }
-
-    stopLoading()
   }
 
   override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {

@@ -93,7 +93,6 @@
 		DBAB56911C96C5270011167A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DBAB56901C96C5270011167A /* Main.storyboard */; };
 		DBAB56951C9738870011167A /* UITextFieldExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBAB56941C9738870011167A /* UITextFieldExtensions.swift */; };
 		DBB1558C1C9B76C500118F89 /* DateHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBB1558B1C9B76C500118F89 /* DateHelper.swift */; };
-		DBB1D2421E8FA0880024B7E4 /* LoadingLaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DBB1D2411E8FA0880024B7E4 /* LoadingLaunchScreen.storyboard */; };
 		DBBBD13B1C9DE4D00085E3B9 /* Ride.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBBBD13A1C9DE4D00085E3B9 /* Ride.swift */; };
 		DBBBD13D1C9DE57B0085E3B9 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBBBD13C1C9DE57B0085E3B9 /* Location.swift */; };
 		DBBBD13F1C9DE8590085E3B9 /* GoogleMapsHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBBBD13E1C9DE8590085E3B9 /* GoogleMapsHelper.swift */; };
@@ -230,7 +229,6 @@
 		DBAB56901C96C5270011167A /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		DBAB56941C9738870011167A /* UITextFieldExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UITextFieldExtensions.swift; sourceTree = "<group>"; };
 		DBB1558B1C9B76C500118F89 /* DateHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateHelper.swift; sourceTree = "<group>"; };
-		DBB1D2411E8FA0880024B7E4 /* LoadingLaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LoadingLaunchScreen.storyboard; sourceTree = "<group>"; };
 		DBBBD13A1C9DE4D00085E3B9 /* Ride.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Ride.swift; sourceTree = "<group>"; };
 		DBBBD13C1C9DE57B0085E3B9 /* Location.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		DBBBD13E1C9DE8590085E3B9 /* GoogleMapsHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoogleMapsHelper.swift; sourceTree = "<group>"; };
@@ -490,7 +488,6 @@
 			isa = PBXGroup;
 			children = (
 				DB70B9031C938CDC0065CC4D /* LaunchScreen.storyboard */,
-				DBB1D2411E8FA0880024B7E4 /* LoadingLaunchScreen.storyboard */,
 				DB5F03C51CAE1D0800E49A12 /* FacebookLogin.storyboard */,
 			);
 			name = Login;
@@ -709,7 +706,6 @@
 				DB3141C71CD032C800F88176 /* SF-UI-Text-Regular.otf in Resources */,
 				DB3141C81CD032C800F88176 /* SF-UI-Text-RegularItalic.otf in Resources */,
 				DB8DAE691CB2EF750045195D /* MutualFriends.storyboard in Resources */,
-				DBB1D2421E8FA0880024B7E4 /* LoadingLaunchScreen.storyboard in Resources */,
 				DBAB56911C96C5270011167A /* Main.storyboard in Resources */,
 				DB3141CA1CD032C800F88176 /* SF-UI-Text-SemiboldItalic.otf in Resources */,
 				DB3141B71CD032C800F88176 /* SF-UI-Display-Bold.otf in Resources */,
