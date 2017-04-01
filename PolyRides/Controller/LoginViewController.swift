@@ -26,6 +26,10 @@ class LoginViewController: LoadingViewController {
     super.viewDidLoad()
     authService.loginDelegate = self
 
+    buttonView?.layer.cornerRadius = 5
+    button?.layer.cornerRadius = 5
+    button?.centerTextAndImage(spacing: 8.0)
+
     // User is logged in.
     if FBSDKAccessToken.current() != nil {
       authService.authWithFacebook()
@@ -42,11 +46,7 @@ class LoginViewController: LoadingViewController {
     super.viewWillAppear(animated)
     navigationController?.isNavigationBarHidden = true
 
-    buttonView?.layer.cornerRadius = 5
-    button?.layer.cornerRadius = 5
-
     trackScreen(screenName: String(describing: LoginViewController.self))
-    button?.centerTextAndImage(spacing: 8.0)
 
     // user is logged in
     if FBSDKAccessToken.current() != nil {
@@ -65,6 +65,10 @@ class LoginViewController: LoadingViewController {
     super.touchesBegan(touches, with: event)
   }
 
+  override var preferredStatusBarStyle: UIStatusBarStyle {
+    return .lightContent
+  }
+
   func startLoading() {
     UIApplication.shared.beginIgnoringInteractionEvents()
     button?.isHidden = true
@@ -76,6 +80,11 @@ class LoginViewController: LoadingViewController {
     UIApplication.shared.endIgnoringInteractionEvents()
     indicator?.stopAnimating()
     indicator?.isHidden = true
+  }
+
+  func showLoginButton() {
+    stopLoading()
+    self.button?.isHidden = false
   }
 
   func presentAlertForFirebaseError(errorCode: FIRAuthErrorCode) {
@@ -109,16 +118,14 @@ class LoginViewController: LoadingViewController {
   }
 
   func loginWithFacebook() {
-    // startLoading()
-
     let facebookLogin = FBSDKLoginManager()
     facebookLogin.logIn(withReadPermissions: ["email", "public_profile", "user_friends"], from: self) {
       facebookResult, facebookError -> Void in
       if facebookError != nil {
+        self.showLoginButton()
         self.onFacebookError()
       } else if facebookResult?.isCancelled == true {
-        print("Facebook log in was cancelled.")
-        // Do nothing.
+        self.showLoginButton()
       } else {
         self.authService.authWithFacebook()
       }

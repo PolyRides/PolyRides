@@ -70,10 +70,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     _ = gai?.tracker(withTrackingId: "UA-69182247-4")
 
     // Siren
-    let siren = Siren.sharedInstance
+    let siren = Siren.shared
     siren.alertType = SirenAlertType.force
     siren.checkVersion(checkType: .immediately)
-    
+
+
     if let currentUser = FIRAuth.auth()?.currentUser {
       let storyboard = UIStoryboard(name: "LaunchScreen", bundle: nil)
       if let controller = storyboard.instantiateInitialViewController() as? LaunchScreenViewController {
