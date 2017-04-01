@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12100" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Jtj-lh-Op4">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Jtj-lh-Op4">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12072"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -93,7 +93,6 @@
                         <constraints>
                             <constraint firstItem="nHT-24-gpy" firstAttribute="trailing" secondItem="W72-Tw-PQW" secondAttribute="trailingMargin" id="1Ah-pl-1Jp"/>
                             <constraint firstItem="3PA-FA-jO4" firstAttribute="top" secondItem="2Xf-i4-952" secondAttribute="bottom" constant="8" id="457-ya-LeE"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="9N2-jf-6ZJ" secondAttribute="trailing" constant="127" id="4Ka-a6-Rdy"/>
                             <constraint firstItem="B3M-7j-71Z" firstAttribute="leading" secondItem="W72-Tw-PQW" secondAttribute="leadingMargin" id="6gY-VK-Ryt"/>
                             <constraint firstItem="2Xf-i4-952" firstAttribute="top" secondItem="9N2-jf-6ZJ" secondAttribute="bottom" constant="3" id="7iX-Wv-G9S"/>
                             <constraint firstItem="B3M-7j-71Z" firstAttribute="trailing" secondItem="W72-Tw-PQW" secondAttribute="trailingMargin" id="A5c-kT-Eer"/>
@@ -127,7 +126,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9PL-2a-8Wt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3173" y="-999"/>
+            <point key="canvasLocation" x="3172" y="-999.85007496251887"/>
         </scene>
         <!--MutualFriends-->
         <scene sceneID="zHn-ya-LS7">

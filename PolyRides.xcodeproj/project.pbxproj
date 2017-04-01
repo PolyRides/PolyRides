@@ -643,7 +643,7 @@
 				TargetAttributes = {
 					DB70B8C91C9389EA0065CC4D = {
 						CreatedOnToolsVersion = 7.2.1;
-						DevelopmentTeam = 89WBEWPWMU;
+						DevelopmentTeam = ZBB8HWSY4F;
 						LastSwiftMigration = 0810;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
@@ -1112,7 +1112,7 @@
 				CODE_SIGN_ENTITLEMENTS = "PolyRides/Poly Rides.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DEVELOPMENT_TEAM = 89WBEWPWMU;
+				DEVELOPMENT_TEAM = ZBB8HWSY4F;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "PolyRides/Supporting Files/Info.plist";
@@ -1120,12 +1120,12 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				OTHER_LDFLAGS = "$(inherited)";
-				PRODUCT_BUNDLE_IDENTIFIER = com.Vanessa.PolyRides2;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Vanessa.PolyRides;
 				PRODUCT_NAME = "Poly Rides";
 				SWIFT_OBJC_BRIDGING_HEADER = "PolyRides/Model/PolyRides-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 				USER_HEADER_SEARCH_PATHS = "";
 			};
 			name = Debug;
@@ -1141,7 +1141,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = "PolyRides/Poly Rides.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				DEVELOPMENT_TEAM = 89WBEWPWMU;
+				DEVELOPMENT_TEAM = ZBB8HWSY4F;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "PolyRides/Supporting Files/Info.plist";
@@ -1149,11 +1149,11 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				OTHER_LDFLAGS = "$(inherited)";
-				PRODUCT_BUNDLE_IDENTIFIER = com.Vanessa.PolyRides2;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Vanessa.PolyRides;
 				PRODUCT_NAME = "Poly Rides";
 				SWIFT_OBJC_BRIDGING_HEADER = "PolyRides/Model/PolyRides-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 				USER_HEADER_SEARCH_PATHS = "";
 			};
 			name = Release;
