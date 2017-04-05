@@ -102,8 +102,6 @@ class AddRideViewController: UIViewController, UITextViewDelegate, UITextFieldDe
 
     placesClient = GMSPlacesClient()
     setupAppearance()
-
-    addButton?.isEnabled = false
   }
 
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
