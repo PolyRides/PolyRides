@@ -85,6 +85,10 @@ class AddRideViewController: UIViewController, UITextViewDelegate, UITextFieldDe
     super.viewDidLoad()
     registerForKeyboardNotifications()
 
+    if let tabBarVC = self.tabBarController as? TabBarController {
+      user = tabBarVC.user
+    }
+
     let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "dismissKeyboard")
     view.addGestureRecognizer(tap)
 
@@ -176,6 +180,24 @@ class AddRideViewController: UIViewController, UITextViewDelegate, UITextFieldDe
         if cost == "" || ((Int(cost))! < 0) {
           let title = "Invalid Cost"
           let message = "Must specify the cost per passenger."
+          presentAlert(alertOptions: AlertOptions(message: message, title: title))
+
+          return false
+        }
+      }
+
+      if user?.phoneNumber == nil {
+        let title = "Missing Contact Information"
+        let message = "Please go to the Profile tab and specify a phone number so that potential passengers can reach you."
+        presentAlert(alertOptions: AlertOptions(message: message, title: title))
+
+        return false
+      }
+
+      if let phone = user?.phoneNumber {
+        if phone == "" {
+          let title = "Missing Contact Information"
+          let message = "Please go to the Profile tab and specify a phone number so that potential passengers can reach you."
           presentAlert(alertOptions: AlertOptions(message: message, title: title))
 
           return false
